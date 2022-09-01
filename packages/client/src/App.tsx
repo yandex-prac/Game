@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import { SignIn, SignUp, PageNotFound } from './components'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
   useEffect(() => {
@@ -14,11 +15,13 @@ function App() {
     fetchServerData()
   }, [])
   return (
-    <Routes>
-      <Route path="/" element={<SignIn />} />
-      <Route path="/sign-up" element={<SignUp />} />
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
