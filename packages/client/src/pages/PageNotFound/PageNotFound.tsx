@@ -1,5 +1,6 @@
 import React from 'react'
+import { Page } from './StyledComponents'
 
 export const PageNotFound = () => {
-  return <p>PageNotFound</p>
+  return <Page>PageNotFound</Page>
 }
