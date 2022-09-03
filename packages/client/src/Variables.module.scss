@@ -1,0 +1,10 @@
+$ff: 'Inter', 'Arial', sans-serif;
+
+$black000: #1e1e1e;
+$blue000: #3369f3;
+
+:export {
+  ff: $ff;
+  black: $black000;
+  blue: $blue000;
+}
