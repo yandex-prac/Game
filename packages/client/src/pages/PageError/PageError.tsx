@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React, { memo, useContext } from 'react'
 import { Page, Title, SubTitle, LinkWrap } from './StyledComponents'
 import type { PageErrorProps } from './types'
 import { ThemeContext } from '../../context'
 import { Logo } from '../../components/'
 
-export const PageError = ({ title, subtitle, href }: PageErrorProps) => {
+export const PageError = memo(({ title, subtitle, href }: PageErrorProps) => {
   const { darkMode } = useContext(ThemeContext)
 
   return (
@@ -15,4 +15,4 @@ export const PageError = ({ title, subtitle, href }: PageErrorProps) => {
       <LinkWrap to={href}>Назад</LinkWrap>
     </Page>
   )
-}
+})
