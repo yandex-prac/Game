@@ -12,9 +12,7 @@ export const PageError = ({ title, subtitle, href }: PageErrorProps) => {
       <Img src={logo} alt="Логотип игры pacman" />
       <Title darkMode={darkMode}>{title}</Title>
       <SubTitle darkMode={darkMode}>{subtitle}</SubTitle>
-      <LinkWrap darkMode={darkMode} to={href}>
-        Назад
-      </LinkWrap>
+      <LinkWrap to={href}>Назад</LinkWrap>
     </Page>
   )
 }

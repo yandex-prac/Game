@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import v from '../../Variables.module.scss'
 import { Link } from 'react-router-dom'
-import { PageProps, TitleProps, SubTitleProps, LinkProps } from './types'
+import { PageProps, TitleProps, SubTitleProps } from './types'
 
 const Page = styled.div<PageProps>`
   display: flex;
@@ -10,6 +10,10 @@ const Page = styled.div<PageProps>`
   justify-content: center;
   min-height: 100vh;
   background-color: ${({ darkMode }) => (darkMode ? v.black100 : v.white000)};
+
+  a {
+    color: ${({ darkMode }) => (darkMode ? v.purple : v.blue000)};
+  }
 `
 
 const Img = styled.img`
@@ -36,10 +40,9 @@ const SubTitle = styled.p<SubTitleProps>`
   line-height: 20px;
 `
 
-const LinkWrap = styled(Link)<LinkProps>`
+const LinkWrap = styled(Link)`
   text-decoration: none;
   font-size: 14px;
-  color: ${({ darkMode }) => (darkMode ? v.purple : v.blue000)};
   font-weight: 500;
   line-height: 11px;
   transition: 0.3s opacity;

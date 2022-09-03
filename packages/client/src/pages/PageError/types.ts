@@ -16,8 +16,4 @@ type SubTitleProps = {
   darkMode: boolean
 }
 
-type LinkProps = {
-  darkMode: boolean
-}
-
-export type { PageErrorProps, PageProps, TitleProps, SubTitleProps, LinkProps }
+export type { PageErrorProps, PageProps, TitleProps, SubTitleProps }
