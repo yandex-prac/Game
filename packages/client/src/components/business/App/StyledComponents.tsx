@@ -10,10 +10,6 @@ const Wrap = styled.div`
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `
 
 export { Wrap }
