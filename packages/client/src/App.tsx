@@ -1,7 +1,7 @@
 import react from 'react'
 import './App.css'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import { SignIn, SignUp, PageNotFound } from './components'
+import { SignIn, SignUp, PageNotFound } from './pages'
 
 export const App = () => {
   return (
