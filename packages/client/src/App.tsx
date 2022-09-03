@@ -1,19 +1,9 @@
-import { useEffect } from 'react'
+import react from 'react'
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { SignIn, SignUp, PageNotFound } from './components'
-import { BrowserRouter } from 'react-router-dom'
 
-function App() {
-  useEffect(() => {
-    const fetchServerData = async () => {
-      const response = await fetch('http://localhost:3001')
-      const data = await response.json()
-      console.log(data)
-    }
-
-    fetchServerData()
-  }, [])
+export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -24,5 +14,3 @@ function App() {
     </BrowserRouter>
   )
 }
-
-export default App
