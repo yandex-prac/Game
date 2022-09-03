@@ -1,12 +1,9 @@
-import react, { useContext } from 'react'
+import react from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { SignIn, SignUp, PageError } from '../../../pages'
 import { Wrap } from './StyledComponents'
-import { ThemeContext } from '../../../context'
 
 export const App = () => {
-  const { darkMode, setDarkMode } = useContext(ThemeContext)
-
   return (
     <Wrap>
       <BrowserRouter>
