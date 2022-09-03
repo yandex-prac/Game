@@ -16,14 +16,6 @@ const Page = styled.div<PageProps>`
   }
 `
 
-const Img = styled.img`
-  width: 130px;
-  height: 195px;
-  object-fit: cover;
-  object-position: center;
-  margin-bottom: 30px;
-`
-
 const Title = styled.h1<TitleProps>`
   margin: 0 0 20px 0;
   font-size: 40px;
@@ -52,4 +44,4 @@ const LinkWrap = styled(Link)`
   }
 `
 
-export { Page, Img, Title, SubTitle, LinkWrap }
+export { Page, Title, SubTitle, LinkWrap }
