@@ -1,4 +1,4 @@
-$ff: 'Inter', 'Arial', sans-serif;
+$fontFamily: 'Inter', 'Arial', sans-serif;
 
 $black000: #1e1e1e;
 $black100: #121212;
@@ -8,7 +8,7 @@ $white100: #d1d1d1;
 $purple: #c38fff;
 
 :export {
-  ff: $ff;
+  fontFamily: $fontFamily;
   black000: $black000;
   black100: $black100;
   blue000: $blue000;

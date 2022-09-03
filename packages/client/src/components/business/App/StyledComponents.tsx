@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import v from '../../../Variables.module.scss'
+import variables from '../../../Variables.module.scss'
 
 const Wrap = styled.div`
   box-sizing: border-box;
-  font-family: ${v.ff};
+  font-family: ${variables.fontFamily};
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
