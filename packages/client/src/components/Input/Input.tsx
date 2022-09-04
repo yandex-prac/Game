@@ -5,9 +5,11 @@ export type InputProps = {
   // properties
   error?: string,
   label?: string,
+  name?: string,
   value?: string,
 
   // events
+  onBlur?: (evt: SyntheticEvent) => void,
   onChange?: (evt: SyntheticEvent, value: string) => void
 };
 
@@ -89,8 +91,12 @@ const Error = styled.span`
     user-select: none;
 `;
 
-export class Input extends React.PureComponent<InputProps> {
-  changeHandler = (evt: SyntheticEvent) => {
+export function Input(props: InputProps) {
+  const blurHandler = (evt: SyntheticEvent) => {
+    props.onBlur && props.onBlur(evt);
+  }
+
+  const changeHandler = (evt: SyntheticEvent) => {
     const target = evt.target as HTMLInputElement;
 
     if(target.value.length) {
@@ -99,16 +105,14 @@ export class Input extends React.PureComponent<InputProps> {
       target.classList.add('empty');
     }
 
-    this.props.onChange && this.props.onChange.call(this, evt, target.value);
+    props.onChange && props.onChange(evt, target.value);
   }
 
-  render() {
-    return <>
-      <Wrapper>
-        <Inp value={ this.props.value } onChange={ this.changeHandler } className={ this.props.value ? '' : 'empty' } />
-        <Label label={ this.props.label } />
-      </Wrapper>
-      { this.props.error ? <Error>{ this.props.error }</Error> : null }
-    </>
-  }
+  return <>
+    <Wrapper>
+      <Inp name={ props.name } value={ props.value } onBlur={ blurHandler } onChange={ changeHandler } className={ props.value ? '' : 'empty' } />
+      <Label label={ props.label } />
+    </Wrapper>
+    { props.error ? <Error>{ props.error }</Error> : null }
+  </>
 }
