@@ -1,6 +1,7 @@
-import React from 'react'
-import { Input } from '../Input'
-import { FormikValues, useFormik } from 'formik'
+import React from 'react';
+import { Input } from '../Input';
+import { BlueButton } from '../Button/Button';
+import { FormikValues, useFormik } from 'formik';
 
 const validate = (values: FormikValues) => {
   const errors: Record<string, string> = {};
@@ -25,5 +26,9 @@ export function SignUp() {
 
   return <form onSubmit={ formik.handleSubmit }>
     <Input name="name" label="Имя" onBlur={ formik.handleBlur } onChange={ formik.handleChange } error={ formik.touched.name ? formik.errors.name : undefined }/>
+    <div></div>
+    <BlueButton>Тест</BlueButton>
+    <div></div>
+
   </form>
 }

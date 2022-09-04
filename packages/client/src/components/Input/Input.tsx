@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react'
+import { SyntheticEvent } from 'react'
 import styled from 'styled-components';
 
 export type InputProps = {
