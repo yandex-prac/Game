@@ -10,6 +10,8 @@ $purple: #c38fff;
 $grey000: #90a0b7;
 $grey100: #ebeff2;
 
+$shadowSoft000: 0px 4px 20px rgba(0, 0, 0, 0.1);
+
 :export {
   fontFamily: $fontFamily;
   black000: $black000;
@@ -21,4 +23,6 @@ $grey100: #ebeff2;
   purple: $purple;
   grey000: $grey000;
   grey100: $grey100;
+
+  shadowSoft000: $shadowSoft000;
 }

@@ -5,7 +5,7 @@ const Container = styled.div`
   box-sizing: border-box;
   min-height: 100vh;
   width: 257px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: ${variables.shadowSoft000};
   padding-bottom: 17px;
   display: flex;
   flex-direction: column;
