@@ -48,4 +48,21 @@ const Text = styled.span`
   line-height: 13px;
 `
 
-export { Item, Text }
+const Button = styled.button`
+  cursor: pointer;
+  background-color: transparent;
+  width: 100%;
+  padding: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 13px 25px;
+  transition: 0.3s background-color;
+
+  &:hover {
+    background-color: ${variables.blue100};
+  }
+`
+
+export { Item, Button, Text }

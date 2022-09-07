@@ -77,7 +77,6 @@ export const Menu = () => {
         text="Лидеры"
       />
       <MenuItem
-        href="/"
         icon={
           <Icon
             width="20"
