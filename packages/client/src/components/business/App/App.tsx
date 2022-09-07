@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { SignIn, SignUp, Main, PageError } from '../../../pages'
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '../../../context'
+import { PATHNAMES } from '../../../utils'
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false)
@@ -11,11 +12,11 @@ export const App = () => {
       <BrowserRouter>
         <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
           <Routes>
-            <Route path="/" element={<SignIn />} />
-            <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/main" element={<Main />} />
+            <Route path={PATHNAMES.SIGNIN} element={<SignIn />} />
+            <Route path={PATHNAMES.SIGNUP} element={<SignUp />} />
+            <Route path={PATHNAMES.MAIN} element={<Main />} />
             <Route
-              path="*"
+              path={PATHNAMES.PATH_NOT_FOUND}
               element={
                 <PageError title="404" subtitle="Не туда попали" href="/" />
               }
