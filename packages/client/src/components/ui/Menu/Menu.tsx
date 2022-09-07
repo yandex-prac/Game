@@ -1,12 +1,13 @@
 import React from 'react'
 import { List, Icon } from './StyledComponents'
 import { MenuItem } from '../../'
+import { PATHNAMES } from '../../../utils'
 
 export const Menu = () => {
   return (
     <List>
       <MenuItem
-        href="/main"
+        href={PATHNAMES.MAIN}
         icon={
           <Icon
             width="20"
@@ -20,7 +21,7 @@ export const Menu = () => {
         text="Начать игру"
       />
       <MenuItem
-        href="/"
+        href={PATHNAMES.PROFILE}
         icon={
           <Icon
             width="20"
@@ -34,7 +35,7 @@ export const Menu = () => {
         text="Профиль"
       />
       <MenuItem
-        href="/"
+        href={PATHNAMES.SETTINGS}
         icon={
           <Icon
             width="20"
@@ -48,7 +49,7 @@ export const Menu = () => {
         text="Настройки"
       />
       <MenuItem
-        href="/"
+        href={PATHNAMES.FORUM}
         icon={
           <Icon
             width="20"
@@ -62,7 +63,7 @@ export const Menu = () => {
         text="Форум"
       />
       <MenuItem
-        href="/"
+        href={PATHNAMES.LEADER_BOARD}
         icon={
           <Icon
             width="20"
@@ -97,7 +98,7 @@ export const Menu = () => {
         text="Цветовая схема"
       />
       <MenuItem
-        href="/"
+        href={PATHNAMES.SIGNIN}
         icon={
           <Icon
             width="20"
