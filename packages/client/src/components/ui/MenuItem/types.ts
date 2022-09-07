@@ -1,6 +1,6 @@
 type MenuItemProps = {
   href: string
-  icon: any
+  icon: JSX.Element
   text: string
 }
 
