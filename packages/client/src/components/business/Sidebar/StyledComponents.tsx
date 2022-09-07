@@ -6,7 +6,9 @@ const Container = styled.div`
   min-height: 100vh;
   width: 257px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-  padding-bottom: 30px;
+  padding-bottom: 17px;
+  display: flex;
+  flex-direction: column;
 `
 
 const Img = styled.img`

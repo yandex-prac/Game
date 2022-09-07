@@ -4,7 +4,7 @@ import variables from '../../../Variables.module.scss'
 const Wrapper = styled.div`
   padding: 24px 24px 0;
   margin-bottom: 40px;
-  border-top: 1px solid #ebeff2;
+  border-top: 1px solid ${variables.grey100};
   display: flex;
   align-items: center;
   gap: 17px;
