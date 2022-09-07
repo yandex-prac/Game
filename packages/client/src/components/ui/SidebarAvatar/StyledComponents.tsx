@@ -19,7 +19,7 @@ const Avatar = styled.img`
 `
 
 const UserName = styled.p`
-  margin: 0 0 4px;
+  margin: 0 0 5px;
   font-size: 13px;
   color: ${variables.black000};
   font-weight: 500;

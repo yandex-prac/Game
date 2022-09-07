@@ -18,15 +18,20 @@ const MenuItem = styled.li`
     display: flex;
     align-items: center;
     gap: 20px;
+    transition: 0.3s background-color;
+  }
+
+  a:hover {
+    background-color: ${variables.blue100};
   }
 
   &:nth-child(5) {
-    margin-bottom: 2px;
+    margin-bottom: 20px;
   }
 
   &:nth-child(6) {
     border-top: 1px solid ${variables.grey100};
-    padding-top: 24px;
+    padding-top: 20px;
     flex-grow: 1;
   }
 `
