@@ -1,6 +1,6 @@
 import react, { useState } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import { SignIn, SignUp, PageError } from '../../../pages'
+import { SignIn, SignUp, Main, PageError } from '../../../pages'
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '../../../context'
 
@@ -13,6 +13,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/main" element={<Main />} />
             <Route
               path="*"
               element={
