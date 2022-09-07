@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
+import { ItemProps } from './types'
 
-const Item = styled.li`
+const Item = styled.li<ItemProps>`
   list-style: none;
 
   a {
@@ -12,6 +13,18 @@ const Item = styled.li`
     gap: 20px;
     transition: 0.3s background-color;
   }
+
+  ${({ isActive }) =>
+    isActive &&
+    `
+      span {
+        color: ${variables.blue000};
+      }
+
+      svg {
+        fill: ${variables.blue000};
+      }
+    `}
 
   a:hover {
     background-color: ${variables.blue100};

@@ -6,7 +6,7 @@ export const Menu = () => {
   return (
     <List>
       <MenuItem
-        href="/"
+        href="/main"
         icon={
           <Icon
             width="20"

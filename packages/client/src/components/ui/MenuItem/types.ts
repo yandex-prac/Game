@@ -4,4 +4,8 @@ type MenuItemProps = {
   text: string
 }
 
-export type { MenuItemProps }
+type ItemProps = {
+  isActive: boolean
+}
+
+export type { MenuItemProps, ItemProps }
