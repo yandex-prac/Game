@@ -4,13 +4,15 @@ import { ItemProps, ButtonProps, TextProps } from './types'
 
 const Item = styled.li<ItemProps>`
   list-style: none;
+  border-left: 3px solid transparent;
 
   a {
     padding: 13px 25px;
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 17px;
+
     transition: 0.3s background-color;
   }
 
@@ -24,6 +26,10 @@ const Item = styled.li<ItemProps>`
       svg {
         fill: ${darkMode ? variables.purple000 : variables.blue000};
       }
+
+      border-left: 3px solid ${
+        darkMode ? variables.purple000 : variables.blue000
+      };
     `}
 
   a:hover {
