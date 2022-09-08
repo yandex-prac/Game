@@ -7,12 +7,14 @@ const Page = styled.div`
 `
 
 const Inner = styled.div`
-  display: 'flex';
-  flex-direction: 'column';
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 `
 
 const Content = styled.main`
   padding: 38px 30px;
+  height: 100%;
 `
 
 export { Page, Inner, Content }

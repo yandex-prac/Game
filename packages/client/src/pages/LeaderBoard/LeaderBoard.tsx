@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { Page, Inner, Content } from './StyledComponents'
+import { Page, Inner, Content, Title, LinkToGame } from './StyledComponents'
 import { Sidebar, TopBar } from '../../components'
 
 export const LeaderBoard = memo(() => {
@@ -8,7 +8,10 @@ export const LeaderBoard = memo(() => {
       <Sidebar />
       <Inner>
         <TopBar />
-        <Content></Content>
+        <Content>
+          <Title>Лидеров не найдено. Будь первывым 😉</Title>
+          <LinkToGame to="/main">Новая игра</LinkToGame>
+        </Content>
       </Inner>
     </Page>
   )
