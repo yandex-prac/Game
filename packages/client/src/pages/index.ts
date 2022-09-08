@@ -1,4 +1,5 @@
 export { SignIn } from './SignIn'
 export { SignUp } from './SignUp'
 export { Main } from './Main'
+export { Profile } from './Profile'
 export { PageError } from './PageError'
