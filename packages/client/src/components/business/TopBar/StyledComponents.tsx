@@ -3,6 +3,7 @@ import variables from '../../../Variables.module.scss'
 import { WrapperProps, ButtonProps, IconProps } from './types'
 
 const Wrapper = styled.div<WrapperProps>`
+  z-index: 1;
   min-height: 60px;
   ${({ darkMode }) => !darkMode && `box-shadow: ${variables.shadowSoft000};`}
   display: flex;

@@ -2,4 +2,8 @@ type BaseLayoutProps = {
   children: React.ReactNode
 }
 
-export type { BaseLayoutProps }
+type MainProps = {
+  darkMode: boolean
+}
+
+export type { BaseLayoutProps, MainProps }

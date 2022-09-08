@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import variables from '../../../Variables.module.scss'
+import { MainProps } from './types'
 
 const Page = styled.div`
   min-height: 100vh;
@@ -12,9 +14,12 @@ const Inner = styled.div`
   flex-direction: column;
 `
 
-const Main = styled.main`
+const Main = styled.main<MainProps>`
   padding: 38px 30px;
   height: 100%;
+  background-color: ${({ darkMode }) =>
+    darkMode ? variables.black400 : variables.white000};
+  transition: 0.3s background-color;
 `
 
 export { Page, Inner, Main }

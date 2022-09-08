@@ -14,7 +14,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
       <Sidebar darkMode={darkMode} onChangeTheme={handleChangeTheme} />
       <Inner>
         <TopBar darkMode={darkMode} />
-        <Main>{children}</Main>
+        <Main darkMode={darkMode}>{children}</Main>
       </Inner>
     </Page>
   )
