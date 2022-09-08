@@ -4,13 +4,15 @@ import { MenuItem } from '../../'
 import { PATHNAMES, CONTENT } from '../../../utils'
 import { MenuProps } from './types'
 
-export const Menu = memo(({ onChangeTheme }: MenuProps) => {
+export const Menu = memo(({ darkMode, onChangeTheme }: MenuProps) => {
   return (
     <List>
       <MenuItem
+        darkMode={darkMode}
         href={PATHNAMES.MAIN}
         icon={
           <Icon
+            darkMode={darkMode}
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -22,9 +24,11 @@ export const Menu = memo(({ onChangeTheme }: MenuProps) => {
         text={CONTENT.PLAY_GAME_MENU_ITEM}
       />
       <MenuItem
+        darkMode={darkMode}
         href={PATHNAMES.PROFILE}
         icon={
           <Icon
+            darkMode={darkMode}
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -36,9 +40,11 @@ export const Menu = memo(({ onChangeTheme }: MenuProps) => {
         text={CONTENT.PROFILE_MENU_ITEM}
       />
       <MenuItem
+        darkMode={darkMode}
         href={PATHNAMES.SETTINGS}
         icon={
           <Icon
+            darkMode={darkMode}
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -50,9 +56,11 @@ export const Menu = memo(({ onChangeTheme }: MenuProps) => {
         text={CONTENT.SETTINGS_MENU_ITEM}
       />
       <MenuItem
+        darkMode={darkMode}
         href={PATHNAMES.FORUM}
         icon={
           <Icon
+            darkMode={darkMode}
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -64,9 +72,11 @@ export const Menu = memo(({ onChangeTheme }: MenuProps) => {
         text={CONTENT.FORUM_MENU_ITEM}
       />
       <MenuItem
+        darkMode={darkMode}
         href={PATHNAMES.LEADER_BOARD}
         icon={
           <Icon
+            darkMode={darkMode}
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -78,9 +88,11 @@ export const Menu = memo(({ onChangeTheme }: MenuProps) => {
         text={CONTENT.LEADER_BOARD_MENU_ITEM}
       />
       <MenuItem
+        darkMode={darkMode}
         onClick={onChangeTheme}
         icon={
           <Icon
+            darkMode={darkMode}
             width="20"
             height="20"
             viewBox="0 0 20 20"
@@ -99,9 +111,11 @@ export const Menu = memo(({ onChangeTheme }: MenuProps) => {
         text={CONTENT.COLOR_SCHEME_MENU_ITEM}
       />
       <MenuItem
+        darkMode={darkMode}
         href={PATHNAMES.SIGNIN}
         icon={
           <Icon
+            darkMode={darkMode}
             width="20"
             height="20"
             viewBox="0 0 20 20"

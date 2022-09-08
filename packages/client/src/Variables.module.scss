@@ -8,9 +8,11 @@ $blue000: #3369f3;
 $blue100: #ebf0fe;
 $white000: #fff;
 $white100: #d1d1d1;
-$purple: #c38fff;
+$purple000: #c38fff;
+$purple100: #2e2934;
 $grey000: #90a0b7;
 $grey100: #ebeff2;
+$grey200: #999;
 
 $shadowSoft000: 0px 4px 20px rgba(0, 0, 0, 0.1);
 
@@ -24,9 +26,11 @@ $shadowSoft000: 0px 4px 20px rgba(0, 0, 0, 0.1);
   blue100: $blue100;
   white000: $white000;
   white100: $white100;
-  purple: $purple;
+  purple000: $purple000;
+  purple100: $purple100;
   grey000: $grey000;
   grey100: $grey100;
+  grey200: $grey200;
 
   shadowSoft000: $shadowSoft000;
 }

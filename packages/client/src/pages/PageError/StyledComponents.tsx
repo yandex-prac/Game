@@ -14,7 +14,7 @@ const Page = styled.div<PageProps>`
 
   a {
     color: ${({ darkMode }) =>
-      darkMode ? variables.purple : variables.blue000};
+      darkMode ? variables.purple000 : variables.blue000};
   }
 `
 

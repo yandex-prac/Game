@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
+import { IconProps } from './types'
 
 const List = styled.ul`
   padding: 0;
@@ -9,8 +10,9 @@ const List = styled.ul`
   flex-grow: 1;
 `
 
-const Icon = styled.svg`
-  fill: ${variables.grey000};
+const Icon = styled.svg<IconProps>`
+  fill: ${({ darkMode }) => (darkMode ? variables.grey200 : variables.grey000)};
+  transition: 0.3s fill;
 `
 
 export { List, Icon }

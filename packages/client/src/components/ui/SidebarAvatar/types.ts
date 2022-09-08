@@ -6,4 +6,6 @@ type WrapperProps = {
   darkMode: boolean
 }
 
-export type { SidebarAvatarProps, WrapperProps }
+type UserNameProps = { darkMode: boolean }
+
+export type { SidebarAvatarProps, WrapperProps, UserNameProps }

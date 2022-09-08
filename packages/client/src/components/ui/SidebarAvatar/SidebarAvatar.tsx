@@ -9,7 +9,7 @@ export const SidebarAvatar = memo(({ darkMode }: SidebarAvatarProps) => {
     <Wrapper darkMode={darkMode}>
       <Avatar src={avatar} alt={CONTENT.AVATAR_USER_ALT} />
       <div>
-        <UserName>{CONTENT.USER_NAME_TEST_DATA}</UserName>
+        <UserName darkMode={darkMode}>{CONTENT.USER_NAME_TEST_DATA}</UserName>
         <UserEmail>{CONTENT.USER_EMAIL_TEST_DATA}</UserEmail>
       </div>
     </Wrapper>

@@ -1,5 +1,10 @@
 type MenuProps = {
+  darkMode: boolean
   onChangeTheme: () => void
 }
 
-export type { MenuProps }
+type IconProps = {
+  darkMode: boolean
+}
+
+export type { MenuProps, IconProps }

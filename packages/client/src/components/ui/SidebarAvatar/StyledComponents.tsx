@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
-import { WrapperProps } from './types'
+import { WrapperProps, UserNameProps } from './types'
 
 const Wrapper = styled.div<WrapperProps>`
   padding: 24px 24px 0;
@@ -21,12 +21,14 @@ const Avatar = styled.img`
   object-position: center;
 `
 
-const UserName = styled.p`
+const UserName = styled.p<UserNameProps>`
   margin: 0 0 5px;
   font-size: 13px;
-  color: ${variables.black000};
+  color: ${({ darkMode }) =>
+    darkMode ? variables.white100 : variables.black000};
   font-weight: 500;
   line-height: 13px;
+  transition: 0.3s color;
 `
 
 const UserEmail = styled.p`

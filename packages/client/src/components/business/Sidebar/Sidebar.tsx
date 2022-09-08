@@ -14,7 +14,7 @@ export const Sidebar = () => {
     <Container darkMode={darkMode}>
       <Img src={logo} alt={CONTENT.LOGO_ALT} />
       <SidebarAvatar darkMode={darkMode} />
-      <Menu onChangeTheme={handleChangeTheme} />
+      <Menu darkMode={darkMode} onChangeTheme={handleChangeTheme} />
     </Container>
   )
 }

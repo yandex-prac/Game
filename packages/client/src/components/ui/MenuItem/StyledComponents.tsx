@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
-import { ItemProps } from './types'
+import { ItemProps, ButtonProps, TextProps } from './types'
 
 const Item = styled.li<ItemProps>`
   list-style: none;
@@ -14,20 +14,21 @@ const Item = styled.li<ItemProps>`
     transition: 0.3s background-color;
   }
 
-  ${({ isActive }) =>
+  ${({ isActive, darkMode }) =>
     isActive &&
     `
       span {
-        color: ${variables.blue000};
+        color: ${darkMode ? variables.purple000 : variables.blue000};
       }
 
       svg {
-        fill: ${variables.blue000};
+        fill: ${darkMode ? variables.purple000 : variables.blue000};
       }
     `}
 
   a:hover {
-    background-color: ${variables.blue100};
+    background-color: ${({ darkMode }) =>
+      darkMode ? variables.purple100 : variables.blue100};
   }
 
   &:nth-child(5) {
@@ -35,20 +36,24 @@ const Item = styled.li<ItemProps>`
   }
 
   &:nth-child(6) {
-    border-top: 1px solid ${variables.grey100};
+    border-top: 1px solid
+      ${({ darkMode }) => (darkMode ? variables.black300 : variables.grey100)};
     padding-top: 20px;
     flex-grow: 1;
   }
+
+  transition: 0.3s border-color;
 `
 
-const Text = styled.span`
+const Text = styled.span<TextProps>`
   font-size: 14px;
-  color: ${variables.black000};
+  color: ${({ darkMode }) =>
+    darkMode ? variables.white100 : variables.black000};
   font-weight: 500;
   line-height: 13px;
 `
 
-const Button = styled.button`
+const Button = styled.button<ButtonProps>`
   cursor: pointer;
   background-color: transparent;
   width: 100%;
@@ -61,7 +66,8 @@ const Button = styled.button`
   transition: 0.3s background-color;
 
   &:hover {
-    background-color: ${variables.blue100};
+    background-color: ${({ darkMode }) =>
+      darkMode ? variables.purple100 : variables.blue100};
   }
 `
 
