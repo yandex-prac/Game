@@ -1,25 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import { StyledLink } from './StyledComponens'
+import { StyledLinkProps } from './types'
 
-export type StyledLinkProps = {
-  auth?: boolean,
-  children: React.ReactNode
-}
-
-const variables = {
-  white: '#FFFFFF',
-  blue: '#3369F3',
-}
-
-const StyledLink = styled.a<StyledLinkProps>`
-  color: ${variables.blue};
-  margin: 14px 0;
-  font-size: 11px;
-  font-style: normal;
-  font-weight: 500;
-  text-align: ${({auth}) => auth ? 'center' : 'start'};
-`
-
-export const Link = ({children, auth} : StyledLinkProps) => {
-  return <StyledLink auth={auth}> {children} </StyledLink>
+export const Link = ({ text, to }: StyledLinkProps) => {
+  return <StyledLink to={to}> {text} </StyledLink>
 }
