@@ -7,11 +7,9 @@ import { LeaderBoardProps } from './types'
 export const LeaderBoard = memo(({ darkMode }: LeaderBoardProps) => {
   return (
     <BaseLayout>
-      <Content>
+      <Content darkMode={darkMode}>
         <Title darkMode={darkMode}>{CONTENT.LEADER_BOARD_TITLE}</Title>
-        <LinkToGame darkMode={darkMode} to={PATHNAMES.MAIN}>
-          {CONTENT.LEADER_BOARD_LINK}
-        </LinkToGame>
+        <LinkToGame to={PATHNAMES.MAIN}>{CONTENT.LEADER_BOARD_LINK}</LinkToGame>
       </Content>
     </BaseLayout>
   )
