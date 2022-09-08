@@ -3,11 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 import { Item, Button, Text } from './StyledComponents'
 import { MenuItemProps } from './types'
 
-export const MenuItem = memo(({ href, icon, text }: MenuItemProps) => {
+export const MenuItem = memo(({ href, icon, text, onClick }: MenuItemProps) => {
   const location = useLocation()
   const isActive = location.pathname === href ? true : false
   return (
-    <Item isActive={isActive}>
+    <Item isActive={isActive} onClick={onClick ? onClick : () => false}>
       {href ? (
         <Link to={href}>
           {icon}

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { List, Icon } from './StyledComponents'
 import { MenuItem } from '../../'
 import { PATHNAMES, CONTENT } from '../../../utils'
+import { MenuProps } from './types'
 
-export const Menu = () => {
+export const Menu = memo(({ onChangeTheme }: MenuProps) => {
   return (
     <List>
       <MenuItem
@@ -77,6 +78,7 @@ export const Menu = () => {
         text={CONTENT.LEADER_BOARD_MENU_ITEM}
       />
       <MenuItem
+        onClick={onChangeTheme}
         icon={
           <Icon
             width="20"
@@ -112,4 +114,4 @@ export const Menu = () => {
       />
     </List>
   )
-}
+})
