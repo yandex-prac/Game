@@ -9,7 +9,7 @@ const Container = styled.div<ContainerProps>`
   width: 257px;
   ${({ darkMode }) => !darkMode && `box-shadow: ${variables.shadowSoft000};`}
   border-right: 1px solid ${({ darkMode }) =>
-    darkMode ? variables.black300 : variables.white100};
+    darkMode ? variables.black300 : variables.white000};
   padding-bottom: 17px;
   display: flex;
   flex-direction: column;

@@ -6,15 +6,15 @@ const Wrapper = styled.div<WrapperProps>`
   z-index: 1;
   min-height: 60px;
   ${({ darkMode }) => !darkMode && `box-shadow: ${variables.shadowSoft000};`}
+  border-bottom: 1px solid ${({ darkMode }) =>
+    darkMode ? variables.black300 : variables.white000};
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0 36px;
   background-color: ${({ darkMode }) =>
     darkMode ? variables.black200 : variables.white000};
-  ${({ darkMode }) =>
-    darkMode && `border-right: 1px solid ${variables.black300};`}
-  transition: 0.3s background-color;
+  transition: 0.3s background-color, 0.3s border-color;
 `
 
 const Button = styled.button<ButtonProps>`
