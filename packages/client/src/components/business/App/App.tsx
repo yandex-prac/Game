@@ -1,6 +1,13 @@
 import react, { useState } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import { SignIn, SignUp, Main, Profile, PageError } from '../../../pages'
+import {
+  SignIn,
+  SignUp,
+  Main,
+  Profile,
+  Settings,
+  PageError,
+} from '../../../pages'
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '../../../context'
 import { PATHNAMES } from '../../../utils'
@@ -16,6 +23,7 @@ export const App = () => {
             <Route path={PATHNAMES.SIGNUP} element={<SignUp />} />
             <Route path={PATHNAMES.MAIN} element={<Main />} />
             <Route path={PATHNAMES.PROFILE} element={<Profile />} />
+            <Route path={PATHNAMES.SETTINGS} element={<Settings />} />
             <Route
               path={PATHNAMES.PATH_NOT_FOUND}
               element={
