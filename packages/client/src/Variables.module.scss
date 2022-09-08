@@ -3,9 +3,15 @@ $fontFamily: 'Inter', 'Arial', sans-serif;
 $black000: #1e1e1e;
 $black100: #121212;
 $blue000: #3369f3;
+$lightBlue: #a4cef3;
 $white000: #fff;
 $white100: #d1d1d1;
 $purple: #c38fff;
+$red: #ff2f2f;
+$grey: #999999;
+
+$placeholderFontSize: 9px;
+$placeholderMargin: 12px; // placeholderFontSize + 3px
 
 :export {
   fontFamily: $fontFamily;
@@ -15,4 +21,9 @@ $purple: #c38fff;
   white000: $white000;
   white100: $white100;
   purple: $purple;
+  lightBlue: $lightBlue;
+  red: $red;
+  grey: $grey;
+  placeholderFontSize: $placeholderFontSize;
+  placeholderMargin: $placeholderMargin;
 }
