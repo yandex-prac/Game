@@ -2036,6 +2036,13 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@types/yup@0.32.0":
+  "integrity" "sha512-Gr2lllWTDxGVYHgWfL8szjdedERpNgm44L9BDL2cmcHG7Bfd6taEpiW3ayMFLaYvlJr/6bFXDJdh6L406AGlFg=="
+  "resolved" "https://registry.npmjs.org/@types/yup/-/yup-0.32.0.tgz"
+  "version" "0.32.0"
+  dependencies:
+    "yup" "*"
+
 "@typescript-eslint/eslint-plugin@^5.35.1":
   "integrity" "sha512-RBZZXZlI4XCY4Wzgy64vB+0slT9+yAPQRjj/HSaRwUot33xbDjF1oN9BLwOLTewoOI0jothIltZRe9uJCHf8gg=="
   "resolved" "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.35.1.tgz"
@@ -7913,7 +7920,7 @@
   "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   "version" "0.1.0"
 
-"yup@0.32.11":
+"yup@*", "yup@0.32.11":
   "integrity" "sha512-Z2Fe1bn+eLstG8DRR6FTavGD+MeAwyfmouhHsIUgaADz8jvFKbO/fXc2trJKZg+5EBjh4gGm3iU/t3onKlXHIg=="
   "resolved" "https://registry.npmjs.org/yup/-/yup-0.32.11.tgz"
   "version" "0.32.11"
