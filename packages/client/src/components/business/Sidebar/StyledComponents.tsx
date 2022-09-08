@@ -16,7 +16,7 @@ const Container = styled.div<ContainerProps>`
   grid-row: 1/-3;
   background-color: ${({ darkMode }) =>
     darkMode ? variables.black200 : variables.white000};
-  transition: 0.3s background-color, 0.3s border-color;
+  transition: 0.3s background-color, 0.3s border-color, 0.3s box-shadow;
 `
 
 const Img = styled.img`

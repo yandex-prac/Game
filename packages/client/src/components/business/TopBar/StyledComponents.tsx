@@ -14,7 +14,7 @@ const Wrapper = styled.div<WrapperProps>`
   padding: 0 36px;
   background-color: ${({ darkMode }) =>
     darkMode ? variables.black200 : variables.white000};
-  transition: 0.3s background-color, 0.3s border-color;
+  transition: 0.3s background-color, 0.3s border-color, 0.3s box-shadow;
 `
 
 const Button = styled.button<ButtonProps>`

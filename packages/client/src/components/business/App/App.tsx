@@ -27,7 +27,10 @@ export const App = () => {
             <Route path={PATHNAMES.PROFILE} element={<Profile />} />
             <Route path={PATHNAMES.SETTINGS} element={<Settings />} />
             <Route path={PATHNAMES.FORUM} element={<Forum />} />
-            <Route path={PATHNAMES.LEADER_BOARD} element={<LeaderBoard />} />
+            <Route
+              path={PATHNAMES.LEADER_BOARD}
+              element={<LeaderBoard darkMode={darkMode} />}
+            />
             <Route
               path={PATHNAMES.PATH_NOT_FOUND}
               element={

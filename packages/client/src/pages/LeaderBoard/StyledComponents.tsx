@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import variables from '../../Variables.module.scss'
 import { Link } from 'react-router-dom'
+import variables from '../../Variables.module.scss'
+import { TitleProps, LinkToGameProps } from './types'
 
 const Content = styled.div`
   height: 100%;
@@ -10,18 +11,20 @@ const Content = styled.div`
   align-items: center;
 `
 
-const Title = styled.h1`
+const Title = styled.h1<TitleProps>`
   margin: 0 0 60px;
   font-size: 14px;
-  color: ${variables.grey000};
+  color: ${({ darkMode }) =>
+    darkMode ? variables.white100 : variables.grey000};
   font-weight: 400;
   line-height: 13px;
 `
 
-const LinkToGame = styled(Link)`
+const LinkToGame = styled(Link)<LinkToGameProps>`
   text-decoration: none;
   font-size: 16px;
-  color: ${variables.blue000};
+  color: ${({ darkMode }) =>
+    darkMode ? variables.purple000 : variables.blue000};
   font-weight: 500;
   line-height: 16px;
   transition: 0.3s opacity;
