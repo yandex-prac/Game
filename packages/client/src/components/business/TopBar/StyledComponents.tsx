@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
 
 const Wrapper = styled.div`
-  max-height: 60px;
-  height: 100%;
+  min-height: 60px;
   box-shadow: ${variables.shadowSoft000};
   display: flex;
   align-items: center;

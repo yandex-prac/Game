@@ -9,6 +9,7 @@ const Container = styled.div`
   padding-bottom: 17px;
   display: flex;
   flex-direction: column;
+  grid-row: 1/-3;
 `
 
 const Img = styled.img`

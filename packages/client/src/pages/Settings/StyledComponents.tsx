@@ -6,4 +6,13 @@ const Page = styled.div`
   grid-template-columns: 257px 1fr;
 `
 
-export { Page }
+const Inner = styled.div`
+  display: 'flex';
+  flex-direction: 'column';
+`
+
+const Content = styled.main`
+  padding: 38px 30px;
+`
+
+export { Page, Inner, Content }
