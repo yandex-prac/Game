@@ -7,6 +7,7 @@ import {
   Profile,
   Settings,
   Forum,
+  LeaderBoard,
   PageError,
 } from '../../../pages'
 import { Wrap } from './StyledComponents'
@@ -26,6 +27,7 @@ export const App = () => {
             <Route path={PATHNAMES.PROFILE} element={<Profile />} />
             <Route path={PATHNAMES.SETTINGS} element={<Settings />} />
             <Route path={PATHNAMES.FORUM} element={<Forum />} />
+            <Route path={PATHNAMES.LEADER_BOARD} element={<LeaderBoard />} />
             <Route
               path={PATHNAMES.PATH_NOT_FOUND}
               element={
