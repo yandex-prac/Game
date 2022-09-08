@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Wrapper, Avatar, UserName, UserEmail } from './StyledComponents'
 import avatar from '../../../image/avatar.jpg'
 import { CONTENT } from '../../../utils'
+import { SidebarAvatarProps } from './types'
 
-export const SidebarAvatar = () => {
+export const SidebarAvatar = memo(({ darkMode }: SidebarAvatarProps) => {
   return (
-    <Wrapper>
+    <Wrapper darkMode={darkMode}>
       <Avatar src={avatar} alt={CONTENT.AVATAR_USER_ALT} />
       <div>
         <UserName>{CONTENT.USER_NAME_TEST_DATA}</UserName>
@@ -13,4 +14,4 @@ export const SidebarAvatar = () => {
       </div>
     </Wrapper>
   )
-}
+})

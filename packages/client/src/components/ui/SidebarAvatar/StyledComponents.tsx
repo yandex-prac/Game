@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
+import { WrapperProps } from './types'
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<WrapperProps>`
   padding: 24px 24px 0;
   margin-bottom: 40px;
-  border-top: 1px solid ${variables.grey100};
+  border-top: 1px solid
+    ${({ darkMode }) => (darkMode ? variables.black300 : variables.grey100)};
   display: flex;
   align-items: center;
   gap: 17px;
+  transition: 0.3s border-color;
 `
 
 const Avatar = styled.img`

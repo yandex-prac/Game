@@ -11,9 +11,9 @@ export const Sidebar = () => {
   const handleChangeTheme = () => setDarkMode(!darkMode)
 
   return (
-    <Container>
+    <Container darkMode={darkMode}>
       <Img src={logo} alt={CONTENT.LOGO_ALT} />
-      <SidebarAvatar />
+      <SidebarAvatar darkMode={darkMode} />
       <Menu onChangeTheme={handleChangeTheme} />
     </Container>
   )
