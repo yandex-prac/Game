@@ -24,7 +24,6 @@ const Title = styled.h1<TitleProps>`
     darkMode ? variables.white100 : variables.grey000};
   font-weight: 400;
   line-height: 13px;
-  transition: 0.3s color;
 `
 
 const LinkToGame = styled(Link)`
@@ -32,7 +31,7 @@ const LinkToGame = styled(Link)`
   font-size: 16px;
   font-weight: 500;
   line-height: 16px;
-  transition: 0.3s opacity;
+  transition: 0.3s opacity, 0.3s color;
 
   &:hover {
     opacity: 0.8;
