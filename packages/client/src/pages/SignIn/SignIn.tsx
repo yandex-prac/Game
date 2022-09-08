@@ -1,10 +1,18 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import { Input, Button, Link } from '../../components'
+import { SignInProps } from './types'
 import * as yup from 'yup'
-import { LoginPage, InputGroup, Layout, LoginForm, Title } from './styled'
+import {
+  LoginPage,
+  InputGroup,
+  Layout,
+  LoginForm,
+  Title,
+} from './StyledComponents'
+import { config } from '../../utils/constants'
 
-export const SignIn = () => {
+export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -15,16 +23,15 @@ export const SignIn = () => {
         alert(values)
       },
       validationSchema: yup.object({
-        login: yup.string().required('Поле не должно быть пустым'),
-        password: yup.string().required('Поле не должно быть пустым'),
+        login: yup.string().required(config.isRequiredText),
+        password: yup.string().required(config.isRequiredText),
       }),
     })
 
-  console.log(values)
   return (
     <LoginPage>
       <Layout>
-        <Title className="title">Вход</Title>
+        <Title className="title">{title}</Title>
         <LoginForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
@@ -52,8 +59,8 @@ export const SignIn = () => {
               }
             />
           </InputGroup>
-          <Button type="submit">Авторизоваться</Button>
-          <Link auth>Нет аккаунта?</Link>
+          <Button type="submit" text={authText} />
+          <Link to={href} text={regText} />
         </LoginForm>
       </Layout>
     </LoginPage>

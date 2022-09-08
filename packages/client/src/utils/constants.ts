@@ -1,5 +1,5 @@
 const config = {
-  isRequiredText: 'Поле не должно быть пустым'
+  isRequiredText: 'Поле не должно быть пустым',
 }
 
 export { config }
