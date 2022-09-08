@@ -1,15 +1,11 @@
 import React, { memo } from 'react'
-import { Page, Inner, Content } from './StyledComponents'
-import { Sidebar, TopBar } from '../../components'
+import { BaseLayout } from '../../components'
+import { Content } from './StyledComponents'
 
 export const Settings = memo(() => {
   return (
-    <Page>
-      <Sidebar />
-      <Inner>
-        <TopBar />
-        <Content></Content>
-      </Inner>
-    </Page>
+    <BaseLayout>
+      <Content></Content>
+    </BaseLayout>
   )
 })

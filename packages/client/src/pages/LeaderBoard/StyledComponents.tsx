@@ -2,18 +2,6 @@ import styled from 'styled-components'
 import variables from '../../Variables.module.scss'
 import { Link } from 'react-router-dom'
 
-const Page = styled.div`
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 257px 1fr;
-`
-
-const Inner = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`
-
 const Content = styled.main`
   padding: 38px 30px;
   height: 100%;
@@ -44,4 +32,4 @@ const LinkToGame = styled(Link)`
   }
 `
 
-export { Page, Inner, Content, Title, LinkToGame }
+export { Content, Title, LinkToGame }
