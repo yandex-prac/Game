@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { Page, Inner, Content, Title, LinkToGame } from './StyledComponents'
 import { Sidebar, TopBar } from '../../components'
+import { PATHNAMES, CONTENT } from '../../utils'
 
 export const LeaderBoard = memo(() => {
   return (
@@ -9,8 +10,10 @@ export const LeaderBoard = memo(() => {
       <Inner>
         <TopBar />
         <Content>
-          <Title>Лидеров не найдено. Будь первывым 😉</Title>
-          <LinkToGame to="/main">Новая игра</LinkToGame>
+          <Title>{CONTENT.LEADER_BOARD_TITLE}</Title>
+          <LinkToGame to={PATHNAMES.MAIN}>
+            {CONTENT.LEADER_BOARD_LINK}
+          </LinkToGame>
         </Content>
       </Inner>
     </Page>

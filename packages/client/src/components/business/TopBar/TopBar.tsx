@@ -1,6 +1,5 @@
 import react from 'react'
 import { Wrapper, Button, Icon } from './StyledComponents'
-import bell from '../../../image/icons/bell.svg'
 
 export const TopBar = () => {
   return (

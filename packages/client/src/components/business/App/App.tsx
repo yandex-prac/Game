@@ -12,7 +12,7 @@ import {
 } from '../../../pages'
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '../../../context'
-import { PATHNAMES } from '../../../utils'
+import { PATHNAMES, CONTENT } from '../../../utils'
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false)
@@ -31,7 +31,11 @@ export const App = () => {
             <Route
               path={PATHNAMES.PATH_NOT_FOUND}
               element={
-                <PageError title="404" subtitle="Не туда попали" href="/" />
+                <PageError
+                  title={CONTENT.PAGE_NOT_FOUND_TITLE}
+                  subtitle={CONTENT.PAGE_NOT_FOUND_SUBTITLE}
+                  href={PATHNAMES.SIGNIN}
+                />
               }
             />
           </Routes>
