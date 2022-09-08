@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Page, Inner } from './StyledComponents'
+import { Page, Inner, Main } from './StyledComponents'
 import { Sidebar, TopBar } from '../..'
 import { BaseLayoutProps } from './types'
 import { ThemeContext } from '../../../context'
@@ -14,7 +14,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
       <Sidebar darkMode={darkMode} onChangeTheme={handleChangeTheme} />
       <Inner>
         <TopBar darkMode={darkMode} />
-        {children}
+        <Main>{children}</Main>
       </Inner>
     </Page>
   )

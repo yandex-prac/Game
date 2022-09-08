@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import variables from '../../Variables.module.scss'
 import { Link } from 'react-router-dom'
 
-const Content = styled.main`
+const Content = styled.div`
   padding: 38px 30px;
   height: 100%;
   display: flex;

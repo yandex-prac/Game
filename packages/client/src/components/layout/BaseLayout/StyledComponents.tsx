@@ -12,4 +12,9 @@ const Inner = styled.div`
   flex-direction: column;
 `
 
-export { Page, Inner }
+const Main = styled.main`
+  padding: 38px 30px;
+  height: 100%;
+`
+
+export { Page, Inner, Main }

@@ -11,6 +11,8 @@ const Wrapper = styled.div<WrapperProps>`
   padding: 0 36px;
   background-color: ${({ darkMode }) =>
     darkMode ? variables.black200 : variables.white000};
+  ${({ darkMode }) =>
+    darkMode && `border-right: 1px solid ${variables.black300};`}
   transition: 0.3s background-color;
 `
 

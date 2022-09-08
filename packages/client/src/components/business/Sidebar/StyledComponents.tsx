@@ -7,6 +7,8 @@ const Container = styled.div<ContainerProps>`
   min-height: 100vh;
   width: 257px;
   ${({ darkMode }) => !darkMode && `box-shadow: ${variables.shadowSoft000};`}
+  ${({ darkMode }) =>
+    darkMode && `border-right: 1px solid ${variables.black300};`}
   padding-bottom: 17px;
   display: flex;
   flex-direction: column;
