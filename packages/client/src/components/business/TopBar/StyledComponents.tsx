@@ -1,16 +1,20 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
+import { WrapperProps, ButtonProps, IconProps } from './types'
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<WrapperProps>`
   min-height: 60px;
-  box-shadow: ${variables.shadowSoft000};
+  ${({ darkMode }) => !darkMode && `box-shadow: ${variables.shadowSoft000};`}
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0 36px;
+  background-color: ${({ darkMode }) =>
+    darkMode ? variables.black200 : variables.white000};
+  transition: 0.3s background-color;
 `
 
-const Button = styled.button`
+const Button = styled.button<ButtonProps>`
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -30,11 +34,11 @@ const Button = styled.button`
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: ${variables.blue100};
+    background-color: ${({ darkMode }) =>
+      darkMode ? variables.purple100 : variables.blue100};
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
     opacity: 0;
     transition: 0.3s opacity;
   }
@@ -44,12 +48,14 @@ const Button = styled.button`
   }
 
   &:hover svg {
-    fill: ${variables.blue000};
+    fill: ${({ darkMode }) =>
+      darkMode ? variables.purple000 : variables.blue000};
   }
 `
 
-const Icon = styled.svg`
-  fill: ${variables.grey000};
+const Icon = styled.svg<IconProps>`
+  z-index: 1;
+  fill: ${({ darkMode }) => (darkMode ? variables.grey200 : variables.grey000)};
   transition: 0.3s fill;
 `
 

@@ -1,5 +1,10 @@
+type SidebarProps = {
+  darkMode: boolean
+  onChangeTheme: () => void
+}
+
 type ContainerProps = {
   darkMode: boolean
 }
 
-export type { ContainerProps }
+export type { SidebarProps, ContainerProps }

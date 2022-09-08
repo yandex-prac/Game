@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Page, Inner } from './StyledComponents'
 import { Sidebar, TopBar } from '../..'
 import { BaseLayoutProps } from './types'
+import { ThemeContext } from '../../../context'
 
 export const BaseLayout = ({ children }: BaseLayoutProps) => {
+  const { darkMode, setDarkMode } = useContext(ThemeContext)
+
+  const handleChangeTheme = () => setDarkMode(!darkMode)
+
   return (
     <Page>
-      <Sidebar />
+      <Sidebar darkMode={darkMode} onChangeTheme={handleChangeTheme} />
       <Inner>
-        <TopBar />
+        <TopBar darkMode={darkMode} />
         {children}
       </Inner>
     </Page>

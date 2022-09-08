@@ -1,11 +1,13 @@
-import react from 'react'
+import react, { memo } from 'react'
 import { Wrapper, Button, Icon } from './StyledComponents'
+import { TopBarProps } from './types'
 
-export const TopBar = () => {
+export const TopBar = memo(({ darkMode }: TopBarProps) => {
   return (
-    <Wrapper>
-      <Button>
+    <Wrapper darkMode={darkMode}>
+      <Button darkMode={darkMode}>
         <Icon
+          darkMode={darkMode}
           width="25"
           height="24"
           viewBox="0 0 25 24"
@@ -16,4 +18,4 @@ export const TopBar = () => {
       </Button>
     </Wrapper>
   )
-}
+})

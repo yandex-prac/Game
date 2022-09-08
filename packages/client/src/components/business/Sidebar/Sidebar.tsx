@@ -1,20 +1,16 @@
-import react, { useContext } from 'react'
+import react from 'react'
 import { Container, Img } from './StyledComponents'
 import logo from '../../../image/logo.svg'
 import { SidebarAvatar, Menu } from '../../'
 import { CONTENT } from '../../../utils'
-import { ThemeContext } from '../../../context'
+import { SidebarProps } from './types'
 
-export const Sidebar = () => {
-  const { darkMode, setDarkMode } = useContext(ThemeContext)
-
-  const handleChangeTheme = () => setDarkMode(!darkMode)
-
+export const Sidebar = ({ darkMode, onChangeTheme }: SidebarProps) => {
   return (
     <Container darkMode={darkMode}>
       <Img src={logo} alt={CONTENT.LOGO_ALT} />
       <SidebarAvatar darkMode={darkMode} />
-      <Menu darkMode={darkMode} onChangeTheme={handleChangeTheme} />
+      <Menu darkMode={darkMode} onChangeTheme={onChangeTheme} />
     </Container>
   )
 }
