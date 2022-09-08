@@ -9,6 +9,7 @@ const Content = styled.div<ContentProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: 0.3s color;
 
   a {
     color: ${({ darkMode }) =>
@@ -23,6 +24,7 @@ const Title = styled.h1<TitleProps>`
     darkMode ? variables.white100 : variables.grey000};
   font-weight: 400;
   line-height: 13px;
+  transition: 0.3s color;
 `
 
 const LinkToGame = styled(Link)`
