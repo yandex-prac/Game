@@ -6,23 +6,27 @@ export class ApiClient {
       (response) => response,
       (error) => {
         const win: Window = window
-        if (error.response.status === 401) {
-          win.location = '/'
-        } else if (error.response.status === 404) {
-          win.location = '/error404'
-        } else {
-          win.location = '/error'
+        switch (error.response.status) {
+          case 401:
+            win.location = '/'
+            break
+          case 404:
+            win.location = '/error404'
+            break
+          default:
+            win.location = '/error'
+
         }
       }
     )
   }
 
-  private get client() {
+  get defaultService() {
+    this._client.defaults.baseURL = process.env.REACT_APP_SERVICE_URL
     return this._client
   }
 
-  get defaultService() {
-    this._client.defaults.baseURL = process.env.REACT_APP_SERVICE_URL
+  private get client() {
     return this._client
   }
 
