@@ -15,7 +15,6 @@ export class ApiClient {
             break
           default:
             win.location = '/error'
-
         }
       }
     )
