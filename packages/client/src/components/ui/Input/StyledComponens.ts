@@ -2,10 +2,11 @@ import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
 import { LabelProps } from './types'
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ error?: string }>`
   position: relative;
   width: 100%;
   padding-top: ${variables.placeholderMargin};
+  margin-bottom: ${({ error }) => error ? '0' : '17px' };
 `
 
 export const StyledInput = styled.input`

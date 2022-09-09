@@ -9,7 +9,7 @@ export const Input = ({
   name,
   type= 'text',
   label,
-  error,
+  error
 }: InputProps) => {
   const blurHandler = (evt: SyntheticEvent) => {
     onBlur?.(evt)
@@ -22,7 +22,7 @@ export const Input = ({
 
   return (
     <>
-      <Wrapper>
+      <Wrapper error={ error }>
         <StyledInput
           onBlur={blurHandler}
           onChange={changeHandler}
