@@ -19,12 +19,23 @@ export function SignUp() {
       alert(JSON.stringify(values, null, 2));
     },
     validationSchema: yup.object({
-      post: yup.string().required(config.isRequiredText),
-      login: yup.string().required(config.isRequiredText),
-      name: yup.string().required(config.isRequiredText),
-      surname: yup.string().required(config.isRequiredText),
-      phone: yup.string().required(config.isRequiredText),
-      password: yup.string().required(config.isRequiredText)
+      post: yup.string().email(config.postIncorrect)
+                        .required(config.isRequiredText),
+      login: yup.string().min(2, config.minLength)
+                         .matches(/(?!^\d+$)^[A-ZА-Яa-zа-я][a-zа-я-_0-9]+$/, config.forbiddenSymbols)
+                         .required(config.isRequiredText),
+      name: yup.string().matches(/^[A-ZА-Я][a-zа-я-]+$/, config.forbiddenSymbols)
+                        .required(config.isRequiredText),
+      surname: yup.string().matches(/^[A-ZА-Я][a-zа-я-]+$/, config.forbiddenSymbols)
+                        .required(config.isRequiredText),
+      phone: yup.string().min(3, config.minLength)
+                         .max(14, config.maxLength)
+                         .matches(/^\+?[1-9]{1}[0-9]+$/, config.forbiddenSymbols)
+                         .required(config.isRequiredText),
+      password: yup.string().min(8, config.passwordMin)
+                            .max(40, config.maxLength)
+                            .matches(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+/, config.passwordSymbols)
+                            .required(config.isRequiredText)
     })
   });
 
@@ -41,35 +52,36 @@ export function SignUp() {
         />
         <Input label={ config.login }
                value={ values.login }
-               name="post"
+               name="login"
                onChange={ handleChange }
                onBlur={ handleBlur }
                error={ touched.login && errors.login ? errors.login : undefined }
         />
         <Input label={ config.name }
                value={ values.name }
-               name="post"
+               name="name"
                onChange={ handleChange }
                onBlur={ handleBlur }
                error={ touched.name && errors.name ? errors.name : undefined }
         />
         <Input label={ config.surname }
                value={ values.surname }
-               name="post"
+               name="surname"
                onChange={ handleChange }
                onBlur={ handleBlur }
                error={ touched.surname && errors.surname ? errors.surname : undefined }
         />
         <Input label={ config.phone }
                value={ values.phone }
-               name="post"
+               name="phone"
                onChange={ handleChange }
                onBlur={ handleBlur }
                error={ touched.phone && errors.phone ? errors.phone : undefined }
         />
         <Input label={ config.password }
                value={ values.password }
-               name="post"
+               name="password"
+               type="password"
                onChange={ handleChange }
                onBlur={ handleBlur }
                error={ touched.password && errors.password ? errors.password : undefined }
