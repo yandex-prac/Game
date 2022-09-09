@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { InputGroupProps, LoginFormProps } from './types'
-import { Link } from '../../components'
 const LoginPage = styled.div`
   display: flex;
   align-items: center;
@@ -32,6 +31,10 @@ const Title = styled.h2`
 const LoginForm = styled.form<LoginFormProps>`
   display: flex;
   flex-direction: column;
+  a {
+    text-align: center;
+    text-decoration: none;
+  }
 `
 
 const InputGroup = styled.fieldset<InputGroupProps>`

@@ -6,4 +6,4 @@ type LoginFormProps = {
   onSubmit: () => void
 }
 
-export type {InputGroupProps, LoginFormProps }
+export type { InputGroupProps, LoginFormProps }
