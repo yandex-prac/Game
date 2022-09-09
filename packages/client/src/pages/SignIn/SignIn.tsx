@@ -1,7 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import { Input, Button, Link } from '../../components'
-import { SignInProps } from './types'
 import * as yup from 'yup'
 import {
   LoginPage,
@@ -12,7 +11,7 @@ import {
 } from './StyledComponents'
 import { config } from '../../utils/constants'
 
-export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
+export const SignIn = () => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -31,7 +30,7 @@ export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
   return (
     <LoginPage>
       <Layout>
-        <Title className="title">{title}</Title>
+        <Title className="title">Вход</Title>
         <LoginForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
@@ -59,8 +58,8 @@ export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
               }
             />
           </InputGroup>
-          <Button type="submit" text={authText} />
-          <Link to={href} text={regText} />
+          <Button type="submit" text="Авторизоваться" />
+          <Link to="/sign-up" text="Нет аккаунта?" />
         </LoginForm>
       </Layout>
     </LoginPage>

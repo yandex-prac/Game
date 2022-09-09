@@ -11,17 +11,7 @@ export const App = () => {
       <BrowserRouter>
         <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <SignIn
-                  title="Вход"
-                  authText="Авторизоваться"
-                  regText="Нет аккаунта?"
-                  href="/sign-up"
-                />
-              }
-            />
+            <Route path="/" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route
               path="*"
