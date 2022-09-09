@@ -1,4 +1,4 @@
-import { ButtonEnum } from '../../../types/types'
+import { ButtonEnum } from '../../../types'
 
 export type StyledButtonProps = {
   type: ButtonEnum
