@@ -11,12 +11,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@types/yup": "0.32.0",
     "eslint-config-prettier": "^8.5.0",
-    "formik": "^2.2.9",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
+    "sass": "^1.54.8",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
