@@ -1,2 +1,1 @@
-export type ButtonEnum = 
-| "submit" | "clear" | "button"
+export type ButtonEnum = 'submit' | 'reset' | 'button'
