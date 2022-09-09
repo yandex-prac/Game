@@ -9,7 +9,7 @@ export const StyledButton = styled.button`
   background-color: ${variables.blue000};
   font-size: 13px;
   font-style: normal;
-  font-weights: 500;
+  font-weight: 500;
   border-radius: 8px;
   border: none;
   cursor: pointer;

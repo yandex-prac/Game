@@ -3,14 +3,9 @@ import { useFormik } from 'formik'
 import { Input, Button, Link } from '../../components'
 import { SignInProps } from './types'
 import * as yup from 'yup'
-import {
-  LoginPage,
-  InputGroup,
-  Layout,
-  LoginForm,
-  Title,
-} from './StyledComponents'
+import { InputGroup } from './StyledComponents'
 import { config } from '../../utils/constants'
+import { AuthForm, AuthLayout, AuthPage, AuthTitle } from '../../components/styledComponents/Auth'
 
 export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -29,10 +24,10 @@ export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
     })
 
   return (
-    <LoginPage>
-      <Layout>
-        <Title className="title">{title}</Title>
-        <LoginForm onSubmit={handleSubmit}>
+    <AuthPage>
+      <AuthLayout maxheight={ 450 }>
+        <AuthTitle className="title">{title}</AuthTitle>
+        <AuthForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
               label="Логин"
@@ -61,8 +56,8 @@ export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
           </InputGroup>
           <Button type="submit" text={authText} />
           <Link to={href} text={regText} />
-        </LoginForm>
-      </Layout>
-    </LoginPage>
+        </AuthForm>
+      </AuthLayout>
+    </AuthPage>
   )
 }

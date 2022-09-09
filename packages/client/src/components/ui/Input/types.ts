@@ -1,11 +1,11 @@
-import { SyntheticEvent } from 'react'
+import { HTMLInputTypeAttribute, SyntheticEvent } from 'react'
 
 export type InputProps = {
   // properties
   error?: string
   label?: string
   value?: string
-  type?: string
+  type?: HTMLInputTypeAttribute
   name?: string
   // events
   onChange?: (evt: SyntheticEvent, value: string) => void

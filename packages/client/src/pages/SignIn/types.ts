@@ -9,8 +9,4 @@ type InputGroupProps = {
   lastGroup?: boolean
 }
 
-type LoginFormProps = {
-  onSubmit: () => void
-}
-
-export type { SignInProps, InputGroupProps, LoginFormProps }
+export type { SignInProps, InputGroupProps }

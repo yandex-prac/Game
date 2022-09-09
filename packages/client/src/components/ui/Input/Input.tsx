@@ -7,7 +7,7 @@ export const Input = ({
   onChange,
   value,
   name,
-  type,
+  type= 'text',
   label,
   error,
 }: InputProps) => {
