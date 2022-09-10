@@ -5,7 +5,12 @@ import { SignInProps } from './types'
 import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
 import { config } from '../../utils/constants'
-import { AuthForm, AuthLayout, AuthPage, AuthTitle } from '../../components/styledComponents/Auth'
+import {
+  AuthForm,
+  AuthLayout,
+  AuthPage,
+  AuthTitle,
+} from '../../components/styledComponents/Auth'
 
 export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -25,7 +30,7 @@ export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
 
   return (
     <AuthPage>
-      <AuthLayout maxheight={ 450 }>
+      <AuthLayout maxheight={450}>
         <AuthTitle className="title">{title}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <InputGroup>

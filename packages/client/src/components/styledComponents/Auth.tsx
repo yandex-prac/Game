@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 import { FormProps } from '../../types/types'
 import { Button } from '../ui/Button/Button'
 import { Link } from '../ui/Link/Link'
@@ -18,7 +18,7 @@ export const AuthLayout = styled.div<{ maxheight: number }>`
   flex-direction: column;
   padding: 30px;
   max-width: 340px;
-  max-height: ${({ maxheight }) => maxheight }px;
+  max-height: ${({ maxheight }) => maxheight}px;
   background: #ffffff;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
   border-radius: 12px;
@@ -37,7 +37,7 @@ export const AuthForm = styled.form<FormProps>`
 `
 
 export const AuthBtn = styled(Button)<{ margintop: number }>`
-  margin-top: ${({ margintop }) => margintop }px;
+  margin-top: ${({ margintop }) => margintop}px;
 `
 
 export const AuthLink = styled(Link)`

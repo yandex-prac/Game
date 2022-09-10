@@ -13,7 +13,7 @@ const config = {
   password: 'Пароль',
   passwordMin: 'Минимум 8 символов',
   passwordSymbols: 'Должен содержать заглавную букву, цифру и символ',
-  toLogin: 'Войти'
+  toLogin: 'Войти',
 }
 
 export { config }
