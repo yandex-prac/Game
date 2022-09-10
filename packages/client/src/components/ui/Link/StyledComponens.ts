@@ -8,6 +8,7 @@ export const StyledLink = styled(Link)`
   font-size: 11px;
   font-style: normal;
   font-weight: 500;
+  text-decoration: none;
   margin: 0 auto;
   transition: 0.3s opacity;
 
