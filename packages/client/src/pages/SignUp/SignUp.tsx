@@ -10,7 +10,7 @@ import {
   AuthTitle,
 } from '../../components/styledComponents/Auth'
 import * as yup from 'yup'
-import { config } from '../../utils/constants'
+import { CONTENT } from '../../utils/constants'
 
 export function SignUp() {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -29,49 +29,49 @@ export function SignUp() {
       validationSchema: yup.object({
         post: yup
           .string()
-          .email(config.postIncorrect)
-          .required(config.isRequiredText),
+          .email(CONTENT.POST_INCORRECT)
+          .required(CONTENT.IS_REQUIRED_TEXT),
         login: yup
           .string()
-          .min(2, config.minLength)
+          .min(2, CONTENT.MIN_LENGTH)
           .matches(
             /(?!^\d+$)^[A-ZА-Яa-zа-я][a-zа-я-_0-9]+$/,
-            config.forbiddenSymbols
+            CONTENT.FORBIDDEN_SYMBOL
           )
-          .required(config.isRequiredText),
+          .required(CONTENT.IS_REQUIRED_TEXT),
         name: yup
           .string()
-          .matches(/^[A-ZА-Я][a-zа-я-]+$/, config.forbiddenSymbols)
-          .required(config.isRequiredText),
+          .matches(/^[A-ZА-Я][a-zа-я-]+$/, CONTENT.FORBIDDEN_SYMBOL)
+          .required(CONTENT.IS_REQUIRED_TEXT),
         surname: yup
           .string()
-          .matches(/^[A-ZА-Я][a-zа-я-]+$/, config.forbiddenSymbols)
-          .required(config.isRequiredText),
+          .matches(/^[A-ZА-Я][a-zа-я-]+$/, CONTENT.FORBIDDEN_SYMBOL)
+          .required(CONTENT.IS_REQUIRED_TEXT),
         phone: yup
           .string()
-          .min(3, config.minLength)
-          .max(14, config.maxLength)
-          .matches(/^\+?[1-9]{1}[0-9]+$/, config.forbiddenSymbols)
-          .required(config.isRequiredText),
+          .min(3, CONTENT.MIN_LENGTH)
+          .max(14, CONTENT.MAX_LENGTH)
+          .matches(/^\+?[1-9]{1}[0-9]+$/, CONTENT.FORBIDDEN_SYMBOL)
+          .required(CONTENT.IS_REQUIRED_TEXT),
         password: yup
           .string()
-          .min(8, config.passwordMin)
-          .max(40, config.maxLength)
+          .min(8, CONTENT.PASSWORD_MIN)
+          .max(40, CONTENT.MAX_LENGTH)
           .matches(
             /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+/,
-            config.passwordSymbols
+            CONTENT.PASSWORD_SYMBOL
           )
-          .required(config.isRequiredText),
+          .required(CONTENT.IS_REQUIRED_TEXT),
       }),
     })
 
   return (
     <AuthPage>
       <AuthLayout maxheight={615}>
-        <AuthTitle>{config.register}</AuthTitle>
+        <AuthTitle>{CONTENT.REGISTER}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <Input
-            label={config.post}
+            label={CONTENT.POST}
             value={values.post}
             name="post"
             onChange={handleChange}
@@ -79,7 +79,7 @@ export function SignUp() {
             error={touched.post && errors.post ? errors.post : undefined}
           />
           <Input
-            label={config.login}
+            label={CONTENT.LOGIN}
             value={values.login}
             name="login"
             onChange={handleChange}
@@ -87,7 +87,7 @@ export function SignUp() {
             error={touched.login && errors.login ? errors.login : undefined}
           />
           <Input
-            label={config.name}
+            label={CONTENT.NAME}
             value={values.name}
             name="name"
             onChange={handleChange}
@@ -95,7 +95,7 @@ export function SignUp() {
             error={touched.name && errors.name ? errors.name : undefined}
           />
           <Input
-            label={config.surname}
+            label={CONTENT.SURNAME}
             value={values.surname}
             name="surname"
             onChange={handleChange}
@@ -105,7 +105,7 @@ export function SignUp() {
             }
           />
           <Input
-            label={config.phone}
+            label={CONTENT.PHONE}
             value={values.phone}
             name="phone"
             onChange={handleChange}
@@ -113,7 +113,7 @@ export function SignUp() {
             error={touched.phone && errors.phone ? errors.phone : undefined}
           />
           <Input
-            label={config.password}
+            label={CONTENT.PASSWORD}
             value={values.password}
             name="password"
             type="password"
@@ -124,7 +124,7 @@ export function SignUp() {
             }
           />
           <AuthBtn type="submit" text="Зарегистрироваться" margintop={114} />
-          <AuthLink text={config.toLogin} to="/sign-in" />
+          <AuthLink text={CONTENT.TO_LOGIN} to="/" />
         </AuthForm>
       </AuthLayout>
     </AuthPage>

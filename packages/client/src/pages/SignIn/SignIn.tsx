@@ -4,7 +4,7 @@ import { Input, Button, Link } from '../../components'
 import { SignInProps } from './types'
 import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
-import { config } from '../../utils/constants'
+import { CONTENT } from '../../utils/constants'
 import {
   AuthForm,
   AuthLayout,
@@ -12,7 +12,7 @@ import {
   AuthTitle,
 } from '../../components/styledComponents/Auth'
 
-export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
+export const SignIn = () => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -23,15 +23,15 @@ export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
         alert(values)
       },
       validationSchema: yup.object({
-        login: yup.string().required(config.isRequiredText),
-        password: yup.string().required(config.isRequiredText),
+        login: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
+        password: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
       }),
     })
 
   return (
     <AuthPage>
       <AuthLayout maxheight={450}>
-        <AuthTitle className="title">{title}</AuthTitle>
+        <AuthTitle className="title">Вход</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
@@ -59,8 +59,8 @@ export const SignIn = ({ href, title, authText, regText }: SignInProps) => {
               }
             />
           </InputGroup>
-          <Button type="submit" text={authText} />
-          <Link to={href} text={regText} />
+          <Button type="submit" text="Авторизоваться" />
+          <Link to="/sign-up" text="Нет аккаунта?" />
         </AuthForm>
       </AuthLayout>
     </AuthPage>
