@@ -1,4 +1,4 @@
-import react, { memo } from 'react'
+import React, { memo } from 'react'
 import { Wrapper, Button, Icon } from './StyledComponents'
 import { DarkModeType } from '../../../types'
 

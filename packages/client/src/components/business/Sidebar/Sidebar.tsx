@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react'
 import { Container, Img } from './StyledComponents'
 import logo from '../../../image/logo.svg'
 import { SidebarAvatar, Menu } from '../../'
