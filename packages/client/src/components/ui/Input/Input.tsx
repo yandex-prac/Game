@@ -10,6 +10,7 @@ export const Input = ({
   type = 'text',
   label,
   error,
+  ...rest
 }: InputProps) => {
   const blurHandler = (evt: SyntheticEvent) => {
     onBlur?.(evt)
@@ -30,6 +31,7 @@ export const Input = ({
           name={name}
           className={value ? '' : 'empty'}
           type={type}
+          {...rest}
         />
         <Label label={label} />
       </Wrapper>
