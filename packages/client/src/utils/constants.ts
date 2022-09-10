@@ -1,5 +1,5 @@
-const config = {
-  isRequiredText: 'Поле не должно быть пустым',
+const CONFIG = {
+  IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
 }
 
-export { config }
+export { CONFIG }

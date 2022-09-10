@@ -9,7 +9,7 @@ import {
   LoginForm,
   Title,
 } from './StyledComponents'
-import { config } from '../../utils/constants'
+import { CONFIG } from '../../utils'
 
 export const SignIn = () => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -20,8 +20,8 @@ export const SignIn = () => {
       },
       onSubmit: (values: any) => console.log(values),
       validationSchema: yup.object({
-        login: yup.string().required(config.isRequiredText),
-        password: yup.string().required(config.isRequiredText),
+        login: yup.string().required(CONFIG.IS_REQUIRED_TEXT),
+        password: yup.string().required(CONFIG.IS_REQUIRED_TEXT),
       }),
     })
 
