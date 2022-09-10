@@ -2,33 +2,45 @@ $fontFamily: 'Inter', 'Arial', sans-serif;
 
 $black000: #1e1e1e;
 $black100: #121212;
-
+$black200: #1d1d1d;
+$black300: #252525;
+$black400: #1f1f1f;
 $blue000: #3369f3;
+$blue100: #ebf0fe;
 $blue200: #a4cef3;
-
 $white000: #fff;
 $white100: #d1d1d1;
-$purple: #c38fff;
+$purple000: #c38fff;
+$purple100: #2e2934;
 $red000: #ff2f2f;
+$grey000: #90a0b7;
+$grey100: #ebeff2;
 $grey200: #999;
 
 $placeholderFontSize: 9px;
 $placeholderMargin: 12px;
 
+$shadowSoft000: 0px 4px 20px rgba(0, 0, 0, 0.1);
+
 :export {
   fontFamily: $fontFamily;
   black000: $black000;
   black100: $black100;
-
+  black200: $black200;
+  black300: $black300;
+  black400: $black400;
   blue000: $blue000;
+  blue100: $blue100;
   blue200: $blue200;
-
   white000: $white000;
   white100: $white100;
-  purple: $purple;
-
+  purple000: $purple000;
+  purple100: $purple100;
   red000: $red000;
+  grey000: $grey000;
+  grey100: $grey100;
   grey200: $grey200;
   placeholderFontSize: $placeholderFontSize;
   placeholderMargin: $placeholderMargin;
+  shadowSoft000: $shadowSoft000;
 }
