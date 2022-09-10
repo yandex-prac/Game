@@ -37,7 +37,7 @@ export const Label = styled.span<LabelProps>`
     transition: 0.4s top, 0.4s font-size;
   }
   &:after {
-    color: ${variables.grey};
+    color: ${variables.grey200};
     line-height: 1.2;
     content: '${({ label }) => label}';
     display: block;
@@ -66,6 +66,6 @@ export const Error = styled.span`
   font-weight: 400;
   font-size: 10px;
   line-height: 10px;
-  color: ${variables.red};
+  color: ${variables.red000};
   user-select: none;
 `

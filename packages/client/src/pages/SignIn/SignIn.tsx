@@ -18,9 +18,7 @@ export const SignIn = () => {
         login: '',
         password: '',
       },
-      onSubmit: values => {
-        alert(values)
-      },
+      onSubmit: (values: any) => console.log(values),
       validationSchema: yup.object({
         login: yup.string().required(config.isRequiredText),
         password: yup.string().required(config.isRequiredText),

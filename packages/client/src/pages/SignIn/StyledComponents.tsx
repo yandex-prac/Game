@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { InputGroupProps, LoginFormProps } from './types'
+
 const LoginPage = styled.div`
   display: flex;
   align-items: center;
@@ -31,6 +32,8 @@ const Title = styled.h2`
 const LoginForm = styled.form<LoginFormProps>`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+
   a {
     text-align: center;
     text-decoration: none;
@@ -39,11 +42,11 @@ const LoginForm = styled.form<LoginFormProps>`
 
 const InputGroup = styled.fieldset<InputGroupProps>`
   margin: 0;
-  padding: 0;
-  border: 0;
+  padding: 0 0 24px 0;
+  border: none;
   height: 30px;
   position: relative;
-  padding-bottom: 24px;
+  width: 100%;
   margin-bottom: ${({ lastGroup }) => (lastGroup ? '160px' : '0')};
 `
 

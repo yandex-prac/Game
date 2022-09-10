@@ -7,11 +7,11 @@ $blue100: #a4cef3;
 $white000: #fff;
 $white100: #d1d1d1;
 $purple: #c38fff;
-$red: #ff2f2f;
-$grey: #999999;
+$red000: #ff2f2f;
+$grey200: #999;
 
 $placeholderFontSize: 9px;
-$placeholderMargin: 12px; // placeholderFontSize + 3px
+$placeholderMargin: 12px;
 
 :export {
   fontFamily: $fontFamily;
@@ -22,8 +22,8 @@ $placeholderMargin: 12px; // placeholderFontSize + 3px
   white100: $white100;
   purple: $purple;
   blue100: $blue100;
-  red: $red;
-  grey: $grey;
+  red000: $red000;
+  grey200: $grey200;
   placeholderFontSize: $placeholderFontSize;
   placeholderMargin: $placeholderMargin;
 }
