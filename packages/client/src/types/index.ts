@@ -1,1 +1,1 @@
-export type { DarkModeType } from './types'
+export type { ButtonEnum, DarkModeType } from './types'

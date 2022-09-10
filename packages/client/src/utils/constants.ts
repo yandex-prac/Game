@@ -1,3 +1,7 @@
+const CONFIG = {
+  IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
+}
+
 const PATHNAMES = {
   SIGNIN: '/',
   SIGNUP: '/sign-up',
@@ -28,4 +32,4 @@ const CONTENT = {
   PAGE_ERROR_LINK: 'Назад',
 }
 
-export { PATHNAMES, CONTENT }
+export { CONFIG, PATHNAMES, CONTENT }

@@ -1,5 +1,7 @@
+type ButtonEnum = 'submit' | 'reset' | 'button'
+
 type DarkModeType = {
   darkMode: boolean
 }
 
-export type { DarkModeType }
+export type { ButtonEnum, DarkModeType }
