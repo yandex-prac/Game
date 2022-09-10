@@ -11,12 +11,10 @@ export type SignInDto = {
 }
 
 export class UserService {
-  constructor(
-    private readonly apiClient: ApiClient
-  ) {
-  }
+  constructor(private readonly apiClient: ApiClient) {}
 
   signIn = async (values: SignInDto) =>
-    this.apiClient.defaultService.post<TokenModel>('/auth', values).then((res) => res.data)
-
+    this.apiClient.defaultService
+      .post<TokenModel>('/auth', values)
+      .then(res => res.data)
 }

@@ -3,8 +3,8 @@ import axios, { AxiosStatic } from 'axios'
 export class ApiClient {
   constructor(private _client: AxiosStatic = axios) {
     axios.interceptors.response.use(
-      (response) => response,
-      (error) => {
+      response => response,
+      error => {
         const win: Window = window
         switch (error.response.status) {
           case 401:
@@ -28,5 +28,4 @@ export class ApiClient {
   private get client() {
     return this._client
   }
-
 }
