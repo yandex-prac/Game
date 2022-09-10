@@ -24,7 +24,7 @@ export const Label = styled.span<LabelProps>`
   top: ${variables.placeholderMargin};
   left: 0;
   pointer-events: none;
-  border-bottom: 2px solid ${variables.blue100};
+  border-bottom: 2px solid ${variables.blue200};
 
   &:before {
     content: '';
