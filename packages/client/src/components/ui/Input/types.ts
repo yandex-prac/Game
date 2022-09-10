@@ -1,17 +1,17 @@
 import { SyntheticEvent } from 'react'
 
-export type InputProps = {
-  // properties
+type InputProps = {
   error?: string
   label?: string
   value?: string
   type?: string
   name?: string
-  // events
   onChange?: (evt: SyntheticEvent, value: string) => void
   onBlur?: (evt: SyntheticEvent) => void
 }
 
-export type LabelProps = {
+type LabelProps = {
   label?: string
 }
+
+export type { InputProps, LabelProps }
