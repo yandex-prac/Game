@@ -4,16 +4,4 @@ type PageErrorProps = {
   href: string
 }
 
-type PageProps = {
-  darkMode: boolean
-}
-
-type TitleProps = {
-  darkMode: boolean
-}
-
-type SubTitleProps = {
-  darkMode: boolean
-}
-
-export type { PageErrorProps, PageProps, TitleProps, SubTitleProps }
+export type { PageErrorProps }

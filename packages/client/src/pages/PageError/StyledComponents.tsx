@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import variables from '../../Variables.module.scss'
 import { Link } from 'react-router-dom'
-import { PageProps, TitleProps, SubTitleProps } from './types'
+import { DarkModeType } from '../../types'
 
-const Page = styled.div<PageProps>`
+const Page = styled.div<DarkModeType>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,11 +14,11 @@ const Page = styled.div<PageProps>`
 
   a {
     color: ${({ darkMode }) =>
-      darkMode ? variables.purple : variables.blue000};
+      darkMode ? variables.purple000 : variables.blue000};
   }
 `
 
-const Title = styled.h1<TitleProps>`
+const Title = styled.h1<DarkModeType>`
   margin: 0 0 20px 0;
   font-size: 40px;
   color: ${({ darkMode }) =>
@@ -27,7 +27,7 @@ const Title = styled.h1<TitleProps>`
   line-height: 40px;
 `
 
-const SubTitle = styled.p<SubTitleProps>`
+const SubTitle = styled.p<DarkModeType>`
   margin: 0 0 70px 0;
   font-size: 20px;
   color: ${({ darkMode }) =>
