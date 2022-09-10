@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import variables from '../../Variables.module.scss'
-import { ContentProps, TitleProps } from './types'
+import { DarkModeType } from '../../types'
 
-const Content = styled.div<ContentProps>`
+const Content = styled.div<DarkModeType>`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ const Content = styled.div<ContentProps>`
   }
 `
 
-const Title = styled.h1<TitleProps>`
+const Title = styled.h1<DarkModeType>`
   margin: 0 0 60px;
   font-size: 14px;
   color: ${({ darkMode }) =>

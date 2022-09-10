@@ -1,1 +1,1 @@
-export type { DarkModyType } from './types'
+export type { DarkModeType } from './types'

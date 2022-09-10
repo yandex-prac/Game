@@ -2,9 +2,9 @@ import React, { memo } from 'react'
 import { BaseLayout } from '../../components'
 import { Content, Title, LinkToGame } from './StyledComponents'
 import { PATHNAMES, CONTENT } from '../../utils'
-import { LeaderBoardProps } from './types'
+import { DarkModeType } from '../../types'
 
-export const LeaderBoard = memo(({ darkMode }: LeaderBoardProps) => {
+export const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
   return (
     <BaseLayout>
       <Content darkMode={darkMode}>

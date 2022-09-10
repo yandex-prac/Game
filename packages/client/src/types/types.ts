@@ -1,5 +1,5 @@
-type DarkModyType = {
+type DarkModeType = {
   darkMode: boolean
 }
 
-export type { DarkModyType }
+export type { DarkModeType }

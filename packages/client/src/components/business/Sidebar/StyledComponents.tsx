@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
-import { ContainerProps } from './types'
+import { DarkModeType } from '../../../types'
 
-const Container = styled.div<ContainerProps>`
+const Container = styled.div<DarkModeType>`
   z-index: 1;
   box-sizing: border-box;
   min-height: 100vh;

@@ -1,5 +1,4 @@
 type MenuItemProps = {
-  darkMode: boolean
   href?: string
   icon: JSX.Element
   text: string
@@ -7,16 +6,7 @@ type MenuItemProps = {
 }
 
 type ItemProps = {
-  darkMode: boolean
   isActive: boolean
 }
 
-type ButtonProps = {
-  darkMode: boolean
-}
-
-type TextProps = {
-  darkMode: boolean
-}
-
-export type { MenuItemProps, ItemProps, ButtonProps, TextProps }
+export type { MenuItemProps, ItemProps }

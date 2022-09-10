@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
-import { WrapperProps, ButtonProps, IconProps } from './types'
+import { DarkModeType } from '../../../types'
 
-const Wrapper = styled.div<WrapperProps>`
+const Wrapper = styled.div<DarkModeType>`
   z-index: 1;
   min-height: 60px;
   ${({ darkMode }) => !darkMode && `box-shadow: ${variables.shadowSoft000};`}
@@ -17,7 +17,7 @@ const Wrapper = styled.div<WrapperProps>`
   transition: 0.3s background-color, 0.3s border-color, 0.3s box-shadow;
 `
 
-const Button = styled.button<ButtonProps>`
+const Button = styled.button<DarkModeType>`
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -56,7 +56,7 @@ const Button = styled.button<ButtonProps>`
   }
 `
 
-const Icon = styled.svg<IconProps>`
+const Icon = styled.svg<DarkModeType>`
   z-index: 1;
   fill: ${({ darkMode }) => (darkMode ? variables.grey200 : variables.grey000)};
   transition: 0.3s fill;

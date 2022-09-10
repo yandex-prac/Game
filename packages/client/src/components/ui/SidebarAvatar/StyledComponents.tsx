@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
-import { WrapperProps, UserNameProps } from './types'
+import { DarkModeType } from '../../../types'
 
-const Wrapper = styled.div<WrapperProps>`
+const Wrapper = styled.div<DarkModeType>`
   padding: 24px 24px 0;
   margin-bottom: 40px;
   border-top: 1px solid
@@ -21,7 +21,7 @@ const Avatar = styled.img`
   object-position: center;
 `
 
-const UserName = styled.p<UserNameProps>`
+const UserName = styled.p<DarkModeType>`
   margin: 0 0 5px;
   font-size: 13px;
   color: ${({ darkMode }) =>

@@ -4,8 +4,12 @@ import logo from '../../../image/logo.svg'
 import { SidebarAvatar, Menu } from '../../'
 import { CONTENT } from '../../../utils'
 import { SidebarProps } from './types'
+import { DarkModeType } from '../../../types'
 
-export const Sidebar = ({ darkMode, onChangeTheme }: SidebarProps) => {
+export const Sidebar = ({
+  darkMode,
+  onChangeTheme,
+}: SidebarProps & DarkModeType) => {
   return (
     <Container darkMode={darkMode}>
       <Img src={logo} alt={CONTENT.LOGO_ALT} />

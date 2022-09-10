@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
-import { ItemProps, ButtonProps, TextProps } from './types'
+import { ItemProps } from './types'
+import { DarkModeType } from '../../../types'
 
-const Item = styled.li<ItemProps>`
+const Item = styled.li<ItemProps & DarkModeType>`
   list-style: none;
   border-left: 3px solid transparent;
 
@@ -51,7 +52,7 @@ const Item = styled.li<ItemProps>`
   transition: 0.3s border-color;
 `
 
-const Text = styled.span<TextProps>`
+const Text = styled.span<DarkModeType>`
   font-size: 14px;
   color: ${({ darkMode }) =>
     darkMode ? variables.white100 : variables.black000};
@@ -59,7 +60,7 @@ const Text = styled.span<TextProps>`
   line-height: 13px;
 `
 
-const Button = styled.button<ButtonProps>`
+const Button = styled.button<DarkModeType>`
   cursor: pointer;
   background-color: transparent;
   width: 100%;
