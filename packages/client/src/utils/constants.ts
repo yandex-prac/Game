@@ -27,6 +27,11 @@ const CONTENT = {
   LEADER_BOARD_LINK: 'Новая игра',
   PAGE_ERROR_LINK: 'Назад',
 
+  // login
+  ENTER: 'Вход',
+  AUTH: 'Авторизоваться',
+  NO_ACCOUNT: 'Нет аккаунта?',
+
   // register
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
   REGISTER: 'Регистрация',
@@ -43,6 +48,7 @@ const CONTENT = {
   PASSWORD_MIN: 'Минимум 8 символов',
   PASSWORD_SYMBOL: 'Должен содержать заглавную букву, цифру и символ',
   TO_LOGIN: 'Войти',
+  MAKE_REGISTER: 'Зарегистрироваться'
 }
 
 const API = {

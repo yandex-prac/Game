@@ -2,14 +2,14 @@ import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
 import { InputWrapperProps, LabelProps } from './types'
 
-export const Wrapper = styled.div<InputWrapperProps>`
+const Wrapper = styled.div<InputWrapperProps>`
   position: relative;
   width: 100%;
   padding-top: ${variables.placeholderMargin};
   margin-bottom: ${({ error }) => (error ? '0' : '17px')};
 `
 
-export const StyledInput = styled.input`
+const StyledInput = styled.input`
   width: 100%;
   outline: none;
   border: none;
@@ -17,7 +17,7 @@ export const StyledInput = styled.input`
   padding: 7px 0;
 `
 
-export const Label = styled.span<LabelProps>`
+const Label = styled.span<LabelProps>`
   position: absolute;
   display: block;
   width: 100%;
@@ -35,7 +35,7 @@ export const Label = styled.span<LabelProps>`
     left: 0;
     width: 0;
     height: 2px;
-    transition: 0.4s top, 0.4s font-size;
+    transition: 0.4s top, 0.4s font-size, 0.4s width;
   }
   
   &:after {
@@ -63,7 +63,7 @@ export const Label = styled.span<LabelProps>`
   }
 `
 
-export const Error = styled.span`
+const Error = styled.span`
   margin-top: 7px;
   font-weight: 400;
   font-size: 10px;
@@ -71,3 +71,5 @@ export const Error = styled.span`
   color: ${variables.red000};
   user-select: none;
 `
+
+export { Wrapper, StyledInput, Label, Error }

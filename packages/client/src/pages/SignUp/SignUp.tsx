@@ -10,7 +10,7 @@ import {
   AuthTitle,
 } from '../../components'
 import * as yup from 'yup'
-import { CONTENT } from '../../utils'
+import { CONTENT, PATHNAMES } from '../../utils'
 
 export function SignUp() {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -123,8 +123,8 @@ export function SignUp() {
               touched.password && errors.password ? errors.password : undefined
             }
           />
-          <AuthBtn type="submit" text="Зарегистрироваться" margintop={114} />
-          <AuthLink text={CONTENT.TO_LOGIN} to="/" />
+          <AuthBtn type="submit" text={CONTENT.MAKE_REGISTER} margintop={114} />
+          <AuthLink text={CONTENT.TO_LOGIN} to={PATHNAMES.SIGNIN} />
         </AuthForm>
       </AuthLayout>
     </AuthPage>

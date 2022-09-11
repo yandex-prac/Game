@@ -3,7 +3,7 @@ import { useFormik } from 'formik'
 import { Input, Button, Link } from '../../components'
 import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
-import { CONTENT } from '../../utils'
+import { CONTENT, PATHNAMES } from '../../utils'
 import {
   AuthForm,
   AuthLayout,
@@ -30,11 +30,11 @@ export const SignIn = () => {
   return (
     <AuthPage>
       <AuthLayout maxheight={450}>
-        <AuthTitle className="title">Вход</AuthTitle>
+        <AuthTitle>{CONTENT.ENTER}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
-              label="Логин"
+              label={CONTENT.LOGIN}
               value={values.login}
               type="text"
               name="login"
@@ -45,7 +45,7 @@ export const SignIn = () => {
           </InputGroup>
           <InputGroup lastGroup>
             <Input
-              label="Пароль"
+              label={CONTENT.PASSWORD}
               value={values.password}
               type="password"
               name="password"
@@ -58,8 +58,8 @@ export const SignIn = () => {
               }
             />
           </InputGroup>
-          <Button type="submit" text="Авторизоваться" />
-          <Link to="/sign-up" text="Нет аккаунта?" />
+          <Button type="submit" text={CONTENT.AUTH} />
+          <Link to={PATHNAMES.SIGNUP} text={CONTENT.NO_ACCOUNT} />
         </AuthForm>
       </AuthLayout>
     </AuthPage>

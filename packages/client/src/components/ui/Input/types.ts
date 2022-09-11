@@ -1,6 +1,6 @@
 import { HTMLInputTypeAttribute, SyntheticEvent } from 'react'
 
-export type InputProps = {
+type InputProps = {
   // properties
   error?: string
   label?: string
@@ -12,10 +12,12 @@ export type InputProps = {
   onBlur?: (evt: SyntheticEvent) => void
 }
 
-export type InputWrapperProps = {
+type InputWrapperProps = {
   error?: string
 }
 
-export type LabelProps = {
+type LabelProps = {
   label?: string
 }
+
+export type { InputProps, InputWrapperProps, LabelProps }
