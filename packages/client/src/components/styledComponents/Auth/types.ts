@@ -1,5 +1,9 @@
+type AuthLayoutProps = {
+  maxheight: number
+}
+
 type AuthBtnProps = {
   margintop: number
 }
 
-export type { AuthBtnProps }
+export type { AuthLayoutProps, AuthBtnProps }

@@ -3,7 +3,7 @@ import { FormProps } from '../../../types/types'
 import { Button } from '../../ui/Button/Button'
 import { Link } from '../../ui/Link/Link'
 import variables from '../../../Variables.module.scss'
-import { AuthBtnProps } from './types'
+import { AuthLayoutProps, AuthBtnProps } from './types'
 
 const AuthPage = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const AuthPage = styled.div`
   height: 100vh;
 `
 
-const AuthLayout = styled.div<{ maxheight: number }>`
+const AuthLayout = styled.div<AuthLayoutProps>`
   display: flex;
   align-items: center;
   justify-content: center;
