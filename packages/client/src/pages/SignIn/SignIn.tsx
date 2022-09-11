@@ -4,12 +4,7 @@ import { Input, Button, Link } from '../../components'
 import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
 import { CONTENT, PATHNAMES } from '../../utils'
-import {
-  AuthForm,
-  AuthLayout,
-  AuthPage,
-  AuthTitle,
-} from '../../components'
+import { AuthForm, AuthLayout, AuthPage, AuthTitle } from '../../components'
 
 export const SignIn = () => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =

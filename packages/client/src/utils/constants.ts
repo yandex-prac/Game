@@ -48,12 +48,12 @@ const CONTENT = {
   PASSWORD_MIN: 'Минимум 8 символов',
   PASSWORD_SYMBOL: 'Должен содержать заглавную букву, цифру и символ',
   TO_LOGIN: 'Войти',
-  MAKE_REGISTER: 'Зарегистрироваться'
+  MAKE_REGISTER: 'Зарегистрироваться',
 }
 
 const API = {
   // auth
-  SIGN_IN: '/auth/signin'
+  SIGN_IN: '/auth/signin',
 }
 
 export { CONTENT, PATHNAMES, API }

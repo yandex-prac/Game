@@ -37,7 +37,7 @@ const Label = styled.span<LabelProps>`
     height: 2px;
     transition: 0.4s top, 0.4s font-size, 0.4s width;
   }
-  
+
   &:after {
     color: ${variables.grey200};
     line-height: 1.2;
