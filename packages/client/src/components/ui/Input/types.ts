@@ -12,6 +12,10 @@ export type InputProps = {
   onBlur?: (evt: SyntheticEvent) => void
 }
 
+export type InputWrapperProps = {
+  error?: string
+}
+
 export type LabelProps = {
   label?: string
 }

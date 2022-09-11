@@ -45,4 +45,9 @@ const CONTENT = {
   TO_LOGIN: 'Войти',
 }
 
-export { PATHNAMES, CONTENT }
+const API = {
+  // auth
+  SIGN_IN: '/auth/signin'
+}
+
+export { CONTENT, PATHNAMES, API }

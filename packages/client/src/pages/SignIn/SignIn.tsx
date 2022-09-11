@@ -1,16 +1,15 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import { Input, Button, Link } from '../../components'
-import { SignInProps } from './types'
 import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
-import { CONTENT } from '../../utils/constants'
+import { CONTENT } from '../../utils'
 import {
   AuthForm,
   AuthLayout,
   AuthPage,
   AuthTitle,
-} from '../../components/styledComponents/Auth'
+} from '../../components'
 
 export const SignIn = () => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =

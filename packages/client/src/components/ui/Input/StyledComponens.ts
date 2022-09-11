@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import variables from '../../../Variables.module.scss'
-import { LabelProps } from './types'
+import { InputWrapperProps, LabelProps } from './types'
 
-export const Wrapper = styled.div<{ error?: string }>`
+export const Wrapper = styled.div<InputWrapperProps>`
   position: relative;
   width: 100%;
   padding-top: ${variables.placeholderMargin};
@@ -37,6 +37,7 @@ export const Label = styled.span<LabelProps>`
     height: 2px;
     transition: 0.4s top, 0.4s font-size;
   }
+  
   &:after {
     color: ${variables.grey200};
     line-height: 1.2;
@@ -56,7 +57,7 @@ export const Label = styled.span<LabelProps>`
   }
 
   ${StyledInput}:focus + &:after,
-    ${StyledInput}:not(.empty) + &:after {
+  ${StyledInput}:not(.empty) + &:after {
     top: -${variables.placeholderMargin};
     font-size: ${variables.placeholderFontSize};
   }
