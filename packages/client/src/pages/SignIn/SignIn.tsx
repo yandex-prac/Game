@@ -2,14 +2,9 @@ import React from 'react'
 import { useFormik } from 'formik'
 import { Input, Button, Link } from '../../components'
 import * as yup from 'yup'
-import {
-  LoginPage,
-  InputGroup,
-  Layout,
-  LoginForm,
-  Title,
-} from './StyledComponents'
-import { CONFIG } from '../../utils'
+import { InputGroup } from './StyledComponents'
+import { CONTENT, PATHNAMES } from '../../utils'
+import { AuthForm, AuthLayout, AuthPage, AuthTitle } from '../../components'
 
 export const SignIn = () => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -18,21 +13,23 @@ export const SignIn = () => {
         login: '',
         password: '',
       },
-      onSubmit: (values: any) => console.log(values),
+      onSubmit: values => {
+        alert(values)
+      },
       validationSchema: yup.object({
-        login: yup.string().required(CONFIG.IS_REQUIRED_TEXT),
-        password: yup.string().required(CONFIG.IS_REQUIRED_TEXT),
+        login: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
+        password: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
       }),
     })
 
   return (
-    <LoginPage>
-      <Layout>
-        <Title className="title">Вход</Title>
-        <LoginForm onSubmit={handleSubmit}>
+    <AuthPage>
+      <AuthLayout maxheight={450}>
+        <AuthTitle>{CONTENT.ENTER}</AuthTitle>
+        <AuthForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
-              label="Логин"
+              label={CONTENT.LOGIN}
               value={values.login}
               type="text"
               name="login"
@@ -43,7 +40,7 @@ export const SignIn = () => {
           </InputGroup>
           <InputGroup lastGroup>
             <Input
-              label="Пароль"
+              label={CONTENT.PASSWORD}
               value={values.password}
               type="password"
               name="password"
@@ -56,10 +53,10 @@ export const SignIn = () => {
               }
             />
           </InputGroup>
-          <Button type="submit" text="Авторизоваться" />
-          <Link to="/sign-up" text="Нет аккаунта?" />
-        </LoginForm>
-      </Layout>
-    </LoginPage>
+          <Button type="submit" text={CONTENT.AUTH} />
+          <Link to={PATHNAMES.SIGNUP} text={CONTENT.NO_ACCOUNT} />
+        </AuthForm>
+      </AuthLayout>
+    </AuthPage>
   )
 }

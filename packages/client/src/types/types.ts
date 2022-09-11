@@ -4,4 +4,8 @@ type DarkModeType = {
   darkMode: boolean
 }
 
-export type { ButtonEnum, DarkModeType }
+type FormProps = {
+  onSubmit: () => void
+}
+
+export type { ButtonEnum, DarkModeType, FormProps }

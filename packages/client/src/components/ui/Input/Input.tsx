@@ -5,12 +5,15 @@ import { InputProps } from './types'
 export const Input = ({
   onBlur,
   onChange,
+  value,
+  type = 'text',
   label,
   error,
-  value,
-  ...rest
+  ...props
 }: InputProps) => {
-  const blurHandler = (evt: SyntheticEvent) => onBlur?.(evt)
+  const blurHandler = (evt: SyntheticEvent) => {
+    onBlur?.(evt)
+  }
 
   const changeHandler = (evt: SyntheticEvent) => {
     const target = evt.target as HTMLInputElement
@@ -19,13 +22,13 @@ export const Input = ({
 
   return (
     <>
-      <Wrapper>
+      <Wrapper error={error}>
         <StyledInput
           onBlur={blurHandler}
           onChange={changeHandler}
-          value={value}
           className={value ? '' : 'empty'}
-          {...rest}
+          type={type}
+          {...props}
         />
         <Label label={label} />
       </Wrapper>
