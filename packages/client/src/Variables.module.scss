@@ -16,13 +16,11 @@ $red000: #ff2f2f;
 $grey000: #90a0b7;
 $grey100: #ebeff2;
 $grey200: #999;
-$red: #ff2f2f;
-$grey: #999999;
 
 $placeholderFontSize: 9px;
 $placeholderMargin: 12px;
 
-$shadowSoft000: 0px 4px 20px rgba(0, 0, 0, 0.1);
+$shadowSoft000: 0 4px 20px rgba(0, 0, 0, 0.1);
 
 :export {
   fontFamily: $fontFamily;
@@ -45,8 +43,4 @@ $shadowSoft000: 0px 4px 20px rgba(0, 0, 0, 0.1);
   placeholderFontSize: $placeholderFontSize;
   placeholderMargin: $placeholderMargin;
   shadowSoft000: $shadowSoft000;
-  red: $red;
-  grey: $grey;
-  placeholderFontSize: $placeholderFontSize;
-  placeholderMargin: $placeholderMargin;
 }
