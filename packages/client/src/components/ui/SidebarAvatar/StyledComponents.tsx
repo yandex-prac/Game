@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import variables from '../../../Variables.module.scss'
-import { DarkModeType } from '../../../types'
+import variables from '@/Variables.module.scss'
+import { DarkModeType } from '@/types'
 
 const Wrapper = styled.div<DarkModeType>`
   padding: 24px 24px 0;

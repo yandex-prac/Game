@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
-import { BaseLayout } from '../../components'
+import { BaseLayout } from '@/components'
 import { Content, Title, LinkToGame } from './StyledComponents'
-import { PATHNAMES, CONTENT } from '../../utils'
-import { DarkModeType } from '../../types'
+import { PATHNAMES, CONTENT } from '@/utils'
+import { DarkModeType } from '@/types'
 
 export const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
   return (

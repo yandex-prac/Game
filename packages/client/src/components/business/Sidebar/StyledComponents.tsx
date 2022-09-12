@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import variables from '../../../Variables.module.scss'
-import { DarkModeType } from '../../../types'
+import variables from '@/Variables.module.scss'
+import { DarkModeType } from '@/types'
 
 const Container = styled.div<DarkModeType>`
   z-index: 1;

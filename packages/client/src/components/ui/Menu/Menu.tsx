@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import { List, Icon } from './StyledComponents'
-import { MenuItem } from '../../'
-import { PATHNAMES, CONTENT } from '../../../utils'
+import { MenuItem } from '@/components'
+import { PATHNAMES, CONTENT } from '@/utils'
 import { MenuProps } from './types'
-import { DarkModeType } from '../../../types'
+import { DarkModeType } from '@/types'
 
 export const Menu = memo(
   ({ darkMode, onChangeTheme }: MenuProps & DarkModeType) => {
