@@ -10,7 +10,7 @@ import {
   ForumPageLeftBlock,
   ForumPageRightBlock,
   ForumChatListBtn,
-  RegularBtn
+  RegularBtn,
 } from './StyledComponents'
 
 export const ForumPage = () => {
@@ -27,7 +27,9 @@ export const ForumPage = () => {
             <ChatItem
               name={'WakaWaka'}
               text={'Some text'}
-              image={'https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg'}
+              image={
+                'https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg'
+              }
             />
           </ForumChatListItem>
         </ForumChatListBlock>
@@ -36,7 +38,10 @@ export const ForumPage = () => {
         </ForumChatListBtn>
       </ForumPageLeftBlock>
       <ForumPageRightBlock>
-        <MessagesList arrayOfMessages={messagesMock} isEmpty={!!messagesMock.length} />
+        <MessagesList
+          arrayOfMessages={messagesMock}
+          isEmpty={!!messagesMock.length}
+        />
       </ForumPageRightBlock>
     </ForumPageWrapper>
   )

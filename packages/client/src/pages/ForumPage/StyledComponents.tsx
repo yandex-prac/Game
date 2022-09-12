@@ -51,13 +51,12 @@ const ChatItemStyle = styled.div`
   justify-content: flex-start;
   cursor: pointer;
   align-items: center;
-  
+
   &:hover {
     background-color: rgb(0 0 0 / 5%);
   }
 `
-const ChatItemRight = styled.div`
-`
+const ChatItemRight = styled.div``
 
 const ChatItemTitle = styled.div`
   font-style: normal;
@@ -144,5 +143,5 @@ export {
   ForumChatListBtn,
   MessagesListEmpty,
   MessagesListBlock,
-  ChatItemRight
+  ChatItemRight,
 }
