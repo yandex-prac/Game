@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { API, PATHNAMES } from '../../utils/constants'
 import { AxiosErrorExtended } from './types'
+import { useNavigateCustom } from './hooks'
 
 const Axios = axios.create({
   baseURL: API.API_BASE_URL,
@@ -12,10 +13,10 @@ Axios.interceptors.response.use(
   error => {
     switch (error.response.status) {
       case 401:
-        window.location.href = PATHNAMES.SIGNIN
+        useNavigateCustom(PATHNAMES.SIGNIN)
         return
       case 404:
-        window.location.href = PATHNAMES.ERROR_404
+        useNavigateCustom(PATHNAMES.ERROR_404)
         return
     }
 
