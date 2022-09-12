@@ -46,7 +46,9 @@ export const Profile = memo(() => {
           </ProfileLi>
         </ProfileUl>
         <ProfileGroupLink>
-          <ProfileLink to={PATHNAMES.PROFILE_EDIT}>{CONTENT.CHANGE_DATA}</ProfileLink>
+          <ProfileLink to={PATHNAMES.PROFILE_EDIT}>
+            {CONTENT.CHANGE_DATA}
+          </ProfileLink>
           <ProfileLink to={PATHNAMES.PASSWORD_EDIT}>
             {CONTENT.CHANGE_PASSWORD}
           </ProfileLink>
