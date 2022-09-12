@@ -7,6 +7,7 @@ const PATHNAMES = {
   FORUM: '/forum',
   LEADER_BOARD: '/leader-board',
   PATH_NOT_FOUND: '*',
+  ERROR_404: '/error404',
 }
 
 const CONTENT = {
@@ -52,8 +53,9 @@ const CONTENT = {
 }
 
 const API = {
+  API_BASE_URL: 'https://ya-praktikum.tech/api/v2',
   // auth
-  SIGN_IN: '/auth/signin',
+  SIGNUP: '/auth/signup',
 }
 
 export { CONTENT, PATHNAMES, API }
