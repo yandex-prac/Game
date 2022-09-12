@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import variables from '../../Variables.module.scss'
+import variables from '../../../Variables.module.scss'
 
-export const ProfilePage = styled.div`
+const ProfilePage = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -11,26 +11,27 @@ export const ProfilePage = styled.div`
     margin-bottom: 97px;
   }
 `
-export const PasswordForm = styled.form`
+
+const ProfileForm = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
 `
 
-export const ProfileName = styled.p`
+const ProfileName = styled.p`
   font-size: 16px;
-  font-style: normal;
   margin-bottom: 60px;
 `
 
-export const ProfileUl = styled.ul`
+const ProfileUl = styled.ul`
   margin: 0;
   padding: 0;
   margin-bottom: 60px;
 `
 
-export const ProfileLi = styled.li`
+const ProfileLi = styled.li`
   position: relative;
+  list-style: none;
   display: flex;
   justify-content: space-between;
   width: 510px;
@@ -42,27 +43,42 @@ export const ProfileLi = styled.li`
   }
 `
 
-export const ProfileLabel = styled.label`
+const ProfileLabel = styled.label`
+  cursor: text;
   top: 10px;
   position: absolute;
   font-size: 13px;
   color: ${variables.black000};
 `
 
-export const ProfileInput = styled.input`
+const ProfileInput = styled.input`
   padding: 0;
   line-height: 33px;
   outline: none;
   border: none;
   text-align: right;
   width: 100%;
+  font-size: 13px;
 `
 
-export const Error = styled.span`
+const Error = styled.span`
   margin-top: 7px;
   font-weight: 400;
   font-size: 10px;
   line-height: 10px;
   color: ${variables.red000};
   user-select: none;
+  &:hover {
+    visible: none;
+  }
 `
+export {
+  ProfilePage,
+  ProfileForm,
+  ProfileName,
+  ProfileUl,
+  ProfileLi,
+  ProfileLabel,
+  ProfileInput,
+  Error,
+}

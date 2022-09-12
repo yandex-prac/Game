@@ -1,6 +1,5 @@
 import React, { memo } from 'react'
-import { BaseLayout } from '../../components'
-import { ProfileImage } from '../../components'
+import { BaseLayout, ProfileImage } from '../../components'
 import { PATHNAMES, CONTENT } from '../../utils'
 import {
   ProfilePage,

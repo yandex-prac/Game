@@ -2,21 +2,22 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import variables from '../../Variables.module.scss'
 
-export const ProfilePage = styled.div`
+const ProfilePage = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 `
 
-export const ProfileUl = styled.ul`
+const ProfileUl = styled.ul`
   margin: 0;
   padding: 0;
   margin-bottom: 60px;
 `
 
-export const ProfileLi = styled.li`
+const ProfileLi = styled.li`
   display: flex;
+  list-style: none;
   justify-content: space-between;
   width: 510px;
   border-bottom: 1px solid ${variables.grey300};
@@ -37,12 +38,12 @@ export const ProfileLi = styled.li`
   }
 `
 
-export const ProfileGroupLink = styled.div`
+const ProfileGroupLink = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-export const ProfileLink = styled(Link)`
+const ProfileLink = styled(Link)`
   color: ${variables.blue000};
   font-size: 13px;
   font-style: normal;
@@ -53,6 +54,7 @@ export const ProfileLink = styled(Link)`
   border-bottom: 1px solid ${variables.grey300};
   width: 510px;
   text-decoration: none;
+  transition: 0.3s border-bottom;
 
   &:last-child {
     color: ${variables.red000};
@@ -69,20 +71,29 @@ export const ProfileLink = styled(Link)`
   }
 `
 
-export const ProfileSpan = styled.span`
+const ProfileSpan = styled.span`
   font-size: 13px;
   font-weight: 500;
   color: ${variables.grey200};
 `
 
-export const ProfileName = styled.p`
+const ProfileName = styled.p`
   font-size: 16px;
-  font-style: normal;
   margin: 0 0 60px;
 `
 
-export const ProfileLabel = styled.label`
+const ProfileLabel = styled.label`
   font-size: 13px;
   font-weight: 500;
   color: ${variables.black000};
 `
+export {
+  ProfilePage,
+  ProfileGroupLink,
+  ProfileName,
+  ProfileUl,
+  ProfileLi,
+  ProfileLabel,
+  ProfileSpan,
+  ProfileLink,
+}

@@ -1,19 +1,17 @@
 import React, { memo } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import { BaseLayout } from '../../components'
-import { CONTENT } from '../../utils/constants'
-import { Button } from '../../components/ui/Button'
-import { ProfileImage } from '../../components'
+import { BaseLayout, ProfileImage, Button } from '../../components'
+import { CONTENT } from '../../utils'
 import {
   ProfilePage,
   ProfileUl,
   ProfileLi,
   ProfileInput,
   ProfileLabel,
-  PasswordForm,
+  ProfileForm,
   Error,
-} from './StyledComponents'
+} from '../../components/styledComponents/Profile'
 
 export const PasswordEdit = memo(() => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -61,49 +59,61 @@ export const PasswordEdit = memo(() => {
     <BaseLayout>
       <ProfilePage>
         <ProfileImage />
-        <PasswordForm onSubmit={handleSubmit}>
+        <ProfileForm onSubmit={handleSubmit}>
           <ProfileUl>
             <ProfileLi>
-              <ProfileLabel>{CONTENT.OLD_PASSWORD}</ProfileLabel>
+              <ProfileLabel htmlFor="oldPassword">
+                {CONTENT.OLD_PASSWORD}
+              </ProfileLabel>
               <ProfileInput
+                id="oldPassword"
                 name="oldPassword"
                 type="password"
                 value={values.oldPassword}
                 onChange={handleChange}
-                onBlur={handleBlur}></ProfileInput>
+                onBlur={handleBlur}
+              />
             </ProfileLi>
-            {touched.oldPassword && errors.oldPassword ? (
+            {touched.oldPassword && errors.oldPassword && (
               <Error>{errors.oldPassword}</Error>
-            ) : undefined}
+            )}
 
             <ProfileLi>
-              <ProfileLabel>{CONTENT.NEW_PASSWORD}</ProfileLabel>
+              <ProfileLabel htmlFor="password">
+                {CONTENT.NEW_PASSWORD}
+              </ProfileLabel>
               <ProfileInput
+                id="password"
                 name="password"
                 type="password"
                 value={values.password}
                 onChange={handleChange}
-                onBlur={handleBlur}></ProfileInput>
+                onBlur={handleBlur}
+              />
             </ProfileLi>
-            {touched.password && errors.password ? (
+            {touched.password && errors.password && (
               <Error>{errors.password}</Error>
-            ) : undefined}
+            )}
 
             <ProfileLi>
-              <ProfileLabel>{CONTENT.REPEAT_PASSWORD}</ProfileLabel>
+              <ProfileLabel htmlFor="repeatPassword">
+                {CONTENT.REPEAT_PASSWORD}
+              </ProfileLabel>
               <ProfileInput
+                id="repeatPassword"
                 name="repeatPassword"
                 type="password"
                 value={values.repeatPassword}
                 onChange={handleChange}
-                onBlur={handleBlur}></ProfileInput>
+                onBlur={handleBlur}
+              />
             </ProfileLi>
-            {touched.repeatPassword && errors.repeatPassword ? (
+            {touched.repeatPassword && errors.repeatPassword && (
               <Error>{errors.repeatPassword}</Error>
-            ) : undefined}
+            )}
           </ProfileUl>
           <Button type="submit" text={CONTENT.SAVE} />
-        </PasswordForm>
+        </ProfileForm>
       </ProfilePage>
     </BaseLayout>
   )
