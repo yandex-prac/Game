@@ -1,0 +1,1 @@
+export { SidebarAvatar } from './SidebarAvatar'
