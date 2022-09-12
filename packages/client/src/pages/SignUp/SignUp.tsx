@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Input } from '../../components'
 import { useFormik } from 'formik'
 import {
@@ -11,23 +12,32 @@ import {
 } from '../../components'
 import * as yup from 'yup'
 import { CONTENT, PATHNAMES } from '../../utils'
+import { UserAPI } from '../../services'
 
 export function SignUp() {
+  const navigate = useNavigate()
+
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
-        post: '',
+        email: '',
         login: '',
-        name: '',
-        surname: '',
+        first_name: '',
+        second_name: '',
         phone: '',
         password: '',
       },
-      onSubmit: values => {
-        alert(JSON.stringify(values, null, 2))
+      onSubmit: (values, actions) => {
+        UserAPI.signup(values).catch(error => {
+          if (error.response.data.reason === 'Login already exists') {
+            actions.setErrors({
+              login: 'Пользователь с таким логином уже зарегистрирован',
+            })
+          }
+        })
       },
       validationSchema: yup.object({
-        post: yup
+        email: yup
           .string()
           .email(CONTENT.POST_INCORRECT)
           .required(CONTENT.IS_REQUIRED_TEXT),
@@ -39,11 +49,11 @@ export function SignUp() {
             CONTENT.FORBIDDEN_SYMBOL
           )
           .required(CONTENT.IS_REQUIRED_TEXT),
-        name: yup
+        first_name: yup
           .string()
           .matches(/^[A-ZА-Я][a-zа-я-]+$/, CONTENT.FORBIDDEN_SYMBOL)
           .required(CONTENT.IS_REQUIRED_TEXT),
-        surname: yup
+        second_name: yup
           .string()
           .matches(/^[A-ZА-Я][a-zа-я-]+$/, CONTENT.FORBIDDEN_SYMBOL)
           .required(CONTENT.IS_REQUIRED_TEXT),
@@ -72,11 +82,11 @@ export function SignUp() {
         <AuthForm onSubmit={handleSubmit}>
           <Input
             label={CONTENT.POST}
-            value={values.post}
-            name="post"
+            value={values.email}
+            name="email"
             onChange={handleChange}
             onBlur={handleBlur}
-            error={touched.post && errors.post ? errors.post : undefined}
+            error={touched.email && errors.email ? errors.email : undefined}
           />
           <Input
             label={CONTENT.LOGIN}
@@ -88,20 +98,26 @@ export function SignUp() {
           />
           <Input
             label={CONTENT.NAME}
-            value={values.name}
-            name="name"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.name && errors.name ? errors.name : undefined}
-          />
-          <Input
-            label={CONTENT.SURNAME}
-            value={values.surname}
-            name="surname"
+            value={values.first_name}
+            name="first_name"
             onChange={handleChange}
             onBlur={handleBlur}
             error={
-              touched.surname && errors.surname ? errors.surname : undefined
+              touched.first_name && errors.first_name
+                ? errors.first_name
+                : undefined
+            }
+          />
+          <Input
+            label={CONTENT.SURNAME}
+            value={values.second_name}
+            name="second_name"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={
+              touched.second_name && errors.second_name
+                ? errors.second_name
+                : undefined
             }
           />
           <Input
