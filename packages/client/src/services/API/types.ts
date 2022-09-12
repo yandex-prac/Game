@@ -1,6 +1,6 @@
 import { AxiosError, AxiosResponse } from 'axios'
 
-type SignUpProps = {
+type SignUpPayload = {
   first_name: string
   second_name: string
   login: string
@@ -17,4 +17,4 @@ type AxiosErrorExtended = {
   } & AxiosResponse
 } & AxiosError
 
-export type { SignUpProps, AxiosErrorExtended }
+export type { SignUpPayload, AxiosErrorExtended }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Input } from '../../components'
 import { useFormik } from 'formik'
 import {
@@ -11,10 +12,11 @@ import {
 } from '../../components'
 import * as yup from 'yup'
 import { CONTENT, PATHNAMES } from '../../utils'
-import { UserAPI } from '../../services/API/UserAPI'
-import { AxiosError, AxiosResponse } from 'axios'
+import { UserAPI } from '../../services'
 
 export function SignUp() {
+  const navigate = useNavigate()
+
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -26,27 +28,13 @@ export function SignUp() {
         password: '',
       },
       onSubmit: (values, actions) => {
-        UserAPI.signup(values)
-          .then((response: AxiosResponse) => {
-            window.location.href = PATHNAMES.MAIN
-          })
-          .catch(error => {
-            if (
-              error.response.status === 400 &&
-              error.response.data.reason === 'User already in system'
-            ) {
-              window.location.href = PATHNAMES.MAIN
-            }
-
-            if (
-              error.response.status === 409 &&
-              error.response.data.reason === 'Login already exists'
-            ) {
-              actions.setErrors({
-                login: 'Пользователь с таким логином уже зарегистрирован',
-              })
-            }
-          })
+        UserAPI.signup(values).catch(error => {
+          if (error.response.data.reason === 'Login already exists') {
+            actions.setErrors({
+              login: 'Пользователь с таким логином уже зарегистрирован',
+            })
+          }
+        })
       },
       validationSchema: yup.object({
         email: yup

@@ -5,7 +5,7 @@ import { AxiosErrorExtended } from './types'
 const Axios = axios.create({
   baseURL: API.API_BASE_URL,
   withCredentials: true,
-});
+})
 
 Axios.interceptors.response.use(
   response => response,
