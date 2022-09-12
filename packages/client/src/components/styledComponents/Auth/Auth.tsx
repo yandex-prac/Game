@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import { FormProps } from '../../../types/types'
-import { Button } from '../../ui/Button/Button'
-import { Link } from '../../ui/Link/Link'
-import variables from '../../../Variables.module.scss'
+import { FormProps } from '@/types'
+import { Button, Link } from '@/components'
+import variables from '@/Variables.module.scss'
 import { AuthLayoutProps, AuthBtnProps } from './types'
 
 const AuthPage = styled.div`

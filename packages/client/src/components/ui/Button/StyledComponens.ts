@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../../Variables.module.scss'
+import variables from '@/Variables.module.scss'
 
 export const StyledButton = styled.button`
   width: 280px;

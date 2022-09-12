@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { DarkModeType } from '../types'
+import { DarkModeType } from '@/types'
 
 type ThemeType = {
   setDarkMode: (prevState: boolean) => void

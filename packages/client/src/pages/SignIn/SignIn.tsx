@@ -1,10 +1,17 @@
 import React from 'react'
 import { useFormik } from 'formik'
-import { Input, Button, Link } from '../../components'
 import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
-import { CONTENT, PATHNAMES } from '../../utils'
-import { AuthForm, AuthLayout, AuthPage, AuthTitle } from '../../components'
+import { CONTENT, PATHNAMES } from '@/utils'
+import {
+  Input,
+  Button,
+  Link,
+  AuthForm,
+  AuthLayout,
+  AuthPage,
+  AuthTitle,
+} from '@/components'
 
 export const SignIn = () => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =

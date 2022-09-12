@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import variables from '../../Variables.module.scss'
-import { DarkModeType } from '../../types'
+import variables from '@/Variables.module.scss'
+import { DarkModeType } from '@/types'
 
 const Content = styled.div<DarkModeType>`
   height: 100%;

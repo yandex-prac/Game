@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Item, Button, Text } from './StyledComponents'
 import { MenuItemProps } from './types'
-import { DarkModeType } from '../../../types'
+import { DarkModeType } from '@/types'
 
 export const MenuItem = memo(
   ({ darkMode, href, icon, text, onClick }: MenuItemProps & DarkModeType) => {

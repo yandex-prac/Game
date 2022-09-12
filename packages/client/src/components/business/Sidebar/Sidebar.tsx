@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container, Img } from './StyledComponents'
-import logo from '../../../image/logo.svg'
-import { SidebarAvatar, Menu } from '../../'
-import { CONTENT } from '../../../utils'
+import logo from '@/image/logo.svg'
+import { SidebarAvatar, Menu } from '@/components'
+import { CONTENT } from '@/utils'
 import { SidebarProps } from './types'
-import { DarkModeType } from '../../../types'
+import { DarkModeType } from '@/types'
 
 export const Sidebar = ({
   darkMode,

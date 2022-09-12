@@ -1,5 +1,4 @@
 import React from 'react'
-import { Input } from '../../components'
 import { useFormik } from 'formik'
 import {
   AuthBtn,
@@ -8,9 +7,10 @@ import {
   AuthLink,
   AuthPage,
   AuthTitle,
-} from '../../components'
+  Input,
+} from '@/components'
 import * as yup from 'yup'
-import { CONTENT, PATHNAMES } from '../../utils'
+import { CONTENT, PATHNAMES } from '@/utils'
 
 export function SignUp() {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
