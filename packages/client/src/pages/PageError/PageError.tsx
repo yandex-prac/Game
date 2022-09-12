@@ -3,6 +3,7 @@ import { Page, Title, SubTitle, LinkWrap } from './StyledComponents'
 import type { PageErrorProps } from './types'
 import { ThemeContext } from '../../context'
 import { Logo } from '../../components/'
+import { CONTENT } from '../../utils'
 
 export const PageError = memo(({ title, subtitle, href }: PageErrorProps) => {
   const { darkMode } = useContext(ThemeContext)
@@ -12,7 +13,7 @@ export const PageError = memo(({ title, subtitle, href }: PageErrorProps) => {
       <Logo />
       <Title darkMode={darkMode}>{title}</Title>
       <SubTitle darkMode={darkMode}>{subtitle}</SubTitle>
-      <LinkWrap to={href}>Назад</LinkWrap>
+      <LinkWrap to={href}>{CONTENT.PAGE_ERROR_LINK}</LinkWrap>
     </Page>
   )
 })
