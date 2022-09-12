@@ -1,6 +1,4 @@
 import React from 'react'
-import { Input } from '@/components'
-import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import {
   AuthBtn,
@@ -16,8 +14,6 @@ import { CONTENT, PATHNAMES } from '@/utils'
 import { UserAPI } from '../../services'
 
 export function SignUp() {
-  const navigate = useNavigate()
-
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
