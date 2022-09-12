@@ -1,4 +1,4 @@
-import { ButtonEnum } from '../../../types'
+import { ButtonEnum } from '@/types'
 
 type StyledButtonProps = {
   type: ButtonEnum

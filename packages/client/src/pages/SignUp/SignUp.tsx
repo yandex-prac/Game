@@ -1,6 +1,6 @@
 import React from 'react'
+import { Input } from '@/components'
 import { useNavigate } from 'react-router-dom'
-import { Input } from '../../components'
 import { useFormik } from 'formik'
 import {
   AuthBtn,
@@ -9,9 +9,10 @@ import {
   AuthLink,
   AuthPage,
   AuthTitle,
-} from '../../components'
+  Input,
+} from '@/components'
 import * as yup from 'yup'
-import { CONTENT, PATHNAMES } from '../../utils'
+import { CONTENT, PATHNAMES } from '@/utils'
 import { UserAPI } from '../../services'
 
 export function SignUp() {

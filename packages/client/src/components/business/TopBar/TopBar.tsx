@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { Wrapper, Button, Icon } from './StyledComponents'
-import { DarkModeType } from '../../../types'
+import { DarkModeType } from '@/types'
 
 export const TopBar = memo(({ darkMode }: DarkModeType) => {
   return (
