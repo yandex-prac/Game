@@ -7,13 +7,15 @@ const rootStore = combineReducers({
   [authAPI.reducerPath]: authAPI.reducer,
 })
 
-export const setupStore = () => {
+const setupStore = () => {
   return configureStore({
     reducer: rootStore,
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware().concat(authAPI.middleware),
   })
 }
+
+export default setupStore()
 
 export type RootState = ReturnType<typeof rootStore>
 export type AppStore = ReturnType<typeof setupStore>
