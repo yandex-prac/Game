@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
-import { CONTENT, PATHNAMES } from '@/utils'
+import { CONTENT, PATHNAMES, validSignIn as validationSchema } from '@/utils'
 import {
   Input,
   Button,
@@ -23,10 +23,7 @@ export const SignIn = () => {
       onSubmit: values => {
         alert(values)
       },
-      validationSchema: yup.object({
-        login: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
-        password: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
-      }),
+      validationSchema,
     })
 
   return (
