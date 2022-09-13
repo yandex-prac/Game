@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API, PATHNAMES } from '../../utils/constants'
+import { API, PATHNAMES } from '@/utils'
 import { AxiosErrorExtended } from './types'
 import { useNavigateCustom } from '@/hooks'
 
