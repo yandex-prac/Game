@@ -17,7 +17,7 @@ type SigninFormResponse = {
   reason?: string
 }
 
-type SignupFormRequest = {
+type UserInfoDTO = {
   first_name: string
   second_name: string
   login: string
@@ -37,6 +37,6 @@ export type {
   FormProps,
   SigninFormRequest,
   SigninFormResponse,
-  SignupFormRequest,
+  UserInfoDTO,
   SignupFormResponse,
 }

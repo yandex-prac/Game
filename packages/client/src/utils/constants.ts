@@ -58,6 +58,7 @@ const API = {
   SIGNIN: '/auth/signin',
   SIGNUP: '/auth/signup',
   SIGNOUT: '/auth/logout',
+  GET_USER_INFO: '/auth/user',
 }
 
 export { CONTENT, PATHNAMES, API }

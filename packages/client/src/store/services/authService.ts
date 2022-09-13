@@ -3,7 +3,7 @@ import { API } from '@/utils'
 import {
   SigninFormResponse,
   SigninFormRequest,
-  SignupFormRequest,
+  UserInfoDTO,
   SignupFormResponse,
 } from '@/types'
 
@@ -17,7 +17,7 @@ export const authAPI = createApi({
         payload,
       }),
     }),
-    signup: builder.mutation<SignupFormResponse, SignupFormRequest>({
+    signup: builder.mutation<SignupFormResponse, UserInfoDTO>({
       query: payload => ({
         url: API.SIGNUP,
         payload,
@@ -25,6 +25,9 @@ export const authAPI = createApi({
     }),
     signout: builder.query({
       query: () => API.SIGNUP,
+    }),
+    getUserInfo: builder.query<UserInfoDTO, unknown>({
+      query: () => API.GET_USER_INFO,
     }),
   }),
 })
