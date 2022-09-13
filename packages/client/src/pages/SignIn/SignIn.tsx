@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFormik } from 'formik'
-import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
 import { CONTENT, PATHNAMES, validSignIn as validationSchema } from '@/utils'
 import {
@@ -12,8 +11,10 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
+import { useIntl } from 'react-intl'
 
 export const SignIn = () => {
+  const intl = useIntl()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -33,7 +34,7 @@ export const SignIn = () => {
         <AuthForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
-              label={CONTENT.LOGIN}
+              label={'LOGIN'}
               value={values.login}
               type="text"
               name="login"
@@ -44,7 +45,7 @@ export const SignIn = () => {
           </InputGroup>
           <InputGroup lastGroup>
             <Input
-              label={CONTENT.PASSWORD}
+              label={'PASSWORD'}
               value={values.password}
               type="password"
               name="password"
@@ -57,8 +58,11 @@ export const SignIn = () => {
               }
             />
           </InputGroup>
-          <Button type="submit" text={CONTENT.AUTH} />
-          <Link to={PATHNAMES.SIGNUP} text={CONTENT.NO_ACCOUNT} />
+          <Button type="submit" text={`${intl.messages['AUTH'] || ''}`} />
+          <Link
+            text={`${intl.messages['NO_ACCOUNT'] || ''}`}
+            to={PATHNAMES.SIGNUP}
+          />
         </AuthForm>
       </AuthLayout>
     </AuthPage>
