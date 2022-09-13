@@ -12,9 +12,11 @@ import {
   ProfileForm,
   Error,
 } from '../../components'
-import { CONTENT, validPasswordEdit as validationSchema } from '../../utils'
+import { validPasswordEdit as validationSchema } from '../../utils'
+import { useIntl } from 'react-intl'
 
 export const PasswordEdit = memo(() => {
+  const intl = useIntl()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -35,7 +37,7 @@ export const PasswordEdit = memo(() => {
           <ProfileUl>
             <ProfileLi>
               <ProfileLabel htmlFor="oldPassword">
-                {CONTENT.OLD_PASSWORD}
+                {`${intl.messages.OLD_PASSWORD || ''}`}
               </ProfileLabel>
               <ProfileInput
                 id="oldPassword"
@@ -52,7 +54,7 @@ export const PasswordEdit = memo(() => {
 
             <ProfileLi>
               <ProfileLabel htmlFor="password">
-                {CONTENT.NEW_PASSWORD}
+                {`${intl.messages.NEW_PASSWORD || ''}`}
               </ProfileLabel>
               <ProfileInput
                 id="password"
@@ -69,7 +71,7 @@ export const PasswordEdit = memo(() => {
 
             <ProfileLi>
               <ProfileLabel htmlFor="repeatPassword">
-                {CONTENT.REPEAT_PASSWORD}
+                {`${intl.messages.REPEAT_PASSWORD || ''}`}
               </ProfileLabel>
               <ProfileInput
                 id="repeatPassword"
@@ -84,7 +86,7 @@ export const PasswordEdit = memo(() => {
               <Error>{errors.repeatPassword}</Error>
             )}
           </ProfileUl>
-          <Button type="submit" text={CONTENT.SAVE} />
+          <Button type="submit" text={`${intl.messages.SAVE || ''}`} />
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>
