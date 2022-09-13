@@ -9,11 +9,12 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
-import * as yup from 'yup'
-import { CONTENT, PATHNAMES,  validSignUp as validationSchema } from '@/utils'
-import { UserAPI } from '../../services'
+import { PATHNAMES, validSignUp as validationSchema } from '@/utils'
+import { UserAPI } from '@/services'
+import { useIntl } from 'react-intl'
 
-export function SignUp() {
+export const SignUp = () => {
+  const intl = useIntl()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -39,10 +40,10 @@ export function SignUp() {
   return (
     <AuthPage>
       <AuthLayout maxheight={615}>
-        <AuthTitle>{CONTENT.REGISTER}</AuthTitle>
+        <AuthTitle>{`${intl.messages['REGISTER'] || ''}`}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <Input
-            label={CONTENT.POST}
+            label={'POST'}
             value={values.email}
             name="email"
             onChange={handleChange}
@@ -50,7 +51,7 @@ export function SignUp() {
             error={touched.email && errors.email ? errors.email : undefined}
           />
           <Input
-            label={CONTENT.LOGIN}
+            label={'LOGIN'}
             value={values.login}
             name="login"
             onChange={handleChange}
@@ -58,7 +59,7 @@ export function SignUp() {
             error={touched.login && errors.login ? errors.login : undefined}
           />
           <Input
-            label={CONTENT.NAME}
+            label={'NAME'}
             value={values.first_name}
             name="first_name"
             onChange={handleChange}
@@ -70,7 +71,7 @@ export function SignUp() {
             }
           />
           <Input
-            label={CONTENT.SURNAME}
+            label={'SURNAME'}
             value={values.second_name}
             name="second_name"
             onChange={handleChange}
@@ -82,7 +83,7 @@ export function SignUp() {
             }
           />
           <Input
-            label={CONTENT.PHONE}
+            label={'PHONE'}
             value={values.phone}
             name="phone"
             onChange={handleChange}
@@ -90,7 +91,7 @@ export function SignUp() {
             error={touched.phone && errors.phone ? errors.phone : undefined}
           />
           <Input
-            label={CONTENT.PASSWORD}
+            label={'PASSWORD'}
             value={values.password}
             name="password"
             type="password"
@@ -100,8 +101,15 @@ export function SignUp() {
               touched.password && errors.password ? errors.password : undefined
             }
           />
-          <AuthBtn type="submit" text={CONTENT.MAKE_REGISTER} margintop={114} />
-          <AuthLink text={CONTENT.TO_LOGIN} to={PATHNAMES.SIGNIN} />
+          <AuthBtn
+            type="submit"
+            text={`${intl.messages['MAKE_REGISTER'] || ''}`}
+            margintop={114}
+          />
+          <AuthLink
+            text={`${intl.messages['TO_LOGIN'] || ''}`}
+            to={PATHNAMES.SIGNIN}
+          />
         </AuthForm>
       </AuthLayout>
     </AuthPage>

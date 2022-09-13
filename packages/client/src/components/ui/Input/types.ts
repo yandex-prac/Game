@@ -3,7 +3,7 @@ import { HTMLInputTypeAttribute, SyntheticEvent } from 'react'
 type InputProps = {
   // properties
   error?: string
-  label?: string
+  label: string
   value?: string
   type?: HTMLInputTypeAttribute
   name?: string
