@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { API, PATHNAMES } from '../../utils/constants'
 import { AxiosErrorExtended } from './types'
-import { useNavigateCustom } from './hooks'
+import { useNavigateCustom } from '@/hooks'
 
 const Axios = axios.create({
   baseURL: API.API_BASE_URL,
