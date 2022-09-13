@@ -11,7 +11,6 @@ import {
 } from '@/components'
 import * as yup from 'yup'
 import { CONTENT, PATHNAMES } from '@/utils'
-import { UserAPI } from '../../services'
 
 export function SignUp() {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -24,15 +23,7 @@ export function SignUp() {
         phone: '',
         password: '',
       },
-      onSubmit: (values, actions) => {
-        UserAPI.signup(values).catch(error => {
-          if (error.response.data.reason === 'Login already exists') {
-            actions.setErrors({
-              login: 'Пользователь с таким логином уже зарегистрирован',
-            })
-          }
-        })
-      },
+      onSubmit: (values, actions) => console.log(values),
       validationSchema: yup.object({
         email: yup
           .string()
