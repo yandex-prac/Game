@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 
 import { BaseLayout, ProfileImage } from '../../components'
-import { PATHNAMES, CONTENT } from '../../utils'
+import { PATHNAMES } from '../../utils'
 import {
   ProfilePage,
   ProfileName,
@@ -12,47 +12,51 @@ import {
   ProfileLabel,
   ProfileSpan,
 } from './StyledComponents'
+import { useIntl } from 'react-intl'
 
 export const Profile = memo(() => {
+  const intl = useIntl()
   return (
     <BaseLayout>
       <ProfilePage>
         <ProfileImage />
-        <ProfileName>{CONTENT.NAME}</ProfileName>
+        <ProfileName>{`${intl.messages.NAME || ''}`}</ProfileName>
         <ProfileUl>
           <ProfileLi>
-            <ProfileLabel>{CONTENT.MAIL}</ProfileLabel>
+            <ProfileLabel>{`${intl.messages.MAIL || ''}`}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{CONTENT.LOGIN}</ProfileLabel>
+            <ProfileLabel>{`${intl.messages.LOGIN || ''}`}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{CONTENT.NAME}</ProfileLabel>
+            <ProfileLabel>{`${intl.messages.NAME || ''}`}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{CONTENT.SURNAME}</ProfileLabel>
+            <ProfileLabel>{`${intl.messages.SURNAME || ''}`}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{CONTENT.NICKNAME}</ProfileLabel>
+            <ProfileLabel>{`${intl.messages.NICKNAME || ''}`}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{CONTENT.PHONE}</ProfileLabel>
+            <ProfileLabel>{`${intl.messages.PHONE || ''}`}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
         </ProfileUl>
         <ProfileGroupLink>
           <ProfileLink to={PATHNAMES.PROFILE_EDIT}>
-            {CONTENT.CHANGE_DATA}
+            {`${intl.messages.CHANGE_DATA || ''}`}
           </ProfileLink>
           <ProfileLink to={PATHNAMES.PASSWORD_EDIT}>
-            {CONTENT.CHANGE_PASSWORD}
+            {`${intl.messages.CHANGE_PASSWORD || ''}`}
           </ProfileLink>
-          <ProfileLink to={PATHNAMES.SIGNIN}>{CONTENT.QUIT}</ProfileLink>
+          <ProfileLink to={PATHNAMES.SIGNIN}>
+            {`${intl.messages.QUIT || ''}`}
+          </ProfileLink>
         </ProfileGroupLink>
       </ProfilePage>
     </BaseLayout>
