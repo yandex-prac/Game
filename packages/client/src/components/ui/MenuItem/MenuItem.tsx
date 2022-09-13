@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Item, Button, Text } from './StyledComponents'
 import { MenuItemProps } from './types'
 import { DarkModeType } from '@/types'
+import { useCustomIntl } from '@/hooks'
 
 export const MenuItem = memo(
   ({ darkMode, href, icon, text, onClick }: MenuItemProps & DarkModeType) => {
@@ -18,12 +19,12 @@ export const MenuItem = memo(
         {href ? (
           <Link to={href}>
             {icon}
-            <Text darkMode={darkMode}>{text}</Text>
+            <Text darkMode={darkMode}>{useCustomIntl(text)}</Text>
           </Link>
         ) : (
           <Button darkMode={darkMode} type="button">
             {icon}
-            <Text darkMode={darkMode}>{text}</Text>
+            <Text darkMode={darkMode}>{useCustomIntl(text)}</Text>
           </Button>
         )}
       </Item>

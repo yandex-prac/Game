@@ -85,7 +85,7 @@ export const PasswordEdit = memo(() => {
               <Error>{errors.repeatPassword}</Error>
             )}
           </ProfileUl>
-          <Button type="submit" text={useCustomIntl('SAVE')} />
+          <Button type="submit" text={'SAVE'} />
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>

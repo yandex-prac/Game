@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from 'react'
 import { Wrapper, StyledInput, Label, Error } from './StyledComponens'
 import { InputProps } from './types'
-import { useIntl } from 'react-intl'
+import { useCustomIntl } from '@/hooks'
 
 export const Input = ({
   onBlur,
@@ -12,8 +12,6 @@ export const Input = ({
   error,
   ...props
 }: InputProps) => {
-  const intl = useIntl()
-
   const blurHandler = (evt: SyntheticEvent) => {
     onBlur?.(evt)
   }
@@ -34,7 +32,7 @@ export const Input = ({
           value={value}
           {...props}
         />
-        <Label label={`${intl.messages[label] || ''}`} />
+        <Label label={useCustomIntl(label)} />
       </Wrapper>
       {error ? <Error>{error}</Error> : null}
     </>

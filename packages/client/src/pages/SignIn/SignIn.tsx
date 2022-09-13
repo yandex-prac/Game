@@ -57,8 +57,8 @@ export const SignIn = () => {
               }
             />
           </InputGroup>
-          <Button type="submit" text={useCustomIntl('AUTH')} />
-          <Link text={useCustomIntl('NO_ACCOUNT')} to={PATHNAMES.SIGNUP} />
+          <Button type="submit" text={'AUTH'} />
+          <Link text={'NO_ACCOUNT'} to={PATHNAMES.SIGNUP} />
         </AuthForm>
       </AuthLayout>
     </AuthPage>
