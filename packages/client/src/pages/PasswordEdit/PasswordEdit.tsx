@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import { useFormik } from 'formik'
-import * as yup from 'yup'
-import { BaseLayout, ProfileImage, Button } from '../../components'
-import { CONTENT } from '../../utils'
 import {
+  BaseLayout,
+  ProfileImage,
+  Button,
   ProfilePage,
   ProfileUl,
   ProfileLi,
@@ -11,7 +11,8 @@ import {
   ProfileLabel,
   ProfileForm,
   Error,
-} from '../../components/styledComponents/Profile'
+} from '../../components'
+import { CONTENT, validPasswordEdit as validationSchema } from '../../utils'
 
 export const PasswordEdit = memo(() => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -24,36 +25,7 @@ export const PasswordEdit = memo(() => {
       onSubmit: values => {
         console.log(values)
       },
-      validationSchema: yup.object({
-        oldPassword: yup
-          .string()
-          .min(8, CONTENT.PASSWORD_MIN)
-          .max(40, CONTENT.MAX_LENGTH)
-          .matches(
-            /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+/,
-            CONTENT.PASSWORD_SYMBOL
-          )
-          .required(CONTENT.IS_REQUIRED_TEXT),
-        password: yup
-          .string()
-          .min(8, CONTENT.PASSWORD_MIN)
-          .max(40, CONTENT.MAX_LENGTH)
-          .matches(
-            /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+/,
-            CONTENT.PASSWORD_SYMBOL
-          )
-          .required(CONTENT.IS_REQUIRED_TEXT),
-        repeatPassword: yup
-          .string()
-          .oneOf([yup.ref('password'), null], 'Пароли не совпадают')
-          .min(8, CONTENT.PASSWORD_MIN)
-          .max(40, CONTENT.MAX_LENGTH)
-          .matches(
-            /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+/,
-            CONTENT.PASSWORD_SYMBOL
-          )
-          .required(CONTENT.IS_REQUIRED_TEXT),
-      }),
+      validationSchema,
     })
   return (
     <BaseLayout>

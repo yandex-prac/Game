@@ -17,7 +17,7 @@ export const Profile = memo(() => {
     <BaseLayout>
       <ProfilePage>
         <ProfileImage />
-        <ProfileName>Имя</ProfileName>
+        <ProfileName>{CONTENT.NAME}</ProfileName>
         <ProfileUl>
           <ProfileLi>
             <ProfileLabel>{CONTENT.MAIL}</ProfileLabel>

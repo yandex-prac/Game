@@ -15,3 +15,4 @@ export { BaseLayout } from './layout/BaseLayout'
 
 // styled components
 export * from './styledComponents/Auth'
+export * from './styledComponents/Profile'
