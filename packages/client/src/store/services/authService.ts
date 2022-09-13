@@ -1,19 +1,29 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { API } from '@/utils'
-import { SigninFormResponse, SigninFormRequest } from '@/types'
+import {
+  SigninFormResponse,
+  SigninFormRequest,
+  SignupFormRequest,
+  SignupFormResponse,
+} from '@/types'
 
 export const authAPI = createApi({
   reducerPath: 'authAPI',
   baseQuery: fetchBaseQuery({ baseUrl: API.API_BASE_URL }),
-  tagTypes: [],
   endpoints: builder => ({
     signin: builder.query<SigninFormResponse, SigninFormRequest>({
       query: payload => ({
-        url: '/auth/signin',
+        url: API.SIGNIN,
+        payload,
+      }),
+    }),
+    signup: builder.mutation<SignupFormResponse, SignupFormRequest>({
+      query: payload => ({
+        url: API.SIGNUP,
         payload,
       }),
     }),
   }),
 })
 
-export const { useLazySigninQuery } = authAPI
+export const { useLazySigninQuery, useSignupMutation } = authAPI
