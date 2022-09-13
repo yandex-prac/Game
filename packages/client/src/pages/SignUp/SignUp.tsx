@@ -9,7 +9,7 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
-import { PATHNAMES, validSignUp as validationSchema } from '@/utils'
+import { PATHNAMES, validSignUp } from '@/utils'
 import { UserAPI } from '@/services'
 import { useCustomIntl } from '@/hooks'
 
@@ -33,7 +33,7 @@ export const SignUp = () => {
           }
         })
       },
-      validationSchema,
+      validationSchema: validSignUp(),
     })
 
   return (

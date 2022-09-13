@@ -12,7 +12,7 @@ import {
   ProfileInput,
   Error,
 } from '@/components'
-import { validProfileEdit as validationSchema } from '@/utils'
+import { validProfileEdit } from '@/utils'
 import { useCustomIntl } from '@/hooks'
 
 export const ProfileEdit = memo(() => {
@@ -29,7 +29,7 @@ export const ProfileEdit = memo(() => {
       onSubmit: values => {
         console.log(values)
       },
-      validationSchema,
+      validationSchema: validProfileEdit(),
     })
   return (
     <BaseLayout>

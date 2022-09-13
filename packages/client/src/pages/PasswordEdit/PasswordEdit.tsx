@@ -12,7 +12,7 @@ import {
   ProfileForm,
   Error,
 } from '../../components'
-import { validPasswordEdit as validationSchema } from '../../utils'
+import { validPasswordEdit } from '../../utils'
 import { useCustomIntl } from '@/hooks'
 
 export const PasswordEdit = memo(() => {
@@ -26,7 +26,7 @@ export const PasswordEdit = memo(() => {
       onSubmit: values => {
         console.log(values)
       },
-      validationSchema,
+      validationSchema: validPasswordEdit(),
     })
   return (
     <BaseLayout>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import { InputGroup } from './StyledComponents'
-import { PATHNAMES, validSignIn as validationSchema } from '@/utils'
+import { PATHNAMES, validSignIn } from '@/utils'
 import {
   Input,
   Button,
@@ -23,7 +23,7 @@ export const SignIn = () => {
       onSubmit: values => {
         alert(values)
       },
-      validationSchema,
+      validationSchema: validSignIn(),
     })
 
   return (
