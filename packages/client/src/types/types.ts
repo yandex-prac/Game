@@ -8,4 +8,19 @@ type FormProps = {
   onSubmit: () => void
 }
 
-export type { ButtonEnum, DarkModeType, FormProps }
+type SigninFormRequest = {
+  login: string
+  password: string
+}
+
+type SigninFormResponse = {
+  reason?: string
+}
+
+export type {
+  ButtonEnum,
+  DarkModeType,
+  FormProps,
+  SigninFormRequest,
+  SigninFormResponse,
+}
