@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import { InputGroup } from './StyledComponents'
-import { CONTENT, PATHNAMES, validSignIn as validationSchema } from '@/utils'
+import { PATHNAMES, validSignIn as validationSchema } from '@/utils'
 import {
   Input,
   Button,
@@ -30,7 +30,7 @@ export const SignIn = () => {
   return (
     <AuthPage>
       <AuthLayout maxheight={450}>
-        <AuthTitle>{CONTENT.ENTER}</AuthTitle>
+        <AuthTitle>{`${intl.messages.ENTER || ''}`}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
@@ -58,9 +58,9 @@ export const SignIn = () => {
               }
             />
           </InputGroup>
-          <Button type="submit" text={`${intl.messages['AUTH'] || ''}`} />
+          <Button type="submit" text={`${intl.messages.AUTH || ''}`} />
           <Link
-            text={`${intl.messages['NO_ACCOUNT'] || ''}`}
+            text={`${intl.messages.NO_ACCOUNT || ''}`}
             to={PATHNAMES.SIGNUP}
           />
         </AuthForm>

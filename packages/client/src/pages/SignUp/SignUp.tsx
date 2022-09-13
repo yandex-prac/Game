@@ -40,7 +40,7 @@ export const SignUp = () => {
   return (
     <AuthPage>
       <AuthLayout maxheight={615}>
-        <AuthTitle>{`${intl.messages['REGISTER'] || ''}`}</AuthTitle>
+        <AuthTitle>{`${intl.messages.REGISTER || ''}`}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <Input
             label={'POST'}
@@ -103,11 +103,11 @@ export const SignUp = () => {
           />
           <AuthBtn
             type="submit"
-            text={`${intl.messages['MAKE_REGISTER'] || ''}`}
+            text={`${intl.messages.MAKE_REGISTER || ''}`}
             margintop={114}
           />
           <AuthLink
-            text={`${intl.messages['TO_LOGIN'] || ''}`}
+            text={`${intl.messages.TO_LOGIN || ''}`}
             to={PATHNAMES.SIGNIN}
           />
         </AuthForm>

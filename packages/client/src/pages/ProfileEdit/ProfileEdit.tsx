@@ -11,10 +11,12 @@ import {
   ProfileLabel,
   ProfileInput,
   Error,
-} from '../../components'
-import { CONTENT, validProfileEdit as validationSchema } from '../../utils'
+} from '@/components'
+import { validProfileEdit as validationSchema } from '@/utils'
+import { useIntl } from 'react-intl'
 
 export const ProfileEdit = memo(() => {
+  const intl = useIntl()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -37,7 +39,9 @@ export const ProfileEdit = memo(() => {
         <ProfileForm onSubmit={handleSubmit}>
           <ProfileUl>
             <ProfileLi>
-              <ProfileLabel htmlFor="mail">{CONTENT.MAIL}</ProfileLabel>
+              <ProfileLabel htmlFor="mail">
+                {`${intl.messages.MAIL || ''}`}
+              </ProfileLabel>
               <ProfileInput
                 id="mail"
                 name="mail"
@@ -49,7 +53,9 @@ export const ProfileEdit = memo(() => {
             {touched.mail && errors.mail && <Error>{errors.mail}</Error>}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="login">{CONTENT.LOGIN}</ProfileLabel>
+              <ProfileLabel htmlFor="login">
+                {`${intl.messages.LOGIN || ''}`}
+              </ProfileLabel>
               <ProfileInput
                 id="login"
                 name="login"
@@ -61,7 +67,9 @@ export const ProfileEdit = memo(() => {
             {touched.login && errors.login && <Error>{errors.login}</Error>}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="name">{CONTENT.NAME}</ProfileLabel>
+              <ProfileLabel htmlFor="name">
+                {`${intl.messages.NAME || ''}`}
+              </ProfileLabel>
               <ProfileInput
                 id="name"
                 name="name"
@@ -73,7 +81,9 @@ export const ProfileEdit = memo(() => {
             {touched.name && errors.name && <Error>{errors.name}</Error>}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="surname">{CONTENT.SURNAME}</ProfileLabel>
+              <ProfileLabel htmlFor="surname">
+                {`${intl.messages.SURNAME || ''}`}
+              </ProfileLabel>
               <ProfileInput
                 id="surname"
                 name="surname"
@@ -87,7 +97,9 @@ export const ProfileEdit = memo(() => {
             )}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="nickname">{CONTENT.NICKNAME}</ProfileLabel>
+              <ProfileLabel htmlFor="nickname">
+                {`${intl.messages.NICKNAME || ''}`}
+              </ProfileLabel>
               <ProfileInput
                 id="nickname"
                 name="nickname"
@@ -101,7 +113,9 @@ export const ProfileEdit = memo(() => {
             )}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="phone">{CONTENT.PHONE}</ProfileLabel>
+              <ProfileLabel htmlFor="phone">
+                {`${intl.messages.PHONE || ''}`}
+              </ProfileLabel>
               <ProfileInput
                 id="phone"
                 name="phone"
@@ -112,7 +126,7 @@ export const ProfileEdit = memo(() => {
             </ProfileLi>
             {touched.phone && errors.phone && <Error>{errors.phone}</Error>}
           </ProfileUl>
-          <Button type="submit" text={CONTENT.SAVE} />
+          <Button type="submit" text={`${intl.messages.SAVE || ''}`} />
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>
