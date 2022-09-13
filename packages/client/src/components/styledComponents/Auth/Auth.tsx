@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { FormProps } from '@/types'
-import { Button, Link } from '@/components'
 import variables from '@/Variables.module.scss'
 import { AuthLayoutProps } from './types'
 
@@ -36,8 +35,4 @@ const AuthForm = styled.form<FormProps>`
   flex-direction: column;
 `
 
-const AuthLink = styled(Link)`
-  text-align: center;
-`
-
-export { AuthPage, AuthLayout, AuthTitle, AuthForm, AuthLink }
+export { AuthPage, AuthLayout, AuthTitle, AuthForm }

@@ -5,7 +5,7 @@ import {
   Button,
   AuthForm,
   AuthLayout,
-  AuthLink,
+  Link,
   AuthPage,
   AuthTitle,
 } from '@/components'
@@ -105,7 +105,7 @@ export const SignUp = () => {
             text={useCustomIntl('MAKE_REGISTER')}
             margintop={114}
           />
-          <AuthLink text={useCustomIntl('TO_LOGIN')} to={PATHNAMES.SIGNIN} />
+          <Link text={useCustomIntl('TO_LOGIN')} to={PATHNAMES.SIGNIN} />
         </AuthForm>
       </AuthLayout>
     </AuthPage>
