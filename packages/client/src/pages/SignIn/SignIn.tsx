@@ -11,10 +11,9 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
-import { useIntl } from 'react-intl'
+import { useCustomIntl } from '@/hooks'
 
 export const SignIn = () => {
-  const intl = useIntl()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -30,7 +29,7 @@ export const SignIn = () => {
   return (
     <AuthPage>
       <AuthLayout maxheight={450}>
-        <AuthTitle>{`${intl.messages.ENTER || ''}`}</AuthTitle>
+        <AuthTitle>{useCustomIntl('ENTER')}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
@@ -58,11 +57,8 @@ export const SignIn = () => {
               }
             />
           </InputGroup>
-          <Button type="submit" text={`${intl.messages.AUTH || ''}`} />
-          <Link
-            text={`${intl.messages.NO_ACCOUNT || ''}`}
-            to={PATHNAMES.SIGNUP}
-          />
+          <Button type="submit" text={useCustomIntl('AUTH')} />
+          <Link text={useCustomIntl('NO_ACCOUNT')} to={PATHNAMES.SIGNUP} />
         </AuthForm>
       </AuthLayout>
     </AuthPage>

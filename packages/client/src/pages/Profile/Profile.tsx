@@ -12,50 +12,49 @@ import {
   ProfileLabel,
   ProfileSpan,
 } from './StyledComponents'
-import { useIntl } from 'react-intl'
+import { useCustomIntl } from '@/hooks'
 
 export const Profile = memo(() => {
-  const intl = useIntl()
   return (
     <BaseLayout>
       <ProfilePage>
         <ProfileImage />
-        <ProfileName>{`${intl.messages.NAME || ''}`}</ProfileName>
+        <ProfileName>{useCustomIntl('NAME')}</ProfileName>
         <ProfileUl>
           <ProfileLi>
-            <ProfileLabel>{`${intl.messages.MAIL || ''}`}</ProfileLabel>
+            <ProfileLabel>{useCustomIntl('MAIL')}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{`${intl.messages.LOGIN || ''}`}</ProfileLabel>
+            <ProfileLabel>{useCustomIntl('LOGIN')}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{`${intl.messages.NAME || ''}`}</ProfileLabel>
+            <ProfileLabel>{useCustomIntl('NAME')}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{`${intl.messages.SURNAME || ''}`}</ProfileLabel>
+            <ProfileLabel>{useCustomIntl('SURNAME')}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{`${intl.messages.NICKNAME || ''}`}</ProfileLabel>
+            <ProfileLabel>{useCustomIntl('NICKNAME')}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
           <ProfileLi>
-            <ProfileLabel>{`${intl.messages.PHONE || ''}`}</ProfileLabel>
+            <ProfileLabel>{useCustomIntl('PHONE')}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
         </ProfileUl>
         <ProfileGroupLink>
           <ProfileLink to={PATHNAMES.PROFILE_EDIT}>
-            {`${intl.messages.CHANGE_DATA || ''}`}
+            {useCustomIntl('CHANGE_DATA')}
           </ProfileLink>
           <ProfileLink to={PATHNAMES.PASSWORD_EDIT}>
-            {`${intl.messages.CHANGE_PASSWORD || ''}`}
+            {useCustomIntl('CHANGE_PASSWORD')}
           </ProfileLink>
           <ProfileLink to={PATHNAMES.SIGNIN}>
-            {`${intl.messages.QUIT || ''}`}
+            {useCustomIntl('QUIT')}
           </ProfileLink>
         </ProfileGroupLink>
       </ProfilePage>

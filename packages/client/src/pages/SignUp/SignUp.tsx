@@ -11,10 +11,9 @@ import {
 } from '@/components'
 import { PATHNAMES, validSignUp as validationSchema } from '@/utils'
 import { UserAPI } from '@/services'
-import { useIntl } from 'react-intl'
+import { useCustomIntl } from '@/hooks'
 
 export const SignUp = () => {
-  const intl = useIntl()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -40,7 +39,7 @@ export const SignUp = () => {
   return (
     <AuthPage>
       <AuthLayout maxheight={615}>
-        <AuthTitle>{`${intl.messages.REGISTER || ''}`}</AuthTitle>
+        <AuthTitle>{useCustomIntl('REGISTER')}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <Input
             label={'POST'}
@@ -103,13 +102,10 @@ export const SignUp = () => {
           />
           <AuthBtn
             type="submit"
-            text={`${intl.messages.MAKE_REGISTER || ''}`}
+            text={useCustomIntl('MAKE_REGISTER')}
             margintop={114}
           />
-          <AuthLink
-            text={`${intl.messages.TO_LOGIN || ''}`}
-            to={PATHNAMES.SIGNIN}
-          />
+          <AuthLink text={useCustomIntl('TO_LOGIN')} to={PATHNAMES.SIGNIN} />
         </AuthForm>
       </AuthLayout>
     </AuthPage>

@@ -13,10 +13,9 @@ import {
   Error,
 } from '@/components'
 import { validProfileEdit as validationSchema } from '@/utils'
-import { useIntl } from 'react-intl'
+import { useCustomIntl } from '@/hooks'
 
 export const ProfileEdit = memo(() => {
-  const intl = useIntl()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -40,7 +39,7 @@ export const ProfileEdit = memo(() => {
           <ProfileUl>
             <ProfileLi>
               <ProfileLabel htmlFor="mail">
-                {`${intl.messages.MAIL || ''}`}
+                {useCustomIntl('MAIL')}
               </ProfileLabel>
               <ProfileInput
                 id="mail"
@@ -54,7 +53,7 @@ export const ProfileEdit = memo(() => {
 
             <ProfileLi>
               <ProfileLabel htmlFor="login">
-                {`${intl.messages.LOGIN || ''}`}
+                {useCustomIntl('LOGIN')}
               </ProfileLabel>
               <ProfileInput
                 id="login"
@@ -68,7 +67,7 @@ export const ProfileEdit = memo(() => {
 
             <ProfileLi>
               <ProfileLabel htmlFor="name">
-                {`${intl.messages.NAME || ''}`}
+                {useCustomIntl('NAME')}
               </ProfileLabel>
               <ProfileInput
                 id="name"
@@ -82,7 +81,7 @@ export const ProfileEdit = memo(() => {
 
             <ProfileLi>
               <ProfileLabel htmlFor="surname">
-                {`${intl.messages.SURNAME || ''}`}
+                {useCustomIntl('SURNAME')}
               </ProfileLabel>
               <ProfileInput
                 id="surname"
@@ -98,7 +97,7 @@ export const ProfileEdit = memo(() => {
 
             <ProfileLi>
               <ProfileLabel htmlFor="nickname">
-                {`${intl.messages.NICKNAME || ''}`}
+                {useCustomIntl('NICKNAME')}
               </ProfileLabel>
               <ProfileInput
                 id="nickname"
@@ -114,7 +113,7 @@ export const ProfileEdit = memo(() => {
 
             <ProfileLi>
               <ProfileLabel htmlFor="phone">
-                {`${intl.messages.PHONE || ''}`}
+                {useCustomIntl('PHONE')}
               </ProfileLabel>
               <ProfileInput
                 id="phone"
@@ -126,7 +125,7 @@ export const ProfileEdit = memo(() => {
             </ProfileLi>
             {touched.phone && errors.phone && <Error>{errors.phone}</Error>}
           </ProfileUl>
-          <Button type="submit" text={`${intl.messages.SAVE || ''}`} />
+          <Button type="submit" text={useCustomIntl('SAVE')} />
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>
