@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import variables from '../../../Variables.module.scss'
+import variables from '@/Variables.module.scss'
 import { ItemProps } from './types'
-import { DarkModeType } from '../../../types'
+import { DarkModeType } from '@/types'
 
 const Item = styled.li<ItemProps & DarkModeType>`
   list-style: none;

@@ -11,10 +11,10 @@ import {
   Forum,
   LeaderBoard,
   PageError,
-} from '../../../pages'
+} from '@/pages'
 import { Wrap } from './StyledComponents'
-import { ThemeContext } from '../../../context'
-import { PATHNAMES, CONTENT } from '../../../utils'
+import { ThemeContext } from '@/context'
+import { PATHNAMES, CONTENT } from '@/utils'
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false)

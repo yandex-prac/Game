@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { BaseLayout } from '../../components'
+import { BaseLayout } from '@/components'
 
 export const Main = memo(() => {
   return (

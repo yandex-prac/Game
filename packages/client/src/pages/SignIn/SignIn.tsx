@@ -1,6 +1,8 @@
 import React from 'react'
 import { useFormik } from 'formik'
+import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
+import { CONTENT, PATHNAMES, validSignIn as validationSchema } from '@/utils'
 import {
   Input,
   Button,
@@ -9,12 +11,7 @@ import {
   AuthLayout,
   AuthPage,
   AuthTitle,
-} from '../../components'
-import {
-  CONTENT,
-  PATHNAMES,
-  validSignIn as validationSchema,
-} from '../../utils'
+} from '@/components'
 
 export const SignIn = () => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =

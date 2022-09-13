@@ -8,26 +8,30 @@ import {
   AuthLink,
   AuthPage,
   AuthTitle,
-} from '../../components'
-import {
-  CONTENT,
-  PATHNAMES,
-  validSignUp as validationSchema,
-} from '../../utils'
+} from '@/components'
+import * as yup from 'yup'
+import { CONTENT, PATHNAMES,  validSignUp as validationSchema } from '@/utils'
+import { UserAPI } from '../../services'
 
 export function SignUp() {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
-        post: '',
+        email: '',
         login: '',
-        name: '',
-        surname: '',
+        first_name: '',
+        second_name: '',
         phone: '',
         password: '',
       },
-      onSubmit: values => {
-        alert(JSON.stringify(values, null, 2))
+      onSubmit: (values, actions) => {
+        UserAPI.signup(values).catch(error => {
+          if (error.response.data.reason === 'Login already exists') {
+            actions.setErrors({
+              login: 'Пользователь с таким логином уже зарегистрирован',
+            })
+          }
+        })
       },
       validationSchema,
     })
@@ -39,11 +43,11 @@ export function SignUp() {
         <AuthForm onSubmit={handleSubmit}>
           <Input
             label={CONTENT.POST}
-            value={values.post}
-            name="post"
+            value={values.email}
+            name="email"
             onChange={handleChange}
             onBlur={handleBlur}
-            error={touched.post && errors.post ? errors.post : undefined}
+            error={touched.email && errors.email ? errors.email : undefined}
           />
           <Input
             label={CONTENT.LOGIN}
@@ -55,20 +59,26 @@ export function SignUp() {
           />
           <Input
             label={CONTENT.NAME}
-            value={values.name}
-            name="name"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={touched.name && errors.name ? errors.name : undefined}
-          />
-          <Input
-            label={CONTENT.SURNAME}
-            value={values.surname}
-            name="surname"
+            value={values.first_name}
+            name="first_name"
             onChange={handleChange}
             onBlur={handleBlur}
             error={
-              touched.surname && errors.surname ? errors.surname : undefined
+              touched.first_name && errors.first_name
+                ? errors.first_name
+                : undefined
+            }
+          />
+          <Input
+            label={CONTENT.SURNAME}
+            value={values.second_name}
+            name="second_name"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={
+              touched.second_name && errors.second_name
+                ? errors.second_name
+                : undefined
             }
           />
           <Input
