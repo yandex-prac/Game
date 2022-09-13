@@ -12,17 +12,18 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
+import { useLazySigninQuery } from '@/store/services/authService'
 
 export const SignIn = () => {
+  const [signin, signinResponse] = useLazySigninQuery()
+
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
         login: '',
         password: '',
       },
-      onSubmit: values => {
-        alert(values)
-      },
+      onSubmit: values => signin(values),
       validationSchema: yup.object({
         login: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
         password: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
