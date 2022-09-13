@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormik } from 'formik'
 import {
   Input,
-  AuthBtn,
+  Button,
   AuthForm,
   AuthLayout,
   AuthLink,
@@ -100,7 +100,7 @@ export const SignUp = () => {
               touched.password && errors.password ? errors.password : undefined
             }
           />
-          <AuthBtn
+          <Button
             type="submit"
             text={useCustomIntl('MAKE_REGISTER')}
             margintop={114}
