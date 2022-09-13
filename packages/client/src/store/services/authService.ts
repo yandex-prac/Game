@@ -4,6 +4,7 @@ import { API } from '@/utils'
 export const authAPI = createApi({
   reducerPath: 'authAPI',
   baseQuery: fetchBaseQuery({ baseUrl: API.API_BASE_URL }),
+  tagTypes: [],
   endpoints: builder => ({
     signin: builder.query<any, any>({
       query: payload => ({
