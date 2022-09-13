@@ -1,0 +1,1 @@
+export { useCustomIntl } from './useCustomIntl'
