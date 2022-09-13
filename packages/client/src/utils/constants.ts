@@ -57,6 +57,7 @@ const API = {
   // auth
   SIGNIN: '/auth/signin',
   SIGNUP: '/auth/signup',
+  SIGNOUT: '/auth/logout',
 }
 
 export { CONTENT, PATHNAMES, API }

@@ -23,6 +23,9 @@ export const authAPI = createApi({
         payload,
       }),
     }),
+    signout: builder.query({
+      query: () => API.SIGNUP,
+    }),
   }),
 })
 
