@@ -12,7 +12,7 @@ import {
 import {
   CONTENT,
   PATHNAMES,
-  validSignIn as validationSchema,
+  validSignUp as validationSchema,
 } from '../../utils'
 
 export function SignUp() {
