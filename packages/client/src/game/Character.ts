@@ -4,7 +4,7 @@ export enum Direction {
   Up,
   Right,
   Down,
-  Left
+  Left,
 }
 
 export class Character extends GameObject {
@@ -12,20 +12,20 @@ export class Character extends GameObject {
     switch (direction) {
       case Direction.Down:
       case Direction.Right:
-        return 1;
+        return 1
       case Direction.Up:
       case Direction.Left:
-        return -1;
+        return -1
     }
   }
 
-  protected direction: Direction = Direction.Up;
+  protected direction: Direction = Direction.Up
 
   move() {
-    if(this.direction === Direction.Up || this.direction === Direction.Down) {
-      this.position.y += Character.directionMultiplier(this.direction);
+    if (this.direction === Direction.Up || this.direction === Direction.Down) {
+      this.position.y += Character.directionMultiplier(this.direction)
     } else {
-      this.position.x += Character.directionMultiplier(this.direction);
+      this.position.x += Character.directionMultiplier(this.direction)
     }
   }
 }

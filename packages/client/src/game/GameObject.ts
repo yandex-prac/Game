@@ -1,45 +1,43 @@
 export type Coordinates = {
-  x: number,
+  x: number
   y: number
 }
 
 export type GameObjectProps = {
-  size: Size,
   startPosition: Coordinates
 }
 
-export type Size = {
-  width: number,
-  height: number
-}
-
 export class GameObject {
-  protected position: Coordinates;
+  protected position: Coordinates
 
-  readonly size: Size;
+  readonly cellSize: number
 
-  constructor(props: GameObjectProps) {
-    this.position = props.startPosition;
-    this.size = props.size;
+  constructor(props: GameObjectProps, cellSize: number) {
+    this.position = props.startPosition
+    this.cellSize = cellSize
   }
 
-  get bottom() {
-    return this.position.y + this.size.height / 2;
+  get bottom(): number {
+    return this.position.y + this.cellSize
   }
 
-  get left() {
-    return this.position.x - this.size.width / 2;
+  get left(): number {
+    return this.position.x
   }
 
-  get right() {
-    return this.position.x + this.size.width / 2;
+  get right(): number {
+    return this.position.x + this.cellSize
   }
 
-  get top() {
-    return this.position.y - this.size.height / 2;
+  get sprite(): HTMLImageElement | undefined {
+    return
+  }
+
+  get top(): number {
+    return this.position.y
   }
 
   update(...args: any[]): void {
-    return;
+    return
   }
 }
