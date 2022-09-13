@@ -82,7 +82,7 @@ const validProfileEdit = () =>
 
 const validSignUp = () =>
   yup.object({
-    post: yup
+    email: yup
       .string()
       .email(useCustomIntl('POST_INCORRECT'))
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
@@ -94,11 +94,11 @@ const validSignUp = () =>
         useCustomIntl('FORBIDDEN_SYMBOL')
       )
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
-    name: yup
+    first_name: yup
       .string()
       .matches(/^[A-ZА-Я][a-zа-я-]+$/, useCustomIntl('FORBIDDEN_SYMBOL'))
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
-    surname: yup
+    second_name: yup
       .string()
       .matches(/^[A-ZА-Я][a-zа-я-]+$/, useCustomIntl('FORBIDDEN_SYMBOL'))
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
