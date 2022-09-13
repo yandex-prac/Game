@@ -1,19 +1,38 @@
 import { World } from './World'
-import { Character, Direction } from './Character'
+import { Character } from './Character'
+import { Direction } from '@/game/types'
+import pacman from '@/image/gameSprites/pacman.svg'
 
 export class Pacman extends Character {
-  update(world: World, direction: Direction | undefined): void {
-    if(direction) {
-      this.direction = direction;
+  protected futureDirection: Direction | undefined = undefined
+
+  get sprite(): HTMLImageElement {
+    const img = document.createElement('img')
+
+    img.src = pacman
+
+    return img
+  }
+
+  update(world: World, direction?: Direction): void {
+    if (direction) {
+      if (this.checkGrid(direction)) {
+        this.direction = direction
+      } else {
+        this.futureDirection = direction
+      }
+    } else if (this.futureDirection && this.checkGrid(this.futureDirection)) {
+      this.direction = this.futureDirection
+      this.futureDirection = undefined
     }
 
-    this.move();
+    this.move()
 
-    const collisions = world.getCollisions(this);
+    const collisions = world.getCollisions(this)
 
-/*    if() {
-      this.direction = Character.directionMultiplier(this.direction) * (-1);
-    }*/
+    if (collisions.size) {
+      this.move(Character.oppositeDirection(this.direction))
+    }
 
     // TODO: collision with other objects
   }

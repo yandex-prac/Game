@@ -1,45 +1,48 @@
-export type Coordinates = {
-  x: number,
-  y: number
-}
-
-export type GameObjectProps = {
-  size: Size,
-  startPosition: Coordinates
-}
-
-export type Size = {
-  width: number,
-  height: number
-}
+import { GameObjectProps, Coordinates, Size } from '@/game/types'
 
 export class GameObject {
-  protected position: Coordinates;
-
-  readonly size: Size;
+  protected _isCollisional = true
+  protected position: Coordinates
+  private readonly size: Size
 
   constructor(props: GameObjectProps) {
-    this.position = props.startPosition;
-    this.size = props.size;
+    this.position = props.startPosition
+    this.size = props.size
   }
 
-  get bottom() {
-    return this.position.y + this.size.height / 2;
+  get bottom(): number {
+    return this.position.y + this.size.height
   }
 
-  get left() {
-    return this.position.x - this.size.width / 2;
+  get isCollisional(): boolean {
+    return this._isCollisional
   }
 
-  get right() {
-    return this.position.x + this.size.width / 2;
+  get height(): number {
+    return this.size.height
   }
 
-  get top() {
-    return this.position.y - this.size.height / 2;
+  get left(): number {
+    return this.position.x
+  }
+
+  get right(): number {
+    return this.position.x + this.width
+  }
+
+  get sprite(): HTMLImageElement | undefined {
+    return
+  }
+
+  get top(): number {
+    return this.position.y
+  }
+
+  get width(): number {
+    return this.size.width
   }
 
   update(...args: any[]): void {
-    return;
+    return
   }
 }
