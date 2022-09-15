@@ -1,7 +1,7 @@
 import { Axios } from './Axios'
-import { API, PATHNAMES } from '../../utils/constants'
+import { API, PATHNAMES } from '@/utils'
 import { SignUpPayload } from './types'
-import { useNavigateCustom } from './hooks'
+import { useNavigateCustom } from '@/hooks'
 
 export class UserAPI {
   static signup(props: SignUpPayload) {

@@ -68,7 +68,10 @@ const CONTENT = {
 const API = {
   API_BASE_URL: 'https://ya-praktikum.tech/api/v2',
   // auth
+  SIGNIN: '/auth/signin',
   SIGNUP: '/auth/signup',
+  SIGNOUT: '/auth/logout',
+  GET_USER_INFO: '/auth/user',
 }
 
 export { CONTENT, PATHNAMES, API }
