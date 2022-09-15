@@ -91,7 +91,11 @@ export const SignUp = () => {
               touched.password && errors.password ? errors.password : undefined
             }
           />
-          <Button type="submit" textIntl="MAKE_REGISTER" margintop={114} />
+          <Button
+            type="submit"
+            textIntl="MAKE_REGISTER"
+            style={{ marginTop: '114px' }}
+          />
           <Link textIntl="TO_LOGIN" to={PATHNAMES.SIGNIN} />
         </AuthForm>
       </AuthLayout>

@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 import variables from '@/Variables.module.scss'
-import { ButtonProps } from './types'
 
-export const StyledButton = styled.button<ButtonProps>`
+export const StyledButton = styled.button`
   width: 280px;
   height: 37px;
-  margin-top: ${({ margintop }) => margintop}px;
   margin-bottom: 14px;
   color: ${variables.white000};
   background-color: ${variables.blue000};
