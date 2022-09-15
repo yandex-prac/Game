@@ -12,8 +12,11 @@ import {
   AuthTitle,
 } from '@/components'
 import { useCustomIntl } from '@/hooks'
+import { useLazySigninQuery } from '@/store/services/authService'
 
 export const SignIn = () => {
+  const [signin, signinResponse] = useLazySigninQuery()
+
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
