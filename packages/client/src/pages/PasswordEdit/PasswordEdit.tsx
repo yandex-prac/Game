@@ -11,8 +11,9 @@ import {
   ProfileLabel,
   ProfileForm,
   Error,
-} from '../../components'
-import { CONTENT, validPasswordEdit as validationSchema } from '../../utils'
+} from '@/components'
+import { validPasswordEdit } from '@/utils'
+import { useCustomIntl } from '@/hooks'
 
 export const PasswordEdit = memo(() => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -25,7 +26,7 @@ export const PasswordEdit = memo(() => {
       onSubmit: values => {
         console.log(values)
       },
-      validationSchema,
+      validationSchema: validPasswordEdit(),
     })
   return (
     <BaseLayout>
@@ -35,7 +36,7 @@ export const PasswordEdit = memo(() => {
           <ProfileUl>
             <ProfileLi>
               <ProfileLabel htmlFor="oldPassword">
-                {CONTENT.OLD_PASSWORD}
+                {useCustomIntl('OLD_PASSWORD')}
               </ProfileLabel>
               <ProfileInput
                 id="oldPassword"
@@ -52,7 +53,7 @@ export const PasswordEdit = memo(() => {
 
             <ProfileLi>
               <ProfileLabel htmlFor="password">
-                {CONTENT.NEW_PASSWORD}
+                {useCustomIntl('NEW_PASSWORD')}
               </ProfileLabel>
               <ProfileInput
                 id="password"
@@ -69,7 +70,7 @@ export const PasswordEdit = memo(() => {
 
             <ProfileLi>
               <ProfileLabel htmlFor="repeatPassword">
-                {CONTENT.REPEAT_PASSWORD}
+                {useCustomIntl('REPEAT_PASSWORD')}
               </ProfileLabel>
               <ProfileInput
                 id="repeatPassword"
@@ -84,7 +85,7 @@ export const PasswordEdit = memo(() => {
               <Error>{errors.repeatPassword}</Error>
             )}
           </ProfileUl>
-          <Button type="submit" text={CONTENT.SAVE} />
+          <Button type="submit" textIntl="SAVE" />
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>

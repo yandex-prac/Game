@@ -12,7 +12,7 @@ const PATHNAMES = {
   ERROR_404: '/error404',
 }
 
-const CONTENT = {
+const CONTENT_RU = {
   PAGE_NOT_FOUND_TITLE: '404',
   PAGE_NOT_FOUND_SUBTITLE: 'Не туда попали',
   LOGO_ALT: 'Логотип игры pacman',
@@ -74,4 +74,4 @@ const API = {
   GET_USER_INFO: '/auth/user',
 }
 
-export { CONTENT, PATHNAMES, API }
+export { CONTENT_RU, PATHNAMES, API }

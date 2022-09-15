@@ -14,7 +14,7 @@ import {
 } from '@/pages'
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '@/context'
-import { PATHNAMES, CONTENT } from '@/utils'
+import { PATHNAMES } from '@/utils'
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false)
@@ -39,8 +39,8 @@ export const App = () => {
               path={PATHNAMES.PATH_NOT_FOUND}
               element={
                 <PageError
-                  title={CONTENT.PAGE_NOT_FOUND_TITLE}
-                  subtitle={CONTENT.PAGE_NOT_FOUND_SUBTITLE}
+                  titleIntl="PAGE_NOT_FOUND_TITLE"
+                  subtitleIntl="PAGE_NOT_FOUND_SUBTITLE"
                   href={PATHNAMES.SIGNIN}
                 />
               }

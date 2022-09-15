@@ -11,8 +11,9 @@ import {
   ProfileLabel,
   ProfileInput,
   Error,
-} from '../../components'
-import { CONTENT, validProfileEdit as validationSchema } from '../../utils'
+} from '@/components'
+import { validProfileEdit } from '@/utils'
+import { useCustomIntl } from '@/hooks'
 
 export const ProfileEdit = memo(() => {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -28,7 +29,7 @@ export const ProfileEdit = memo(() => {
       onSubmit: values => {
         console.log(values)
       },
-      validationSchema,
+      validationSchema: validProfileEdit(),
     })
   return (
     <BaseLayout>
@@ -37,7 +38,9 @@ export const ProfileEdit = memo(() => {
         <ProfileForm onSubmit={handleSubmit}>
           <ProfileUl>
             <ProfileLi>
-              <ProfileLabel htmlFor="mail">{CONTENT.MAIL}</ProfileLabel>
+              <ProfileLabel htmlFor="mail">
+                {useCustomIntl('MAIL')}
+              </ProfileLabel>
               <ProfileInput
                 id="mail"
                 name="mail"
@@ -49,7 +52,9 @@ export const ProfileEdit = memo(() => {
             {touched.mail && errors.mail && <Error>{errors.mail}</Error>}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="login">{CONTENT.LOGIN}</ProfileLabel>
+              <ProfileLabel htmlFor="login">
+                {useCustomIntl('LOGIN')}
+              </ProfileLabel>
               <ProfileInput
                 id="login"
                 name="login"
@@ -61,7 +66,9 @@ export const ProfileEdit = memo(() => {
             {touched.login && errors.login && <Error>{errors.login}</Error>}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="name">{CONTENT.NAME}</ProfileLabel>
+              <ProfileLabel htmlFor="name">
+                {useCustomIntl('NAME')}
+              </ProfileLabel>
               <ProfileInput
                 id="name"
                 name="name"
@@ -73,7 +80,9 @@ export const ProfileEdit = memo(() => {
             {touched.name && errors.name && <Error>{errors.name}</Error>}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="surname">{CONTENT.SURNAME}</ProfileLabel>
+              <ProfileLabel htmlFor="surname">
+                {useCustomIntl('SURNAME')}
+              </ProfileLabel>
               <ProfileInput
                 id="surname"
                 name="surname"
@@ -87,7 +96,9 @@ export const ProfileEdit = memo(() => {
             )}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="nickname">{CONTENT.NICKNAME}</ProfileLabel>
+              <ProfileLabel htmlFor="nickname">
+                {useCustomIntl('NICKNAME')}
+              </ProfileLabel>
               <ProfileInput
                 id="nickname"
                 name="nickname"
@@ -101,7 +112,9 @@ export const ProfileEdit = memo(() => {
             )}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="phone">{CONTENT.PHONE}</ProfileLabel>
+              <ProfileLabel htmlFor="phone">
+                {useCustomIntl('PHONE')}
+              </ProfileLabel>
               <ProfileInput
                 id="phone"
                 name="phone"
@@ -112,7 +125,7 @@ export const ProfileEdit = memo(() => {
             </ProfileLi>
             {touched.phone && errors.phone && <Error>{errors.phone}</Error>}
           </ProfileUl>
-          <Button type="submit" text={CONTENT.SAVE} />
+          <Button type="submit" textIntl="SAVE" />
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>

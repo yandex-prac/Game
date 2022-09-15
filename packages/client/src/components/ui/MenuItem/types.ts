@@ -1,7 +1,7 @@
 type MenuItemProps = {
   href?: string
   icon: JSX.Element
-  text: string
+  textIntl: string
   onClick?: () => void
 }
 
