@@ -8,12 +8,12 @@ type FormProps = {
   onSubmit: () => void
 }
 
-type SigninFormRequest = {
+type SigninDTO = {
   login: string
   password: string
 }
 
-type SigninFormResponse = {
+type SigninResponseDTO = {
   reason?: string
 }
 
@@ -26,7 +26,7 @@ type UserInfoDTO = {
   phone: string
 }
 
-type SignupFormResponse = {
+type SignupResponseDTO = {
   reason?: string
   id?: number
 }
@@ -35,8 +35,8 @@ export type {
   ButtonEnum,
   DarkModeType,
   FormProps,
-  SigninFormRequest,
-  SigninFormResponse,
+  SigninDTO,
+  SigninResponseDTO,
   UserInfoDTO,
-  SignupFormResponse,
+  SignupResponseDTO,
 }
