@@ -9,9 +9,7 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
-import * as yup from 'yup'
-import { CONTENT, PATHNAMES,  validSignUp as validationSchema } from '@/utils'
-import { UserAPI } from '../../services'
+import { CONTENT, PATHNAMES, validSignUp as validationSchema } from '@/utils'
 
 export function SignUp() {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -24,15 +22,7 @@ export function SignUp() {
         phone: '',
         password: '',
       },
-      onSubmit: (values, actions) => {
-        UserAPI.signup(values).catch(error => {
-          if (error.response.data.reason === 'Login already exists') {
-            actions.setErrors({
-              login: 'Пользователь с таким логином уже зарегистрирован',
-            })
-          }
-        })
-      },
+      onSubmit: (values, actions) => console.log(values),
       validationSchema,
     })
 
