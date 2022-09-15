@@ -1,6 +1,6 @@
 type PageErrorProps = {
-  title: string
-  subtitle: string
+  titleIntl: string
+  subtitleIntl: string
   href: string
 }
 

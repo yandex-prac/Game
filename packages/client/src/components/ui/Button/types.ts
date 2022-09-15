@@ -2,7 +2,7 @@ import { ButtonEnum } from '@/types'
 
 type StyledButtonProps = {
   type: ButtonEnum
-  text: string
+  textIntl: string
   margintop?: number
   onClick?: () => void
 }

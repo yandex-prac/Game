@@ -125,7 +125,7 @@ export const ProfileEdit = memo(() => {
             </ProfileLi>
             {touched.phone && errors.phone && <Error>{errors.phone}</Error>}
           </ProfileUl>
-          <Button type="submit" text={'SAVE'} />
+          <Button type="submit" textIntl="SAVE" />
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>

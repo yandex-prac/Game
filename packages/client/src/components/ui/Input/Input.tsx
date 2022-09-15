@@ -8,7 +8,7 @@ export const Input = ({
   onChange,
   value,
   type = 'text',
-  label,
+  labelIntl,
   error,
   ...props
 }: InputProps) => {
@@ -32,7 +32,7 @@ export const Input = ({
           value={value}
           {...props}
         />
-        <Label label={useCustomIntl(label)} />
+        <Label label={useCustomIntl(labelIntl)} />
       </Wrapper>
       {error ? <Error>{error}</Error> : null}
     </>

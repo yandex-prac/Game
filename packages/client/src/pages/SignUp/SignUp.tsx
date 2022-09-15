@@ -10,7 +10,6 @@ import {
   AuthTitle,
 } from '@/components'
 import { PATHNAMES, validSignUp } from '@/utils'
-import { UserAPI } from '@/services'
 import { useCustomIntl } from '@/hooks'
 
 export const SignUp = () => {
@@ -24,15 +23,7 @@ export const SignUp = () => {
         phone: '',
         password: '',
       },
-      onSubmit: (values, actions) => {
-        UserAPI.signup(values).catch(error => {
-          if (error.response.data.reason === 'Login already exists') {
-            actions.setErrors({
-              login: 'Пользователь с таким логином уже зарегистрирован',
-            })
-          }
-        })
-      },
+      onSubmit: (values, actions) => console.log(values),
       validationSchema: validSignUp(),
     })
 
@@ -42,7 +33,7 @@ export const SignUp = () => {
         <AuthTitle>{useCustomIntl('REGISTER')}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <Input
-            label={'POST'}
+            labelIntl="POST"
             value={values.email}
             name="email"
             onChange={handleChange}
@@ -50,7 +41,7 @@ export const SignUp = () => {
             error={touched.email && errors.email ? errors.email : undefined}
           />
           <Input
-            label={'LOGIN'}
+            labelIntl="LOGIN"
             value={values.login}
             name="login"
             onChange={handleChange}
@@ -58,7 +49,7 @@ export const SignUp = () => {
             error={touched.login && errors.login ? errors.login : undefined}
           />
           <Input
-            label={'NAME'}
+            labelIntl="NAME"
             value={values.first_name}
             name="first_name"
             onChange={handleChange}
@@ -70,7 +61,7 @@ export const SignUp = () => {
             }
           />
           <Input
-            label={'SURNAME'}
+            labelIntl="SURNAME"
             value={values.second_name}
             name="second_name"
             onChange={handleChange}
@@ -82,7 +73,7 @@ export const SignUp = () => {
             }
           />
           <Input
-            label={'PHONE'}
+            labelIntl="PHONE"
             value={values.phone}
             name="phone"
             onChange={handleChange}
@@ -90,7 +81,7 @@ export const SignUp = () => {
             error={touched.phone && errors.phone ? errors.phone : undefined}
           />
           <Input
-            label={'PASSWORD'}
+            labelIntl="PASSWORD"
             value={values.password}
             name="password"
             type="password"
@@ -100,8 +91,8 @@ export const SignUp = () => {
               touched.password && errors.password ? errors.password : undefined
             }
           />
-          <Button type="submit" text={'MAKE_REGISTER'} margintop={114} />
-          <Link text={'TO_LOGIN'} to={PATHNAMES.SIGNIN} />
+          <Button type="submit" textIntl="MAKE_REGISTER" margintop={114} />
+          <Link textIntl="TO_LOGIN" to={PATHNAMES.SIGNIN} />
         </AuthForm>
       </AuthLayout>
     </AuthPage>

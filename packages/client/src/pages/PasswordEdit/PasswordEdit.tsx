@@ -11,8 +11,8 @@ import {
   ProfileLabel,
   ProfileForm,
   Error,
-} from '../../components'
-import { validPasswordEdit } from '../../utils'
+} from '@/components'
+import { validPasswordEdit } from '@/utils'
 import { useCustomIntl } from '@/hooks'
 
 export const PasswordEdit = memo(() => {
@@ -85,7 +85,7 @@ export const PasswordEdit = memo(() => {
               <Error>{errors.repeatPassword}</Error>
             )}
           </ProfileUl>
-          <Button type="submit" text={'SAVE'} />
+          <Button type="submit" textIntl="SAVE" />
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>

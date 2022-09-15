@@ -39,8 +39,8 @@ export const App = () => {
               path={PATHNAMES.PATH_NOT_FOUND}
               element={
                 <PageError
-                  title={'PAGE_NOT_FOUND_TITLE'}
-                  subtitle={'PAGE_NOT_FOUND_SUBTITLE'}
+                  titleIntl="PAGE_NOT_FOUND_TITLE"
+                  subtitleIntl="PAGE_NOT_FOUND_SUBTITLE"
                   href={PATHNAMES.SIGNIN}
                 />
               }

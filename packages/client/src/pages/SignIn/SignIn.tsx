@@ -33,7 +33,7 @@ export const SignIn = () => {
         <AuthForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
-              label={'LOGIN'}
+              labelIntl="LOGIN"
               value={values.login}
               type="text"
               name="login"
@@ -44,7 +44,7 @@ export const SignIn = () => {
           </InputGroup>
           <InputGroup lastGroup>
             <Input
-              label={'PASSWORD'}
+              labelIntl="PASSWORD"
               value={values.password}
               type="password"
               name="password"
@@ -57,8 +57,8 @@ export const SignIn = () => {
               }
             />
           </InputGroup>
-          <Button type="submit" text={'AUTH'} />
-          <Link text={'NO_ACCOUNT'} to={PATHNAMES.SIGNUP} />
+          <Button type="submit" textIntl="AUTH" />
+          <Link textIntl="NO_ACCOUNT" to={PATHNAMES.SIGNUP} />
         </AuthForm>
       </AuthLayout>
     </AuthPage>
