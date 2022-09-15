@@ -4,13 +4,14 @@ import world from './worldConfig'
 import { Direction } from './types'
 
 export class Game {
-  private readonly canvas: HTMLCanvasElement
+  private readonly _canvas: HTMLCanvasElement
+  private _isStopped = false
   private direction: Direction | undefined
   private view: View | undefined
   private world: World | undefined
 
   constructor(canvas: HTMLCanvasElement) {
-    this.canvas = canvas
+    this._canvas = canvas
 
     // todo: старт по кнопке
     this.start()
@@ -39,14 +40,24 @@ export class Game {
 
     this.direction = undefined
 
+    if (this._isStopped) {
+      return
+    }
+
     requestAnimationFrame(this.loop)
   }
 
   start() {
     this.world = new World(world)
-    this.view = new View(this.canvas)
+    this.view = new View(this._canvas)
 
     document.addEventListener('keydown', this.keyUp)
+
+    this.world.on('pointsEnded', () => {
+      this._isStopped = true
+
+      console.log('game ended')
+    })
 
     requestAnimationFrame(this.loop)
   }

@@ -2,17 +2,14 @@ import { World } from './World'
 import { Character } from './Character'
 import { Direction } from '@/game/types'
 import pacman from '@/image/gameSprites/pacman.svg'
+import { GameObject } from '@/game/GameObject'
+import { Wall } from '@/game/Wall'
+import { Point } from '@/game/Point'
 
 export class Pacman extends Character {
   protected futureDirection: Direction | undefined = undefined
 
-  get sprite(): HTMLImageElement {
-    const img = document.createElement('img')
-
-    img.src = pacman
-
-    return img
-  }
+  _sprite = pacman
 
   update(world: World, direction?: Direction): void {
     if (direction) {
@@ -31,9 +28,13 @@ export class Pacman extends Character {
     const collisions = world.getCollisions(this)
 
     if (collisions.size) {
-      this.move(Character.oppositeDirection(this.direction))
+      collisions.forEach((object: GameObject) => {
+        if (object instanceof Wall) {
+          this.move(Character.oppositeDirection(this.direction))
+        } else if (object instanceof Point) {
+          this.emit('eatPoint', object)
+        }
+      })
     }
-
-    // TODO: collision with other objects
   }
 }

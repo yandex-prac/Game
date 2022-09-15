@@ -1,11 +1,16 @@
 import { GameObjectProps, Coordinates, Size } from '@/game/types'
+import { EventBus } from '@/game/EventBus'
 
-export class GameObject {
+export class GameObject extends EventBus {
   protected _isCollisional = true
+  protected _sprite: string | undefined
   protected position: Coordinates
+  private _img: HTMLImageElement | undefined
   private readonly size: Size
 
   constructor(props: GameObjectProps) {
+    super()
+
     this.position = props.startPosition
     this.size = props.size
   }
@@ -31,6 +36,16 @@ export class GameObject {
   }
 
   get sprite(): HTMLImageElement | undefined {
+    if (!this._img && this._sprite) {
+      this._img = document.createElement('img')
+
+      this._img.src = this._sprite
+    }
+
+    return this._img
+  }
+
+  get spriteAngle(): number | undefined {
     return
   }
 

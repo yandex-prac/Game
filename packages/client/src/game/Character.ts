@@ -46,6 +46,19 @@ export class Character extends GameObject {
     return this._speed
   }
 
+  get spriteAngle(): number {
+    switch (this.direction) {
+      case Direction.Up:
+        return 270
+      case Direction.Right:
+        return 0
+      case Direction.Down:
+        return 90
+      case Direction.Left:
+        return 180
+    }
+  }
+
   checkGrid(direction: Direction): boolean {
     switch (direction) {
       case Direction.Up:

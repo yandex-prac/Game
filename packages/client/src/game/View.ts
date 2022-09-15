@@ -17,13 +17,25 @@ export class View {
     this._context.clearRect(0, 0, this._canvas.width, this._canvas.height)
 
     for (const object of world.objects) {
-      const { sprite, left, top, width, height } = object
+      const { sprite, left, top, width, height, spriteAngle } = object
 
       if (!sprite) {
         return
       }
 
-      this.context.drawImage(sprite, left, top, width, height)
+      if (spriteAngle) {
+        this.context.save()
+
+        this.context.translate(left + width / 2, top + height / 2)
+
+        this.context.rotate((spriteAngle * Math.PI) / 180)
+
+        this.context.drawImage(sprite, -width / 2, -height / 2, width, height)
+
+        this.context.restore()
+      } else {
+        this.context.drawImage(sprite, left, top, width, height)
+      }
     }
   }
 }

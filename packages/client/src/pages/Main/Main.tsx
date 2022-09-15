@@ -12,7 +12,7 @@ export const Main = memo(() => {
     if (!game) {
       game = new Game(canvas.current as HTMLCanvasElement)
     }
-  })
+  }, [])
 
   return (
     <BaseLayout>
