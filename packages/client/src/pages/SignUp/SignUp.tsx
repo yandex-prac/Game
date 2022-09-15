@@ -1,16 +1,17 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import {
+  Input,
   AuthBtn,
   AuthForm,
   AuthLayout,
   AuthLink,
   AuthPage,
   AuthTitle,
-  Input,
 } from '@/components'
 import * as yup from 'yup'
-import { CONTENT, PATHNAMES } from '@/utils'
+import { CONTENT, PATHNAMES,  validSignUp as validationSchema } from '@/utils'
+import { UserAPI } from '../../services'
 
 export function SignUp() {
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
@@ -23,44 +24,16 @@ export function SignUp() {
         phone: '',
         password: '',
       },
-      onSubmit: (values, actions) => console.log(values),
-      validationSchema: yup.object({
-        email: yup
-          .string()
-          .email(CONTENT.POST_INCORRECT)
-          .required(CONTENT.IS_REQUIRED_TEXT),
-        login: yup
-          .string()
-          .min(2, CONTENT.MIN_LENGTH)
-          .matches(
-            /(?!^\d+$)^[A-ZА-Яa-zа-я][a-zа-я-_0-9]+$/,
-            CONTENT.FORBIDDEN_SYMBOL
-          )
-          .required(CONTENT.IS_REQUIRED_TEXT),
-        first_name: yup
-          .string()
-          .matches(/^[A-ZА-Я][a-zа-я-]+$/, CONTENT.FORBIDDEN_SYMBOL)
-          .required(CONTENT.IS_REQUIRED_TEXT),
-        second_name: yup
-          .string()
-          .matches(/^[A-ZА-Я][a-zа-я-]+$/, CONTENT.FORBIDDEN_SYMBOL)
-          .required(CONTENT.IS_REQUIRED_TEXT),
-        phone: yup
-          .string()
-          .min(3, CONTENT.MIN_LENGTH)
-          .max(14, CONTENT.MAX_LENGTH)
-          .matches(/^\+?[1-9]{1}[0-9]+$/, CONTENT.FORBIDDEN_SYMBOL)
-          .required(CONTENT.IS_REQUIRED_TEXT),
-        password: yup
-          .string()
-          .min(8, CONTENT.PASSWORD_MIN)
-          .max(40, CONTENT.MAX_LENGTH)
-          .matches(
-            /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+/,
-            CONTENT.PASSWORD_SYMBOL
-          )
-          .required(CONTENT.IS_REQUIRED_TEXT),
-      }),
+      onSubmit: (values, actions) => {
+        UserAPI.signup(values).catch(error => {
+          if (error.response.data.reason === 'Login already exists') {
+            actions.setErrors({
+              login: 'Пользователь с таким логином уже зарегистрирован',
+            })
+          }
+        })
+      },
+      validationSchema,
     })
 
   return (

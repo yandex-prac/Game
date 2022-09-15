@@ -3,6 +3,8 @@ const PATHNAMES = {
   SIGNUP: '/sign-up',
   MAIN: '/main',
   PROFILE: '/profile',
+  PROFILE_EDIT: '/profile-edit',
+  PASSWORD_EDIT: '/password-edit',
   SETTINGS: '/settings',
   FORUM: '/forum',
   LEADER_BOARD: '/leader-board',
@@ -33,7 +35,7 @@ const CONTENT = {
   AUTH: 'Авторизоваться',
   NO_ACCOUNT: 'Нет аккаунта?',
 
-  // register
+  // register и profile
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
   REGISTER: 'Регистрация',
   POST: 'Почта',
@@ -50,6 +52,17 @@ const CONTENT = {
   PASSWORD_SYMBOL: 'Должен содержать заглавную букву, цифру и символ',
   TO_LOGIN: 'Войти',
   MAKE_REGISTER: 'Зарегистрироваться',
+
+  // profile
+  MAIL: 'Почта',
+  NICKNAME: 'Имя в игре',
+  CHANGE_DATA: 'Изменить данные',
+  CHANGE_PASSWORD: 'Изменить пароль',
+  QUIT: 'Выйти',
+  OLD_PASSWORD: 'Старый пароль',
+  NEW_PASSWORD: 'Новый пароль',
+  REPEAT_PASSWORD: 'Повторите новый пароль',
+  SAVE: 'Сохранить',
 }
 
 const API = {

@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
-import { CONTENT, PATHNAMES } from '@/utils'
+import { CONTENT, PATHNAMES, validSignIn as validationSchema } from '@/utils'
 import {
   Input,
   Button,

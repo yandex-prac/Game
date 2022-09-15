@@ -28,6 +28,7 @@ export const Input = ({
           onChange={changeHandler}
           className={value ? '' : 'empty'}
           type={type}
+          value={value}
           {...props}
         />
         <Label label={label} />
