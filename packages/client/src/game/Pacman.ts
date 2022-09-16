@@ -9,7 +9,7 @@ import { Point } from '@/game/Point'
 export class Pacman extends Character {
   protected futureDirection: Direction | undefined = undefined
 
-  _sprite = pacman
+  sprite = pacman
 
   update(world: World, direction?: Direction): void {
     if (direction) {
@@ -32,7 +32,9 @@ export class Pacman extends Character {
         if (object instanceof Wall) {
           this.move(Character.oppositeDirection(this.direction))
         } else if (object instanceof Point) {
-          this.emit('eatPoint', object)
+          if (object.left === this.left && object.top === this.top) {
+            this.emit('eatPoint', object)
+          }
         }
       })
     }

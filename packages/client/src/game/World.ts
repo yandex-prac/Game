@@ -13,23 +13,34 @@ function isPoint(object: any): object is Point {
 
 export class World extends EventBus {
   private readonly _objects: Set<GameObject> = new Set<GameObject>()
-  private readonly _pacman: Pacman
+  private _pacman!: Pacman
   private _pointsCount = 0
+  private readonly _worldConfig: WorldProps
 
   constructor(props: WorldProps) {
     super()
 
-    props.map.forEach((str: number[], y: number) => {
+    this._worldConfig = props
+
+    this.createWorld()
+  }
+
+  get objects(): Set<GameObject> {
+    return this._objects
+  }
+
+  createWorld() {
+    this._worldConfig.map.forEach((str: number[], y: number) => {
       str.forEach((col: number, x: number) => {
         switch (col) {
           case 0:
             this._objects.add(
               new Floor({
                 startPosition: {
-                  x: x * props.wallsAndFloors.size.width,
-                  y: y * props.wallsAndFloors.size.height,
+                  x: x * this._worldConfig.wallsAndFloors.size.width,
+                  y: y * this._worldConfig.wallsAndFloors.size.height,
                 },
-                size: props.wallsAndFloors.size,
+                size: this._worldConfig.wallsAndFloors.size,
               })
             )
             break
@@ -37,10 +48,10 @@ export class World extends EventBus {
             this._objects.add(
               new Wall({
                 startPosition: {
-                  x: x * props.wallsAndFloors.size.width,
-                  y: y * props.wallsAndFloors.size.height,
+                  x: x * this._worldConfig.wallsAndFloors.size.width,
+                  y: y * this._worldConfig.wallsAndFloors.size.height,
                 },
-                size: props.wallsAndFloors.size,
+                size: this._worldConfig.wallsAndFloors.size,
               })
             )
             break
@@ -48,10 +59,10 @@ export class World extends EventBus {
             this._objects.add(
               new Point({
                 startPosition: {
-                  x: x * props.wallsAndFloors.size.width,
-                  y: y * props.wallsAndFloors.size.height,
+                  x: x * this._worldConfig.wallsAndFloors.size.width,
+                  y: y * this._worldConfig.wallsAndFloors.size.height,
                 },
-                size: props.wallsAndFloors.size,
+                size: this._worldConfig.wallsAndFloors.size,
               })
             )
 
@@ -61,39 +72,11 @@ export class World extends EventBus {
       })
     })
 
-    this._pacman = new Pacman(props.pacman)
+    this._pacman = new Pacman(this._worldConfig.pacman)
 
-    this._pacman.on('eatPoint', point => {
-      if (!isPoint(point)) {
-        return
-      }
-
-      this._objects.add(
-        new Floor({
-          startPosition: {
-            x: point.left,
-            y: point.top,
-          },
-          size: props.wallsAndFloors.size,
-        })
-      )
-
-      this.objects.delete(point)
-      this.objects.delete(this._pacman)
-      this.objects.add(this._pacman)
-
-      this._pointsCount--
-
-      if (this._pointsCount === 0) {
-        this.emit('pointsEnded')
-      }
-    })
+    this._pacman.on('eatPoint', this.pacmanEatPoint)
 
     this._objects.add(this._pacman)
-  }
-
-  get objects(): Set<GameObject> {
-    return this._objects
   }
 
   getCollisions(object: GameObject): Set<GameObject> {
@@ -120,6 +103,42 @@ export class World extends EventBus {
     })
 
     return collisions
+  }
+
+  pacmanEatPoint = (point: any) => {
+    if (!isPoint(point)) {
+      return
+    }
+
+    this._objects.add(
+      new Floor({
+        startPosition: {
+          x: point.left,
+          y: point.top,
+        },
+        size: this._worldConfig.wallsAndFloors.size,
+      })
+    )
+
+    this.objects.delete(point)
+    this.objects.delete(this._pacman)
+    this.objects.add(this._pacman)
+
+    this._pointsCount--
+
+    if (this._pointsCount === 0) {
+      this.emit('pointsEnded')
+    }
+  }
+
+  reset() {
+    this._objects.clear()
+
+    this._pointsCount = 0
+
+    this._pacman.off('eatPoint', this.pacmanEatPoint)
+
+    this.createWorld()
   }
 
   update(direction?: Direction) {

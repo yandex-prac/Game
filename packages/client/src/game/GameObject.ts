@@ -3,16 +3,15 @@ import { EventBus } from '@/game/EventBus'
 
 export class GameObject extends EventBus {
   protected _isCollisional = true
-  protected _sprite: string | undefined
   protected position: Coordinates
-  private _img: HTMLImageElement | undefined
   private readonly size: Size
+  sprite: string | undefined
 
   constructor(props: GameObjectProps) {
     super()
 
-    this.position = props.startPosition
-    this.size = props.size
+    this.position = { ...props.startPosition }
+    this.size = { ...props.size }
   }
 
   get bottom(): number {
@@ -33,16 +32,6 @@ export class GameObject extends EventBus {
 
   get right(): number {
     return this.position.x + this.width
-  }
-
-  get sprite(): HTMLImageElement | undefined {
-    if (!this._img && this._sprite) {
-      this._img = document.createElement('img')
-
-      this._img.src = this._sprite
-    }
-
-    return this._img
   }
 
   get spriteAngle(): number | undefined {
