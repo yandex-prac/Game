@@ -8,7 +8,6 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
   const { darkMode, setDarkMode } = useContext(ThemeContext)
 
   const handleChangeTheme = () => setDarkMode(!darkMode)
-
   return (
     <Page>
       <Sidebar darkMode={darkMode} onChangeTheme={handleChangeTheme} />

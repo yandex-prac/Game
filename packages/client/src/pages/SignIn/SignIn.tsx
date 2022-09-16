@@ -1,8 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik'
-import * as yup from 'yup'
 import { InputGroup } from './StyledComponents'
-import { CONTENT, PATHNAMES } from '@/utils'
+import { PATHNAMES, validSignIn } from '@/utils'
 import {
   Input,
   Button,
@@ -12,8 +11,12 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
+import { useCustomIntl } from '@/hooks'
+import { useLazySigninQuery } from '@/store/services/authService'
 
 export const SignIn = () => {
+  const [signin, signinResponse] = useLazySigninQuery()
+
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -23,20 +26,17 @@ export const SignIn = () => {
       onSubmit: values => {
         alert(values)
       },
-      validationSchema: yup.object({
-        login: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
-        password: yup.string().required(CONTENT.IS_REQUIRED_TEXT),
-      }),
+      validationSchema: validSignIn(),
     })
 
   return (
     <AuthPage>
       <AuthLayout maxheight={450}>
-        <AuthTitle>{CONTENT.ENTER}</AuthTitle>
+        <AuthTitle>{useCustomIntl('ENTER')}</AuthTitle>
         <AuthForm onSubmit={handleSubmit}>
           <InputGroup>
             <Input
-              label={CONTENT.LOGIN}
+              labelIntl="LOGIN"
               value={values.login}
               type="text"
               name="login"
@@ -47,7 +47,7 @@ export const SignIn = () => {
           </InputGroup>
           <InputGroup lastGroup>
             <Input
-              label={CONTENT.PASSWORD}
+              labelIntl="PASSWORD"
               value={values.password}
               type="password"
               name="password"
@@ -60,8 +60,8 @@ export const SignIn = () => {
               }
             />
           </InputGroup>
-          <Button type="submit" text={CONTENT.AUTH} />
-          <Link to={PATHNAMES.SIGNUP} text={CONTENT.NO_ACCOUNT} />
+          <Button type="submit" textIntl="AUTH" />
+          <Link textIntl="NO_ACCOUNT" to={PATHNAMES.SIGNUP} />
         </AuthForm>
       </AuthLayout>
     </AuthPage>

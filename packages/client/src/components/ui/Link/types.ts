@@ -1,4 +1,4 @@
 export type StyledLinkProps = {
-  text: string
+  textIntl: string
   to: string
 }
