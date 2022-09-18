@@ -63,6 +63,10 @@ const CONTENT_RU = {
   NEW_PASSWORD: 'Новый пароль',
   REPEAT_PASSWORD: 'Повторите новый пароль',
   SAVE: 'Сохранить',
+
+  // Chat
+  CREATE_CHAT: 'Создать чат',
+  EMPTY_MESSAGES: 'Выберите чат чтобы отправить сообщение',
 }
 
 const API = {

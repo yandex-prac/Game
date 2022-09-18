@@ -17,7 +17,7 @@ export const ChatItem = ({
     <ChatItemStyle>
       <div>
         <ChatItemImage>
-          <img src={image} alt="Avatar" className="chat-item__img" />
+          <img src={image} alt="Аватоар" />
         </ChatItemImage>
       </div>
       <ChatItemRight>

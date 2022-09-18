@@ -1,15 +1,15 @@
 import React, { memo } from 'react'
-import { ChatItem } from './ChatItem'
-import { MessagesList } from './MessagesList'
+import { ChatItem } from '../../components/business/Chat/ChatItem'
+import { Chat } from '../../components/business/Chat/Chat'
 import {
   ForumChatListBlock,
   ForumPageTitle,
   ForumPageWrapper,
   ForumPageLeftBlock,
   ForumPageRightBlock,
-  RegularBtn,
+  ForumPageButtonBlock,
 } from './StyledComponents'
-import { BaseLayout } from '../../components'
+import { BaseLayout, Button } from '../../components'
 
 export const ForumPage = memo(() => {
   // Заменить мок на данные с сервера.
@@ -27,11 +27,13 @@ export const ForumPage = memo(() => {
                 'https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg'
               }
             />
-            <RegularBtn>Создать чат</RegularBtn>
+            <ForumPageButtonBlock>
+              <Button type={'button'} textIntl={'CREATE_CHAT'} />
+            </ForumPageButtonBlock>
           </ForumChatListBlock>
         </ForumPageLeftBlock>
         <ForumPageRightBlock>
-          <MessagesList
+          <Chat
             arrayOfMessages={messagesMock}
             isEmpty={!!messagesMock.length}
           />
