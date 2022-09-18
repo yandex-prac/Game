@@ -1,9 +1,10 @@
-import { ButtonEnum } from '../../../types'
+import { ButtonEnum } from '@/types'
 
 type StyledButtonProps = {
   type: ButtonEnum
-  text: string
+  textIntl: string
   onClick?: () => void
+  style?: any
 }
 
 export type { StyledButtonProps }

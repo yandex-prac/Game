@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import variables from '../../Variables.module.scss'
+import variables from '@/Variables.module.scss'
 import { Link } from 'react-router-dom'
-import { DarkModeType } from '../../types'
+import { DarkModeType } from '@/types'
 
 const Page = styled.div<DarkModeType>`
   display: flex;

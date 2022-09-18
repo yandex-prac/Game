@@ -1,9 +1,7 @@
 import styled from 'styled-components'
-import { FormProps } from '../../../types/types'
-import { Button } from '../../ui/Button/Button'
-import { Link } from '../../ui/Link/Link'
-import variables from '../../../Variables.module.scss'
-import { AuthLayoutProps, AuthBtnProps } from './types'
+import { FormProps } from '@/types'
+import variables from '@/Variables.module.scss'
+import { AuthLayoutProps } from './types'
 
 const AuthPage = styled.div`
   display: flex;
@@ -37,12 +35,4 @@ const AuthForm = styled.form<FormProps>`
   flex-direction: column;
 `
 
-const AuthBtn = styled(Button)<AuthBtnProps>`
-  margin-top: ${({ margintop }) => margintop}px;
-`
-
-const AuthLink = styled(Link)`
-  text-align: center;
-`
-
-export { AuthPage, AuthLayout, AuthTitle, AuthForm, AuthBtn, AuthLink }
+export { AuthPage, AuthLayout, AuthTitle, AuthForm }

@@ -1,13 +1,14 @@
 import React, { SyntheticEvent } from 'react'
 import { Wrapper, StyledInput, Label, Error } from './StyledComponens'
 import { InputProps } from './types'
+import { useCustomIntl } from '@/hooks'
 
 export const Input = ({
   onBlur,
   onChange,
   value,
   type = 'text',
-  label,
+  labelIntl,
   error,
   ...props
 }: InputProps) => {
@@ -28,9 +29,10 @@ export const Input = ({
           onChange={changeHandler}
           className={value ? '' : 'empty'}
           type={type}
+          value={value}
           {...props}
         />
-        <Label label={label} />
+        <Label label={useCustomIntl(labelIntl)} />
       </Wrapper>
       {error ? <Error>{error}</Error> : null}
     </>
