@@ -27,10 +27,12 @@ export const ForumPageLeftBlock = styled.div`
   margin-right: 24px;
   display: flex;
   flex-direction: column;
+  border-radius: 4px;
 `
 export const ForumPageRightBlock = styled.div`
   box-shadow: ${variables.shadowSoft000};
   flex: 1 1 320px;
+  border-radius: 4px;
 `
 export const ForumChatListBlock = styled.div`
   padding: 30px 0px;
@@ -39,5 +41,5 @@ export const ForumChatListBlock = styled.div`
   flex-direction: column;
 `
 export const ForumPageButtonBlock = styled.div`
-  margin: auto auto 0;
+  margin: auto auto -14px;
 `
