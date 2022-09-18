@@ -6,8 +6,7 @@ import {
   ChatItemStyle,
   ChatItemTitle,
 } from './StyledComponents'
-
-type ChatItemType = { name: string; image: string; text: string }
+import { ChatItemType } from './types'
 
 export const ChatItem = ({
   name = 'WakaWaka',

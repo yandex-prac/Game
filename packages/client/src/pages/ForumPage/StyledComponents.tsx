@@ -1,49 +1,44 @@
 import styled from 'styled-components'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import variables from '../../Variables.module.scss'
 
 const ForumPageWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
-  max-width: 884px;
+  //max-width: 884px;
   display: flex;
   justify-content: space-between;
-  background: ${variables.white};
+  background: ${variables.white000};
   border-radius: 4px;
-  margin: 0 auto;
+  height: 100%;
+  //margin: 0 auto;
 `
 
 const ForumPageTitle = styled.div`
   box-sizing: border-box;
-  font-family: ${variables.fontFamily};
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
   color: ${variables.black000};
+  border-bottom: 1px solid ${variables.grey000};
+  padding: 22px 26px 18px;
 `
 const ForumPageLeftBlock = styled.div`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   width: 320px;
   flex: 0 0 320px;
   margin-right: 24px;
+  display: flex;
+  flex-direction: column;
 `
 const ForumPageRightBlock = styled.div`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   flex: 1 1 320px;
 `
-const ForumPageTitleBlock = styled.div`
-  border-bottom: 1px solid ${variables.grey1};
-  padding: 22px 26px 18px;
-`
 const ForumChatListBlock = styled.div`
-  padding: 30px 26px;
-`
-const ForumChatListItem = styled.div`
-  margin-bottom: 25px;
-`
-const ForumChatListBtn = styled.div`
-  padding: 26px;
+  padding: 30px 0px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 `
 
 const ChatItemStyle = styled.div`
@@ -51,6 +46,9 @@ const ChatItemStyle = styled.div`
   justify-content: flex-start;
   cursor: pointer;
   align-items: center;
+  margin-bottom: 25px;
+  transition: 0.3s;
+  padding: 0 23px;
 
   &:hover {
     background-color: rgb(0 0 0 / 5%);
@@ -59,7 +57,6 @@ const ChatItemStyle = styled.div`
 const ChatItemRight = styled.div``
 
 const ChatItemTitle = styled.div`
-  font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 1;
@@ -68,11 +65,10 @@ const ChatItemTitle = styled.div`
 `
 
 const ChatItemDate = styled.div`
-  font-style: normal;
   font-weight: 500;
   font-size: 11px;
   line-height: 1;
-  color: ${variables.grey2};
+  color: ${variables.grey111};
 `
 
 const ChatItemImage = styled.div`
@@ -95,11 +91,10 @@ const ChatItemImage = styled.div`
 const RegularBtn = styled.button`
   background-color: ${variables.blue000};
   border-radius: 4px;
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;
-  color: ${variables.white};
+  color: ${variables.white000};
   cursor: pointer;
   border: none;
   width: 100%;
@@ -108,17 +103,22 @@ const RegularBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.3s;
+  margin-top: auto;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `
 
 const MessagesListEmpty = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-style: normal;
   font-weight: 400;
   font-size: 13px;
   line-height: 13px;
-  color: ${variables.grey2};
+  color: ${variables.grey111};
   height: 100%;
 `
 const MessagesListBlock = styled.div`
@@ -126,22 +126,24 @@ const MessagesListBlock = styled.div`
   flex-direction: column;
   justify-content: flex-end;
 `
-
+const MessageStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`
 export {
   ForumPageWrapper,
   ForumPageTitle,
-  ForumPageTitleBlock,
   ChatItemStyle,
   ChatItemTitle,
   ChatItemDate,
   ForumChatListBlock,
-  ForumChatListItem,
   ChatItemImage,
   ForumPageLeftBlock,
   ForumPageRightBlock,
   RegularBtn,
-  ForumChatListBtn,
   MessagesListEmpty,
   MessagesListBlock,
   ChatItemRight,
+  MessageStyle,
 }

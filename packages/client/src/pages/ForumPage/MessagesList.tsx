@@ -1,8 +1,7 @@
 import React from 'react'
 import { Message } from './Message'
 import { MessagesListBlock, MessagesListEmpty } from './StyledComponents'
-
-type MessagesListType = { arrayOfMessages: string[]; isEmpty: boolean }
+import { MessagesListType } from './types'
 
 export const MessagesList = ({
   arrayOfMessages,

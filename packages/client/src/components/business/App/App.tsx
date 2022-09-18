@@ -6,10 +6,9 @@ import {
   Main,
   Profile,
   Settings,
-  Forum,
+  ForumPage,
   LeaderBoard,
   PageError,
-  ForumPage
 } from '../../../pages'
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '../../../context'
@@ -27,7 +26,7 @@ export const App = () => {
             <Route path={PATHNAMES.MAIN} element={<Main />} />
             <Route path={PATHNAMES.PROFILE} element={<Profile />} />
             <Route path={PATHNAMES.SETTINGS} element={<Settings />} />
-            <Route path={PATHNAMES.FORUM} element={<Forum />} />
+            <Route path={PATHNAMES.FORUM} element={<ForumPage />} />
             <Route
               path={PATHNAMES.LEADER_BOARD}
               element={<LeaderBoard darkMode={darkMode} />}
