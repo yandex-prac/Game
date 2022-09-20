@@ -17,7 +17,7 @@ export const ForumPageTitle = styled.div`
   font-size: 16px;
   line-height: 1;
   color: ${variables.black000};
-  border-bottom: 1px solid ${variables.grey000};
+  border-bottom: 1px solid ${variables.grey100};
   padding: 23px 24px 18px;
 `
 export const ForumPageLeftBlock = styled.div`

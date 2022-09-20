@@ -15,11 +15,8 @@ export const ChatItem = ({
 }: ChatItemProps) => {
   return (
     <ChatItemStyle>
-      <div>
-        <ChatItemImage>
-          <img src={image} alt={useCustomIntl('LOGO_ALT')} />
-        </ChatItemImage>
-      </div>
+      <ChatItemImage src={image} alt={useCustomIntl('LOGO_ALT')} />
+
       <div>
         <ChatItemTitle>{name}</ChatItemTitle>
         <ChatItemDate>{text}</ChatItemDate>

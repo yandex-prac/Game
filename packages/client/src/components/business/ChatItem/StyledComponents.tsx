@@ -30,7 +30,7 @@ const ChatItemDate = styled.div`
   color: ${variables.grey111};
 `
 
-const ChatItemImage = styled.div`
+const ChatItemImage = styled.img`
   margin-right: 12px;
   overflow: hidden;
   border-radius: 50%;
@@ -39,12 +39,8 @@ const ChatItemImage = styled.div`
   align-items: center;
   width: 50px;
   height: 50px;
-
-  img {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-  }
+  object-fit: cover;
+  object-position: center;
 `
 
 export { ChatItemDate, ChatItemImage, ChatItemStyle, ChatItemTitle }
