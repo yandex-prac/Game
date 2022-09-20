@@ -67,6 +67,7 @@ const CONTENT_RU = {
   // Chat
   CREATE_CHAT: 'Создать чат',
   EMPTY_MESSAGES: 'Выберите чат чтобы отправить сообщение',
+  CHATS: 'Чаты',
 }
 
 const API = {

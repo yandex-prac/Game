@@ -1,11 +1,11 @@
 import React from 'react'
 import { Message } from '@/components'
 import { ChatBlock, ChatEmpty } from './StyledComponents'
-import { ChatType } from './types'
+import { ChatProps } from './types'
 import { useCustomIntl } from '@/hooks'
-import { randomId } from '@/utils/randomId'
+import { randomId } from '@/utils'
 
-export const Chat = ({ arrayOfMessages, isEmpty }: ChatType) => {
+export const Chat = ({ arrayOfMessages, isEmpty }: ChatProps) => {
   if (isEmpty) {
     return <ChatEmpty>{useCustomIntl('EMPTY_MESSAGES')}</ChatEmpty>
   }

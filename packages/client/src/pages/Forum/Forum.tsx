@@ -1,6 +1,4 @@
 import React, { memo } from 'react'
-import { ChatItem } from '@/components/business/Chat/ChatItem'
-import { Chat } from '@/components/business/Chat/Chat'
 import {
   ForumChatListBlock,
   ForumPageTitle,
@@ -9,16 +7,17 @@ import {
   ForumPageRightBlock,
   ForumPageButtonBlock,
 } from './StyledComponents'
-import { BaseLayout, Button } from '@/components'
+import { BaseLayout, Button, Chat, ChatItem } from '@/components'
+import { useCustomIntl } from '@/hooks'
 
-export const ForumPage = memo(() => {
+export const Forum = memo(() => {
   // Заменить мок на данные с сервера.
   const messagesMock = ['message1', 'message2']
   return (
     <BaseLayout>
       <ForumPageWrapper>
         <ForumPageLeftBlock>
-          <ForumPageTitle>Чаты</ForumPageTitle>
+          <ForumPageTitle> {useCustomIntl('CHATS')}</ForumPageTitle>
           <ForumChatListBlock>
             <ChatItem
               name={'WakaWaka'}

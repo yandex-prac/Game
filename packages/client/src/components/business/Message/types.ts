@@ -1,3 +1,5 @@
-export type MessageType = {
+type MessageProps = {
   text: string
 }
+
+export type { MessageProps }

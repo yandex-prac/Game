@@ -1,8 +1,8 @@
 export { App } from './business/App'
 export { Sidebar } from './business/Sidebar'
 export { TopBar } from './business/TopBar'
-export { ChatItem } from './business/Chat'
-export { Chat } from './business/Chat/Chat'
+export { Chat } from './business/Chat'
+export { ChatItem } from './business/ChatItem'
 export { Message } from './business/Message'
 
 export { Logo } from './ui/Logo'

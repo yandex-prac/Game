@@ -8,7 +8,7 @@ import {
   ProfileEdit,
   PasswordEdit,
   Settings,
-  ForumPage,
+  Forum,
   LeaderBoard,
   PageError,
 } from '@/pages'
@@ -30,7 +30,7 @@ export const App = () => {
             <Route path={PATHNAMES.PROFILE_EDIT} element={<ProfileEdit />} />
             <Route path={PATHNAMES.PASSWORD_EDIT} element={<PasswordEdit />} />
             <Route path={PATHNAMES.SETTINGS} element={<Settings />} />
-            <Route path={PATHNAMES.FORUM} element={<ForumPage />} />
+            <Route path={PATHNAMES.FORUM} element={<Forum />} />
             <Route
               path={PATHNAMES.LEADER_BOARD}
               element={<LeaderBoard darkMode={darkMode} />}

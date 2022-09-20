@@ -5,18 +5,19 @@ import {
   ChatItemStyle,
   ChatItemTitle,
 } from './StyledComponents'
-import { ChatItemType } from './types'
+import { ChatItemProps } from './types'
+import { useCustomIntl } from '@/hooks'
 
 export const ChatItem = ({
   name = 'WakaWaka',
   image = 'https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg',
   text = '06/09',
-}: ChatItemType) => {
+}: ChatItemProps) => {
   return (
     <ChatItemStyle>
       <div>
         <ChatItemImage>
-          <img src={image} alt="Аватар" />
+          <img src={image} alt={useCustomIntl('LOGO_ALT')} />
         </ChatItemImage>
       </div>
       <div>

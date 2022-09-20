@@ -1,9 +1,11 @@
-export type ChatItemType = {
+type ChatItemProps = {
   name: string
   image: string
   text: string
 }
-export type ChatType = {
+type ChatProps = {
   arrayOfMessages: string[]
   isEmpty: boolean
 }
+
+export type { ChatItemProps, ChatProps }
