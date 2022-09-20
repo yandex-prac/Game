@@ -1,17 +1,17 @@
 import React from 'react'
-import { Message } from '../Message/Message'
+import { Message } from '@/components'
 import { ChatBlock, ChatEmpty } from './StyledComponents'
 import { ChatType } from './types'
 import { useCustomIntl } from '@/hooks'
+import { randomId } from '@/utils/randomId'
 
 export const Chat = ({ arrayOfMessages, isEmpty }: ChatType) => {
   if (isEmpty) {
     return <ChatEmpty>{useCustomIntl('EMPTY_MESSAGES')}</ChatEmpty>
   }
-  const randomId = () => (Math.random() + 1).toString(36).substring(7)
   return (
     <ChatBlock>
-      {arrayOfMessages.map((item, index) => (
+      {arrayOfMessages.map(item => (
         <Message key={randomId()} text={item} />
       ))}
     </ChatBlock>

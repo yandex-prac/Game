@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../../Variables.module.scss'
+import variables from '@/Variables.module.scss'
 
 const ProfilePage = styled.div`
   display: flex;
@@ -68,6 +68,7 @@ const Error = styled.span`
   line-height: 10px;
   color: ${variables.red000};
   user-select: none;
+
   &:hover {
     visible: none;
   }

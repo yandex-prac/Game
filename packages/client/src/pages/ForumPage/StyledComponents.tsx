@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../Variables.module.scss'
+import variables from '@/Variables.module.scss'
 
 export const ForumPageWrapper = styled.div`
   box-sizing: border-box;

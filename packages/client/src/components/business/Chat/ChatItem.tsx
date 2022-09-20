@@ -2,7 +2,6 @@ import React from 'react'
 import {
   ChatItemDate,
   ChatItemImage,
-  ChatItemRight,
   ChatItemStyle,
   ChatItemTitle,
 } from './StyledComponents'
@@ -17,13 +16,13 @@ export const ChatItem = ({
     <ChatItemStyle>
       <div>
         <ChatItemImage>
-          <img src={image} alt="Аватоар" />
+          <img src={image} alt="Аватар" />
         </ChatItemImage>
       </div>
-      <ChatItemRight>
+      <div>
         <ChatItemTitle>{name}</ChatItemTitle>
         <ChatItemDate>{text}</ChatItemDate>
-      </ChatItemRight>
+      </div>
     </ChatItemStyle>
   )
 }

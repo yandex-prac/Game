@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
-import { ChatItem } from '../../components/business/Chat/ChatItem'
-import { Chat } from '../../components/business/Chat/Chat'
+import { ChatItem } from '@/components/business/Chat/ChatItem'
+import { Chat } from '@/components/business/Chat/Chat'
 import {
   ForumChatListBlock,
   ForumPageTitle,
@@ -9,7 +9,7 @@ import {
   ForumPageRightBlock,
   ForumPageButtonBlock,
 } from './StyledComponents'
-import { BaseLayout, Button } from '../../components'
+import { BaseLayout, Button } from '@/components'
 
 export const ForumPage = memo(() => {
   // Заменить мок на данные с сервера.

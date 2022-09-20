@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import variables from '../../../Variables.module.scss'
+import variables from '@/Variables.module.scss'
 
 export const ChatItemStyle = styled.div`
   display: flex;
@@ -14,7 +14,6 @@ export const ChatItemStyle = styled.div`
     background-color: ${variables.black500};
   }
 `
-export const ChatItemRight = styled.div``
 
 export const ChatItemTitle = styled.div`
   font-weight: 500;
