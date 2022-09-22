@@ -16,8 +16,9 @@ import {
 } from '@/components'
 import { validPasswordEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl } from '@/hooks'
+import { DarkModeType } from '@/types'
 
-export const PasswordEdit = memo(() => {
+export const PasswordEdit = memo(({ darkMode }: DarkModeType) => {
   const navigate = useNavigate()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({

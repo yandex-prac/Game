@@ -16,8 +16,9 @@ import {
 } from '@/components'
 import { validProfileEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl } from '@/hooks'
+import { DarkModeType } from '@/types'
 
-export const ProfileEdit = memo(() => {
+export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
   const navigate = useNavigate()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({

@@ -1,7 +1,6 @@
 import React, { memo } from 'react'
-
 import { BaseLayout, ProfileImage } from '@/components'
-import { PATHNAMES } from '../../utils'
+import { PATHNAMES } from '@/utils'
 import {
   ProfilePage,
   ProfileName,
@@ -13,8 +12,9 @@ import {
   ProfileSpan,
 } from './StyledComponents'
 import { useCustomIntl } from '@/hooks'
+import { DarkModeType } from '@/types'
 
-export const Profile = memo(() => {
+export const Profile = memo(({ darkMode }: DarkModeType) => {
   return (
     <BaseLayout>
       <ProfilePage>
