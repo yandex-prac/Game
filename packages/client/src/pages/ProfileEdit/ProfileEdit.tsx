@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import {
   BaseLayout,
   ProfileImage,
-  Button,
   ProfilePage,
   ProfileForm,
   ProfileUl,
@@ -11,11 +11,14 @@ import {
   ProfileLabel,
   ProfileInput,
   Error,
+  WrapButtons,
+  ProfileButton,
 } from '@/components'
-import { validProfileEdit } from '@/utils'
+import { validProfileEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl } from '@/hooks'
 
 export const ProfileEdit = memo(() => {
+  const navigate = useNavigate()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -125,7 +128,14 @@ export const ProfileEdit = memo(() => {
             </ProfileLi>
             {touched.phone && errors.phone && <Error>{errors.phone}</Error>}
           </ProfileUl>
-          <Button type="submit" textIntl="SAVE" />
+          <WrapButtons>
+            <ProfileButton
+              onClick={() => navigate(PATHNAMES.PROFILE)}
+              type="button">
+              {useCustomIntl('BACK')}
+            </ProfileButton>
+            <ProfileButton type="submit">{useCustomIntl('SAVE')}</ProfileButton>
+          </WrapButtons>
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>

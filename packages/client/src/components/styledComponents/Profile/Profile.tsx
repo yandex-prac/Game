@@ -73,6 +73,31 @@ const Error = styled.span`
     visible: none;
   }
 `
+
+const WrapButtons = styled.div`
+  display: flex;
+  gap: 20px;
+  width: 100%;
+`
+
+const ProfileButton = styled.button`
+  width: 100%;
+  height: 37px;
+  color: ${variables.white000};
+  background-color: ${variables.blue000};
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s opacity;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`
+
 export {
   ProfilePage,
   ProfileForm,
@@ -82,4 +107,6 @@ export {
   ProfileLabel,
   ProfileInput,
   Error,
+  WrapButtons,
+  ProfileButton,
 }
