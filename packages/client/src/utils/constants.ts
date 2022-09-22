@@ -82,6 +82,14 @@ const API = {
   CHANGE_USER_PROFILE: '/user/profile',
   CHANGE_USER_AVATAR: '/user/profile/avatar',
   CHANGE_USER_PASSWORD: '/user/password',
+  SEARCH_FOR_USER_BY_LOGIN: '/user/search',
 }
 
-export { CONTENT_RU, PATHNAMES, API }
+const METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
+}
+
+export { CONTENT_RU, PATHNAMES, API, METHODS }

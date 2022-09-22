@@ -40,12 +40,16 @@ type ProfileDTO = {
   avatar: null | string
   email: string
   phone: string
-  status: null | string
+  status?: null | string
 }
 
 type EditPasswordDTO = {
   oldPassword: string
   newPassword: string
+}
+
+type SearchForUserByLoginDTO = {
+  login: string
 }
 
 export type {
@@ -58,4 +62,5 @@ export type {
   SignupResponseDTO,
   ProfileDTO,
   EditPasswordDTO,
+  SearchForUserByLoginDTO,
 }

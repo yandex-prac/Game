@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { API } from '@/utils'
+import { API, METHODS } from '@/utils'
 import {
   SigninResponseDTO,
   SigninDTO,
@@ -14,17 +14,22 @@ export const authAPI = createApi({
     signin: builder.query<SigninResponseDTO, SigninDTO>({
       query: payload => ({
         url: API.SIGNIN,
-        payload,
+        method: METHODS.POST,
+        body: payload,
       }),
     }),
     signup: builder.mutation<SignupResponseDTO, UserInfoDTO>({
       query: payload => ({
         url: API.SIGNUP,
-        payload,
+        method: METHODS.POST,
+        body: payload,
       }),
     }),
     signout: builder.query({
-      query: () => API.SIGNUP,
+      query: () => ({
+        url: API.SIGNOUT,
+        method: METHODS.POST,
+      }),
     }),
     getUserInfo: builder.query<UserInfoDTO, unknown>({
       query: () => API.GET_USER_INFO,
