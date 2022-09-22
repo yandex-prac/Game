@@ -19,8 +19,8 @@ export const Profile = memo(({ darkMode }: DarkModeType) => {
     <BaseLayout>
       <ProfilePage>
         <ProfileImage />
-        <ProfileName>{useCustomIntl('NAME')}</ProfileName>
-        <ProfileUl>
+        <ProfileName darkMode={darkMode}>{useCustomIntl('NAME')}</ProfileName>
+        <ProfileUl darkMode={darkMode}>
           <ProfileLi>
             <ProfileLabel>{useCustomIntl('MAIL')}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
@@ -46,7 +46,7 @@ export const Profile = memo(({ darkMode }: DarkModeType) => {
             <ProfileSpan></ProfileSpan>
           </ProfileLi>
         </ProfileUl>
-        <ProfileGroupLink>
+        <ProfileGroupLink darkMode={darkMode}>
           <ProfileLink to={PATHNAMES.PROFILE_EDIT}>
             {useCustomIntl('CHANGE_DATA')}
           </ProfileLink>
