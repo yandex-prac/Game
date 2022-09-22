@@ -80,6 +80,7 @@ const API = {
   //profile
   GET_USER_BY_ID: '/user',
   CHANGE_USER_PROFILE: '/user/profile',
+  CHANGE_USER_AVATAR: '/user/profile/avatar',
 }
 
 export { CONTENT_RU, PATHNAMES, API }

@@ -16,6 +16,13 @@ export const profileApi = createApi({
         body: payload,
       }),
     }),
+    changeUserAvatar: builder.mutation<ProfileDTO, string>({
+      query: payload => ({
+        url: API.CHANGE_USER_AVATAR,
+        method: 'PUT',
+        body: payload,
+      }),
+    }),
   }),
 })
 

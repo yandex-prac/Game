@@ -40,6 +40,7 @@ type ProfileDTO = {
   avatar: null | string
   email: string
   phone: string
+  status: null | string
 }
 
 export type {
