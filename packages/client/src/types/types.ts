@@ -31,6 +31,17 @@ type SignupResponseDTO = {
   id?: number
 }
 
+type ProfileDTO = {
+  id: number
+  first_name: string
+  second_name: string
+  display_name: null | string
+  login: string
+  avatar: null | string
+  email: string
+  phone: string
+}
+
 export type {
   ButtonEnum,
   DarkModeType,
@@ -39,4 +50,5 @@ export type {
   SigninResponseDTO,
   UserInfoDTO,
   SignupResponseDTO,
+  ProfileDTO,
 }
