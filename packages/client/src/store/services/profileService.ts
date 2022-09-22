@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { API } from '@/utils'
-import { ProfileDTO, UserInfoDTO } from '@/types'
+import { ProfileDTO, UserInfoDTO, EditPasswordDTO } from '@/types'
 
 export const profileApi = createApi({
   reducerPath: 'profileApi',
@@ -19,6 +19,13 @@ export const profileApi = createApi({
     changeUserAvatar: builder.mutation<ProfileDTO, string>({
       query: payload => ({
         url: API.CHANGE_USER_AVATAR,
+        method: 'PUT',
+        body: payload,
+      }),
+    }),
+    changeUserPassowrd: builder.mutation<string, EditPasswordDTO>({
+      query: payload => ({
+        url: API.CHANGE_USER_PASSWORD,
         method: 'PUT',
         body: payload,
       }),

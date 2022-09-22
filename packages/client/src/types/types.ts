@@ -43,6 +43,11 @@ type ProfileDTO = {
   status: null | string
 }
 
+type EditPasswordDTO = {
+  oldPassword: string
+  newPassword: string
+}
+
 export type {
   ButtonEnum,
   DarkModeType,
@@ -52,4 +57,5 @@ export type {
   UserInfoDTO,
   SignupResponseDTO,
   ProfileDTO,
+  EditPasswordDTO,
 }
