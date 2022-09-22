@@ -78,7 +78,8 @@ const API = {
   SIGNOUT: '/auth/logout',
   GET_USER_INFO: '/auth/user',
   //profile
-  GET_USER_BY_ID: '/USER',
+  GET_USER_BY_ID: '/user',
+  CHANGE_USER_PROFILE: '/user/profile',
 }
 
 export { CONTENT_RU, PATHNAMES, API }
