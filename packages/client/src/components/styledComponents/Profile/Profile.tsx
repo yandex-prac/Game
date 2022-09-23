@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import variables from '@/Variables.module.scss'
+import { DarkModeType } from '@/types'
 
 const ProfilePage = styled.div`
   display: flex;
@@ -23,24 +24,41 @@ const ProfileName = styled.p`
   margin-bottom: 60px;
 `
 
-const ProfileUl = styled.ul`
+const ProfileUl = styled.ul<DarkModeType>`
   margin: 0;
   padding: 0;
   margin-bottom: 60px;
+
+  label,
+  span {
+    color: ${({ darkMode }) =>
+      darkMode ? variables.white100 : variables.black000};
+    transition: 0.3s color;
+  }
+
+  li {
+    border-bottom: 1px solid
+      ${({ darkMode }) => (darkMode ? variables.grey400 : variables.grey300)};
+    transition: 0.3ss border-color;
+  }
 `
 
 const ProfileLi = styled.li`
-  position: relative;
-  list-style: none;
   display: flex;
+  list-style: none;
   justify-content: space-between;
   width: 510px;
-  border-bottom: 1px solid ${variables.grey300};
-  transition: 0.3s border-bottom;
+  line-height: 33px;
 
-  &:hover {
-    border-bottom: 1px solid ${variables.blue000};
+  &:last-child {
+    border-bottom: none;
+
+    &:hover {
+      border-bottom: none;
+    }
   }
+
+  transition: 0.3s border-bottom;
 `
 
 const ProfileLabel = styled.label`
@@ -53,6 +71,7 @@ const ProfileLabel = styled.label`
 
 const ProfileInput = styled.input`
   padding: 0;
+  background-color: transparent;
   line-height: 33px;
   outline: none;
   border: none;

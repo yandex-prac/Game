@@ -10,48 +10,6 @@ const ProfilePage = styled.div`
   align-items: center;
 `
 
-const ProfileUl = styled.ul<DarkModeType>`
-  margin: 0;
-  padding: 0;
-  margin-bottom: 60px;
-
-  label,
-  span {
-    color: ${({ darkMode }) =>
-      darkMode ? variables.white100 : variables.black000};
-    transition: 0.3s color;
-  }
-
-  li {
-    border-bottom: 1px solid
-      ${({ darkMode }) => (darkMode ? variables.grey400 : variables.grey300)};
-    transition: 0.3ss border-color;
-  }
-
-  li:hover {
-    border-color: ${({ darkMode }) =>
-      darkMode ? variables.purple000 : variables.blue000};
-  }
-`
-
-const ProfileLi = styled.li`
-  display: flex;
-  list-style: none;
-  justify-content: space-between;
-  width: 510px;
-  line-height: 33px;
-
-  &:last-child {
-    border-bottom: none;
-
-    &:hover {
-      border-bottom: none;
-    }
-  }
-
-  transition: 0.3s border-bottom;
-`
-
 const ProfileGroupLink = styled.div<DarkModeType>`
   display: flex;
   flex-direction: column;
@@ -65,11 +23,6 @@ const ProfileGroupLink = styled.div<DarkModeType>`
   }
 
   a:hover {
-    border-color: ${({ darkMode }) =>
-      darkMode ? variables.purple000 : variables.blue000};
-  }
-
-  a:hover:last-of-type {
     opacity: 0.8;
   }
 `
@@ -86,7 +39,6 @@ const ProfileLink = styled(Link)`
   transition: 0.3s border-bottom;
 
   &:last-child {
-    color: ${variables.red000};
     border-bottom: none;
   }
 `
@@ -114,8 +66,6 @@ export {
   ProfilePage,
   ProfileGroupLink,
   ProfileName,
-  ProfileUl,
-  ProfileLi,
   ProfileLabel,
   ProfileSpan,
   ProfileLink,

@@ -1,13 +1,11 @@
 import React, { memo } from 'react'
-import { BaseLayout, ProfileImage } from '@/components'
+import { BaseLayout, ProfileImage, ProfileUl, ProfileLi } from '@/components'
 import { PATHNAMES } from '@/utils'
 import {
   ProfilePage,
   ProfileName,
   ProfileGroupLink,
   ProfileLink,
-  ProfileUl,
-  ProfileLi,
   ProfileLabel,
   ProfileSpan,
 } from './StyledComponents'
@@ -52,9 +50,6 @@ export const Profile = memo(({ darkMode }: DarkModeType) => {
           </ProfileLink>
           <ProfileLink to={PATHNAMES.PASSWORD_EDIT}>
             {useCustomIntl('CHANGE_PASSWORD')}
-          </ProfileLink>
-          <ProfileLink to={PATHNAMES.SIGNIN}>
-            {useCustomIntl('QUIT')}
           </ProfileLink>
         </ProfileGroupLink>
       </ProfilePage>

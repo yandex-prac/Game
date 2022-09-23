@@ -37,7 +37,7 @@ export const PasswordEdit = memo(({ darkMode }: DarkModeType) => {
       <ProfilePage>
         <ProfileImage />
         <ProfileForm onSubmit={handleSubmit}>
-          <ProfileUl>
+          <ProfileUl darkMode={darkMode}>
             <ProfileLi>
               <ProfileLabel htmlFor="oldPassword">
                 {useCustomIntl('OLD_PASSWORD')}
