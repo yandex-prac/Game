@@ -77,6 +77,19 @@ const API = {
   SIGNUP: '/auth/signup',
   SIGNOUT: '/auth/logout',
   GET_USER_INFO: '/auth/user',
+  //profile
+  GET_USER_BY_ID: '/user',
+  CHANGE_USER_PROFILE: '/user/profile',
+  CHANGE_USER_AVATAR: '/user/profile/avatar',
+  CHANGE_USER_PASSWORD: '/user/password',
+  SEARCH_FOR_USER_BY_LOGIN: '/user/search',
 }
 
-export { CONTENT_RU, PATHNAMES, API }
+const METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
+}
+
+export { CONTENT_RU, PATHNAMES, API, METHODS }
