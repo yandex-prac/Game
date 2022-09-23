@@ -37,10 +37,10 @@ export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
     })
   return (
     <BaseLayout>
-      <ProfilePage>
+      <ProfilePage darkMode={darkMode} isNotDisabled>
         <ProfileImage />
         <ProfileForm onSubmit={handleSubmit}>
-          <ProfileUl darkMode={darkMode}>
+          <ProfileUl>
             <ProfileLi>
               <ProfileLabel htmlFor="mail">
                 {useCustomIntl('MAIL')}

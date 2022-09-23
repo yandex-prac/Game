@@ -31,6 +31,10 @@ type SignupResponseDTO = {
   id?: number
 }
 
+type ProfileProps = {
+  isNotDisabled?: boolean
+}
+
 export type {
   ButtonEnum,
   DarkModeType,
@@ -39,4 +43,5 @@ export type {
   SigninResponseDTO,
   UserInfoDTO,
   SignupResponseDTO,
+  ProfileProps,
 }

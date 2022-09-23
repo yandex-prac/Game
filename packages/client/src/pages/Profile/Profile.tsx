@@ -20,10 +20,10 @@ import { DarkModeType } from '@/types'
 export const Profile = memo(({ darkMode }: DarkModeType) => {
   return (
     <BaseLayout>
-      <ProfilePage>
+      <ProfilePage darkMode={darkMode}>
         <ProfileImage />
         <ProfileName darkMode={darkMode}>{useCustomIntl('NAME')}</ProfileName>
-        <ProfileUl darkMode={darkMode}>
+        <ProfileUl>
           <ProfileLi>
             <ProfileLabel>{useCustomIntl('MAIL')}</ProfileLabel>
             <ProfileSpan></ProfileSpan>
