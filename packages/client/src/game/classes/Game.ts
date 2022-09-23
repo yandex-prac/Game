@@ -1,12 +1,10 @@
-import { View } from '@/game/View'
-import { World } from '@/game/World'
-import worldConfig from './worldConfig'
-import { Direction } from './types'
-import { EventBus } from '@/game/EventBus'
+import { EventBus, View, World } from '@/game/classes'
+import worldConfig from '../worldConfig'
+import { Direction } from '../types'
 
 export class Game extends EventBus {
   private readonly _canvas: HTMLCanvasElement
-  private _direction: Direction | undefined
+  private _direction?: Direction
   private _isStopped = true
   private readonly _view: View
   private readonly _world: World
@@ -34,17 +32,13 @@ export class Game extends EventBus {
   private keyUp = (evt: KeyboardEvent) => {
     switch (evt.code) {
       case 'ArrowUp':
-        this._direction = Direction.Up
-        break
+        return (this._direction = Direction.Up)
       case 'ArrowRight':
-        this._direction = Direction.Right
-        break
+        return (this._direction = Direction.Right)
       case 'ArrowDown':
-        this._direction = Direction.Down
-        break
+        return (this._direction = Direction.Down)
       case 'ArrowLeft':
-        this._direction = Direction.Left
-        break
+        return (this._direction = Direction.Left)
     }
   }
 

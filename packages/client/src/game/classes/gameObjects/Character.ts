@@ -1,6 +1,5 @@
-import { GameObject } from './GameObject'
-import { CharacterProps } from '@/game/types'
-import { Direction } from '@/game/types'
+import { GameObject } from '@/game/classes'
+import { CharacterProps, Direction } from '@/game/types'
 
 export class Character extends GameObject {
   static directionMultiplier(direction: Direction): -1 | 1 {
@@ -70,9 +69,7 @@ export class Character extends GameObject {
     }
   }
 
-  move(direction?: Direction) {
-    direction = direction ?? this.direction
-
+  move(direction: Direction = this.direction) {
     if (direction === Direction.Up || direction === Direction.Down) {
       this.position.y += Character.directionMultiplier(direction) * this.speed
     } else {

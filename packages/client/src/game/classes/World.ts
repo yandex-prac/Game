@@ -1,11 +1,12 @@
-import { GameObject } from './GameObject'
-import { Pacman } from './Pacman'
-import { Direction } from './types'
-import { Wall } from './Wall'
-import { Floor } from './Floor'
-import { Point } from './Point'
-import { WorldProps } from '@/game/types'
-import { EventBus } from '@/game/EventBus'
+import {
+  EventBus,
+  Floor,
+  GameObject,
+  Pacman,
+  Point,
+  Wall,
+} from '@/game/classes'
+import { Direction, WorldProps } from '@/game/types'
 
 function isPoint(object: any): object is Point {
   return object instanceof Point

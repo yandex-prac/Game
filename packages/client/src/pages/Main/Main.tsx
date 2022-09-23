@@ -2,14 +2,15 @@ import React, { memo, useEffect, useRef, useState } from 'react'
 import { BaseLayout } from '@/components'
 import { Game } from '@/game'
 import { CanvasWrapper, StartButton } from './StyledComponents'
+import { CONTENT_RU } from '@/utils'
 
 let game: Game | undefined
 
 export const Main = memo(() => {
-  const canvas = useRef<HTMLCanvasElement>(null),
-    [startTime, setStartTime] = useState<number>(0),
-    [endTime, setEndTime] = useState<number>(0),
-    [isPlaying, setIsPlaying] = useState<boolean>(false)
+  const canvas = useRef<HTMLCanvasElement>(null)
+  const [startTime, setStartTime] = useState(0)
+  const [endTime, setEndTime] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
     if (!game) {
@@ -27,7 +28,7 @@ export const Main = memo(() => {
       <CanvasWrapper>
         {isPlaying ? null : (
           <h1>
-            Ваше время:{' '}
+            Ваше время:
             {new Date(endTime - startTime).toLocaleTimeString([], {
               second: 'numeric',
               minute: 'numeric',
@@ -35,10 +36,10 @@ export const Main = memo(() => {
           </h1>
         )}
         <canvas width={400} height={400} ref={canvas} />
-        {isPlaying ? null : (
+        {isPlaying && (
           <StartButton
             type="button"
-            text="Начать"
+            textIntl={CONTENT_RU.PLAY_GAME_MENU_ITEM}
             onClick={() => {
               setIsPlaying(true)
               game?.start()

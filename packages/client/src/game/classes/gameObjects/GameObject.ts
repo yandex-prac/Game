@@ -1,11 +1,11 @@
 import { GameObjectProps, Coordinates, Size } from '@/game/types'
-import { EventBus } from '@/game/EventBus'
+import { EventBus } from '@/game/classes'
 
 export class GameObject extends EventBus {
   protected _isCollisional = true
   protected position: Coordinates
   private readonly size: Size
-  sprite: string | undefined
+  sprite?: string
 
   constructor(props: GameObjectProps) {
     super()

@@ -26,7 +26,7 @@ type WorldProps = {
   }
 }
 
-export enum Direction {
+enum Direction {
   Up = 'Up',
   Right = 'Right',
   Down = 'Down',
@@ -34,3 +34,4 @@ export enum Direction {
 }
 
 export type { Coordinates, Size, GameObjectProps, CharacterProps, WorldProps }
+export { Direction }

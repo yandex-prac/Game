@@ -1,4 +1,4 @@
-import { World } from '@/game/World'
+import { World } from '@/game/classes'
 
 export class View {
   private readonly _canvas: HTMLCanvasElement
@@ -25,7 +25,7 @@ export class View {
       const { sprite, left, top, width, height, spriteAngle } = object
 
       if (!sprite) {
-        return
+        continue
       }
 
       let img: HTMLImageElement
