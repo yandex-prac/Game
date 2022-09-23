@@ -4,7 +4,7 @@ const PATHNAMES = {
   MAIN: '/main',
   PROFILE: '/profile',
   PROFILE_EDIT: '/profile-edit',
-  PASSWORD_EDIT: '/password-edit',
+  PASSWORD_EDIT: '/profile-edit-password',
   SETTINGS: '/settings',
   FORUM: '/forum',
   LEADER_BOARD: '/leader-board',
