@@ -3,13 +3,6 @@ import { Link } from 'react-router-dom'
 import variables from '@/Variables.module.scss'
 import { DarkModeType } from '@/types'
 
-const ProfilePage = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`
-
 const ProfileGroupLink = styled.div<DarkModeType>`
   display: flex;
   flex-direction: column;
@@ -57,16 +50,4 @@ const ProfileName = styled.p<DarkModeType>`
   transition: 0.3s color;
 `
 
-const ProfileLabel = styled.label`
-  font-size: 13px;
-  color: 
-  font-weight: 500;
-`
-export {
-  ProfilePage,
-  ProfileGroupLink,
-  ProfileName,
-  ProfileLabel,
-  ProfileSpan,
-  ProfileLink,
-}
+export { ProfileGroupLink, ProfileName, ProfileSpan, ProfileLink }

@@ -1,12 +1,17 @@
 import React, { memo } from 'react'
-import { BaseLayout, ProfileImage, ProfileUl, ProfileLi } from '@/components'
+import {
+  BaseLayout,
+  ProfilePage,
+  ProfileImage,
+  ProfileUl,
+  ProfileLi,
+  ProfileLabel,
+} from '@/components'
 import { PATHNAMES } from '@/utils'
 import {
-  ProfilePage,
   ProfileName,
   ProfileGroupLink,
   ProfileLink,
-  ProfileLabel,
   ProfileSpan,
 } from './StyledComponents'
 import { useCustomIntl } from '@/hooks'

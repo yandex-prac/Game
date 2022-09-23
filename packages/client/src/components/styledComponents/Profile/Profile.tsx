@@ -7,10 +7,6 @@ const ProfilePage = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
-  img {
-    margin-bottom: 97px;
-  }
 `
 
 const ProfileForm = styled.form`
@@ -19,15 +15,13 @@ const ProfileForm = styled.form`
   flex-direction: column;
 `
 
-const ProfileName = styled.p`
-  font-size: 16px;
-  margin-bottom: 60px;
-`
-
 const ProfileUl = styled.ul<DarkModeType>`
   margin: 0;
   padding: 0;
   margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   label,
   span {
@@ -63,8 +57,7 @@ const ProfileLi = styled.li`
 
 const ProfileLabel = styled.label`
   cursor: text;
-  top: 10px;
-  position: absolute;
+  width: 100%;
   font-size: 13px;
   color: ${variables.black000};
 `
@@ -120,7 +113,6 @@ const ProfileButton = styled.button`
 export {
   ProfilePage,
   ProfileForm,
-  ProfileName,
   ProfileUl,
   ProfileLi,
   ProfileLabel,
