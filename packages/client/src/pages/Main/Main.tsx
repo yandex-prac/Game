@@ -2,15 +2,14 @@ import React, { memo, useEffect, useRef, useState } from 'react'
 import { BaseLayout } from '@/components'
 import { Game } from '@/game'
 import { CanvasWrapper, StartButton } from './StyledComponents'
-import { CONTENT_RU } from '@/utils'
-
-let game: Game | undefined
 
 export const Main = memo(() => {
   const canvas = useRef<HTMLCanvasElement>(null)
   const [startTime, setStartTime] = useState(0)
   const [endTime, setEndTime] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
+
+  let game: Game | undefined
 
   useEffect(() => {
     if (!game) {
@@ -39,7 +38,7 @@ export const Main = memo(() => {
         {isPlaying ? null : (
           <StartButton
             type="button"
-            textIntl={CONTENT_RU.PLAY_GAME_MENU_ITEM}
+            textIntl="PLAY_GAME_MENU_ITEM"
             onClick={() => {
               setIsPlaying(true)
               game?.start()
