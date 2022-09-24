@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { API } from '@/utils'
+import { API, METHODS } from '@/utils'
 import {
   SigninResponseDTO,
   SigninDTO,
@@ -9,13 +9,16 @@ import {
 
 export const authAPI = createApi({
   reducerPath: 'authAPI',
-  baseQuery: fetchBaseQuery({ baseUrl: API.API_BASE_URL, credentials: 'include' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: API.API_BASE_URL,
+    credentials: 'include',
+  }),
   endpoints: builder => ({
     signin: builder.mutation<SigninResponseDTO, SigninDTO>({
       query: payload => {
         return {
           url: API.SIGNIN,
-          method: 'POST',
+          method: METHODS.POST,
           body: payload,
           responseHandler: response =>
             response.status === 200 ? response.text() : response.json(),
@@ -26,7 +29,7 @@ export const authAPI = createApi({
       query: payload => {
         return {
           url: API.SIGNUP,
-          method: 'POST',
+          method: METHODS.POST,
           body: payload,
           responseHandler: response =>
             response.status === 200 ? response.text() : response.json(),
@@ -34,7 +37,10 @@ export const authAPI = createApi({
       },
     }),
     signout: builder.query({
-      query: () => API.SIGNUP,
+      query: () => ({
+        url: API.SIGNOUT,
+        method: METHODS.POST,
+      }),
     }),
     getUserInfo: builder.query<UserInfoDTO, unknown>({
       query: () => API.GET_USER_INFO,

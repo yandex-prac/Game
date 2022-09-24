@@ -23,6 +23,7 @@ export const SignIn = () => {
   const [signin, { isSuccess, isError, isLoading }] = useSigninMutation()
 
   useEffect(() => {
+    console.log(isSuccess)
     if (isSuccess) {
       dispatch(setLoginIn(true))
       dispatch(

@@ -55,7 +55,7 @@ const CONTENT_RU = {
   TO_LOGIN: 'Войти',
   MAKE_REGISTER: 'Зарегистрироваться',
   REGISTR_SUCCESS: 'Вы успешно зарегистрировались',
-  REGISTR_ERROR: 'Пользователь уже зарегистрирован или сервер не отвечает',
+  REGISTR_ERROR: 'Такой пользователь уже зарегистрирован',
 
   // profile
   MAIL: 'Почта',
@@ -67,6 +67,11 @@ const CONTENT_RU = {
   NEW_PASSWORD: 'Новый пароль',
   REPEAT_PASSWORD: 'Повторите новый пароль',
   SAVE: 'Сохранить',
+
+  // Chat
+  CREATE_CHAT: 'Создать чат',
+  EMPTY_MESSAGES: 'Выберите чат чтобы отправить сообщение',
+  CHATS: 'Чаты',
 }
 
 const API = {
@@ -76,6 +81,19 @@ const API = {
   SIGNUP: '/auth/signup',
   SIGNOUT: '/auth/logout',
   GET_USER_INFO: '/auth/user',
+  //profile
+  GET_USER_BY_ID: '/user',
+  CHANGE_USER_PROFILE: '/user/profile',
+  CHANGE_USER_AVATAR: '/user/profile/avatar',
+  CHANGE_USER_PASSWORD: '/user/password',
+  SEARCH_FOR_USER_BY_LOGIN: '/user/search',
+}
+
+const METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
 }
 
 const TYPE = {
@@ -83,4 +101,4 @@ const TYPE = {
   ERROR: 'error'
 }
 
-export { CONTENT_RU, PATHNAMES, API, TYPE }
+export { CONTENT_RU, PATHNAMES, API, METHODS, TYPE }
