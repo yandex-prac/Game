@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import variables from '../../Variables.module.scss'
+import variables from '@/Variables.module.scss'
 
 const ProfilePage = styled.div`
   display: flex;
