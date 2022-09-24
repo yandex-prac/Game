@@ -1,4 +1,4 @@
-import { GameObject } from '@/game/classes'
+import { GameObject } from './GameObject'
 import { CharacterProps, Direction } from '@/game/types'
 
 export class Character extends GameObject {

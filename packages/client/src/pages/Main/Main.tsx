@@ -36,7 +36,7 @@ export const Main = memo(() => {
           </h1>
         )}
         <canvas width={400} height={400} ref={canvas} />
-        {isPlaying && (
+        {isPlaying ? null : (
           <StartButton
             type="button"
             textIntl={CONTENT_RU.PLAY_GAME_MENU_ITEM}

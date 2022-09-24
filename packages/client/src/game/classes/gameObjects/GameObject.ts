@@ -1,5 +1,5 @@
 import { GameObjectProps, Coordinates, Size } from '@/game/types'
-import { EventBus } from '@/game/classes'
+import { EventBus } from '../EventBus'
 
 export class GameObject extends EventBus {
   protected _isCollisional = true
