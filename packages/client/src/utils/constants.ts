@@ -34,6 +34,8 @@ const CONTENT_RU = {
   ENTER: 'Вход',
   AUTH: 'Авторизоваться',
   NO_ACCOUNT: 'Нет аккаунта?',
+  LOGIN_SUCCESS: 'Вы успешно авторизовались',
+  LOGIN_ERROR: 'Проверьте правильность ввода данных',
 
   // register и profile
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
@@ -52,6 +54,8 @@ const CONTENT_RU = {
   PASSWORD_SYMBOL: 'Должен содержать заглавную букву, цифру и символ',
   TO_LOGIN: 'Войти',
   MAKE_REGISTER: 'Зарегистрироваться',
+  REGISTR_SUCCESS: 'Вы успешно зарегистрировались',
+  REGISTR_ERROR: 'Пользователь уже зарегистрирован или сервер не отвечает',
 
   // profile
   MAIL: 'Почта',
@@ -74,4 +78,9 @@ const API = {
   GET_USER_INFO: '/auth/user',
 }
 
-export { CONTENT_RU, PATHNAMES, API }
+const TYPE = {
+  SUCCESS: 'success',
+  ERROR: 'error'
+}
+
+export { CONTENT_RU, PATHNAMES, API, TYPE }

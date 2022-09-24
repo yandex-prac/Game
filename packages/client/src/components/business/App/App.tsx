@@ -15,11 +15,13 @@ import {
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '@/context'
 import { PATHNAMES } from '@/utils'
+import { Snackbar } from '@/components/ui/Snackbar/Snackbar'
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false)
   return (
     <Wrap>
+      <Snackbar />
       <BrowserRouter>
         <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
           <Routes>

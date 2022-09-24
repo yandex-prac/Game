@@ -1,9 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { authReducer } from './reducers'
+import { authReducer, snackbarReducer } from './reducers'
 import { authAPI } from './services'
 
 const rootStore = combineReducers({
   authReducer,
+  snackbarReducer,
   [authAPI.reducerPath]: authAPI.reducer,
 })
 
