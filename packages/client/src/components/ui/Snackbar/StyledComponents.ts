@@ -48,7 +48,6 @@ export const StyledSnackbar = styled.div`
 
   &.success {
     background-color: ${variables.green000};
-    
   }
 
   &.error {
@@ -64,7 +63,6 @@ export const StyledSnackbar = styled.div`
   }
 `
 export const StyledCloseIcon = styled.img`
-
   cursor: pointer;
 `
 export const StyledTypeIcon = styled.img`

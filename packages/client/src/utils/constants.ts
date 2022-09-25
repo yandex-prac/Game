@@ -98,7 +98,7 @@ const METHODS = {
 
 const TYPE = {
   SUCCESS: 'success',
-  ERROR: 'error'
+  ERROR: 'error',
 }
 
 export { CONTENT_RU, PATHNAMES, API, METHODS, TYPE }
