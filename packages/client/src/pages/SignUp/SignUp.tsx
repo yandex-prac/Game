@@ -9,8 +9,7 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
-import * as yup from 'yup'
-import { PATHNAMES, validSignUp, CONTENT } from '@/utils'
+import { PATHNAMES, validSignUp } from '@/utils'
 import { useCustomIntl } from '@/hooks'
 
 export const SignUp = () => {
@@ -24,7 +23,7 @@ export const SignUp = () => {
         phone: '',
         password: '',
       },
-      onSubmit: (values, actions) => console.log(values),
+      onSubmit: values => console.log(values),
       validationSchema: validSignUp(),
     })
 

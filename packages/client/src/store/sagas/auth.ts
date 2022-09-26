@@ -1,8 +1,8 @@
 import { takeLatest } from 'redux-saga/effects'
-import { SigninFormRequest } from '@/types'
+import { SigninDTO } from '@/types'
 
 type WorkerUserSiginType = {
-  payload: SigninFormRequest
+  payload: SigninDTO
   type: string
 }
 

@@ -18,7 +18,8 @@ const setupStore = () => {
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware()
         .concat(authAPI.middleware)
-        .concat(profileApi.middleware),
+        .concat(profileApi.middleware)
+        .concat(sagaMiddleware),
   })
 }
 
