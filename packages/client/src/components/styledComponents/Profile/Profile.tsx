@@ -19,7 +19,7 @@ const ProfilePage = styled.div<DarkModeType & ProfileProps>`
   li {
     border-bottom: 1px solid
       ${({ darkMode }) => (darkMode ? variables.grey400 : variables.grey300)};
-    transition: 0.3ss border-color;
+    transition: 0.3s border-color;
 
     &:hover {
       ${({ isNotDisabled, darkMode }) =>
