@@ -12,7 +12,7 @@ import {
   ProfileForm,
   Error,
   WrapButtons,
-  ProfileButton,
+  Button,
 } from '@/components'
 import { validPasswordEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl } from '@/hooks'
@@ -90,12 +90,12 @@ export const PasswordEdit = memo(({ darkMode }: DarkModeType) => {
             )}
           </ProfileUl>
           <WrapButtons>
-            <ProfileButton
+            <Button
               onClick={() => navigate(PATHNAMES.PROFILE)}
-              type="button">
-              {useCustomIntl('BACK')}
-            </ProfileButton>
-            <ProfileButton type="submit">{useCustomIntl('SAVE')}</ProfileButton>
+              type="button"
+              textIntl="BACK"
+            />
+            <Button type="submit" textIntl="SAVE" />
           </WrapButtons>
         </ProfileForm>
       </ProfilePage>
