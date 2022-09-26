@@ -32,7 +32,6 @@ const Item = styled.li<ItemProps & DarkModeType>`
         darkMode ? variables.purple000 : variables.blue000
       };
     `}
-
   a:hover {
     background-color: ${({ darkMode }) =>
       darkMode ? variables.purple100 : variables.blue100};
@@ -46,7 +45,7 @@ const Item = styled.li<ItemProps & DarkModeType>`
     border-top: 1px solid
       ${({ darkMode }) => (darkMode ? variables.black300 : variables.grey100)};
     padding-top: 20px;
-    flex-grow: 1;
+    margin-bottom: auto;
   }
 
   transition: 0.3s border-color;
