@@ -1,4 +1,5 @@
 import React from 'react'
+import { ErrorFallbackType } from '@/components/business/ErrorBoundary/types'
 
 export function ErrorFallback({
   error,

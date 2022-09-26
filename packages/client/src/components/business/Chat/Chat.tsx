@@ -5,7 +5,7 @@ import { ChatProps } from './types'
 import { useCustomIntl } from '@/hooks'
 import { randomId } from '@/utils'
 import { ErrorBoundary } from 'react-error-boundary'
-import { ErrorFallback } from '@/components/business/ErrorBoundary/ErrorBoundary'
+import { ErrorFallback } from '@/components'
 
 export const Chat = ({ arrayOfMessages, isEmpty }: ChatProps) => {
   if (isEmpty) {
