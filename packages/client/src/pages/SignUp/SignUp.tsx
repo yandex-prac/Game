@@ -9,7 +9,8 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
-import { PATHNAMES, validSignUp } from '@/utils'
+import * as yup from 'yup'
+import { PATHNAMES, validSignUp, CONTENT } from '@/utils'
 import { useCustomIntl } from '@/hooks'
 
 export const SignUp = () => {
