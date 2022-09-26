@@ -5,6 +5,8 @@ import {
   SignUp,
   Main,
   Profile,
+  ProfileEdit,
+  PasswordEdit,
   Settings,
   Forum,
   LeaderBoard,
@@ -12,7 +14,7 @@ import {
 } from '@/pages'
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '@/context'
-import { PATHNAMES, CONTENT } from '@/utils'
+import { PATHNAMES } from '@/utils'
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false)
@@ -25,6 +27,8 @@ export const App = () => {
             <Route path={PATHNAMES.SIGNUP} element={<SignUp />} />
             <Route path={PATHNAMES.MAIN} element={<Main />} />
             <Route path={PATHNAMES.PROFILE} element={<Profile />} />
+            <Route path={PATHNAMES.PROFILE_EDIT} element={<ProfileEdit />} />
+            <Route path={PATHNAMES.PASSWORD_EDIT} element={<PasswordEdit />} />
             <Route path={PATHNAMES.SETTINGS} element={<Settings />} />
             <Route path={PATHNAMES.FORUM} element={<Forum />} />
             <Route
@@ -35,8 +39,8 @@ export const App = () => {
               path={PATHNAMES.PATH_NOT_FOUND}
               element={
                 <PageError
-                  title={CONTENT.PAGE_NOT_FOUND_TITLE}
-                  subtitle={CONTENT.PAGE_NOT_FOUND_SUBTITLE}
+                  titleIntl="PAGE_NOT_FOUND_TITLE"
+                  subtitleIntl="PAGE_NOT_FOUND_SUBTITLE"
                   href={PATHNAMES.SIGNIN}
                 />
               }

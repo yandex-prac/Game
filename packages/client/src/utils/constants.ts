@@ -3,6 +3,8 @@ const PATHNAMES = {
   SIGNUP: '/sign-up',
   MAIN: '/main',
   PROFILE: '/profile',
+  PROFILE_EDIT: '/profile-edit',
+  PASSWORD_EDIT: '/password-edit',
   SETTINGS: '/settings',
   FORUM: '/forum',
   LEADER_BOARD: '/leader-board',
@@ -10,7 +12,7 @@ const PATHNAMES = {
   ERROR_404: '/error404',
 }
 
-const CONTENT = {
+const CONTENT_RU = {
   PAGE_NOT_FOUND_TITLE: '404',
   PAGE_NOT_FOUND_SUBTITLE: 'Не туда попали',
   LOGO_ALT: 'Логотип игры pacman',
@@ -33,7 +35,7 @@ const CONTENT = {
   AUTH: 'Авторизоваться',
   NO_ACCOUNT: 'Нет аккаунта?',
 
-  // register
+  // register и profile
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
   REGISTER: 'Регистрация',
   POST: 'Почта',
@@ -50,6 +52,22 @@ const CONTENT = {
   PASSWORD_SYMBOL: 'Должен содержать заглавную букву, цифру и символ',
   TO_LOGIN: 'Войти',
   MAKE_REGISTER: 'Зарегистрироваться',
+
+  // profile
+  MAIL: 'Почта',
+  NICKNAME: 'Имя в игре',
+  CHANGE_DATA: 'Изменить данные',
+  CHANGE_PASSWORD: 'Изменить пароль',
+  QUIT: 'Выйти',
+  OLD_PASSWORD: 'Старый пароль',
+  NEW_PASSWORD: 'Новый пароль',
+  REPEAT_PASSWORD: 'Повторите новый пароль',
+  SAVE: 'Сохранить',
+
+  // Chat
+  CREATE_CHAT: 'Создать чат',
+  EMPTY_MESSAGES: 'Выберите чат чтобы отправить сообщение',
+  CHATS: 'Чаты',
 }
 
 const API = {
@@ -59,6 +77,19 @@ const API = {
   SIGNUP: '/auth/signup',
   SIGNOUT: '/auth/logout',
   GET_USER_INFO: '/auth/user',
+  //profile
+  GET_USER_BY_ID: '/user',
+  CHANGE_USER_PROFILE: '/user/profile',
+  CHANGE_USER_AVATAR: '/user/profile/avatar',
+  CHANGE_USER_PASSWORD: '/user/password',
+  SEARCH_FOR_USER_BY_LOGIN: '/user/search',
 }
 
-export { CONTENT, PATHNAMES, API }
+const METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
+}
+
+export { CONTENT_RU, PATHNAMES, API, METHODS }
