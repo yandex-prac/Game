@@ -10,12 +10,6 @@ const ProfilePage = styled.div<DarkModeType & ProfileProps>`
 
   label,
   input,
-  span {
-    color: ${({ darkMode }) =>
-      darkMode ? variables.white100 : variables.black000};
-    transition: 0.3s color;
-  }
-
   li {
     border-bottom: 1px solid
       ${({ darkMode }) => (darkMode ? variables.grey400 : variables.grey300)};
@@ -95,7 +89,7 @@ const Error = styled.span`
   font-weight: 400;
   font-size: 10px;
   line-height: 10px;
-  color: ${variables.red000}!important;
+  color: ${variables.red000};
   user-select: none;
 
   &:hover {
