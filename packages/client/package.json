@@ -18,8 +18,8 @@
     "react-dom": "^18.2.0",
     "react-intl": "^6.1.1",
     "react-redux": "^8.0.2",
-    "redux-saga": "^1.2.1",
     "react-router-dom": "^6.3.0",
+    "redux-saga": "^1.2.1",
     "redux-toolkit": "^1.1.2",
     "sass": "^1.54.8",
     "styled-components": "^5.3.5"
@@ -30,6 +30,7 @@
     "@types/jest": "^28.1.8",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@types/redux-saga": "^0.10.5",
     "@types/styled-components": "^5.1.26",
     "@types/yup": "0.32.0",
     "@typescript-eslint/eslint-plugin": "^5.35.1",

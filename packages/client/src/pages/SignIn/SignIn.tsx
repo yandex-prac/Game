@@ -23,6 +23,7 @@ export const SignIn = () => {
         login: '',
         password: '',
       },
+      onSubmit: values => signin(values),
       validationSchema: validSignIn(),
     })
 
