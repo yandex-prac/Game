@@ -1,4 +1,4 @@
-type ErrorFallbackType = {
+export type ErrorFallbackType = {
   error: Error
   resetErrorBoundary: () => any
 }
