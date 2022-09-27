@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks'
 import { setSnackbar } from '@/store'
 import { closeicon, okicon, warningicon, attentionicon } from '@/image'
 import { RenderIconType } from '@/types'
+import { SNACKBAR_TYPE } from '@/utils'
 
 export const Snackbar = () => {
   const dispatch = useAppDispatch()
@@ -18,9 +19,12 @@ export const Snackbar = () => {
   )
 
   let timerToClose: any
+
   function handleTimeout() {
     timerToClose = setTimeout(() => {
-      dispatch(setSnackbar({ isOpen: false, message: '', type: 'success' }))
+      dispatch(
+        setSnackbar({ isOpen: false, message: '', type: SNACKBAR_TYPE.SUCCESS })
+      )
     }, 4100)
   }
 
@@ -35,7 +39,9 @@ export const Snackbar = () => {
 
   function handleClose() {
     clearTimeout(timerToClose)
-    dispatch(setSnackbar({ isOpen: false, message: '', type: 'success' }))
+    dispatch(
+      setSnackbar({ isOpen: false, message: '', type: SNACKBAR_TYPE.SUCCESS })
+    )
   }
 
   function renderIcon(type: RenderIconType) {

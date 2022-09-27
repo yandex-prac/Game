@@ -99,6 +99,8 @@ const METHODS = {
 enum SNACKBAR_TYPE {
   SUCCESS = 'success',
   ERROR = 'error',
+  ATTENTION = 'attention',
+  INFORMATION = 'information',
 }
 
 export { CONTENT_RU, PATHNAMES, API, METHODS, SNACKBAR_TYPE }

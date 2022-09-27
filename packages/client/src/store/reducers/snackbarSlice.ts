@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RenderIconType } from '@/types'
+import { SNACKBAR_TYPE } from '@/utils'
 
 type SnackBarType = {
   isOpen: boolean
@@ -10,7 +11,7 @@ type SnackBarType = {
 const initialState: SnackBarType = {
   isOpen: false,
   message: '',
-  type: 'success',
+  type: SNACKBAR_TYPE.SUCCESS,
 }
 
 const snackbarSlice = createSlice({
