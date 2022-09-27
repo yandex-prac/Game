@@ -12,7 +12,7 @@ import {
   AuthTitle,
 } from '@/components'
 import { useCustomIntl, useSnackbar } from '@/hooks'
-import { useSigninMutation } from '@/store/services/authService'
+import { useSigninMutation } from '@/store'
 
 export const SignIn = () => {
   const [signin, { isSuccess, isError, isLoading }] = useSigninMutation()

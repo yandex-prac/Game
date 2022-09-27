@@ -11,7 +11,7 @@ import {
 } from '@/components'
 import { PATHNAMES, validSignUp } from '@/utils'
 import { useCustomIntl, useSnackbar } from '@/hooks'
-import { useSignupMutation } from '@/store/services/authService'
+import { useSignupMutation } from '@/store'
 
 export const SignUp = () => {
   const [signup, { isSuccess, isError, isLoading }] = useSignupMutation()
