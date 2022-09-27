@@ -6,8 +6,9 @@ import {
   StyledTypeIcon,
 } from './StyledComponents'
 import { useAppDispatch, useAppSelector } from '@/hooks'
-import { setSnackbar } from '@/store/reducers/snackbarSlice'
-import { closeicon, okicon, warningicon, attentionicon } from '../../../image'
+import { setSnackbar } from '@/store'
+import { closeicon, okicon, warningicon, attentionicon } from '@/image'
+
 export const Snackbar = () => {
   const dispatch = useAppDispatch()
 
