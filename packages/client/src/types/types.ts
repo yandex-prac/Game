@@ -52,6 +52,8 @@ type SearchForUserByLoginDTO = {
   login: string
 }
 
+type RenderIconType = 'success' | 'error' | 'attention' | 'information'
+
 export type {
   ButtonEnum,
   DarkModeType,
@@ -63,4 +65,5 @@ export type {
   ProfileDTO,
   EditPasswordDTO,
   SearchForUserByLoginDTO,
+  RenderIconType,
 }
