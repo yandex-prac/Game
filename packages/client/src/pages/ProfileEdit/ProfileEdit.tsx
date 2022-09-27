@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import {
   BaseLayout,
   ProfileImage,
-  Button,
   ProfilePage,
   ProfileForm,
   ProfileUl,
@@ -11,11 +11,15 @@ import {
   ProfileLabel,
   ProfileInput,
   Error,
+  WrapButtons,
+  Button,
 } from '@/components'
-import { validProfileEdit } from '@/utils'
+import { validProfileEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl } from '@/hooks'
+import { DarkModeType } from '@/types'
 
-export const ProfileEdit = memo(() => {
+export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
+  const navigate = useNavigate()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -33,7 +37,7 @@ export const ProfileEdit = memo(() => {
     })
   return (
     <BaseLayout>
-      <ProfilePage>
+      <ProfilePage darkMode={darkMode} isNotDisabled>
         <ProfileImage />
         <ProfileForm onSubmit={handleSubmit}>
           <ProfileUl>
@@ -125,7 +129,14 @@ export const ProfileEdit = memo(() => {
             </ProfileLi>
             {touched.phone && errors.phone && <Error>{errors.phone}</Error>}
           </ProfileUl>
-          <Button type="submit" textIntl="SAVE" />
+          <WrapButtons>
+            <Button
+              onClick={() => navigate(PATHNAMES.PROFILE)}
+              type="button"
+              textIntl="BACK"
+            />
+            <Button type="submit" textIntl="SAVE" />
+          </WrapButtons>
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>

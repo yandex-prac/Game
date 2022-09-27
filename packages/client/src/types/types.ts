@@ -32,6 +32,10 @@ type SignupResponseDTO = {
   id?: number
 }
 
+type ProfileProps = {
+  isNotDisabled?: boolean
+}
+
 type ProfileDTO = {
   id: number
   first_name: string
@@ -63,6 +67,7 @@ export type {
   SigninResponseDTO,
   UserInfoDTO,
   SignupResponseDTO,
+  ProfileProps,
   ProfileDTO,
   EditPasswordDTO,
   SearchForUserByLoginDTO,

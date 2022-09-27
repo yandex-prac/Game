@@ -18,6 +18,16 @@ export { Snackbar } from './ui/Snackbar'
 
 export { BaseLayout } from './layout/BaseLayout'
 
+export {
+  Planet,
+  Profile,
+  Settings,
+  Forum,
+  LeaderBoard,
+  Theme,
+  SignOut,
+} from './icons'
+
 // styled components
 export * from './styledComponents/Auth'
 export * from './styledComponents/Profile'

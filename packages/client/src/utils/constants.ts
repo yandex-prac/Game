@@ -62,11 +62,11 @@ const CONTENT_RU = {
   NICKNAME: 'Имя в игре',
   CHANGE_DATA: 'Изменить данные',
   CHANGE_PASSWORD: 'Изменить пароль',
-  QUIT: 'Выйти',
   OLD_PASSWORD: 'Старый пароль',
   NEW_PASSWORD: 'Новый пароль',
   REPEAT_PASSWORD: 'Повторите новый пароль',
   SAVE: 'Сохранить',
+  BACK: 'Назад',
 
   // Chat
   CREATE_CHAT: 'Создать чат',
