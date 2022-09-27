@@ -1,33 +1,35 @@
 import styled, { keyframes } from 'styled-components'
 import variables from '@/Variables.module.scss'
+
 const fadein = keyframes`
-      from {
-        bottom: 0;
-        opacity: 0;
-      }
-      to {
-        bottom: 1rem;
-        opacity: 1;
-      }
-  `
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 1rem;
+    opacity: 1;
+  }
+`
 
 const fadeout = keyframes`
-      from {
-        bottom: 1rem;
-        opacity: 1;
-      }
-      to {
-        bottom: 0;
-        opacity: 0;
-      }
-  `
-export const StyledText = styled.div`
+  from {
+    bottom: 1rem;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+`
+
+const StyledText = styled.div`
   font-size: 16px;
   position: absolute;
   left: 58px;
 `
 
-export const StyledSnackbar = styled.div`
+const StyledSnackbar = styled.div`
   width: 476px;
   height: 48px;
 
@@ -62,10 +64,13 @@ export const StyledSnackbar = styled.div`
     background-color: ${variables.blue300};
   }
 `
-export const StyledCloseIcon = styled.img`
+
+const StyledCloseIcon = styled.img`
   cursor: pointer;
 `
-export const StyledTypeIcon = styled.img`
+
+const StyledTypeIcon = styled.img`
   width: 20px;
   height: 20px;
 `
+export { StyledText, StyledSnackbar, StyledCloseIcon, StyledTypeIcon }
