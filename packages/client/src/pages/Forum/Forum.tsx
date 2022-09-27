@@ -32,10 +32,7 @@ export const Forum = memo(() => {
           </ForumChatListBlock>
         </ForumPageLeftBlock>
         <ForumPageRightBlock>
-          <Chat
-            arrayOfMessages={messagesMock}
-            isEmpty={!!messagesMock.length}
-          />
+          <Chat arrayOfMessages={messagesMock} isEmpty={!messagesMock.length} />
         </ForumPageRightBlock>
       </ForumPageWrapper>
     </BaseLayout>

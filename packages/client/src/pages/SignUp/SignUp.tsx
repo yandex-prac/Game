@@ -10,9 +10,14 @@ import {
   AuthTitle,
 } from '@/components'
 import { PATHNAMES, validSignUp } from '@/utils'
-import { useCustomIntl } from '@/hooks'
+import { useCustomIntl, useSnackbar } from '@/hooks'
+import { useSignupMutation } from '@/store'
 
 export const SignUp = () => {
+  const [signup, { isSuccess, isError, isLoading }] = useSignupMutation()
+
+  useSnackbar({ isSuccess, isError, isLoading })
+
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -23,7 +28,7 @@ export const SignUp = () => {
         phone: '',
         password: '',
       },
-      onSubmit: (values, actions) => console.log(values),
+      onSubmit: values => signup(values),
       validationSchema: validSignUp(),
     })
 

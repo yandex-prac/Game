@@ -8,6 +8,7 @@ type FormProps = {
   onSubmit: () => void
 }
 
+
 type SigninDTO = {
   login: string
   password: string
@@ -35,6 +36,29 @@ type ProfileProps = {
   isNotDisabled?: boolean
 }
 
+type ProfileDTO = {
+  id: number
+  first_name: string
+  second_name: string
+  display_name: null | string
+  login: string
+  avatar: null | string
+  email: string
+  phone: string
+  status?: null | string
+}
+
+type EditPasswordDTO = {
+  oldPassword: string
+  newPassword: string
+}
+
+type SearchForUserByLoginDTO = {
+  login: string
+}
+
+type RenderIconType = 'success' | 'error' | 'attention' | 'information'
+
 export type {
   ButtonEnum,
   DarkModeType,
@@ -44,4 +68,8 @@ export type {
   UserInfoDTO,
   SignupResponseDTO,
   ProfileProps,
+  ProfileDTO,
+  EditPasswordDTO,
+  SearchForUserByLoginDTO,
+  RenderIconType,
 }

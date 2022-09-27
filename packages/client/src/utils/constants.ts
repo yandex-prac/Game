@@ -3,8 +3,8 @@ const PATHNAMES = {
   SIGNUP: '/sign-up',
   MAIN: '/main',
   PROFILE: '/profile',
-  PROFILE_EDIT: '/profile-edit',
-  PASSWORD_EDIT: '/password-edit',
+  PROFILE_EDIT: '/profile/edit',
+  PASSWORD_EDIT: '/profile/edit-password',
   SETTINGS: '/settings',
   FORUM: '/forum',
   LEADER_BOARD: '/leader-board',
@@ -34,6 +34,8 @@ const CONTENT_RU = {
   ENTER: 'Вход',
   AUTH: 'Авторизоваться',
   NO_ACCOUNT: 'Нет аккаунта?',
+  LOGIN_SUCCESS: 'Вы успешно авторизовались',
+  LOGIN_ERROR: 'Проверьте правильность ввода данных',
 
   // register и profile
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
@@ -52,6 +54,8 @@ const CONTENT_RU = {
   PASSWORD_SYMBOL: 'Должен содержать заглавную букву, цифру и символ',
   TO_LOGIN: 'Войти',
   MAKE_REGISTER: 'Зарегистрироваться',
+  REGISTR_SUCCESS: 'Вы успешно зарегистрировались',
+  REGISTR_ERROR: 'Такой пользователь уже зарегистрирован',
 
   // profile
   MAIL: 'Почта',
@@ -77,6 +81,26 @@ const API = {
   SIGNUP: '/auth/signup',
   SIGNOUT: '/auth/logout',
   GET_USER_INFO: '/auth/user',
+  //profile
+  GET_USER_BY_ID: '/user',
+  CHANGE_USER_PROFILE: '/user/profile',
+  CHANGE_USER_AVATAR: '/user/profile/avatar',
+  CHANGE_USER_PASSWORD: '/user/password',
+  SEARCH_FOR_USER_BY_LOGIN: '/user/search',
 }
 
-export { CONTENT_RU, PATHNAMES, API }
+const METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
+}
+
+enum SNACKBAR_TYPE {
+  SUCCESS = 'success',
+  ERROR = 'error',
+  ATTENTION = 'attention',
+  INFORMATION = 'information',
+}
+
+export { CONTENT_RU, PATHNAMES, API, METHODS, SNACKBAR_TYPE }

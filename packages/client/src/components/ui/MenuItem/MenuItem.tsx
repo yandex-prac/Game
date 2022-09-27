@@ -15,7 +15,7 @@ export const MenuItem = memo(
   }: MenuItemProps & DarkModeType) => {
     const location = useLocation()
 
-    const isActive = location.pathname === href ? true : false
+    const isActive = href ? location.pathname.includes(href) : false
 
     return (
       <Item

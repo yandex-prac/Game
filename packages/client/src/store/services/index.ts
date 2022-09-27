@@ -1,1 +1,2 @@
-export { authAPI } from './authService'
+export * from './authService'
+export * from './profileService'
