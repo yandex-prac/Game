@@ -96,9 +96,9 @@ const METHODS = {
   DELETE: 'DELETE',
 }
 
-const TYPE = {
-  SUCCESS: 'success',
-  ERROR: 'error',
+enum SNACKBAR_TYPE {
+  SUCCESS = 'success',
+  ERROR = 'error',
 }
 
-export { CONTENT_RU, PATHNAMES, API, METHODS, TYPE }
+export { CONTENT_RU, PATHNAMES, API, METHODS, SNACKBAR_TYPE }

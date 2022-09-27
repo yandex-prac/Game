@@ -9,7 +9,7 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
-import { PATHNAMES, validSignUp, CONTENT_RU, TYPE } from '@/utils'
+import { PATHNAMES, validSignUp, CONTENT_RU, SNACKBAR_TYPE } from '@/utils'
 import { useCustomIntl, useAppDispatch } from '@/hooks'
 import { useSignupMutation } from '@/store/services/authService'
 import { useNavigate } from 'react-router-dom'
@@ -26,7 +26,7 @@ export const SignUp = () => {
         setSnackbar({
           isOpen: true,
           message: CONTENT_RU.REGISTR_SUCCESS,
-          type: TYPE.SUCCESS,
+          type: SNACKBAR_TYPE.SUCCESS,
         })
       )
       navigate('/main')
@@ -36,7 +36,7 @@ export const SignUp = () => {
         setSnackbar({
           isOpen: true,
           message: CONTENT_RU.REGISTR_ERROR,
-          type: TYPE.ERROR,
+          type: SNACKBAR_TYPE.ERROR,
         })
       )
     }

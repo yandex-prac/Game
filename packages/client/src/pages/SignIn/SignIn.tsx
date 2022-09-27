@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useFormik } from 'formik'
 import { InputGroup } from './StyledComponents'
-import { PATHNAMES, validSignIn, CONTENT_RU, TYPE } from '@/utils'
+import { PATHNAMES, validSignIn, CONTENT_RU, SNACKBAR_TYPE } from '@/utils'
 import {
   Input,
   Button,
@@ -29,7 +29,7 @@ export const SignIn = () => {
         setSnackbar({
           isOpen: true,
           message: CONTENT_RU.LOGIN_SUCCESS,
-          type: TYPE.SUCCESS,
+          type: SNACKBAR_TYPE.SUCCESS,
         })
       )
       navigate('/main')
@@ -39,7 +39,7 @@ export const SignIn = () => {
         setSnackbar({
           isOpen: true,
           message: CONTENT_RU.LOGIN_ERROR,
-          type: TYPE.ERROR,
+          type: SNACKBAR_TYPE.ERROR,
         })
       )
     }
