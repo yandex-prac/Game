@@ -34,6 +34,8 @@ const CONTENT_RU = {
   ENTER: 'Вход',
   AUTH: 'Авторизоваться',
   NO_ACCOUNT: 'Нет аккаунта?',
+  LOGIN_SUCCESS: 'Вы успешно авторизовались',
+  LOGIN_ERROR: 'Проверьте правильность ввода данных',
 
   // register и profile
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
@@ -52,6 +54,8 @@ const CONTENT_RU = {
   PASSWORD_SYMBOL: 'Должен содержать заглавную букву, цифру и символ',
   TO_LOGIN: 'Войти',
   MAKE_REGISTER: 'Зарегистрироваться',
+  REGISTR_SUCCESS: 'Вы успешно зарегистрировались',
+  REGISTR_ERROR: 'Такой пользователь уже зарегистрирован',
 
   // profile
   MAIL: 'Почта',
@@ -92,4 +96,11 @@ const METHODS = {
   DELETE: 'DELETE',
 }
 
-export { CONTENT_RU, PATHNAMES, API, METHODS }
+enum SNACKBAR_TYPE {
+  SUCCESS = 'success',
+  ERROR = 'error',
+  ATTENTION = 'attention',
+  INFORMATION = 'information',
+}
+
+export { CONTENT_RU, PATHNAMES, API, METHODS, SNACKBAR_TYPE }

@@ -9,21 +9,32 @@ import {
 
 export const authAPI = createApi({
   reducerPath: 'authAPI',
-  baseQuery: fetchBaseQuery({ baseUrl: API.API_BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: API.API_BASE_URL,
+    credentials: 'include',
+  }),
   endpoints: builder => ({
-    signin: builder.query<SigninResponseDTO, SigninDTO>({
-      query: payload => ({
-        url: API.SIGNIN,
-        method: METHODS.POST,
-        body: payload,
-      }),
+    signin: builder.mutation<SigninResponseDTO, SigninDTO>({
+      query: payload => {
+        return {
+          url: API.SIGNIN,
+          method: METHODS.POST,
+          body: payload,
+          responseHandler: response =>
+            response.status === 200 ? response.text() : response.json(),
+        }
+      },
     }),
     signup: builder.mutation<SignupResponseDTO, UserInfoDTO>({
-      query: payload => ({
-        url: API.SIGNUP,
-        method: METHODS.POST,
-        body: payload,
-      }),
+      query: payload => {
+        return {
+          url: API.SIGNUP,
+          method: METHODS.POST,
+          body: payload,
+          responseHandler: response =>
+            response.status === 200 ? response.text() : response.json(),
+        }
+      },
     }),
     signout: builder.query({
       query: () => ({
@@ -37,4 +48,4 @@ export const authAPI = createApi({
   }),
 })
 
-export const { useLazySigninQuery, useSignupMutation } = authAPI
+export const { useSigninMutation, useSignupMutation } = authAPI

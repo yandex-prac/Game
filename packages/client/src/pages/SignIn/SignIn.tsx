@@ -11,11 +11,13 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
-import { useCustomIntl } from '@/hooks'
-import { useLazySigninQuery } from '@/store/services/authService'
+import { useCustomIntl, useSnackbar } from '@/hooks'
+import { useSigninMutation } from '@/store'
 
 export const SignIn = () => {
-  const [signin, signinResponse] = useLazySigninQuery()
+  const [signin, { isSuccess, isError, isLoading }] = useSigninMutation()
+
+  useSnackbar({ isSuccess, isError, isLoading })
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
