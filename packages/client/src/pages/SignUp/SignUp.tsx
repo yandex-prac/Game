@@ -23,7 +23,7 @@ export const SignUp = () => {
         phone: '',
         password: '',
       },
-      onSubmit: (values, actions) => console.log(values),
+      onSubmit: values => console.log(values),
       validationSchema: validSignUp(),
     })
 

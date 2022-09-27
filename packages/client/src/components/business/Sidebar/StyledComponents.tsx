@@ -3,7 +3,7 @@ import variables from '@/Variables.module.scss'
 import { DarkModeType } from '@/types'
 
 const Container = styled.div<DarkModeType>`
-  z-index: 1;
+  z-index: 2;
   box-sizing: border-box;
   min-height: 100vh;
   width: 257px;
