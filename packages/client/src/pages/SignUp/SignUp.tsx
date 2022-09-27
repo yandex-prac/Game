@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useFormik } from 'formik'
 import {
   Input,
@@ -9,38 +9,14 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
-import { PATHNAMES, validSignUp, CONTENT_RU, SNACKBAR_TYPE } from '@/utils'
-import { useCustomIntl, useAppDispatch } from '@/hooks'
+import { PATHNAMES, validSignUp } from '@/utils'
+import { useCustomIntl, useSnackbar } from '@/hooks'
 import { useSignupMutation } from '@/store/services/authService'
-import { useNavigate } from 'react-router-dom'
-import { setSnackbar } from '@/store/reducers/snackbarSlice'
 
 export const SignUp = () => {
-  const dispatch = useAppDispatch()
-  const navigate = useNavigate()
   const [signup, { isSuccess, isError, isLoading }] = useSignupMutation()
 
-  useEffect(() => {
-    if (isSuccess) {
-      dispatch(
-        setSnackbar({
-          isOpen: true,
-          message: CONTENT_RU.REGISTR_SUCCESS,
-          type: SNACKBAR_TYPE.SUCCESS,
-        })
-      )
-      navigate('/main')
-    }
-    if (isError) {
-      dispatch(
-        setSnackbar({
-          isOpen: true,
-          message: CONTENT_RU.REGISTR_ERROR,
-          type: SNACKBAR_TYPE.ERROR,
-        })
-      )
-    }
-  }, [isLoading])
+  useSnackbar({ isSuccess, isError, isLoading })
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
