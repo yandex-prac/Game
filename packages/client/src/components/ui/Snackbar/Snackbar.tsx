@@ -8,6 +8,7 @@ import {
 import { useAppDispatch, useAppSelector } from '@/hooks'
 import { setSnackbar } from '@/store'
 import { closeicon, okicon, warningicon, attentionicon } from '@/image'
+import { RenderIconType } from './types'
 
 export const Snackbar = () => {
   const dispatch = useAppDispatch()
@@ -37,7 +38,7 @@ export const Snackbar = () => {
     dispatch(setSnackbar({ isOpen: false, message: '', type: '' }))
   }
 
-  function renderIcon(type: string) {
+  function renderIcon(type: RenderIconType) {
     switch (type) {
       case 'success':
         return <StyledTypeIcon src={okicon} />
