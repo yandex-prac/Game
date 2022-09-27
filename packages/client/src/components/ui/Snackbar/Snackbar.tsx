@@ -39,19 +39,13 @@ export const Snackbar = () => {
   }
 
   function renderIcon(type: RenderIconType) {
-    switch (type) {
-      case 'success':
-        return <StyledTypeIcon src={okicon} />
-
-      case 'error':
-        return <StyledTypeIcon src={warningicon} />
-
-      case 'attention':
-        return <StyledTypeIcon src={attentionicon} />
-
-      case 'information':
-        return <StyledTypeIcon src={warningicon} />
+    const iconMap = {
+      success: okicon,
+      error: warningicon,
+      attention: attentionicon,
+      information: warningicon,
     }
+    return <StyledTypeIcon src={iconMap[type]} />
   }
 
   return isOpen ? (
