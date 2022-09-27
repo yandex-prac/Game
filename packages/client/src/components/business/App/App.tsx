@@ -15,7 +15,7 @@ import {
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '@/context'
 import { PATHNAMES } from '@/utils'
-import { Snackbar } from '@/components/ui/Snackbar/Snackbar'
+import { Snackbar } from '@/components'
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false)

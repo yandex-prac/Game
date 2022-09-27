@@ -53,13 +53,13 @@ export const Snackbar = () => {
     }
   }
 
-  return (
-    isOpen && (
-      <StyledSnackbar className={type}>
-        {renderIcon(type)}
-        <StyledText>{message}</StyledText>
-        <StyledCloseIcon src={closeicon} onClick={handleClose} />
-      </StyledSnackbar>
-    )
+  return isOpen ? (
+    <StyledSnackbar className={type}>
+      {renderIcon(type)}
+      <StyledText>{message}</StyledText>
+      <StyledCloseIcon src={closeicon} onClick={handleClose} />
+    </StyledSnackbar>
+  ) : (
+    <></>
   )
 }

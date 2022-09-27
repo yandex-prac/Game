@@ -13,6 +13,7 @@ export { SidebarAvatar } from './ui/SidebarAvatar'
 export { Menu } from './ui/Menu'
 export { MenuItem } from './ui/MenuItem'
 export { ProfileImage } from './ui/ProfileImage'
+export { Snackbar } from './ui/Snackbar'
 
 export { BaseLayout } from './layout/BaseLayout'
 
