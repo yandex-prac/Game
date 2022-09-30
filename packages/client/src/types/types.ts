@@ -8,7 +8,6 @@ type FormProps = {
   onSubmit: () => void
 }
 
-
 type SigninDTO = {
   login: string
   password: string
