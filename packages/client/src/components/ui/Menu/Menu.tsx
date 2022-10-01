@@ -13,9 +13,14 @@ import {
 import { PATHNAMES } from '@/utils'
 import { MenuProps } from './types'
 import { DarkModeType } from '@/types'
+import { useSignoutMutation } from '@/store'
+import { useNavigate } from 'react-router-dom'
 
 export const Menu = memo(
   ({ darkMode, onChangeTheme }: MenuProps & DarkModeType) => {
+    const [logoutTrigger] = useSignoutMutation()
+    const navigate = useNavigate()
+
     return (
       <List>
         <MenuItem
@@ -56,7 +61,11 @@ export const Menu = memo(
         />
         <MenuItem
           darkMode={darkMode}
-          href={PATHNAMES.SIGNIN}
+          onClick={() => {
+            logoutTrigger(false).then(() => {
+              navigate(PATHNAMES.SIGNIN)
+            })
+          }}
           icon={<SignOut darkMode={darkMode} />}
           textIntl="SIGNOUT_MENU_ITEM"
         />

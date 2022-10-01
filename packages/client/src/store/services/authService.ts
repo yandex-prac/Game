@@ -20,8 +20,9 @@ export const authAPI = createApi({
           url: API.SIGNIN,
           method: METHODS.POST,
           body: payload,
-          responseHandler: response =>
-            response.status === 200 ? response.text() : response.json(),
+          responseHandler: (response: Response) => {
+            return response.json()
+          },
         }
       },
     }),
@@ -31,12 +32,13 @@ export const authAPI = createApi({
           url: API.SIGNUP,
           method: METHODS.POST,
           body: payload,
-          responseHandler: response =>
-            response.status === 200 ? response.text() : response.json(),
+          responseHandler: (response: Response) => {
+            return response.json()
+          },
         }
       },
     }),
-    signout: builder.query({
+    signout: builder.mutation({
       query: () => ({
         url: API.SIGNOUT,
         method: METHODS.POST,
@@ -48,4 +50,9 @@ export const authAPI = createApi({
   }),
 })
 
-export const { useSigninMutation, useSignupMutation } = authAPI
+export const {
+  useSigninMutation,
+  useSignupMutation,
+  useSignoutMutation,
+  useGetUserInfoQuery,
+} = authAPI

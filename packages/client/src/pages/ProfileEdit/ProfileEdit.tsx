@@ -15,26 +15,53 @@ import {
   Button,
 } from '@/components'
 import { validProfileEdit, PATHNAMES } from '@/utils'
-import { useCustomIntl } from '@/hooks'
+import { useCustomIntl, useSnackbar } from '@/hooks'
 import { DarkModeType } from '@/types'
+import { useGetUserInfoQuery, useChangeUserProfileMutation } from '@/store'
 
 export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
   const navigate = useNavigate()
-  const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
-    useFormik({
-      initialValues: {
-        mail: '',
-        login: '',
-        name: '',
-        surname: '',
-        nickname: '',
-        phone: '',
-      },
-      onSubmit: values => {
-        console.log(values)
-      },
-      validationSchema: validProfileEdit(),
-    })
+  const [
+    changeTrigger,
+    { isSuccess: isUserInfoChangesSuccess, isError, isLoading },
+  ] = useChangeUserProfileMutation()
+
+  useSnackbar({ isSuccess: isUserInfoChangesSuccess, isError, isLoading })
+
+  const {
+    values,
+    errors,
+    touched,
+    handleChange,
+    handleSubmit,
+    handleBlur,
+    setValues,
+  } = useFormik({
+    initialValues: {
+      email: '',
+      login: '',
+      first_name: '',
+      second_name: '',
+      display_name: '',
+      phone: '',
+    },
+    onSubmit: values => {
+      changeTrigger(values)
+    },
+    validationSchema: validProfileEdit(),
+  })
+
+  const {
+    data,
+    isSuccess: isUserInfoSuccess,
+    status,
+  } = useGetUserInfoQuery(false)
+
+  if (isUserInfoSuccess) {
+    // при установке значений компонент реерндерится и заново вызывает бэк для получения данных. И так по кругу
+    setValues(data, false)
+  }
+
   return (
     <BaseLayout>
       <ProfilePage darkMode={darkMode} isNotDisabled>
@@ -48,12 +75,12 @@ export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
               <ProfileInput
                 id="mail"
                 name="mail"
-                value={values.mail}
+                value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
             </ProfileLi>
-            {touched.mail && errors.mail && <Error>{errors.mail}</Error>}
+            {touched.email && errors.email && <Error>{errors.email}</Error>}
 
             <ProfileLi>
               <ProfileLabel htmlFor="login">
@@ -76,12 +103,14 @@ export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
               <ProfileInput
                 id="name"
                 name="name"
-                value={values.name}
+                value={values.first_name}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
             </ProfileLi>
-            {touched.name && errors.name && <Error>{errors.name}</Error>}
+            {touched.first_name && errors.first_name && (
+              <Error>{errors.first_name}</Error>
+            )}
 
             <ProfileLi>
               <ProfileLabel htmlFor="surname">
@@ -90,13 +119,13 @@ export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
               <ProfileInput
                 id="surname"
                 name="surname"
-                value={values.surname}
+                value={values.second_name}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
             </ProfileLi>
-            {touched.surname && errors.surname && (
-              <Error>{errors.surname}</Error>
+            {touched.second_name && errors.second_name && (
+              <Error>{errors.second_name}</Error>
             )}
 
             <ProfileLi>
@@ -106,13 +135,13 @@ export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
               <ProfileInput
                 id="nickname"
                 name="nickname"
-                value={values.nickname}
+                value={values.display_name}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
             </ProfileLi>
-            {touched.nickname && errors.nickname && (
-              <Error>{errors.nickname}</Error>
+            {touched.display_name && errors.display_name && (
+              <Error>{errors.display_name}</Error>
             )}
 
             <ProfileLi>
