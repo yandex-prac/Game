@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyledFSButtonProps } from './types'
 import { Button } from '@/components'
 import useFullscreenStatus from '@/hooks/useFullscreenStatus'
 
-export const FullscreenButton = ({ ref }: StyledFSButtonProps) => {
-  const [isFullscreen, setIsFullscreen] = useFullscreenStatus(ref)
+export const FullscreenButton = () => {
+  const root = document.getElementById('root')
+  const [isFullscreen, setIsFullscreen] = useFullscreenStatus(root)
   const handleFullscreen = () => {
     // Ругается TS, непонятно на что
     if (typeof setIsFullscreen === 'boolean') {
@@ -17,7 +17,6 @@ export const FullscreenButton = ({ ref }: StyledFSButtonProps) => {
       setIsFullscreen()
     }
   }
-
   return (
     <Button
       type="button"

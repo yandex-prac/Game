@@ -1,6 +1,6 @@
-import React, { RefObject } from 'react'
+import React from 'react'
 
-export default function useFullscreenStatus(elRef: RefObject<HTMLElement>) {
+export default function useFullscreenStatus(elRef: HTMLElement | any) {
   const [isFullscreen, setIsFullscreen] = React.useState(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -8,9 +8,9 @@ export default function useFullscreenStatus(elRef: RefObject<HTMLElement>) {
   )
 
   const setFullscreen = () => {
-    if (elRef.current == null) return
+    if (elRef == null) return
 
-    elRef.current
+    elRef
       .requestFullscreen()
       .then(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
