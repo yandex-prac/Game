@@ -13,8 +13,9 @@ import {
 } from '@/components'
 import { useCustomIntl, useSnackbar } from '@/hooks'
 import { useSigninMutation } from '@/store'
+import { WithAuth } from '@/hoc'
 
-export const SignIn = () => {
+const SignIn = () => {
   const [signin, { isSuccess, isError, isLoading }] = useSigninMutation()
 
   useSnackbar({ isSuccess, isError, isLoading })
@@ -67,3 +68,7 @@ export const SignIn = () => {
     </AuthPage>
   )
 }
+
+const withAuthSignIn = WithAuth(SignIn)
+
+export { withAuthSignIn as SignIn }

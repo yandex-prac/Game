@@ -17,8 +17,9 @@ import {
 import { validPasswordEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl } from '@/hooks'
 import { DarkModeType } from '@/types'
+import { WithAuth } from '@/hoc'
 
-export const PasswordEdit = memo(({ darkMode }: DarkModeType) => {
+const PasswordEdit = memo(({ darkMode }: DarkModeType) => {
   const navigate = useNavigate()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
@@ -102,3 +103,7 @@ export const PasswordEdit = memo(({ darkMode }: DarkModeType) => {
     </BaseLayout>
   )
 })
+
+const withPasswordEdit = WithAuth(PasswordEdit)
+
+export { withPasswordEdit as PasswordEdit }

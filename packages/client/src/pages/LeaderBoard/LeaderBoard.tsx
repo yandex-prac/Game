@@ -4,8 +4,9 @@ import { Content, Title, LinkToGame } from './StyledComponents'
 import { PATHNAMES } from '@/utils'
 import { DarkModeType } from '@/types'
 import { useCustomIntl } from '@/hooks'
+import { WithAuth } from '@/hoc'
 
-export const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
+const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
   return (
     <BaseLayout>
       <Content darkMode={darkMode}>
@@ -17,3 +18,7 @@ export const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
     </BaseLayout>
   )
 })
+
+const withLeaderBoard = WithAuth(LeaderBoard)
+
+export { withLeaderBoard as LeaderBoard }

@@ -9,8 +9,9 @@ import {
 } from './StyledComponents'
 import { BaseLayout, Button, Chat, ChatItem } from '@/components'
 import { useCustomIntl } from '@/hooks'
+import { WithAuth } from '@/hoc'
 
-export const Forum = memo(() => {
+const Forum = memo(() => {
   // Заменить мок на данные с сервера.
   const messagesMock = ['message1', 'message2']
   return (
@@ -38,3 +39,7 @@ export const Forum = memo(() => {
     </BaseLayout>
   )
 })
+
+const withAuthForum = WithAuth(Forum)
+
+export { withAuthForum as Forum }
