@@ -4,7 +4,7 @@ import { PATHNAMES, CONTENT_RU } from '@/utils'
 import { useLazyGetUserInfoQuery } from '@/store'
 
 export const WithAuth =
-  (Component: any) => (props: JSX.IntrinsicAttributes) => {
+  (Component: any) => (props: any) => {
     const navigate = useNavigate()
     const [getUser, { isSuccess }] = useLazyGetUserInfoQuery()
 
