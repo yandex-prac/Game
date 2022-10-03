@@ -1,1 +1,1 @@
-export { FullscreenButton } from './FullscreenButton'
+export { AudoiButton } from './AudoiButton'

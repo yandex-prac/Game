@@ -5,6 +5,7 @@ import { PATHNAMES } from '@/utils'
 import { MenuProps } from './types'
 import { DarkModeType } from '@/types'
 import { FullscreenButton } from '@/components/ui/FullscreenButton/FullscreenButton'
+import { AudoiButton } from '@/components/ui/AudioButton'
 
 export const Menu = memo(
   ({ darkMode, onChangeTheme }: MenuProps & DarkModeType) => {
@@ -114,6 +115,7 @@ export const Menu = memo(
           textIntl="COLOR_SCHEME_MENU_ITEM"
         />
         <FullscreenButton />
+        <AudoiButton />
         <MenuItem
           darkMode={darkMode}
           href={PATHNAMES.SIGNIN}

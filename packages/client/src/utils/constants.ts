@@ -24,6 +24,8 @@ const CONTENT_RU = {
   COLOR_SCHEME_MENU_ITEM: 'Цветовая схема',
   FULLSCREEN_MENU_ITEM: 'Полный экран',
   FULLSCREEN_MENU_ITEM_EXIT: 'Выйти из полноэкранного режима',
+  MUSIC_TURN_ON: 'Включить музыку',
+  MUSIC_TURN_OFF: 'Отключить музыку',
   SIGNOUT_MENU_ITEM: 'Выйти',
   AVATAR_USER_ALT: 'Аватар пользователя',
   USER_NAME_TEST_DATA: 'Patrushva Maria',
