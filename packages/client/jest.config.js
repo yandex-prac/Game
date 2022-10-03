@@ -12,5 +12,6 @@ export default {
     '^@/hooks(.*)$': '<rootDir>/src/hooks$1',
     '^@/image(.*)$': '<rootDir>/src/image$1',
     '^@/game(.*)$': '<rootDir>/src/game$1',
+    '^@/hoc(.*)$': '<rootDir>/src/hoc$1',
   },
 }

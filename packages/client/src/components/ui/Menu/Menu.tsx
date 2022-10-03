@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { List } from './StyledComponents'
 import {
   MenuItem,
@@ -10,12 +11,21 @@ import {
   Theme,
   SignOut,
 } from '@/components'
-import { PATHNAMES } from '@/utils'
+import { PATHNAMES, CONTENT_RU } from '@/utils'
 import { MenuProps } from './types'
 import { DarkModeType } from '@/types'
+import { useLazySignoutQuery } from '@/store'
 
 export const Menu = memo(
   ({ darkMode, onChangeTheme }: MenuProps & DarkModeType) => {
+    const navigate = useNavigate()
+    const [logout] = useLazySignoutQuery()
+    const onClickLogout = () => {
+      localStorage.removeItem(CONTENT_RU.IS_LOGIN_IN)
+      logout(undefined)
+      navigate(PATHNAMES.SIGNIN)
+    }
+
     return (
       <List>
         <MenuItem
@@ -56,7 +66,7 @@ export const Menu = memo(
         />
         <MenuItem
           darkMode={darkMode}
-          href={PATHNAMES.SIGNIN}
+          onClick={onClickLogout}
           icon={<SignOut darkMode={darkMode} />}
           textIntl="SIGNOUT_MENU_ITEM"
         />

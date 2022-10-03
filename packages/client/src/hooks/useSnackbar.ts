@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
-import { setLoginIn } from '@/store/reducers/authSlice'
-import { setSnackbar } from '@/store/reducers/snackbarSlice'
 import { useNavigate } from 'react-router-dom'
+import { setLoginIn, setSnackbar } from '@/store'
 import { useAppDispatch } from '@/hooks'
 import { CONTENT_RU, SNACKBAR_TYPE, PATHNAMES } from '@/utils'
 
@@ -29,6 +28,7 @@ export const useSnackbar = ({
           type: SNACKBAR_TYPE.SUCCESS,
         })
       )
+      localStorage.setItem(CONTENT_RU.IS_LOGIN_IN, 'true')
       navigate(PATHNAMES.MAIN)
     }
     if (isError) {

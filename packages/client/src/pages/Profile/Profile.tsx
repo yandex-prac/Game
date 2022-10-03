@@ -16,8 +16,9 @@ import {
 } from './StyledComponents'
 import { useCustomIntl } from '@/hooks'
 import { DarkModeType } from '@/types'
+import { WithAuth } from '@/hoc'
 
-export const Profile = memo(({ darkMode }: DarkModeType) => {
+const Profile = memo(({ darkMode }: DarkModeType) => {
   return (
     <BaseLayout>
       <ProfilePage darkMode={darkMode}>
@@ -61,3 +62,7 @@ export const Profile = memo(({ darkMode }: DarkModeType) => {
     </BaseLayout>
   )
 })
+
+const withProfile = WithAuth(Profile)
+
+export { withProfile as Profile }

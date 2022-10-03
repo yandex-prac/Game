@@ -2,8 +2,9 @@ import React, { memo, useEffect, useRef, useState } from 'react'
 import { BaseLayout } from '@/components'
 import { Game } from '@/game'
 import { CanvasWrapper, StartButton } from './StyledComponents'
+import { WithAuth } from '@/hoc'
 
-export const Main = memo(() => {
+const Main = memo(() => {
   const canvas = useRef<HTMLCanvasElement>(null)
   const [startTime, setStartTime] = useState(0)
   const [endTime, setEndTime] = useState(0)
@@ -50,3 +51,7 @@ export const Main = memo(() => {
     </BaseLayout>
   )
 })
+
+const withMain = WithAuth(Main)
+
+export { withMain as Main }
