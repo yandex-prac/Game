@@ -77,19 +77,25 @@ export class Game extends EventBus {
   }
 
   gameLoop = () => {
-    if (navigator.getGamepads) {
-      const gamepads = navigator.getGamepads()
-      if (gamepads[0]) {
-        const gp = gamepads[0]
-        if (gp.buttons[3].pressed) {
+    const gamepads = navigator.getGamepads()
+    if (gamepads[0]) {
+      const gp = gamepads[0]
+      const buttonPressed: string | undefined = Object.keys(
+        gp.buttons.map(button => button.pressed)
+      ).find(
+        (button: any) =>
+          gp.buttons.map(button => button.pressed)[button] === true
+      )
+
+      switch (buttonPressed) {
+        case '12':
           return (this._direction = Direction.Up)
-        } else if (gp.buttons[0].pressed) {
-          return (this._direction = Direction.Down)
-        } else if (gp.buttons[2].pressed) {
-          return (this._direction = Direction.Left)
-        } else if (gp.buttons[1].pressed) {
+        case '15':
           return (this._direction = Direction.Right)
-        }
+        case '13':
+          return (this._direction = Direction.Down)
+        case '14':
+          return (this._direction = Direction.Left)
       }
     }
   }
