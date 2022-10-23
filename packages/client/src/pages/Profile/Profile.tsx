@@ -16,9 +16,10 @@ import {
 } from './StyledComponents'
 import { useCustomIntl } from '@/hooks'
 import { DarkModeType } from '@/types'
+import { WithAuth } from '@/hoc'
 import { useGetUserInfoMutation } from '@/store'
 
-export const Profile = memo(({ darkMode }: DarkModeType) => {
+const Profile = memo(({ darkMode }: DarkModeType) => {
   const [trigger, { data, isSuccess }] = useGetUserInfoMutation()
 
   useEffect(() => {
@@ -74,3 +75,7 @@ export const Profile = memo(({ darkMode }: DarkModeType) => {
     </BaseLayout>
   )
 })
+
+const withProfile = WithAuth(Profile)
+
+export { withProfile as Profile }

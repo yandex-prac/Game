@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { List } from './StyledComponents'
 import {
   MenuItem,
@@ -10,16 +11,21 @@ import {
   Theme,
   SignOut,
 } from '@/components'
-import { PATHNAMES } from '@/utils'
+import { PATHNAMES, CONTENT_RU } from '@/utils'
 import { MenuProps } from './types'
 import { DarkModeType } from '@/types'
 import { useSignoutMutation } from '@/store'
-import { useNavigate } from 'react-router-dom'
 
 export const Menu = memo(
   ({ darkMode, onChangeTheme }: MenuProps & DarkModeType) => {
     const [logoutTrigger] = useSignoutMutation()
     const navigate = useNavigate()
+    const onClickLogout = () => {
+      logoutTrigger(false).then(() => {
+		    localStorage.removeItem(CONTENT_RU.IS_LOGIN_IN)
+	      navigate(PATHNAMES.SIGNIN)
+	    })
+    }
 
     return (
       <List>
@@ -61,11 +67,7 @@ export const Menu = memo(
         />
         <MenuItem
           darkMode={darkMode}
-          onClick={() => {
-            logoutTrigger(false).then(() => {
-              navigate(PATHNAMES.SIGNIN)
-            })
-          }}
+          onClick={onClickLogout}
           icon={<SignOut darkMode={darkMode} />}
           textIntl="SIGNOUT_MENU_ITEM"
         />

@@ -12,8 +12,9 @@ import {
 import { PATHNAMES, validSignUp } from '@/utils'
 import { useCustomIntl, useSnackbar } from '@/hooks'
 import { useSignupMutation } from '@/store'
+import { WithAuth } from '@/hoc'
 
-export const SignUp = () => {
+const SignUp = () => {
   const [signup, { isSuccess, isError, isLoading }] = useSignupMutation()
 
   useSnackbar({ isSuccess, isError, isLoading })
@@ -107,3 +108,7 @@ export const SignUp = () => {
     </AuthPage>
   )
 }
+
+const withAuthSignUp = WithAuth(SignUp)
+
+export { withAuthSignUp as SignUp }

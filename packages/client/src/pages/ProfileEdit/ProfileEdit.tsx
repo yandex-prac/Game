@@ -17,9 +17,10 @@ import {
 import { validProfileEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl, useSnackbar } from '@/hooks'
 import { DarkModeType } from '@/types'
+import { WithAuth } from '@/hoc'
 import { useGetUserInfoMutation, useChangeUserProfileMutation } from '@/store'
 
-export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
+const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
   const navigate = useNavigate()
   const [
     changeTrigger,
@@ -180,3 +181,7 @@ export const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
     </BaseLayout>
   )
 })
+
+const withProfileEdit = WithAuth(ProfileEdit)
+
+export { withProfileEdit as ProfileEdit }

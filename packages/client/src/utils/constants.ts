@@ -36,6 +36,7 @@ const CONTENT_RU = {
   NO_ACCOUNT: 'Нет аккаунта?',
   LOGIN_SUCCESS: 'Вы успешно авторизовались',
   LOGIN_ERROR: 'Проверьте правильность ввода данных',
+  IS_LOGIN_IN: 'isLoginIn',
 
   // register и profile
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
