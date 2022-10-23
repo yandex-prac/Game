@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "prebuild": "rm -rf dist",
+    "prebuild": "rimraf -rf dist",
     "build": "webpack --mode production",
     "preview": "node ./dist/index.js",
-    "dev": "NODE_ENV=development nodemon index.ts",
+    "dev": "nodemon index.ts",
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "jest ."
