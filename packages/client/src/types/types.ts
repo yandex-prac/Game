@@ -18,6 +18,7 @@ type SigninResponseDTO = {
 }
 
 type UserInfoDTO = {
+  avatar: string
   display_name: string
   first_name: string
   second_name: string

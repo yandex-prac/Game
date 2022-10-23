@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import {
   BaseLayout,
   ProfilePage,
@@ -16,44 +16,48 @@ import {
 } from './StyledComponents'
 import { useCustomIntl } from '@/hooks'
 import { DarkModeType } from '@/types'
-import { useGetUserInfoQuery } from '@/store'
+import { useGetUserInfoMutation } from '@/store'
 
 export const Profile = memo(({ darkMode }: DarkModeType) => {
-  const { data, error, isSuccess } = useGetUserInfoQuery(false)
+  const [trigger, { data, isSuccess }] = useGetUserInfoMutation()
+
+  useEffect(() => {
+    trigger(null)
+  }, [])
 
   return (
     <BaseLayout>
       {isSuccess && (
         <>
           <ProfilePage darkMode={darkMode}>
-            <ProfileImage />
+            <ProfileImage imgLink={data?.avatar} />
             <ProfileName darkMode={darkMode}>
               {useCustomIntl('NAME')}
             </ProfileName>
             <ProfileUl>
               <ProfileLi>
                 <ProfileLabel>{useCustomIntl('MAIL')}</ProfileLabel>
-                <ProfileSpan>{data.email}</ProfileSpan>
+                <ProfileSpan>{data?.email}</ProfileSpan>
               </ProfileLi>
               <ProfileLi>
                 <ProfileLabel>{useCustomIntl('LOGIN')}</ProfileLabel>
-                <ProfileSpan>{data.login}</ProfileSpan>
+                <ProfileSpan>{data?.login}</ProfileSpan>
               </ProfileLi>
               <ProfileLi>
                 <ProfileLabel>{useCustomIntl('NAME')}</ProfileLabel>
-                <ProfileSpan>{data.first_name}</ProfileSpan>
+                <ProfileSpan>{data?.first_name}</ProfileSpan>
               </ProfileLi>
               <ProfileLi>
                 <ProfileLabel>{useCustomIntl('SURNAME')}</ProfileLabel>
-                <ProfileSpan>{data.second_name}</ProfileSpan>
+                <ProfileSpan>{data?.second_name}</ProfileSpan>
               </ProfileLi>
               <ProfileLi>
                 <ProfileLabel>{useCustomIntl('NICKNAME')}</ProfileLabel>
-                <ProfileSpan>{data.display_name}</ProfileSpan>
+                <ProfileSpan>{data?.display_name}</ProfileSpan>
               </ProfileLi>
               <ProfileLi>
                 <ProfileLabel>{useCustomIntl('PHONE')}</ProfileLabel>
-                <ProfileSpan>{data.phone}</ProfileSpan>
+                <ProfileSpan>{data?.phone}</ProfileSpan>
               </ProfileLi>
             </ProfileUl>
             <ProfileGroupLink darkMode={darkMode}>

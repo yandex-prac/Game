@@ -44,7 +44,7 @@ export const authAPI = createApi({
         method: METHODS.POST,
       }),
     }),
-    getUserInfo: builder.query<UserInfoDTO, unknown>({
+    getUserInfo: builder.mutation<UserInfoDTO, unknown>({
       query: () => API.GET_USER_INFO,
     }),
   }),
@@ -54,5 +54,5 @@ export const {
   useSigninMutation,
   useSignupMutation,
   useSignoutMutation,
-  useGetUserInfoQuery,
+  useGetUserInfoMutation,
 } = authAPI
