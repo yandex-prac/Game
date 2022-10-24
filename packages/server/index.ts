@@ -3,6 +3,7 @@ import cors from 'cors'
 dotenv.config()
 
 import express from 'express'
+import { dbConnect } from './db'
 
 const app = express()
 app.use(cors())
@@ -14,4 +15,5 @@ app.get('/', (_, res) => {
 
 app.listen(port, () => {
   console.log(`  ➜ 🎸 Server is listening on port: ${port}`)
+  dbConnect().then(() => {console.log('Подключились к БД')})
 })
