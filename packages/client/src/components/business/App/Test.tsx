@@ -1,3 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-export const Test = () => <div>Test</div>
+type TestType = {
+  style?: Record<string, string>
+}
+
+export const Test = ({ style }: TestType) => <div style={style}>Test</div>
