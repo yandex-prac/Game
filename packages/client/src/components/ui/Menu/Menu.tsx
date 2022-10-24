@@ -1,11 +1,9 @@
-import React, { memo, useEffect, useRef } from 'react'
+import React, { memo } from 'react'
 import { List, Icon } from './StyledComponents'
-import { MenuItem } from '@/components'
 import { PATHNAMES } from '@/utils'
 import { MenuProps } from './types'
 import { DarkModeType } from '@/types'
-import { FullscreenButton } from '@/components/ui/FullscreenButton/FullscreenButton'
-import { AudoiButton } from '@/components/ui/AudioButton'
+import { AudioButton, FullscreenButton, MenuItem } from '@/components'
 
 export const Menu = memo(
   ({ darkMode, onChangeTheme }: MenuProps & DarkModeType) => {
@@ -115,7 +113,7 @@ export const Menu = memo(
           textIntl="COLOR_SCHEME_MENU_ITEM"
         />
         <FullscreenButton />
-        <AudoiButton />
+        <AudioButton />
         <MenuItem
           darkMode={darkMode}
           href={PATHNAMES.SIGNIN}

@@ -1,1 +1,1 @@
-export { AudoiButton } from './AudoiButton'
+export { AudioButton } from './AudioButton'

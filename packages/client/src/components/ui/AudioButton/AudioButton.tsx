@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '@/components'
 
-export const AudoiButton = () => {
+export const AudioButton = () => {
   const [isMusicOn, setIsMusicOn] = useState(false)
   const [audioContextState, setAudioContext] = useState(null as any)
   const [audioElementState, setAudioElement] = useState(null as any)
@@ -15,7 +15,7 @@ export const AudoiButton = () => {
   useEffect(() => {
     const AudioContext = new window.AudioContext()
     setAudioContext(AudioContext)
-    const audioElement: any = document.querySelector('audio')
+    const audioElement = document.querySelector('audio')
     setAudioElement(audioElement)
   }, [])
 

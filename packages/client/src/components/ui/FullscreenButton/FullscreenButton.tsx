@@ -6,16 +6,11 @@ export const FullscreenButton = () => {
   const root = document.getElementById('root')
   const [isFullscreen, setIsFullscreen] = useFullscreenStatus(root)
   const handleFullscreen = () => {
-    // Ругается TS, непонятно на что
     if (typeof setIsFullscreen === 'boolean') {
       return
     }
     const handleExitFullscreen = () => document.exitFullscreen()
-    if (isFullscreen) {
-      handleExitFullscreen()
-    } else {
-      setIsFullscreen()
-    }
+    isFullscreen ? handleExitFullscreen() : setIsFullscreen()
   }
   return (
     <Button

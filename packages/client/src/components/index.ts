@@ -14,6 +14,9 @@ export { Menu } from './ui/Menu'
 export { MenuItem } from './ui/MenuItem'
 export { ProfileImage } from './ui/ProfileImage'
 
+export { FullscreenButton } from './ui/FullscreenButton'
+export { AudioButton } from './ui/AudioButton'
+
 export { BaseLayout } from './layout/BaseLayout'
 
 // styled components
