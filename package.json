@@ -21,10 +21,12 @@
   },
   "devDependencies": {
     "@evilmartians/lefthook": "^1.1.1",
+    "@types/react-helmet": "^6.1.5",
     "lerna": "^5.4.3"
   },
   "dependencies": {
     "formik": "2.2.9",
+    "react-helmet": "^6.1.0",
     "yup": "0.32.11"
   }
 }
