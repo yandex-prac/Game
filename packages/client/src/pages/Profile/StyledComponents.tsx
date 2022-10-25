@@ -36,6 +36,10 @@ const ProfileLink = styled(Link)`
   }
 `
 
+const ProfileLoading = styled.p`
+  text-align: center;
+`
+
 const ProfileSpan = styled.span`
   font-size: 13px;
   font-weight: 500;
@@ -50,4 +54,4 @@ const ProfileName = styled.p<DarkModeType>`
   transition: 0.3s color;
 `
 
-export { ProfileGroupLink, ProfileName, ProfileSpan, ProfileLink }
+export { ProfileGroupLink, ProfileLoading, ProfileName, ProfileSpan, ProfileLink }

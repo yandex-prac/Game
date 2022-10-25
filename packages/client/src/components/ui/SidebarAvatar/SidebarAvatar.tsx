@@ -10,7 +10,7 @@ export const SidebarAvatar = memo(({ darkMode }: DarkModeType) => {
   const [trigger, { data, isSuccess }] = useGetUserInfoMutation()
 
   useEffect(() => {
-    trigger(null)
+    trigger(false)
   }, [])
 
   return (
@@ -19,8 +19,8 @@ export const SidebarAvatar = memo(({ darkMode }: DarkModeType) => {
         <>
           <Avatar
             src={
-              data!.avatar
-                ? API.API_BASE_URL + API.RESOURCES + data!.avatar
+              data && data.avatar
+                ? API.API_BASE_URL + API.RESOURCES + data.avatar
                 : avatar
             }
             alt={useCustomIntl('AVATAR_USER_ALT')}

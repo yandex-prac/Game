@@ -16,7 +16,7 @@ import {
 } from '@/components'
 import { validProfileEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl, useSnackbar } from '@/hooks'
-import { DarkModeType } from '@/types'
+import { DarkModeType, UserInfoDTO } from '@/types'
 import { WithAuth } from '@/hoc'
 import { useGetUserInfoMutation, useChangeUserProfileMutation } from '@/store'
 
@@ -46,7 +46,7 @@ const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
       display_name: '',
       phone: '',
     },
-    onSubmit: values => {
+    onSubmit: (values: UserInfoDTO) => {
       changeTrigger(values)
     },
     validationSchema: validProfileEdit(),
