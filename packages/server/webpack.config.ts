@@ -21,11 +21,36 @@ const config: Configuration = {
       //       type: 'asset/resource',
       //     },
       {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
+      {
         test: /\.(ts|tsx)$/,
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
-          options: { presets: ['@babel/env', '@babel/preset-react'] },
+          options: {
+            presets: [
+              '@babel/env',
+              '@babel/preset-react',
+              '@babel/preset-typescript',
+            ],
+          },
         },
       },
       //     {
