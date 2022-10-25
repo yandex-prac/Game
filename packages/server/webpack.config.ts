@@ -8,18 +8,6 @@ const config: Configuration = {
   entry: './index.tsx',
   module: {
     rules: [
-      //     {
-      //       test: /\.(html)$/,
-      //       use: 'null-loader',
-      //     },
-      //     {
-      //       test: /\.(png|jpe?g|gif|mp3|svg|webp|ico)$/i,
-      //       type: 'asset',
-      //     },
-      //     {
-      //       test: /\.(woff2?|eot|ttf|otf)$/i,
-      //       type: 'asset/resource',
-      //     },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
@@ -46,10 +34,6 @@ const config: Configuration = {
           },
         },
       },
-      //     {
-      //       test: /\.(s[ac]|c)ss$/i,
-      //       use: 'null-loader',
-      //     },
     ],
   },
   output: {
@@ -59,11 +43,6 @@ const config: Configuration = {
   resolve: {
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
-    // plugins: [
-    //   new ConfigPaths.TsconfigPathsPlugin({
-    //     configFile: './tsconfig.json',
-    //   }),
-    // ],
     alias: {
       '@': path.resolve(__dirname, '../client/src'),
     },
