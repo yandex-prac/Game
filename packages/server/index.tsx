@@ -3,7 +3,7 @@ import cors from 'cors'
 import { renderToString } from 'react-dom/server'
 dotenv.config()
 import React from 'react'
-import { Test } from 'client/src/components/business/App'
+import { App } from 'client/src/components/business/App'
 
 import express from 'express'
 
@@ -13,7 +13,7 @@ const port = Number(process.env.SERVER_PORT) || 3001
 
 app.get('/', (_, res) => {
   // res.json('👋 Howdy from the server :)')
-  res.send(renderToString(<Test />))
+  res.send(renderToString(<App />))
 })
 
 app.listen(port, () => {
