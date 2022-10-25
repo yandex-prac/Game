@@ -18,7 +18,7 @@ const config: Configuration = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'sass-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(ts|tsx)$/,
