@@ -2,7 +2,9 @@ import type { Configuration } from 'webpack'
 import path from 'path'
 import { cssLoader, fileLoader, tsPresets } from './loaders'
 
-const DIST_DIR = path.join(__dirname, '../dist')
+const { DIST_DIR } = process.env
+
+//const DIST_DIR = path.join(__dirname, '../dist')
 
 const config: Configuration = {
   target: 'node',
