@@ -38,6 +38,7 @@
     "eslint": "^8.23.0",
     "file-loader": "^6.2.0",
     "jest": "^28",
+    "mini-css-extract-plugin": "^2.6.1",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "sass-loader": "^13.1.0",

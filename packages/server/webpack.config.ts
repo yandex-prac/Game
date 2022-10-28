@@ -1,3 +1,3 @@
-import { serverConfig } from './webpack'
+import { serverConfig, clientConfig } from './webpack'
 
-module.exports = [serverConfig]
+module.exports = [serverConfig, clientConfig]

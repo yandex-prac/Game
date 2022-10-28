@@ -6,9 +6,9 @@ const { DIST_DIR } = process.env
 
 const config: Configuration = {
   target: 'node',
-  entry: path.resolve(__dirname, '../index.tsx'),
+  entry: path.resolve(__dirname, '../../client/src/main.tsx'),
   module: {
-    rules: [fileLoader.server, cssLoader.server, tsPresets.server],
+    rules: [fileLoader.client, cssLoader.client, tsPresets.client],
   },
   output: {
     filename: 'index.js',
