@@ -1,0 +1,1 @@
+export { commentModel } from './Comment'

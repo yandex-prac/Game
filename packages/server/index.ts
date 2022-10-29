@@ -15,5 +15,5 @@ app.get('/', (_, res) => {
 
 app.listen(port, () => {
   console.log(`  ➜ 🎸 Server is listening on port: ${port}`)
-  dbConnect().then(() => {console.log('Подключились к БД')})
+  dbConnect().then(() => console.log('Подключились к БД'))
 })
