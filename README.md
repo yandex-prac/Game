@@ -55,3 +55,21 @@
 ## Ой, ничего не работает :(
 
 Откройте issue, я приду :)
+
+## Докер
+
+```docker compose up```
+
+## Пример ```.env``` файла
+
+CLIENT_PORT=3000
+SERVER_PORT=3001
+
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=test
+POSTGRES_PORT=5432
+
+PGADMIN_DEFAULT_EMAIL=admin@admin.com
+PGADMIN_DEFAULT_PASSWORD=secret
+PGADMIN_LISTEN_PORT=80
