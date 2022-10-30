@@ -1,5 +1,5 @@
-import { IUser } from './User'
-import { User, dbConnect } from '../../db'
+import { IUser } from '../models/User/User'
+import { User, dbConnect } from '../db'
 
 export async function createUser(firstName: string, lastName: string) {
   return User.create({ firstName, lastName })
@@ -19,6 +19,14 @@ export async function getUserById(id: number) {
 
 export async function getUsersByFirstName(firstName: string) {
   return User.findAll({ where: { firstName } })
+}
+
+export async function getAllUsers() {
+  return User.findAll({
+    where: {
+      firstName: 'Ivan',
+    },
+  })
 }
 
 export function testCRUD() {

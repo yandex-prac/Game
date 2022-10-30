@@ -1,6 +1,6 @@
 import { Sequelize, SequelizeOptions } from 'sequelize-typescript'
 import { userModel, commentModel, topicModel } from './models'
-import { testCRUD } from './models/User/testCRUD'
+import { testCRUD } from './controllers/userController'
 
 const sequelizeOptions: SequelizeOptions = {
   host: process.env.POSTGRES_HOST,
