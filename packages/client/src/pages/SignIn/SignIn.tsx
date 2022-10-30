@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFormik } from 'formik'
-import { InputGroup } from './StyledComponents'
+import { InputGroup, YandexAuthButton } from './StyledComponents'
 import { PATHNAMES, validSignIn } from '@/utils'
 import {
   Input,
@@ -11,12 +11,14 @@ import {
   AuthPage,
   AuthTitle,
 } from '@/components'
+import { yandex_login } from '@/image'
 import { useCustomIntl, useSnackbar } from '@/hooks'
-import { useSigninMutation } from '@/store'
+import { useSigninMutation, useLazyGetServiceIdQuery } from '@/store'
 import { WithAuth } from '@/hoc'
 
 const SignIn = () => {
   const [signin, { isSuccess, isError, isLoading }] = useSigninMutation()
+  const [yandexTrigger] = useLazyGetServiceIdQuery()
 
   useSnackbar({ isSuccess, isError, isLoading })
 
@@ -62,6 +64,25 @@ const SignIn = () => {
             />
           </InputGroup>
           <Button type="submit" textIntl="AUTH" />
+          <YandexAuthButton
+            type="button"
+            onClick={() => {
+              yandexTrigger({
+                redirect_uri: window.location.origin + PATHNAMES.OAUTH_REDIRECT,
+              }).then(res => {
+                if (res.data) {
+                  window.location.replace(
+                    `https://oauth.yandex.ru/authorize?response_type=code&client_id=${
+                      res.data.service_id
+                    }&redirect_uri=${
+                      window.location.origin + PATHNAMES.OAUTH_REDIRECT
+                    }`
+                  )
+                }
+              })
+            }}>
+            <img src={yandex_login} />
+          </YandexAuthButton>
           <Link textIntl="NO_ACCOUNT" to={PATHNAMES.SIGNUP} />
         </AuthForm>
       </AuthLayout>

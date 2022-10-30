@@ -10,6 +10,7 @@ const PATHNAMES = {
   LEADER_BOARD: '/leader-board',
   PATH_NOT_FOUND: '*',
   ERROR_404: '/error404',
+  OAUTH_REDIRECT: '/oauth',
 }
 
 const CONTENT_RU = {
@@ -82,12 +83,15 @@ const API = {
   SIGNUP: '/auth/signup',
   SIGNOUT: '/auth/logout',
   GET_USER_INFO: '/auth/user',
-  //profile
+  // profile
   GET_USER_BY_ID: '/user',
   CHANGE_USER_PROFILE: '/user/profile',
   CHANGE_USER_AVATAR: '/user/profile/avatar',
   CHANGE_USER_PASSWORD: '/user/password',
   SEARCH_FOR_USER_BY_LOGIN: '/user/search',
+  // oauth
+  YANDEX_OAUTH: '/oauth/yandex',
+  YANDEX_GET_OAUTH_ID: '/oauth/yandex/service-id',
 }
 
 const METHODS = {

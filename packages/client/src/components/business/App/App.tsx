@@ -11,6 +11,7 @@ import {
   Forum,
   LeaderBoard,
   PageError,
+  OAuthRedirectPage,
 } from '@/pages'
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '@/context'
@@ -42,6 +43,10 @@ export const App = () => {
             />
             <Route path={PATHNAMES.SETTINGS} element={<Settings />} />
             <Route path={PATHNAMES.FORUM} element={<Forum />} />
+            <Route
+              path={PATHNAMES.OAUTH_REDIRECT}
+              element={<OAuthRedirectPage />}
+            />
             <Route
               path={PATHNAMES.LEADER_BOARD}
               element={<LeaderBoard darkMode={darkMode} />}

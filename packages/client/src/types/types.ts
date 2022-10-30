@@ -56,6 +56,19 @@ type SearchForUserByLoginDTO = {
   login: string
 }
 
+type OAuthIDDTO = {
+  redirect_uri: string
+}
+
+type OAuthIDResponseDTO = {
+  service_id: string
+}
+
+type OAuthDTO = {
+  code: string
+  redirect_uri: string
+}
+
 type RenderIconType = 'success' | 'error' | 'attention' | 'information'
 
 export type {
@@ -71,4 +84,7 @@ export type {
   EditPasswordDTO,
   SearchForUserByLoginDTO,
   RenderIconType,
+  OAuthIDDTO,
+  OAuthIDResponseDTO,
+  OAuthDTO,
 }

@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { authReducer, snackbarReducer } from './reducers'
-import { authAPI, profileApi } from './services'
+import { authAPI, profileApi, oauthAPI } from './services'
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from './sagas'
 
@@ -11,6 +11,7 @@ const rootStore = combineReducers({
   snackbarReducer,
   [authAPI.reducerPath]: authAPI.reducer,
   [profileApi.reducerPath]: profileApi.reducer,
+  [oauthAPI.reducerPath]: oauthAPI.reducer,
 })
 
 const setupStore = () => {
