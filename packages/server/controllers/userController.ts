@@ -21,9 +21,11 @@ const getUserById = (req: Request, res: Response, next: any) => {
     .catch(next)
 }
 
-// export async function updateUserById(id: number, data: IUser) {
-//   return User.update(data, { where: { id } })
-// }
+const updateUserById = (req: Request, res: Response, next: any) => {
+  User.update(req.body, { where: { id: req.params.userId } })
+    .then(user => res.status(200).send({ data: user }))
+    .catch(next)
+}
 
 // export async function deleteUserById(id: number) {
 //   return User.destroy({ where: { id } })
@@ -51,4 +53,4 @@ const getUserById = (req: Request, res: Response, next: any) => {
 //   })
 // }
 
-export { getUsers, createUser, getUserById }
+export { getUsers, createUser, getUserById, updateUserById }
