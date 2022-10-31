@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { authReducer, snackbarReducer } from './reducers'
-import { authAPI, profileApi } from './services'
+import { authAPI, profileApi, chatApi } from './services'
 import createSagaMiddleware from 'redux-saga'
 import { rootSaga } from './sagas'
 
@@ -20,6 +20,7 @@ const setupStore = () => {
       getDefaultMiddleware()
         .concat(authAPI.middleware)
         .concat(profileApi.middleware)
+        .concat(chatApi.middleware)
         .concat(sagaMiddleware),
   })
 }
