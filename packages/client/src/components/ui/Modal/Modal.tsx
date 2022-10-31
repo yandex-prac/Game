@@ -1,25 +1,12 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { ModalType } from './types'
 import { Wrapper, Inner, Title } from './StyledComponents'
+import { useClickByOutZone } from '@/hooks'
 
 export const Modal = ({ children, isOpen, onCloseModal, title }: ModalType) => {
   const modalRef = useRef(null)
 
-  const handleCloseByOutZone = (evt: Event) => {
-    const element = modalRef.current as null | Element
-    const target = evt.target as HTMLElement
-    if (!isOpen) return
-    if (element && !element.contains(target)) {
-      onCloseModal()
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener('click', handleCloseByOutZone, true)
-
-    return () =>
-      document.removeEventListener('click', handleCloseByOutZone, true)
-  }, [isOpen])
+  useClickByOutZone({ ref: modalRef, isOpen, closeCallback: onCloseModal })
 
   return (
     <Wrapper isOpen={isOpen}>
