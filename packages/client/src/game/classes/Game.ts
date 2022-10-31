@@ -104,6 +104,7 @@ export class Game extends EventBus {
     this._isStopped = true
 
     document.removeEventListener('keydown', this.keyUp)
+    window.removeEventListener('gamepadconnected', this.gameLoop)
 
     this._direction = undefined
   }

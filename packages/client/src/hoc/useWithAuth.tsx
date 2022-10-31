@@ -30,7 +30,7 @@ export const WithAuth = (Component: any) => (props: any) => {
   }, [])
 
   if (isLogout || isLogin) {
-    return <> </>
+    return <></>
   }
 
   return <Component {...props} />
