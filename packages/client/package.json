@@ -23,7 +23,8 @@
     "redux-saga": "^1.2.1",
     "redux-toolkit": "^1.1.2",
     "sass": "^1.54.8",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "@reduxjs/toolkit": "^1.8.5",

@@ -7,6 +7,8 @@ import { CONTENT_RU } from '@/utils'
 import { Provider } from 'react-redux'
 import { store } from '@/store'
 
+console.log('CSR store', store)
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
