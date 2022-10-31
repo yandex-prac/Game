@@ -5,7 +5,7 @@ import {
   getUserById,
   updateUserById,
   deleteUserById,
-} from '../controllers/userController'
+} from '../controllers'
 
 const userRouter = Router()
 
