@@ -1,4 +1,4 @@
-import avatar from './avatar.png'
+import avatar from './avatar.svg'
 import closeicon from './close-icon.svg'
 import okicon from './ok-icon.svg'
 import warningicon from './warning-icon.svg'
