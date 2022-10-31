@@ -1,5 +1,5 @@
 import { DataType, Model } from 'sequelize-typescript'
-import { ModelAttributes } from 'sequelize/types'
+import type { ModelAttributes } from 'sequelize/types'
 
 export interface IUser {
   firstName: string

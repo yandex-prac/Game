@@ -1,5 +1,6 @@
 import { IUser } from '../models/User/User'
 import { User, dbConnect } from '../db'
+import { Request, Response } from 'express'
 
 export async function createUser(firstName: string, lastName: string) {
   return User.create({ firstName, lastName })
@@ -21,12 +22,9 @@ export async function getUsersByFirstName(firstName: string) {
   return User.findAll({ where: { firstName } })
 }
 
-export async function getAllUsers() {
-  return User.findAll({
-    where: {
-      firstName: 'Ivan',
-    },
-  })
+export async function getAllUsers(_req: Request, res: Response) {
+  const users = User.findAll()
+  res.status(200).send(users)
 }
 
 export function testCRUD() {
