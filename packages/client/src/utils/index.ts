@@ -1,4 +1,5 @@
 export * from './constants'
 export * from './handlers'
 export * from './validations'
+export * from './typeGuards'
 export { randomId } from './randomId'

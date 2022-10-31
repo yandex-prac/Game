@@ -14,7 +14,7 @@ import {
   WrapButtons,
   Button,
 } from '@/components'
-import { validProfileEdit, PATHNAMES } from '@/utils'
+import { validProfileEdit, PATHNAMES, isUserInfoDTO } from '@/utils'
 import { useCustomIntl, useSnackbar } from '@/hooks'
 import { DarkModeType, UserInfoDTO } from '@/types'
 import { WithAuth } from '@/hoc'
@@ -56,7 +56,7 @@ const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
 
   useEffect(() => {
     userInfoTrigger(null).then(result => {
-      if (result.data) {
+      if (isUserInfoDTO(result)) {
         for (const [key, value] of Object.entries(result.data)) {
           result.data[key] = value || ''
         }
