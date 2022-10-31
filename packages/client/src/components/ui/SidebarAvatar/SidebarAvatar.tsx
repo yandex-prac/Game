@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react'
 import { Wrapper, Avatar, UserName, UserEmail } from './StyledComponents'
-import avatar from '@/image/avatar.png'
+import { avatar } from '@/image'
 import { DarkModeType } from '@/types'
 import { useCustomIntl } from '@/hooks'
 import { useGetUserInfoMutation } from '@/store'
