@@ -13,7 +13,7 @@ import {
   ProfileGroupLink,
   ProfileLink,
   ProfileSpan,
-  ProfileLoading
+  ProfileLoading,
 } from './StyledComponents'
 import { useCustomIntl } from '@/hooks'
 import { DarkModeType } from '@/types'
@@ -21,9 +21,11 @@ import { WithAuth } from '@/hoc'
 import { useGetUserInfoMutation } from '@/store'
 
 const Profile = memo(({ darkMode }: DarkModeType) => {
-  const [trigger, { data, isSuccess, isLoading  }] = useGetUserInfoMutation()
+  const [trigger, { data, isSuccess, isLoading }] = useGetUserInfoMutation()
 
-  useEffect(() => { trigger(null) }, [])
+  useEffect(() => {
+    trigger(null)
+  }, [])
 
   if (isLoading) {
     return <ProfileLoading>Loading...</ProfileLoading>

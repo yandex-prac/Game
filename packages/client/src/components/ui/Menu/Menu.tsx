@@ -22,9 +22,9 @@ export const Menu = memo(
     const navigate = useNavigate()
     const onClickLogout = () => {
       logoutTrigger(false).then(() => {
-		    localStorage.removeItem(CONTENT_RU.IS_LOGIN_IN)
-	      navigate(PATHNAMES.SIGNIN)
-	    })
+        localStorage.removeItem(CONTENT_RU.IS_LOGIN_IN)
+        navigate(PATHNAMES.SIGNIN)
+      })
     }
 
     return (

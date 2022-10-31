@@ -54,4 +54,10 @@ const ProfileName = styled.p<DarkModeType>`
   transition: 0.3s color;
 `
 
-export { ProfileGroupLink, ProfileLoading, ProfileName, ProfileSpan, ProfileLink }
+export {
+  ProfileGroupLink,
+  ProfileLoading,
+  ProfileName,
+  ProfileSpan,
+  ProfileLink,
+}

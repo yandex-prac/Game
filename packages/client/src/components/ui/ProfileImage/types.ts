@@ -2,4 +2,4 @@ type ProfileImageProps = {
   imgLink?: string
 }
 
-export type {ProfileImageProps}
+export type { ProfileImageProps }

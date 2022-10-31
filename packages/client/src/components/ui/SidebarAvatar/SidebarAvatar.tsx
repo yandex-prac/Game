@@ -19,7 +19,7 @@ export const SidebarAvatar = memo(({ darkMode }: DarkModeType) => {
         <>
           <Avatar
             src={
-              data && data.avatar
+              data?.avatar
                 ? API.API_BASE_URL + API.RESOURCES + data.avatar
                 : avatar
             }
@@ -27,7 +27,7 @@ export const SidebarAvatar = memo(({ darkMode }: DarkModeType) => {
           />
           <div>
             <UserName darkMode={darkMode}>
-              {`${data!.first_name} ${data!.second_name}`}
+              {`${data?.first_name} ${data?.second_name}`}
             </UserName>
             <UserEmail>{data!.email}</UserEmail>
           </div>
