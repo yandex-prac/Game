@@ -73,6 +73,11 @@ const CONTENT_RU = {
   CREATE_CHAT: 'Создать чат',
   EMPTY_MESSAGES: 'Выберите чат чтобы отправить сообщение',
   CHATS: 'Чаты',
+  NEW_CHAT: 'Новый чат',
+  ADD_CHAT: 'Добавить',
+  TITLE: 'Заголовок',
+  AUTHOR: 'Автор',
+  CONTENT: 'Контент',
 }
 
 const API = {

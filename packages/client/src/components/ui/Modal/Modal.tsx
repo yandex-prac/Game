@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { ModalType } from './types'
 import { Wrapper, Inner, Title } from './StyledComponents'
-import { useClickByOutZone } from '@/hooks'
+import { useClickByOutZone, useCustomIntl } from '@/hooks'
 
 export const Modal = ({ children, isOpen, onCloseModal, title }: ModalType) => {
   const modalRef = useRef(null)
@@ -11,7 +11,7 @@ export const Modal = ({ children, isOpen, onCloseModal, title }: ModalType) => {
   return (
     <Wrapper isOpen={isOpen}>
       <Inner ref={modalRef}>
-        <Title>{title}</Title>
+        <Title>{useCustomIntl(title)}</Title>
         {children}
       </Inner>
     </Wrapper>

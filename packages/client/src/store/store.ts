@@ -11,6 +11,7 @@ const rootStore = combineReducers({
   snackbarReducer,
   [authAPI.reducerPath]: authAPI.reducer,
   [profileApi.reducerPath]: profileApi.reducer,
+  [chatApi.reducerPath]: chatApi.reducer,
 })
 
 const setupStore = () => {
