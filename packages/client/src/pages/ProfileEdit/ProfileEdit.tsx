@@ -57,10 +57,6 @@ const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
   useEffect(() => {
     userInfoTrigger(null).then(result => {
       if (isUserInfoDTO(result)) {
-        for (const [key, value] of Object.entries(result.data)) {
-          result.data[key] = value || ''
-        }
-
         setValues(result.data, false)
       }
     })
