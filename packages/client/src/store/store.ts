@@ -13,6 +13,12 @@ const rootStore = combineReducers({
   [profileApi.reducerPath]: profileApi.reducer,
 })
 
+export const isServer = !(
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.createElement
+)
+
 const setupStore = () => {
   return configureStore({
     reducer: rootStore,
@@ -26,7 +32,9 @@ const setupStore = () => {
 
 export default setupStore()
 
-sagaMiddleware.run(rootSaga)
+if (!isServer) {
+  sagaMiddleware.run(rootSaga)
+}
 
 type RootState = ReturnType<typeof rootStore>
 type AppStore = ReturnType<typeof setupStore>
