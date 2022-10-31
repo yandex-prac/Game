@@ -8,12 +8,16 @@ const getUsers = (_req: Request, res: Response, next: any) => {
 }
 
 const createUser = (req: Request, res: Response, next: any) => {
-  const { firstName, lastName } = req.body
-
-  User.create({ firstName, lastName })
+  User.create({ ...req.body })
     .then(() =>
       res.status(201).send({ message: 'Пользователь успешно создан' })
     )
+    .catch(next)
+}
+
+const getUserById = (req: Request, res: Response, next: any) => {
+  User.findOne({ where: { id: req.params.userId } })
+    .then(user => res.status(200).send({ data: user }))
     .catch(next)
 }
 
@@ -47,4 +51,4 @@ const createUser = (req: Request, res: Response, next: any) => {
 //   })
 // }
 
-export { createUser, getUsers }
+export { getUsers, createUser, getUserById }
