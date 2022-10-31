@@ -29,5 +29,9 @@ export const WithAuth = (Component: any) => (props: any) => {
     isLogin && navigate(PATHNAMES.MAIN)
   }, [])
 
+  if (isLogout || isLogin) {
+    return <></>
+  }
+
   return <Component {...props} />
 }

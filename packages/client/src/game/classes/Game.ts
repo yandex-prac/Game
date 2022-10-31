@@ -8,7 +8,6 @@ export class Game extends EventBus {
   private _isStopped = true
   private readonly _view: View
   private readonly _world: World
-
   constructor(canvas: HTMLCanvasElement) {
     super()
 
@@ -52,6 +51,10 @@ export class Game extends EventBus {
 
     this._direction = undefined
 
+    if (navigator.getGamepads().filter(count => count !== null).length > 0) {
+      window.requestAnimationFrame(this.gameLoop)
+    }
+
     requestAnimationFrame(this.loop)
   }
 
@@ -68,14 +71,40 @@ export class Game extends EventBus {
     this._view.update(this._world)
 
     document.addEventListener('keydown', this.keyUp)
+    window.addEventListener('gamepadconnected', this.gameLoop)
 
     requestAnimationFrame(this.loop)
+  }
+
+  gameLoop = () => {
+    const gamepads = navigator.getGamepads()
+    if (gamepads[0]) {
+      const gp = gamepads[0]
+      const buttonPressed: string | undefined = Object.keys(
+        gp.buttons.map(button => button.pressed)
+      ).find(
+        (button: any) =>
+          gp.buttons.map(button => button.pressed)[button] === true
+      )
+
+      switch (buttonPressed) {
+        case '12':
+          return (this._direction = Direction.Up)
+        case '15':
+          return (this._direction = Direction.Right)
+        case '13':
+          return (this._direction = Direction.Down)
+        case '14':
+          return (this._direction = Direction.Left)
+      }
+    }
   }
 
   stop() {
     this._isStopped = true
 
     document.removeEventListener('keydown', this.keyUp)
+    window.removeEventListener('gamepadconnected', this.gameLoop)
 
     this._direction = undefined
   }
