@@ -11,7 +11,7 @@ export const WithAuth = (Component: any) => (props: any) => {
     if (!localStorage.getItem(CONTENT_RU.IS_LOGIN_IN)) {
       getUser(undefined)
     }
-  }, [isSuccess])
+  }, [])
 
   const isLogout =
     !localStorage.getItem(CONTENT_RU.IS_LOGIN_IN) &&
@@ -28,6 +28,10 @@ export const WithAuth = (Component: any) => (props: any) => {
     isLogout && navigate(PATHNAMES.SIGNIN)
     isLogin && navigate(PATHNAMES.MAIN)
   }, [])
+
+  if (isLogout || isLogin) {
+    return <></>
+  }
 
   return <Component {...props} />
 }
