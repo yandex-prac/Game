@@ -1,0 +1,1 @@
+export { topicModel } from './Topic'
