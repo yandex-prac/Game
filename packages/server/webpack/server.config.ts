@@ -1,6 +1,7 @@
 import type { Configuration } from 'webpack'
 import path from 'path'
 import { cssLoader, fileLoader, tsPresets } from './loaders'
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin'
 
 const { DIST_DIR } = process.env
 
@@ -21,6 +22,7 @@ const config: Configuration = {
     alias: {
       '@': path.resolve(__dirname, '../../client/src'),
     },
+    plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
   },
 }
 
