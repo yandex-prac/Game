@@ -31,12 +31,3 @@ export const chatApi = createApi({
 })
 
 export const { useGetTopicsQuery, useLazyAddTopicQuery } = chatApi
-
-// {
-//   "first_name": "string",
-//   "second_name": "string",
-//   "login": "strdfjhz123ssasds",
-//   "email": "strdfjhz123ssasds@gmail.com",
-//   "password": "S123!jshd",
-//   "phone": "+79609517723"
-// }

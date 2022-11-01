@@ -1,11 +1,4 @@
-type TopicType = {
-  author: string
-  content: string
-  createdAt: string
-  id: number
-  title: string
-  updatedAt: string
-}
+import { TopicType } from '@/types'
 
 type ChatItemProps = {
   topic: TopicType

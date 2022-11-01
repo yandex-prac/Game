@@ -14,15 +14,7 @@ import { useCustomIntl } from '@/hooks'
 import { WithAuth } from '@/hoc'
 import { validAddForum } from '@/utils'
 import { useGetTopicsQuery, useLazyAddTopicQuery } from '@/store'
-
-type TopicType = {
-  author: string
-  content: string
-  createdAt: string
-  id: number
-  title: string
-  updatedAt: string
-}
+import { TopicType } from '@/types'
 
 const Forum = memo(() => {
   const { data } = useGetTopicsQuery(undefined)
