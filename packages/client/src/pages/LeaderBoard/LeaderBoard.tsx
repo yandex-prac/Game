@@ -11,7 +11,14 @@ import { PATHNAMES } from '@/utils'
 import { DarkModeType } from '@/types'
 import { useCustomIntl } from '@/hooks'
 import { WithAuth } from '@/hoc'
-import { useGetTeamLeaderboardQuery } from '@/store/services/leaderboardService'
+import { useGetTeamLeaderboardQuery } from '@/store'
+
+function prepareTime(time: number) {
+ return new Date(time).toLocaleTimeString([], {
+   minute: '2-digit',
+   second: '2-digit',
+ })
+}
 
 const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
   const { isLoading, data } = useGetTeamLeaderboardQuery({
@@ -43,10 +50,7 @@ const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
                     {leader.data.username || 'Неизвестный пользователь'}
                   </div>
                   <div>
-                    {new Date(leader.data.time).toLocaleTimeString([], {
-                      minute: '2-digit',
-                      second: '2-digit',
-                    })}
+                    {prepareTime(leader.data.time)}
                   </div>
                 </LeaderItem>
               )

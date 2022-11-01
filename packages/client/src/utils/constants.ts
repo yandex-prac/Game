@@ -37,6 +37,7 @@ const CONTENT_RU = {
   LOGIN_SUCCESS: 'Вы успешно авторизовались',
   LOGIN_ERROR: 'Проверьте правильность ввода данных',
   IS_LOGIN_IN: 'isLoginIn',
+  AUTH_ERROR: 'Ошибка авторизации. Попробуйте войти в аккаунт снова',
 
   // register и profile
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',

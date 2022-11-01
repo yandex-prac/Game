@@ -4,7 +4,8 @@ import { Game } from '@/game'
 import { CanvasWrapper, StartButton } from './StyledComponents'
 import { WithAuth } from '@/hoc'
 import { useLazyAddQuery } from '@/store/services/leaderboardService'
-import { LOCAL_STORAGE_CONSTANTS, API_CONSTANTS } from '@/utils'
+import { LOCAL_STORAGE_CONSTANTS, API_CONSTANTS, CONTENT_RU, SNACKBAR_TYPE } from '@/utils'
+import { setSnackbar } from '@/store'
 
 const Main = memo(() => {
   const canvas = useRef<HTMLCanvasElement>(null)
@@ -32,7 +33,12 @@ const Main = memo(() => {
       const username = localStorage.getItem(LOCAL_STORAGE_CONSTANTS.USENAME)
 
       if (!id || !username) {
-        throw new Error('Auth error. No user id')
+        setSnackbar({
+          isOpen: true,
+          message: CONTENT_RU.AUTH_ERROR,
+          type: SNACKBAR_TYPE.ERROR
+        });
+        return;
       }
 
       addLeaderQuery({

@@ -43,24 +43,22 @@ export const authAPI = createApi({
       }),
     }),
     getUserInfo: builder.query<UserInfoDTO, unknown>({
-      query: () => {
-        return {
-          url: API.GET_USER_INFO,
-          responseHandler: response => {
-            if (response.status === 200) {
-              return response.json().then(json => {
-                localStorage.setItem(LOCAL_STORAGE_CONSTANTS.USER_ID, json.id)
-                localStorage.setItem(
-                  LOCAL_STORAGE_CONSTANTS.USENAME,
-                  json.login
-                )
-                return json
-              })
-            }
-            return Promise.resolve(response)
-          },
+      query: () => ({
+        url: API.GET_USER_INFO,
+        responseHandler: response => {
+          if (response.status === 200) {
+            return response.json().then(json => {
+              localStorage.setItem(LOCAL_STORAGE_CONSTANTS.USER_ID, json.id)
+              localStorage.setItem(
+                LOCAL_STORAGE_CONSTANTS.USENAME,
+                json.login
+              )
+              return json
+            })
+          }
+          return Promise.resolve(response)
         }
-      },
+      })
     }),
   }),
 })
