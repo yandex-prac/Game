@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { useFormik } from 'formik'
 import {
   ForumChatListBlock,
@@ -25,8 +25,8 @@ type TopicType = {
 }
 
 const Forum = memo(() => {
-  const topics = useGetTopicsQuery(undefined)
-  const [addTopic] = useLazyAddTopicQuery()
+  const { data } = useGetTopicsQuery(undefined)
+  const [addTopic, { isSuccess }] = useLazyAddTopicQuery()
 
   const [isOpen, setOpen] = useState(false)
 
@@ -44,6 +44,8 @@ const Forum = memo(() => {
       validationSchema: validAddForum(),
     })
 
+  useEffect(() => handleCloseModal(), [isSuccess])
+
   return (
     <>
       <BaseLayout>
@@ -51,7 +53,7 @@ const Forum = memo(() => {
           <ForumPageLeftBlock>
             <ForumPageTitle> {useCustomIntl('CHATS')}</ForumPageTitle>
             <ForumChatListBlock>
-              {topics.data?.map((topic: TopicType) => (
+              {data?.map((topic: TopicType) => (
                 <ChatItem key={topic.id} topic={topic} />
               ))}
 
