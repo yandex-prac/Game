@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useState } from 'react'
 import { useFormik } from 'formik'
 import {
   ForumChatListBlock,
@@ -15,14 +15,16 @@ import { WithAuth } from '@/hoc'
 import { validAddForum } from '@/utils'
 import { useGetTopicsQuery, useLazyAddTopicQuery } from '@/store'
 
+type TopicType = {
+  author: string
+  content: string
+  createdAt: string
+  id: number
+  title: string
+  updatedAt: string
+}
+
 const Forum = memo(() => {
-  // Заменить мок на данные с сервера.
-  const messagesMock = ['message1', 'message2']
-
-  // const res = useGetTopicsQuery(undefined)
-
-  //#####################
-
   const topics = useGetTopicsQuery(undefined)
   const [addTopic] = useLazyAddTopicQuery()
 
@@ -49,13 +51,10 @@ const Forum = memo(() => {
           <ForumPageLeftBlock>
             <ForumPageTitle> {useCustomIntl('CHATS')}</ForumPageTitle>
             <ForumChatListBlock>
-              <ChatItem
-                name={'WakaWaka'}
-                text={'Some text'}
-                image={
-                  'https://image.shutterstock.com/image-photo/portrait-surprised-cat-scottish-straight-260nw-499196506.jpg'
-                }
-              />
+              {topics.data?.map((topic: TopicType) => (
+                <ChatItem key={topic.id} topic={topic} />
+              ))}
+
               <ForumPageButtonBlock>
                 <Button
                   onClick={handleOpenModal}

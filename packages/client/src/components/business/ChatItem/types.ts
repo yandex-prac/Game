@@ -1,7 +1,14 @@
+type TopicType = {
+  author: string
+  content: string
+  createdAt: string
+  id: number
+  title: string
+  updatedAt: string
+}
+
 type ChatItemProps = {
-  name: string
-  image: string
-  text: string
+  topic: TopicType
 }
 
 export type { ChatItemProps }

@@ -17,7 +17,7 @@ export const chatApi = createApi({
     baseUrl: 'http://localhost:3001/',
   }),
   endpoints: builder => ({
-    getTopics: builder.query<GetTopicsDTO[], unknown>({
+    getTopics: builder.query<any, unknown>({
       query: () => API.GET_TOPICS,
     }),
     addTopic: builder.query<AddTopicDTO, GetTopicsDTO>({

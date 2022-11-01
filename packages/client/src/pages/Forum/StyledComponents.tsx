@@ -9,6 +9,7 @@ const ForumPageWrapper = styled.div`
   background-color: ${variables.white000};
   border-radius: 4px;
   height: 100%;
+  max-height: 838px;
 `
 
 const ForumPageTitle = styled.div`
@@ -28,6 +29,7 @@ const ForumPageLeftBlock = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 4px;
+  overflow-y: auto;
 `
 const ForumPageRightBlock = styled.div`
   box-shadow: ${variables.shadowSoft000};
