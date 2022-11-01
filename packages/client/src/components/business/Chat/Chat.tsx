@@ -7,7 +7,9 @@ import { randomId } from '@/utils'
 import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorFallback } from '@/components'
 
-export const Chat = ({ arrayOfMessages, isEmpty }: ChatProps) => {
+export const Chat = ({ arrayOfMessages }: ChatProps) => {
+  const isEmpty = arrayOfMessages.length === 0
+
   if (isEmpty) {
     return <ChatEmpty>{useCustomIntl('EMPTY_MESSAGES')}</ChatEmpty>
   }

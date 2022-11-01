@@ -66,10 +66,7 @@ const Forum = memo(() => {
             </ForumChatListBlock>
           </ForumPageLeftBlock>
           <ForumPageRightBlock>
-            <Chat
-              arrayOfMessages={topics.data}
-              isEmpty={!topics.data?.length}
-            />
+            <Chat arrayOfMessages={[]} />
           </ForumPageRightBlock>
         </ForumPageWrapper>
       </BaseLayout>
