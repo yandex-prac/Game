@@ -4,7 +4,12 @@ import { Game } from '@/game'
 import { CanvasWrapper, StartButton } from './StyledComponents'
 import { WithAuth } from '@/hoc'
 import { useLazyAddQuery } from '@/store/services/leaderboardService'
-import { LOCAL_STORAGE_CONSTANTS, API_CONSTANTS, CONTENT_RU, SNACKBAR_TYPE } from '@/utils'
+import {
+  LOCAL_STORAGE_CONSTANTS,
+  API_CONSTANTS,
+  CONTENT_RU,
+  SNACKBAR_TYPE,
+} from '@/utils'
 import { setSnackbar } from '@/store'
 
 const Main = memo(() => {
@@ -36,9 +41,9 @@ const Main = memo(() => {
         setSnackbar({
           isOpen: true,
           message: CONTENT_RU.AUTH_ERROR,
-          type: SNACKBAR_TYPE.ERROR
-        });
-        return;
+          type: SNACKBAR_TYPE.ERROR,
+        })
+        return
       }
 
       addLeaderQuery({

@@ -14,10 +14,10 @@ import { WithAuth } from '@/hoc'
 import { useGetTeamLeaderboardQuery } from '@/store'
 
 function prepareTime(time: number) {
- return new Date(time).toLocaleTimeString([], {
-   minute: '2-digit',
-   second: '2-digit',
- })
+  return new Date(time).toLocaleTimeString([], {
+    minute: '2-digit',
+    second: '2-digit',
+  })
 }
 
 const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
@@ -49,9 +49,7 @@ const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
                   <div>
                     {leader.data.username || 'Неизвестный пользователь'}
                   </div>
-                  <div>
-                    {prepareTime(leader.data.time)}
-                  </div>
+                  <div>{prepareTime(leader.data.time)}</div>
                 </LeaderItem>
               )
             })}

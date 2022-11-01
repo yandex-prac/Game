@@ -49,16 +49,13 @@ export const authAPI = createApi({
           if (response.status === 200) {
             return response.json().then(json => {
               localStorage.setItem(LOCAL_STORAGE_CONSTANTS.USER_ID, json.id)
-              localStorage.setItem(
-                LOCAL_STORAGE_CONSTANTS.USENAME,
-                json.login
-              )
+              localStorage.setItem(LOCAL_STORAGE_CONSTANTS.USENAME, json.login)
               return json
             })
           }
           return Promise.resolve(response)
-        }
-      })
+        },
+      }),
     }),
   }),
 })
