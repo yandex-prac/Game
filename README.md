@@ -73,3 +73,12 @@ POSTGRES_PORT=5432
 PGADMIN_DEFAULT_EMAIL=admin@admin.com
 PGADMIN_DEFAULT_PASSWORD=secret
 PGADMIN_LISTEN_PORT=80
+
+## Переменные окружения
+
+В server создать .env
+
+```bash
+import path from 'path'
+DIST_DIR = path.join(__dirname, '../dist')
+```
