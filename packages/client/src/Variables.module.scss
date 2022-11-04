@@ -29,6 +29,8 @@ $placeholderMargin: 12px;
 
 $shadowSoft000: 0 4px 20px rgba(0, 0, 0, 0.1);
 
+$overlay: rgba(0, 0, 0, 0.3);
+
 :export {
   fontFamily: $fontFamily;
   black000: $black000;
@@ -57,4 +59,5 @@ $shadowSoft000: 0 4px 20px rgba(0, 0, 0, 0.1);
   placeholderFontSize: $placeholderFontSize;
   placeholderMargin: $placeholderMargin;
   shadowSoft000: $shadowSoft000;
+  overlay: $overlay;
 }

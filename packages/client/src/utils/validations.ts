@@ -140,4 +140,24 @@ const validSignIn = () =>
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
   })
 
-export { validPasswordEdit, validProfileEdit, validSignUp, validSignIn }
+const validAddForum = () =>
+  yup.object({
+    title: yup
+      .string()
+      .min(2, useCustomIntl('MIN_LENGTH'))
+      .required(useCustomIntl('IS_REQUIRED_TEXT')),
+    author: yup
+      .string()
+      .min(2, useCustomIntl('MIN_LENGTH'))
+      .max(40, useCustomIntl('MAX_LENGTH'))
+      .required(useCustomIntl('IS_REQUIRED_TEXT')),
+    content: yup.string().max(200, useCustomIntl('MAX_LENGTH')),
+  })
+
+export {
+  validPasswordEdit,
+  validProfileEdit,
+  validSignUp,
+  validSignIn,
+  validAddForum,
+}

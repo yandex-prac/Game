@@ -58,6 +58,15 @@ type SearchForUserByLoginDTO = {
 
 type RenderIconType = 'success' | 'error' | 'attention' | 'information'
 
+type TopicType = {
+  author: string
+  content: string
+  createdAt: string
+  id: number
+  title: string
+  updatedAt: string
+}
+
 export type {
   ButtonEnum,
   DarkModeType,
@@ -71,4 +80,5 @@ export type {
   EditPasswordDTO,
   SearchForUserByLoginDTO,
   RenderIconType,
+  TopicType,
 }

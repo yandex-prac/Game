@@ -1,13 +1,23 @@
 import { Sequelize, SequelizeOptions } from 'sequelize-typescript'
 import { userModel, commentModel, topicModel } from './models'
-import { testCRUD } from './controllers/userController'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const {
+  POSTGRES_HOST,
+  POSTGRES_PORT,
+  POSTGRES_USER,
+  POSTGRES_PASSWORD,
+  POSTGRES_DB,
+} = process.env
 
 const sequelizeOptions: SequelizeOptions = {
-  host: process.env.POSTGRES_HOST,
-  port: process.env.POSTGRES_PORT as unknown as number,
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
+  host: POSTGRES_HOST,
+  port: POSTGRES_PORT as unknown as number,
+  username: POSTGRES_USER,
+  password: POSTGRES_PASSWORD,
+  database: POSTGRES_DB,
   dialect: 'postgres',
 }
 
@@ -21,10 +31,7 @@ export async function dbConnect() {
   try {
     await sequelize.authenticate()
     await sequelize.sync()
-    console.log('Connection has been established successfully.')
   } catch (error) {
     console.error('Unable to connect to the database:', error)
   }
 }
-
-testCRUD()

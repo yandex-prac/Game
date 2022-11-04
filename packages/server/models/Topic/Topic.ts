@@ -1,5 +1,5 @@
 import { DataType, Model } from 'sequelize-typescript'
-import type { ModelAttributes } from 'sequelize/types'
+import { ModelAttributes } from 'sequelize/types'
 
 interface ITopic {
   id: number

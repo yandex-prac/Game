@@ -73,6 +73,11 @@ const CONTENT_RU = {
   CREATE_CHAT: 'Создать чат',
   EMPTY_MESSAGES: 'Выберите чат чтобы отправить сообщение',
   CHATS: 'Чаты',
+  NEW_CHAT: 'Новый чат',
+  ADD_CHAT: 'Добавить',
+  TITLE: 'Заголовок',
+  AUTHOR: 'Автор',
+  CONTENT: 'Контент',
 }
 
 const API = {
@@ -88,6 +93,9 @@ const API = {
   CHANGE_USER_AVATAR: '/user/profile/avatar',
   CHANGE_USER_PASSWORD: '/user/password',
   SEARCH_FOR_USER_BY_LOGIN: '/user/search',
+  //chat
+  GET_TOPICS: '/topic',
+  ADD_TOPIC: '/topic',
 }
 
 const METHODS = {
