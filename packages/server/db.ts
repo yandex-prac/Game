@@ -1,3 +1,4 @@
+import pg from 'pg'
 import { Sequelize, SequelizeOptions } from 'sequelize-typescript'
 import { userModel, commentModel, topicModel } from './models'
 import { testCRUD } from './controllers/userController'
@@ -9,6 +10,7 @@ const sequelizeOptions: SequelizeOptions = {
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
   dialect: 'postgres',
+  dialectModule: pg,
 }
 
 export const sequelize = new Sequelize(sequelizeOptions)
