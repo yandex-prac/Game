@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { API, METHODS, jsonResponseHandler } from '@/utils'
+import { API, METHODS, jsonResponseHandler, LOCAL_STORAGE_CONSTANTS } from '@/utils'
 import {
   SigninResponseDTO,
   SigninDTO,
@@ -41,7 +41,19 @@ export const authAPI = createApi({
       }),
     }),
     getUserInfo: builder.mutation<UserInfoDTO, unknown>({
-      query: () => API.GET_USER_INFO,
+      query: () => ({
+        url: API.GET_USER_INFO,
+        responseHandler: response => {
+          if (response.status === 200) {
+            return response.json().then(json => {
+              localStorage.setItem(LOCAL_STORAGE_CONSTANTS.USER_ID, json.id)
+              localStorage.setItem(LOCAL_STORAGE_CONSTANTS.USENAME, json.login)
+              return json
+            })
+          }
+          return Promise.resolve(response)
+        },
+      }),
     }),
   }),
 })
