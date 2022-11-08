@@ -88,6 +88,7 @@ const API = {
   CHANGE_USER_AVATAR: '/user/profile/avatar',
   CHANGE_USER_PASSWORD: '/user/password',
   SEARCH_FOR_USER_BY_LOGIN: '/user/search',
+  RESOURCES: 'https://ya-praktikum.tech/api/v2/resources',
 }
 
 const METHODS = {
