@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "prebuild": "rimraf -rf dist",
-    "build": "webpack --mode production",
+    "build": "webpack --mode development",
     "preview": "node ./dist/index.js",
     "dev": "nodemon index.ts",
     "lint": "eslint .",

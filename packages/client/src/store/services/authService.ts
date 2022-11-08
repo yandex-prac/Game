@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { API, METHODS, LOCAL_STORAGE_CONSTANTS } from '@/utils'
+import { API, METHODS, jsonResponseHandler, LOCAL_STORAGE_CONSTANTS } from '@/utils'
 import {
   SigninResponseDTO,
   SigninDTO,
@@ -20,8 +20,7 @@ export const authAPI = createApi({
           url: API.SIGNIN,
           method: METHODS.POST,
           body: payload,
-          responseHandler: response =>
-            response.status === 200 ? response.text() : response.json(),
+          responseHandler: jsonResponseHandler,
         }
       },
     }),
@@ -31,18 +30,17 @@ export const authAPI = createApi({
           url: API.SIGNUP,
           method: METHODS.POST,
           body: payload,
-          responseHandler: response =>
-            response.status === 200 ? response.text() : response.json(),
+          responseHandler: jsonResponseHandler,
         }
       },
     }),
-    signout: builder.query({
+    signout: builder.mutation({
       query: () => ({
         url: API.SIGNOUT,
         method: METHODS.POST,
       }),
     }),
-    getUserInfo: builder.query<UserInfoDTO, unknown>({
+    getUserInfo: builder.mutation<UserInfoDTO, unknown>({
       query: () => ({
         url: API.GET_USER_INFO,
         responseHandler: response => {
@@ -63,6 +61,6 @@ export const authAPI = createApi({
 export const {
   useSigninMutation,
   useSignupMutation,
-  useLazyGetUserInfoQuery,
-  useLazySignoutQuery,
+  useSignoutMutation,
+  useGetUserInfoMutation,
 } = authAPI
