@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { API, METHODS, API_CONSTANTS } from '@/utils'
+import { API, METHODS, API_CONSTANTS, jsonTextResponseHandler } from '@/utils'
 import {
   LeadersDTO,
   LeadersResponseDTO,
@@ -20,8 +20,7 @@ export const leaderboardAPI = createApi({
           url: API.NEW_LEADER,
           method: METHODS.POST,
           body: payload,
-          responseHandler: response =>
-            response.status === 200 ? response.text() : response.json(),
+          responseHandler: jsonTextResponseHandler
         }
       },
     }),
@@ -31,8 +30,7 @@ export const leaderboardAPI = createApi({
           url: API.GET_LEADERS + '/' + API_CONSTANTS.TEAM_NAME,
           method: METHODS.POST,
           body: payload,
-          responseHandler: response =>
-            response.status === 200 ? response.json() : response.text(),
+          responseHandler: jsonTextResponseHandler
         }
       },
     }),

@@ -2,4 +2,8 @@ function jsonResponseHandler(response: Response) {
   return response.json()
 }
 
-export { jsonResponseHandler }
+function jsonTextResponseHandler(response: Response) {
+  return response.status === 200 ? response.json() : response.text()
+}
+
+export { jsonResponseHandler, jsonTextResponseHandler }
