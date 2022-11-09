@@ -18,11 +18,13 @@ type SigninResponseDTO = {
 }
 
 type UserInfoDTO = {
+  avatar?: string
+  display_name?: string
   first_name: string
   second_name: string
   login: string
   email: string
-  password: string
+  password?: string
   phone: string
 }
 
@@ -56,6 +58,34 @@ type SearchForUserByLoginDTO = {
   login: string
 }
 
+type NewLeaderDTO = {
+  data: {
+    time: number
+    user_id: string
+    username: string
+  }
+  ratingFieldName: string
+  teamName: string
+}
+
+type NewLeaderResponseDTO = {
+  reason?: string
+}
+
+type LeadersDTO = {
+  ratingFieldName: string
+  cursor: number
+  limit: number
+}
+
+type LeadersResponseDTO = {
+  data: {
+    time: number
+    user_id: string
+    username: string
+  }
+}
+
 type RenderIconType = 'success' | 'error' | 'attention' | 'information'
 
 export type {
@@ -71,4 +101,8 @@ export type {
   EditPasswordDTO,
   SearchForUserByLoginDTO,
   RenderIconType,
+  NewLeaderDTO,
+  NewLeaderResponseDTO,
+  LeadersDTO,
+  LeadersResponseDTO,
 }

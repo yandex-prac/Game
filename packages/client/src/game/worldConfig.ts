@@ -40,7 +40,7 @@ const world: WorldProps = {
       y: 7 * size.height,
     },
     size,
-    speed: 2,
+    speed: 4,
   },
   wallsAndFloors: {
     size,

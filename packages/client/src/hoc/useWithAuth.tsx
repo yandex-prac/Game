@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PATHNAMES, CONTENT_RU } from '@/utils'
-import { useLazyGetUserInfoQuery } from '@/store'
+import { useGetUserInfoMutation } from '@/store'
 
 export const WithAuth = (Component: any) => (props: any) => {
   const navigate = useNavigate()
-  const [getUser, { isSuccess }] = useLazyGetUserInfoQuery()
+  const [getUser, { isSuccess }] = useGetUserInfoMutation()
 
   useEffect(() => {
     if (!localStorage.getItem(CONTENT_RU.IS_LOGIN_IN)) {
@@ -28,6 +28,10 @@ export const WithAuth = (Component: any) => (props: any) => {
     isLogout && navigate(PATHNAMES.SIGNIN)
     isLogin && navigate(PATHNAMES.MAIN)
   }, [])
+
+  if (isLogout || isLogin) {
+    return <></>
+  }
 
   return <Component {...props} />
 }

@@ -1,24 +1,15 @@
+import pg from 'pg'
 import { Sequelize, SequelizeOptions } from 'sequelize-typescript'
 import { userModel, commentModel, topicModel } from './models'
-import dotenv from 'dotenv'
-
-dotenv.config()
-
-const {
-  POSTGRES_HOST,
-  POSTGRES_PORT,
-  POSTGRES_USER,
-  POSTGRES_PASSWORD,
-  POSTGRES_DB,
-} = process.env
 
 const sequelizeOptions: SequelizeOptions = {
-  host: POSTGRES_HOST,
-  port: POSTGRES_PORT as unknown as number,
-  username: POSTGRES_USER,
-  password: POSTGRES_PASSWORD,
-  database: POSTGRES_DB,
+  host: process.env.POSTGRES_HOST,
+  port: process.env.POSTGRES_PORT as unknown as number,
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DB,
   dialect: 'postgres',
+  dialectModule: pg,
 }
 
 export const sequelize = new Sequelize(sequelizeOptions)
