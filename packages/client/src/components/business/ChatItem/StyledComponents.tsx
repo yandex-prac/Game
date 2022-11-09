@@ -17,17 +17,17 @@ const ChatItemStyle = styled.div`
 
 const ChatItemTitle = styled.div`
   font-weight: 500;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1;
   color: ${variables.black000};
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 `
 
 const ChatItemDate = styled.div`
   font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1;
-  color: ${variables.grey111};
+  color: ${variables.grey200};
 `
 
 const ChatItemImage = styled.img`

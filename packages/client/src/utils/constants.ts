@@ -74,6 +74,11 @@ const CONTENT_RU = {
   CREATE_CHAT: 'Создать чат',
   EMPTY_MESSAGES: 'Выберите чат чтобы отправить сообщение',
   CHATS: 'Чаты',
+  NEW_CHAT: 'Новый чат',
+  ADD_CHAT: 'Добавить',
+  TITLE: 'Заголовок',
+  AUTHOR: 'Автор',
+  CONTENT: 'Контент',
 }
 
 const API = {
@@ -103,6 +108,9 @@ const API_CONSTANTS = {
 const LOCAL_STORAGE_CONSTANTS = {
   USER_ID: 'user_id',
   USENAME: 'username',
+  //chat
+  GET_TOPICS: '/topic',
+  ADD_TOPIC: '/topic',
 }
 
 const METHODS = {

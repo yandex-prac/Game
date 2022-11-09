@@ -4,7 +4,7 @@ type StyledButtonProps = {
   type: ButtonEnum
   textIntl: string
   onClick?: () => void
-  style?: any
+  style?: Record<string, string>
 }
 
 export type { StyledButtonProps }

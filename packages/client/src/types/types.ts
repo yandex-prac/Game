@@ -88,6 +88,25 @@ type LeadersResponseDTO = {
 
 type RenderIconType = 'success' | 'error' | 'attention' | 'information'
 
+type TopicType = {
+  author: string
+  content: string
+  createdAt: string
+  id: number
+  title: string
+  updatedAt: string
+}
+
+type GetTopicsDTO = {
+  title: string
+  author: string
+  content?: string
+}
+
+type AddTopicDTO = {
+  message: string
+}
+
 export type {
   ButtonEnum,
   DarkModeType,
@@ -105,4 +124,7 @@ export type {
   NewLeaderResponseDTO,
   LeadersDTO,
   LeadersResponseDTO,
+  TopicType,
+  GetTopicsDTO,
+  AddTopicDTO,
 }
