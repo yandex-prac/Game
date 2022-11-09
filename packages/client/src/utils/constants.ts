@@ -37,6 +37,7 @@ const CONTENT_RU = {
   LOGIN_SUCCESS: 'Вы успешно авторизовались',
   LOGIN_ERROR: 'Проверьте правильность ввода данных',
   IS_LOGIN_IN: 'isLoginIn',
+  AUTH_ERROR: 'Ошибка авторизации. Попробуйте войти в аккаунт снова',
 
   // register и profile
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
@@ -93,6 +94,20 @@ const API = {
   CHANGE_USER_AVATAR: '/user/profile/avatar',
   CHANGE_USER_PASSWORD: '/user/password',
   SEARCH_FOR_USER_BY_LOGIN: '/user/search',
+
+  RESOURCES: 'https://ya-praktikum.tech/api/v2/resources',
+  // leaderboard
+  NEW_LEADER: '/leaderboard',
+  GET_LEADERS: '/leaderboard',
+}
+
+const API_CONSTANTS = {
+  TEAM_NAME: 'pacman_quadro_coders',
+}
+
+const LOCAL_STORAGE_CONSTANTS = {
+  USER_ID: 'user_id',
+  USENAME: 'username',
   //chat
   GET_TOPICS: '/topic',
   ADD_TOPIC: '/topic',
@@ -112,4 +127,12 @@ enum SNACKBAR_TYPE {
   INFORMATION = 'information',
 }
 
-export { CONTENT_RU, PATHNAMES, API, METHODS, SNACKBAR_TYPE }
+export {
+  CONTENT_RU,
+  PATHNAMES,
+  API,
+  METHODS,
+  SNACKBAR_TYPE,
+  LOCAL_STORAGE_CONSTANTS,
+  API_CONSTANTS,
+}
