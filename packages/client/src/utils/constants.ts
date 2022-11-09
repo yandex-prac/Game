@@ -82,6 +82,7 @@ const CONTENT_RU = {
 }
 
 const API = {
+  RESOURCES: 'https://ya-praktikum.tech/api/v2/resources',
   API_BASE_URL: 'https://ya-praktikum.tech/api/v2',
   // auth
   SIGNIN: '/auth/signin',
@@ -94,11 +95,12 @@ const API = {
   CHANGE_USER_AVATAR: '/user/profile/avatar',
   CHANGE_USER_PASSWORD: '/user/password',
   SEARCH_FOR_USER_BY_LOGIN: '/user/search',
-
-  RESOURCES: 'https://ya-praktikum.tech/api/v2/resources',
   // leaderboard
   NEW_LEADER: '/leaderboard',
   GET_LEADERS: '/leaderboard',
+  //chat
+  GET_TOPICS: '/topic',
+  ADD_TOPIC: '/topic',
 }
 
 const API_CONSTANTS = {
@@ -108,9 +110,6 @@ const API_CONSTANTS = {
 const LOCAL_STORAGE_CONSTANTS = {
   USER_ID: 'user_id',
   USENAME: 'username',
-  //chat
-  GET_TOPICS: '/topic',
-  ADD_TOPIC: '/topic',
 }
 
 const METHODS = {
