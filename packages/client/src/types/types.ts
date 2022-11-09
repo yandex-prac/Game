@@ -67,6 +67,16 @@ type TopicType = {
   updatedAt: string
 }
 
+type GetTopicsDTO = {
+  title: string
+  author: string
+  content?: string
+}
+
+type AddTopicDTO = {
+  message: string
+}
+
 export type {
   ButtonEnum,
   DarkModeType,
@@ -81,4 +91,6 @@ export type {
   SearchForUserByLoginDTO,
   RenderIconType,
   TopicType,
+  GetTopicsDTO,
+  AddTopicDTO,
 }

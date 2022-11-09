@@ -7,12 +7,12 @@ import {
   deletTopicById,
 } from '../controllers'
 
-const userRouter = Router()
+const topicRouter = Router()
 
-userRouter.get('/', getTopics)
-userRouter.post('/', createTopic)
-userRouter.get('/:topicId', getTopicById)
-userRouter.put('/:topicId', updateTopicById)
-userRouter.delete('/:topicId', deletTopicById)
+topicRouter.get('/', getTopics)
+topicRouter.post('/', createTopic)
+topicRouter.get('/:topicId', getTopicById)
+topicRouter.put('/:topicId', updateTopicById)
+topicRouter.delete('/:topicId', deletTopicById)
 
-export default userRouter
+export default topicRouter
