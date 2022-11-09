@@ -1,18 +1,12 @@
+const fileRegex = /^(?!.*\.inline).*\.(svg|jpe?g|png|gif|eot|woff2?|ttf)$/
+
 export default {
   client: {
-    test: /\.(png|jpe?g|gif|svg)$/i,
-    use: [
-      {
-        loader: 'file-loader',
-      },
-    ],
+    loader: 'url-loader',
+    test: fileRegex,
   },
   server: {
-    test: /\.(png|jpe?g|gif|svg)$/i,
-    use: [
-      {
-        loader: 'file-loader',
-      },
-    ],
+    loader: 'url-loader',
+    test: fileRegex,
   },
 }

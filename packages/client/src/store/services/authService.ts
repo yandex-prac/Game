@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { API, METHODS, jsonResponseHandler, LOCAL_STORAGE_CONSTANTS } from '@/utils'
 import 'whatwg-fetch'
-import { API, METHODS } from '@/utils'
 import {
   SigninResponseDTO,
   SigninDTO,
@@ -37,14 +37,26 @@ export const authAPI = createApi({
         }
       },
     }),
-    signout: builder.query({
+    signout: builder.mutation({
       query: () => ({
         url: API.SIGNOUT,
         method: METHODS.POST,
       }),
     }),
-    getUserInfo: builder.query<UserInfoDTO, unknown>({
-      query: () => API.GET_USER_INFO,
+    getUserInfo: builder.mutation<UserInfoDTO, unknown>({
+      query: () => ({
+        url: API.GET_USER_INFO,
+        responseHandler: response => {
+          if (response.status === 200) {
+            return response.json().then(json => {
+              localStorage.setItem(LOCAL_STORAGE_CONSTANTS.USER_ID, json.id)
+              localStorage.setItem(LOCAL_STORAGE_CONSTANTS.USENAME, json.login)
+              return json
+            })
+          }
+          return Promise.resolve(response)
+        },
+      }),
     }),
   }),
 })
@@ -52,6 +64,6 @@ export const authAPI = createApi({
 export const {
   useSigninMutation,
   useSignupMutation,
-  useLazyGetUserInfoQuery,
-  useLazySignoutQuery,
+  useSignoutMutation,
+  useGetUserInfoMutation,
 } = authAPI

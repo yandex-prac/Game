@@ -8,10 +8,10 @@ const config: Configuration = {
   target: 'node',
   entry: path.resolve(__dirname, '../../client/src/main.tsx'),
   module: {
-    rules: [fileLoader.client, cssLoader.client, tsPresets.client],
+    rules: [fileLoader.client, ...cssLoader.client, tsPresets.client],
   },
   output: {
-    filename: 'index.js',
+    filename: 'client.js',
     path: DIST_DIR,
   },
   resolve: {

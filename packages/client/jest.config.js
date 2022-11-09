@@ -1,3 +1,6 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 export default {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
@@ -13,5 +16,8 @@ export default {
     '^@/image(.*)$': '<rootDir>/src/image$1',
     '^@/game(.*)$': '<rootDir>/src/game$1',
     '^@/hoc(.*)$': '<rootDir>/src/hoc$1',
+  },
+  globals: {
+    __SERVER_PORT__: process.env.SERVER_PORT,
   },
 }

@@ -10,7 +10,10 @@ import {
 
 export const profileApi = createApi({
   reducerPath: 'profileApi',
-  baseQuery: fetchBaseQuery({ baseUrl: API.API_BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: API.API_BASE_URL,
+    credentials: 'include',
+  }),
   endpoints: builder => ({
     getUserById: builder.query<ProfileDTO, number>({
       query: id => `${API.GET_USER_BY_ID}/${id}`,
@@ -46,4 +49,4 @@ export const profileApi = createApi({
   }),
 })
 
-export const { useLazyGetUserByIdQuery } = profileApi
+export const { useGetUserByIdQuery, useChangeUserProfileMutation } = profileApi
