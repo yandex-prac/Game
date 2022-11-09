@@ -1,7 +1,6 @@
 import pg from 'pg'
 import { Sequelize, SequelizeOptions } from 'sequelize-typescript'
 import { userModel, commentModel, topicModel } from './models'
-import { testCRUD } from './controllers/userController'
 
 const sequelizeOptions: SequelizeOptions = {
   host: process.env.POSTGRES_HOST,
@@ -23,10 +22,7 @@ export async function dbConnect() {
   try {
     await sequelize.authenticate()
     await sequelize.sync()
-    console.log('Connection has been established successfully.')
   } catch (error) {
     console.error('Unable to connect to the database:', error)
   }
 }
-
-testCRUD()
