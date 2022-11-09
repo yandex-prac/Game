@@ -4,7 +4,7 @@ import bodyParser from 'body-parser'
 import express from 'express'
 import { dbConnect } from './db'
 import routes from './routes'
-import { errorHandler } from './middlewares'
+import { errorHandler, renderTemplate } from './middlewares'
 
 dotenv.config()
 
@@ -18,6 +18,8 @@ app
   .use(cors())
   .use(routes)
   .use(errorHandler)
+
+app.get('/*', renderTemplate)
 
 app.listen(port, () => {
   console.log(`  ➜ 🎸 Server is listening on port: ${port}`)
