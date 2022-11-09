@@ -58,6 +58,15 @@ type SearchForUserByLoginDTO = {
 
 type RenderIconType = 'success' | 'error' | 'attention' | 'information'
 
+type CommentType = {
+  author: string
+  content: string
+  createdAt: string
+  id: number
+  title: string
+  isUpdated: boolean
+}
+
 type TopicType = {
   author: string
   content: string
@@ -81,4 +90,5 @@ export type {
   SearchForUserByLoginDTO,
   RenderIconType,
   TopicType,
+  CommentType,
 }
