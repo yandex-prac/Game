@@ -22,7 +22,6 @@ export const App = () => {
   return (
     <Wrap>
       <Snackbar />
-      <BrowserRouter>
         <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
           <Routes>
             <Route path={PATHNAMES.SIGNIN} element={<SignIn />} />
@@ -58,7 +57,6 @@ export const App = () => {
             />
           </Routes>
         </ThemeContext.Provider>
-      </BrowserRouter>
     </Wrap>
   )
 }

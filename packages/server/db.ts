@@ -4,11 +4,11 @@ import { userModel, commentModel, topicModel } from './models'
 import { testCRUD } from './controllers/userController'
 
 const sequelizeOptions: SequelizeOptions = {
-  host: process.env.POSTGRES_HOST,
-  port: process.env.POSTGRES_PORT as unknown as number,
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
+  host: process.env.POSTGRES_HOST || 'localhost',
+  port: (process.env.POSTGRES_PORT as unknown as number) || 5432,
+  username: process.env.POSTGRES_USER || 'postgres',
+  password: process.env.POSTGRES_PASSWORD || 'postgres',
+  database: process.env.POSTGRES_DB || 'test',
   dialect: 'postgres',
   dialectModule: pg,
 }
