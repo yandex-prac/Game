@@ -7,7 +7,7 @@ const { DIST_DIR } = process.env
 
 const config: Configuration = {
   target: 'node',
-  entry: path.resolve(__dirname, '../index.tsx'),
+  entry: path.resolve(__dirname, '../index.ts'),
   externals: ['pg'],
   module: {
     rules: [fileLoader.server, cssLoader.server, tsPresets.server],
