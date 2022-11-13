@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PATHNAMES, CONTENT_RU } from '@/utils'
-import { useGetUserInfoMutation } from '@/store'
+import { useLazyGetUserInfoHocQuery } from '@/store'
 
 export const WithAuth = (Component: any) => (props: any) => {
   const navigate = useNavigate()
-  const [getUser, { isSuccess }] = useGetUserInfoMutation()
+  const [getUser, { isSuccess }] = useLazyGetUserInfoHocQuery()
 
   useEffect(() => {
     if (!localStorage.getItem(CONTENT_RU.IS_LOGIN_IN)) {
       getUser(undefined)
     }
-  }, [isSuccess])
+  }, [])
 
   const isLogout =
     !localStorage.getItem(CONTENT_RU.IS_LOGIN_IN) &&

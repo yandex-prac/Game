@@ -55,6 +55,9 @@ export const authAPI = createApi({
         },
       }),
     }),
+    getUserInfoHoc: builder.query<UserInfoDTO, unknown>({
+      query: () => API.GET_USER_INFO,
+    }),
   }),
 })
 
@@ -63,4 +66,5 @@ export const {
   useSignupMutation,
   useSignoutMutation,
   useGetUserInfoMutation,
+  useLazyGetUserInfoHocQuery
 } = authAPI
