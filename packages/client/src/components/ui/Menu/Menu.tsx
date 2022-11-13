@@ -14,16 +14,17 @@ import {
 import { PATHNAMES, CONTENT_RU } from '@/utils'
 import { MenuProps } from './types'
 import { DarkModeType } from '@/types'
-import { useLazySignoutQuery } from '@/store'
+import { useSignoutMutation } from '@/store'
 
 export const Menu = memo(
   ({ darkMode, onChangeTheme }: MenuProps & DarkModeType) => {
+    const [logoutTrigger] = useSignoutMutation()
     const navigate = useNavigate()
-    const [logout] = useLazySignoutQuery()
     const onClickLogout = () => {
-      localStorage.removeItem(CONTENT_RU.IS_LOGIN_IN)
-      logout(undefined)
-      navigate(PATHNAMES.SIGNIN)
+      logoutTrigger(false).then(() => {
+        localStorage.removeItem(CONTENT_RU.IS_LOGIN_IN)
+        navigate(PATHNAMES.SIGNIN)
+      })
     }
 
     return (
