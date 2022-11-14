@@ -3,3 +3,6 @@ node_modules/
 .idea
 .vscode
 dist
+/packages/client/dev-dist/
+tmp
+postgresdata

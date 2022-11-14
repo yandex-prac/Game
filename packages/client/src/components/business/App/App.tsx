@@ -15,20 +15,31 @@ import {
 import { Wrap } from './StyledComponents'
 import { ThemeContext } from '@/context'
 import { PATHNAMES } from '@/utils'
+import { Snackbar } from '@/components'
 
 export const App = () => {
   const [darkMode, setDarkMode] = useState(false)
   return (
     <Wrap>
+      <Snackbar />
       <BrowserRouter>
         <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
           <Routes>
             <Route path={PATHNAMES.SIGNIN} element={<SignIn />} />
             <Route path={PATHNAMES.SIGNUP} element={<SignUp />} />
             <Route path={PATHNAMES.MAIN} element={<Main />} />
-            <Route path={PATHNAMES.PROFILE} element={<Profile />} />
-            <Route path={PATHNAMES.PROFILE_EDIT} element={<ProfileEdit />} />
-            <Route path={PATHNAMES.PASSWORD_EDIT} element={<PasswordEdit />} />
+            <Route
+              path={PATHNAMES.PROFILE}
+              element={<Profile darkMode={darkMode} />}
+            />
+            <Route
+              path={PATHNAMES.PROFILE_EDIT}
+              element={<ProfileEdit darkMode={darkMode} />}
+            />
+            <Route
+              path={PATHNAMES.PASSWORD_EDIT}
+              element={<PasswordEdit darkMode={darkMode} />}
+            />
             <Route path={PATHNAMES.SETTINGS} element={<Settings />} />
             <Route path={PATHNAMES.FORUM} element={<Forum />} />
             <Route

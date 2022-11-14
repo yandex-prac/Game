@@ -1,17 +1,27 @@
 import dotenv from 'dotenv'
 import cors from 'cors'
+import bodyParser from 'body-parser'
+import express from 'express'
+import { dbConnect } from './db'
+import routes from './routes'
+import { errorHandler, renderTemplate } from './middlewares'
+
 dotenv.config()
 
-import express from 'express'
-
-const app = express()
-app.use(cors())
 const port = Number(process.env.SERVER_PORT) || 3001
 
-app.get('/', (_, res) => {
-  res.json('👋 Howdy from the server :)')
-})
+const app = express()
+
+app
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(bodyParser.json())
+  .use(cors())
+  .use(routes)
+  .use(errorHandler)
+
+app.get('/*', renderTemplate)
 
 app.listen(port, () => {
   console.log(`  ➜ 🎸 Server is listening on port: ${port}`)
+  dbConnect().then(() => console.log('Подключились к БД'))
 })

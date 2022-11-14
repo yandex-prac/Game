@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import {
   BaseLayout,
   ProfileImage,
-  Button,
   ProfilePage,
   ProfileUl,
   ProfileLi,
@@ -11,11 +11,16 @@ import {
   ProfileLabel,
   ProfileForm,
   Error,
+  WrapButtons,
+  Button,
 } from '@/components'
-import { validPasswordEdit } from '@/utils'
+import { validPasswordEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl } from '@/hooks'
+import { DarkModeType } from '@/types'
+import { WithAuth } from '@/hoc'
 
-export const PasswordEdit = memo(() => {
+const PasswordEdit = memo(({ darkMode }: DarkModeType) => {
+  const navigate = useNavigate()
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
@@ -30,7 +35,7 @@ export const PasswordEdit = memo(() => {
     })
   return (
     <BaseLayout>
-      <ProfilePage>
+      <ProfilePage darkMode={darkMode} isNotDisabled>
         <ProfileImage />
         <ProfileForm onSubmit={handleSubmit}>
           <ProfileUl>
@@ -85,9 +90,20 @@ export const PasswordEdit = memo(() => {
               <Error>{errors.repeatPassword}</Error>
             )}
           </ProfileUl>
-          <Button type="submit" textIntl="SAVE" />
+          <WrapButtons>
+            <Button
+              onClick={() => navigate(PATHNAMES.PROFILE)}
+              type="button"
+              textIntl="BACK"
+            />
+            <Button type="submit" textIntl="SAVE" />
+          </WrapButtons>
         </ProfileForm>
       </ProfilePage>
     </BaseLayout>
   )
 })
+
+const withPasswordEdit = WithAuth(PasswordEdit)
+
+export { withPasswordEdit as PasswordEdit }

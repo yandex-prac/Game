@@ -7,7 +7,7 @@ const Content = styled.div<DarkModeType>`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   transition: 0.3s color;
 
@@ -38,4 +38,13 @@ const LinkToGame = styled(Link)`
   }
 `
 
-export { Content, Title, LinkToGame }
+const Loading = styled.div`
+  text-align: center;
+`
+
+const LeaderItem = styled.div`
+  display: flex;
+  gap: 40px;
+`
+
+export { Content, Title, LinkToGame, Loading, LeaderItem }

@@ -4,16 +4,22 @@ import { ChatBlock, ChatEmpty } from './StyledComponents'
 import { ChatProps } from './types'
 import { useCustomIntl } from '@/hooks'
 import { randomId } from '@/utils'
+import { ErrorBoundary } from 'react-error-boundary'
+import { ErrorFallback } from '@/components'
 
-export const Chat = ({ arrayOfMessages, isEmpty }: ChatProps) => {
+export const Chat = ({ arrayOfMessages }: ChatProps) => {
+  const isEmpty = arrayOfMessages.length === 0
+
   if (isEmpty) {
     return <ChatEmpty>{useCustomIntl('EMPTY_MESSAGES')}</ChatEmpty>
   }
   return (
-    <ChatBlock>
-      {arrayOfMessages.map(item => (
-        <Message key={randomId()} text={item} />
-      ))}
-    </ChatBlock>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <ChatBlock>
+        {arrayOfMessages.map(item => (
+          <Message key={randomId()} text={item} />
+        ))}
+      </ChatBlock>
+    </ErrorBoundary>
   )
 }

@@ -1,14 +1,37 @@
 import styled from 'styled-components'
 import variables from '@/Variables.module.scss'
+import { DarkModeType, ProfileProps } from '@/types'
 
-const ProfilePage = styled.div`
+const ProfilePage = styled.div<DarkModeType & ProfileProps>`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 
-  img {
-    margin-bottom: 97px;
+  label,
+  input,
+  li {
+    border-bottom: 1px solid
+      ${({ darkMode }) => (darkMode ? variables.grey400 : variables.grey300)};
+    transition: 0.3s border-color;
+
+    &:hover {
+      ${({ isNotDisabled, darkMode }) =>
+        isNotDisabled &&
+        `border-color: ${darkMode ? variables.purple000 : variables.blue000}`}
+    }
+  }
+
+  label {
+    ${({ isNotDisabled }) => isNotDisabled && `cursor: text;`}
+  }
+
+  button {
+    color: ${({ darkMode }) =>
+      darkMode ? variables.black000 : variables.white000};
+    background-color: ${({ darkMode }) =>
+      darkMode ? variables.purple000 : variables.blue000};
+    transition: 0.3s color, 0.3s background-color, 0.3s opacity;
   }
 `
 
@@ -18,41 +41,41 @@ const ProfileForm = styled.form`
   flex-direction: column;
 `
 
-const ProfileName = styled.p`
-  font-size: 16px;
-  margin-bottom: 60px;
-`
-
 const ProfileUl = styled.ul`
   margin: 0;
   padding: 0;
   margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `
 
 const ProfileLi = styled.li`
-  position: relative;
-  list-style: none;
   display: flex;
+  list-style: none;
   justify-content: space-between;
   width: 510px;
-  border-bottom: 1px solid ${variables.grey300};
-  transition: 0.3s border-bottom;
+  line-height: 33px;
 
-  &:hover {
-    border-bottom: 1px solid ${variables.blue000};
+  &:last-child {
+    border-bottom: none;
+
+    &:hover {
+      border-bottom: none;
+    }
   }
+
+  transition: 0.3s border-bottom;
 `
 
 const ProfileLabel = styled.label`
-  cursor: text;
-  top: 10px;
-  position: absolute;
+  width: 100%;
   font-size: 13px;
-  color: ${variables.black000};
 `
 
 const ProfileInput = styled.input`
   padding: 0;
+  background-color: transparent;
   line-height: 33px;
   outline: none;
   border: none;
@@ -73,13 +96,20 @@ const Error = styled.span`
     visible: none;
   }
 `
+
+const WrapButtons = styled.div`
+  display: flex;
+  gap: 20px;
+  width: 100%;
+`
+
 export {
   ProfilePage,
   ProfileForm,
-  ProfileName,
   ProfileUl,
   ProfileLi,
   ProfileLabel,
   ProfileInput,
   Error,
+  WrapButtons,
 }

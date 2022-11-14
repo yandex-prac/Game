@@ -3,55 +3,94 @@
 1. Убедитесь что у вас установлен `node` и `docker`
 2. Выполните команду `yarn bootstrap` - это обязательный шаг, без него ничего работать не будет :)
 3. Выполните команду `yarn dev`
-3. Выполните команду `yarn dev --scope=client` чтобы запустить только клиент
-4. Выполните команду `yarn dev --scope=server` чтобы запустить только server
-
+4. Выполните команду `yarn dev --scope=client` чтобы запустить только клиент
+5. Выполните команду `yarn dev --scope=server` чтобы запустить только server
 
 ### Как добавить зависимости?
+
 В этом проекте используется `monorepo` на основе [`lerna`](https://github.com/lerna/lerna)
 
-Чтобы добавить зависимость для клиента 
-```yarn lerna add {your_dep} --scope client```
+Чтобы добавить зависимость для клиента
+`yarn lerna add {your_dep} --scope client`
 
 Для сервера
-```yarn lerna add {your_dep} --scope server```
+`yarn lerna add {your_dep} --scope server`
 
 И для клиента и для сервера
-```yarn lerna add {your_dep}```
-
+`yarn lerna add {your_dep}`
 
 Если вы хотите добавить dev зависимость, проделайте то же самое, но с флагом `dev`
-```yarn lerna add {your_dep} --dev --scope server```
-
+`yarn lerna add {your_dep} --dev --scope server`
 
 ### Тесты
 
 Для клиента используется [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro/)
 
-```yarn test```
+`yarn test`
 
 ### Линтинг
 
-```yarn lint```
+`yarn lint`
 
 ### Форматирование prettier
 
-```yarn format```
+`yarn format`
 
 ### Production build
 
-```yarn build```
+`yarn build`
 
 И чтобы посмотреть что получилось
-
 
 `yarn preview --scope client`
 `yarn preview --scope server`
 
 ## Хуки
+
 В проекте используется [lefthook](https://github.com/evilmartians/lefthook)
 Если очень-очень нужно пропустить проверки, используйте `--no-verify` (но не злоупотребляйте :)
 
-## Ой, ничего не работает :(
+## Докер
 
-Откройте issue, я приду :)
+`docker compose up`
+
+## Пример `.env` файла
+
+CLIENT_PORT=3000
+SERVER_PORT=3001
+
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=test
+POSTGRES_PORT=5432
+
+PGADMIN_DEFAULT_EMAIL=admin@admin.com
+PGADMIN_DEFAULT_PASSWORD=secret
+PGADMIN_LISTEN_PORT=80
+
+## Переменные окружения
+
+В server создать .env
+
+```bash
+import path from 'path'
+DIST_DIR = path.join(__dirname, '../dist')
+```
+
+## Докер
+
+`docker compose up`
+
+## Пример `.env` файла
+
+CLIENT_PORT=3000
+SERVER_PORT=3001
+
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=test
+POSTGRES_PORT=5432
+
+PGADMIN_DEFAULT_EMAIL=admin@admin.com
+PGADMIN_DEFAULT_PASSWORD=secret
+PGADMIN_LISTEN_PORT=80

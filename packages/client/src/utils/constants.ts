@@ -38,6 +38,10 @@ const CONTENT_RU = {
   ENTER: 'Вход',
   AUTH: 'Авторизоваться',
   NO_ACCOUNT: 'Нет аккаунта?',
+  LOGIN_SUCCESS: 'Вы успешно авторизовались',
+  LOGIN_ERROR: 'Проверьте правильность ввода данных',
+  IS_LOGIN_IN: 'isLoginIn',
+  AUTH_ERROR: 'Ошибка авторизации. Попробуйте войти в аккаунт снова',
 
   // register и profile
   IS_REQUIRED_TEXT: 'Поле не должно быть пустым',
@@ -56,25 +60,33 @@ const CONTENT_RU = {
   PASSWORD_SYMBOL: 'Должен содержать заглавную букву, цифру и символ',
   TO_LOGIN: 'Войти',
   MAKE_REGISTER: 'Зарегистрироваться',
+  REGISTR_SUCCESS: 'Вы успешно зарегистрировались',
+  REGISTR_ERROR: 'Такой пользователь уже зарегистрирован',
 
   // profile
   MAIL: 'Почта',
   NICKNAME: 'Имя в игре',
   CHANGE_DATA: 'Изменить данные',
   CHANGE_PASSWORD: 'Изменить пароль',
-  QUIT: 'Выйти',
   OLD_PASSWORD: 'Старый пароль',
   NEW_PASSWORD: 'Новый пароль',
   REPEAT_PASSWORD: 'Повторите новый пароль',
   SAVE: 'Сохранить',
+  BACK: 'Назад',
 
   // Chat
   CREATE_CHAT: 'Создать чат',
   EMPTY_MESSAGES: 'Выберите чат чтобы отправить сообщение',
   CHATS: 'Чаты',
+  NEW_CHAT: 'Новый чат',
+  ADD_CHAT: 'Добавить',
+  TITLE: 'Заголовок',
+  AUTHOR: 'Автор',
+  CONTENT: 'Контент',
 }
 
 const API = {
+  RESOURCES: 'https://ya-praktikum.tech/api/v2/resources',
   API_BASE_URL: 'https://ya-praktikum.tech/api/v2',
   // auth
   SIGNIN: '/auth/signin',
@@ -87,6 +99,21 @@ const API = {
   CHANGE_USER_AVATAR: '/user/profile/avatar',
   CHANGE_USER_PASSWORD: '/user/password',
   SEARCH_FOR_USER_BY_LOGIN: '/user/search',
+  // leaderboard
+  NEW_LEADER: '/leaderboard',
+  GET_LEADERS: '/leaderboard',
+  //chat
+  GET_TOPICS: '/topic',
+  ADD_TOPIC: '/topic',
+}
+
+const API_CONSTANTS = {
+  TEAM_NAME: 'pacman_quadro_coders',
+}
+
+const LOCAL_STORAGE_CONSTANTS = {
+  USER_ID: 'user_id',
+  USENAME: 'username',
 }
 
 const METHODS = {
@@ -96,4 +123,19 @@ const METHODS = {
   DELETE: 'DELETE',
 }
 
-export { CONTENT_RU, PATHNAMES, API, METHODS }
+enum SNACKBAR_TYPE {
+  SUCCESS = 'success',
+  ERROR = 'error',
+  ATTENTION = 'attention',
+  INFORMATION = 'information',
+}
+
+export {
+  CONTENT_RU,
+  PATHNAMES,
+  API,
+  METHODS,
+  SNACKBAR_TYPE,
+  LOCAL_STORAGE_CONSTANTS,
+  API_CONSTANTS,
+}
