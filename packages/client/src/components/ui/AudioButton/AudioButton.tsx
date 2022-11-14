@@ -8,13 +8,11 @@ export const AudioButton = () => {
   const audioElement = useRef(null)
 
   const handleMusic = () => {
-    console.log('audioContextState', audioContextState)
-    console.log('audioElementState', audioElementState)
-    audioContextState!.resume()
+    audioContextState?.resume()
     if (isMusicOn) {
-      audioElementState!.pause()
+      audioElementState?.pause()
     } else {
-      audioElementState!.play()
+      audioElementState?.play()
     }
     setIsMusicOn(!isMusicOn)
   }
