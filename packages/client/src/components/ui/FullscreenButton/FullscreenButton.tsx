@@ -10,11 +10,15 @@ export const FullscreenButton = () => {
       return
     }
     const handleExitFullscreen = () => document.exitFullscreen()
-    isFullscreen ? handleExitFullscreen() : setIsFullscreen()
+    if (isFullscreen) {
+      handleExitFullscreen()
+    } else {
+      setIsFullscreen()
+    }
   }
   return (
     <Button
-      type="button"
+      type='button'
       textIntl={
         isFullscreen ? 'FULLSCREEN_MENU_ITEM_EXIT' : 'FULLSCREEN_MENU_ITEM'
       }

@@ -1,30 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React, { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { Button } from '@/components'
 
 export const AudioButton = () => {
   const [isMusicOn, setIsMusicOn] = useState(false)
-  const [audioContextState, setAudioContext] = useState(null as any)
-  const [audioElementState, setAudioElement] = useState(null as any)
+  const [audioContextState, setAudioContext] = useState<AudioContext | null>(null)
+  const [audioElementState, setAudioElement] = useState<HTMLAudioElement | null>(null)
+  const audioElement = useRef(null)
 
   const handleMusic = () => {
-    audioContextState.resume()
-    isMusicOn ? audioElementState.pause() : audioElementState.play()
+    console.log('audioContextState', audioContextState)
+    console.log('audioElementState', audioElementState)
+    audioContextState!.resume()
+    if (isMusicOn) {
+      audioElementState!.pause()
+    } else {
+      audioElementState!.play()
+    }
     setIsMusicOn(!isMusicOn)
   }
 
   useEffect(() => {
     const AudioContext = new window.AudioContext()
     setAudioContext(AudioContext)
-    const audioElement = document.querySelector('audio')
-    setAudioElement(audioElement)
-  }, [])
+    setAudioElement(audioElement.current)
+  }, [audioElement])
+
 
   return (
     <>
-      <audio src="src/audio/3-track-3.mp3" />
+      <audio ref={audioElement} src='src/audio/3-track-3.mp3' />
 
       <Button
-        type="button"
+        type='button'
         textIntl={isMusicOn ? 'MUSIC_TURN_OFF' : 'MUSIC_TURN_ON'}
         onClick={handleMusic}
       />
