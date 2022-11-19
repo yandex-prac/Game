@@ -5,18 +5,27 @@ import express from 'express'
 import { dbConnect } from './db'
 import router from './routes/index'
 import compression from 'compression'
-import { renderTemplate } from './middlewares'
+import { checkAuth } from './middlewares/checkAuth'
+import { checkCsp } from './middlewares/checkCsp'
+import cookieParser from 'cookie-parser'
+// import { renderTemplate } from 'middlewares'
 
 const app = express()
-app.use(cors()).use(compression()).use(router)
+app
+  .use(cors())
+  .use(checkCsp())
+  .use(compression())
+  .use(router)
+  .use(cookieParser())
+  .use(checkAuth)
 
 const port = Number(process.env.SERVER_PORT) || 3001
 
-// app.get('/', (_, res) => {
-//   res.json('👋 Howdy from the server :)')
-// })
+app.get('/', (_, res) => {
+  res.json('👋 Howdy from the server :)')
+})
 
-app.get('/*', renderTemplate)
+// app.get('/*', renderTemplate)
 
 app.listen(port, () => {
   console.log(` ➜ 🎸 http://localhost:${port}`)
