@@ -17,6 +17,9 @@ export { ProfileImage } from './ui/ProfileImage'
 export { Snackbar } from './ui/Snackbar'
 export { Modal } from './ui/Modal'
 
+export { FullscreenButton } from './ui/FullscreenButton'
+export { AudioButton } from './ui/AudioButton'
+
 export { BaseLayout } from './layout/BaseLayout'
 
 export {

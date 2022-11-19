@@ -8,6 +8,7 @@ type FormProps = {
   onSubmit: () => void
 }
 
+
 type SigninDTO = {
   login: string
   password: string
@@ -56,6 +57,23 @@ type EditPasswordDTO = {
 
 type SearchForUserByLoginDTO = {
   login: string
+}
+
+declare global {
+  interface Document {
+    mozCancelFullScreen?: () => Promise<any>
+    msExitFullscreen?: () => Promise<any>
+    webkitExitFullscreen?: () => Promise<any>
+    mozFullScreenElement?: Element
+    msFullscreenElement?: Element
+    webkitFullscreenElement?: Element
+  }
+
+  interface HTMLElement {
+    msRequestFullscreen?: () => Promise<any>
+    mozRequestFullscreen?: () => Promise<any>
+    webkitRequestFullscreen?: () => Promise<any>
+  }
 }
 
 type NewLeaderDTO = {
