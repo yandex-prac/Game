@@ -1,5 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { API, METHODS, jsonResponseHandler, LOCAL_STORAGE_CONSTANTS } from '@/utils'
+import {
+  API,
+  METHODS,
+  jsonResponseHandler,
+  LOCAL_STORAGE_CONSTANTS,
+} from '@/utils'
 import {
   SigninResponseDTO,
   SigninDTO,
@@ -66,5 +71,5 @@ export const {
   useSignupMutation,
   useSignoutMutation,
   useGetUserInfoMutation,
-  useLazyGetUserInfoHocQuery
+  useLazyGetUserInfoHocQuery,
 } = authAPI

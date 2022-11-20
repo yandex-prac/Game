@@ -1,5 +1,5 @@
 import { GameObject } from './GameObject'
-import { CharacterProps, Direction } from '@/game/types'
+import { CharacterProps, Coordinates, Direction } from '@/game/types'
 
 export class Character extends GameObject {
   static directionMultiplier(direction: Direction): -1 | 1 {
@@ -58,15 +58,8 @@ export class Character extends GameObject {
     }
   }
 
-  checkGrid(direction: Direction): boolean {
-    switch (direction) {
-      case Direction.Up:
-      case Direction.Down:
-        return this.left % this.cell === 0
-      case Direction.Right:
-      case Direction.Left:
-        return this.top % this.cell === 0
-    }
+  checkGrid(): boolean {
+    return this.left % this.cell === 0 && this.top % this.cell === 0
   }
 
   move(direction: Direction = this.direction) {
@@ -74,6 +67,31 @@ export class Character extends GameObject {
       this.position.y += Character.directionMultiplier(direction) * this.speed
     } else {
       this.position.x += Character.directionMultiplier(direction) * this.speed
+    }
+  }
+
+  targetCell(direction: Direction): Coordinates {
+    switch (direction) {
+      case Direction.Down:
+        return {
+          x: this.position.x,
+          y: this.position.y - 1,
+        }
+      case Direction.Right:
+        return {
+          x: this.position.x + 1,
+          y: this.position.y,
+        }
+      case Direction.Up:
+        return {
+          x: this.position.x,
+          y: this.position.y + 1,
+        }
+      case Direction.Left:
+        return {
+          x: this.position.x - 1,
+          y: this.position.y,
+        }
     }
   }
 }

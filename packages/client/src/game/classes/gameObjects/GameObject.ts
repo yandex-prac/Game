@@ -3,9 +3,15 @@ import { EventBus } from '../EventBus'
 
 export class GameObject extends EventBus {
   protected _isCollisional = true
-  protected position: Coordinates
   private readonly size: Size
   sprite?: string
+  position: Coordinates
+
+  static distance(point_1: Coordinates, point_2: Coordinates): number {
+    return Math.sqrt(
+      (point_1.x - point_2.x) ^ (2 + (point_1.y - point_2.y)) ^ 2
+    )
+  }
 
   constructor(props: GameObjectProps) {
     super()

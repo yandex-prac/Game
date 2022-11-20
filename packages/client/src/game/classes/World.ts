@@ -7,6 +7,7 @@ import {
   Wall,
 } from '@/game/classes'
 import { Direction, WorldProps } from '@/game/types'
+import { RedGhost } from '@/game/classes/gameObjects/RedGhost'
 
 function isPoint(object: any): object is Point {
   return object instanceof Point
@@ -15,6 +16,7 @@ function isPoint(object: any): object is Point {
 export class World extends EventBus {
   private readonly _objects: Set<GameObject> = new Set<GameObject>()
   private _pacman!: Pacman
+  private _redGhost!: RedGhost
   private _pointsCount = 0
   private readonly _worldConfig: WorldProps
 
@@ -75,9 +77,13 @@ export class World extends EventBus {
 
     this._pacman = new Pacman(this._worldConfig.pacman)
 
+    this._redGhost = new RedGhost(this._worldConfig.redGhost)
+
     this._pacman.on('eatPoint', this.pacmanEatPoint)
+    this._redGhost.on('eatPacman', this.ghostEatPacman)
 
     this._objects.add(this._pacman)
+    this._objects.add(this._redGhost)
   }
 
   getCollisions(object: GameObject): Set<GameObject> {
@@ -106,6 +112,10 @@ export class World extends EventBus {
     return collisions
   }
 
+  ghostEatPacman = () => {
+    this.emit('gameOver')
+  }
+
   pacmanEatPoint = (point: any) => {
     if (!isPoint(point)) {
       return
@@ -124,6 +134,8 @@ export class World extends EventBus {
     this.objects.delete(point)
     this.objects.delete(this._pacman)
     this.objects.add(this._pacman)
+    this.objects.delete(this._redGhost)
+    this.objects.add(this._redGhost)
 
     this._pointsCount--
 
@@ -138,11 +150,13 @@ export class World extends EventBus {
     this._pointsCount = 0
 
     this._pacman.off('eatPoint', this.pacmanEatPoint)
+    this._redGhost.off('eatPacman', this.ghostEatPacman)
 
     this.createWorld()
   }
 
   update(direction?: Direction) {
     this._pacman.update(this, direction)
+    this._redGhost.update(this, this._pacman.position)
   }
 }

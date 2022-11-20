@@ -20,7 +20,7 @@ export const leaderboardAPI = createApi({
           url: API.NEW_LEADER,
           method: METHODS.POST,
           body: payload,
-          responseHandler: jsonTextResponseHandler
+          responseHandler: jsonTextResponseHandler,
         }
       },
     }),
@@ -30,7 +30,7 @@ export const leaderboardAPI = createApi({
           url: API.GET_LEADERS + '/' + API_CONSTANTS.TEAM_NAME,
           method: METHODS.POST,
           body: payload,
-          responseHandler: jsonTextResponseHandler
+          responseHandler: jsonTextResponseHandler,
         }
       },
     }),

@@ -9,12 +9,12 @@ export class Pacman extends Character {
 
   update(world: World, direction?: Direction): void {
     if (direction) {
-      if (this.checkGrid(direction)) {
+      if (this.checkGrid()) {
         this.direction = direction
       } else {
         this.futureDirection = direction
       }
-    } else if (this.futureDirection && this.checkGrid(this.futureDirection)) {
+    } else if (this.futureDirection && this.checkGrid()) {
       this.direction = this.futureDirection
       this.futureDirection = undefined
     }

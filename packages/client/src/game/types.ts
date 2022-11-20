@@ -21,6 +21,7 @@ type CharacterProps = {
 type WorldProps = {
   map: number[][]
   pacman: CharacterProps
+  redGhost: CharacterProps
   wallsAndFloors: {
     size: Size
   }
