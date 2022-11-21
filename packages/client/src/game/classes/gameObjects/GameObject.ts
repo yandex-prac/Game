@@ -9,7 +9,7 @@ export class GameObject extends EventBus {
 
   static distance(point_1: Coordinates, point_2: Coordinates): number {
     return Math.sqrt(
-      (point_1.x - point_2.x) ^ (2 + (point_1.y - point_2.y)) ^ 2
+      (point_1.x - point_2.x) ** 2 + (point_1.y - point_2.y) ** 2
     )
   }
 

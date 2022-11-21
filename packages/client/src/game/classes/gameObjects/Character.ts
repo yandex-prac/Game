@@ -75,21 +75,21 @@ export class Character extends GameObject {
       case Direction.Down:
         return {
           x: this.position.x,
-          y: this.position.y - 1,
+          y: this.position.y + this.cell,
         }
       case Direction.Right:
         return {
-          x: this.position.x + 1,
+          x: this.position.x + this.cell,
           y: this.position.y,
         }
       case Direction.Up:
         return {
           x: this.position.x,
-          y: this.position.y + 1,
+          y: this.position.y - this.cell,
         }
       case Direction.Left:
         return {
-          x: this.position.x - 1,
+          x: this.position.x - this.cell,
           y: this.position.y,
         }
     }

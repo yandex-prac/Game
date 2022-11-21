@@ -13,14 +13,14 @@ import {
 import { setSnackbar } from '@/store'
 import { GameStatus } from '@/pages/Main/types'
 
+let game: Game | undefined
+
 const Main = memo(() => {
   const canvas = useRef<HTMLCanvasElement>(null)
   const [startTime, setStartTime] = useState(0)
   const [endTime, setEndTime] = useState(0)
   const [gameStatus, setGameStatus] = useState<GameStatus>('init')
   const [addLeaderQuery] = useLazyAddQuery()
-
-  let game: Game | undefined
 
   useEffect(() => {
     if (!game) {
@@ -76,7 +76,7 @@ const Main = memo(() => {
           </h1>
         )}
         {gameStatus === 'lose' && <h1>Вы проиграли :с</h1>}
-        <canvas width={400} height={400} ref={canvas} />
+        <canvas width={420} height={540} ref={canvas} />
         {gameStatus !== 'playing' && (
           <StartButton
             type="button"

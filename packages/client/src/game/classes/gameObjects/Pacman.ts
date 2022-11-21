@@ -1,6 +1,6 @@
 import { Character, GameObject, Point, Wall, World } from '@/game/classes'
 import { Direction } from '@/game/types'
-import pacman from '@/image/gameSprites/pacman.svg'
+import { pacman } from '@/image'
 
 export class Pacman extends Character {
   protected futureDirection: Direction | undefined = undefined
