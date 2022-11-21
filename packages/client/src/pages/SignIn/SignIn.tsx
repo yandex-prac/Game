@@ -67,16 +67,16 @@ const SignIn = () => {
           <YandexAuthButton
             type="button"
             onClick={() => {
+              const redirect_url = encodeURIComponent(
+                window.location.origin + PATHNAMES.OAUTH_REDIRECT
+              )
+
               yandexTrigger({
-                redirect_uri: window.location.origin + PATHNAMES.OAUTH_REDIRECT,
+                redirect_uri: redirect_url,
               }).then(res => {
                 if (res.data) {
                   window.location.replace(
-                    `https://oauth.yandex.ru/authorize?response_type=code&client_id=${
-                      res.data.service_id
-                    }&redirect_uri=${
-                      window.location.origin + PATHNAMES.OAUTH_REDIRECT
-                    }`
+                    `https://oauth.yandex.ru/authorize?response_type=code&client_id=${res.data.service_id}&redirect_uri=${redirect_url}`
                   )
                 }
               })
