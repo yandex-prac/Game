@@ -69,7 +69,7 @@ const world: WorldProps = {
       y: 20 * size.height,
     },
     size,
-    speed: 4,
+    speed: 2,
   },
   redGhost: {
     cell,

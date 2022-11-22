@@ -80,6 +80,7 @@ export class World extends EventBus {
     this._redGhost = new RedGhost(this._worldConfig.redGhost)
 
     this._pacman.on('eatPoint', this.pacmanEatPoint)
+    this._pacman.on('eatPacman', this.ghostEatPacman)
     this._redGhost.on('eatPacman', this.ghostEatPacman)
 
     this._objects.add(this._pacman)
