@@ -1,10 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import {
-  API,
-  METHODS,
-  jsonResponseHandler,
-  LOCAL_STORAGE_CONSTANTS,
-} from '@/utils'
+import { API, METHODS, LOCAL_STORAGE_CONSTANTS } from '@/utils'
 import {
   SigninResponseDTO,
   SigninDTO,
