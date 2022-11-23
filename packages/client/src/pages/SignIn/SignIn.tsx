@@ -26,25 +26,28 @@ const SignIn = () => {
   const [signin, { isSuccess, isError, isLoading }] = useSigninMutation()
   const [yandexTrigger] = useLazyGetServiceIdQuery()
   const [signupYa] = useSignupYaMutation()
-  const params = new URLSearchParams(document.location.search)
-  const oAuthCode = params.get('code')
-  const redirect_url = encodeURIComponent(window.location.origin)
+
+  if (typeof window !== 'undefined') {
+    const params = new URLSearchParams(window.location.search)
+    const oAuthCode = params.get('code')
+    const redirect_url = encodeURIComponent(window.location.origin)
+
+    useEffect(() => {
+      if (oAuthCode) {
+        signupYa({
+          code: oAuthCode,
+          redirect_uri: redirect_url,
+        })
+          .then(() => {
+            localStorage.setItem(CONTENT_RU.IS_LOGIN_IN, 'true')
+            navigate(PATHNAMES.MAIN)
+          })
+          .catch((err: any) => console.log(err))
+      }
+    }, [])
+  }
 
   useSnackbar({ isSuccess, isError, isLoading })
-
-  useEffect(() => {
-    if (oAuthCode) {
-      signupYa({
-        code: oAuthCode,
-        redirect_uri: redirect_url,
-      })
-        .then(() => {
-          localStorage.setItem(CONTENT_RU.IS_LOGIN_IN, 'true')
-          navigate(PATHNAMES.MAIN)
-        })
-        .catch((err: any) => console.log(err))
-    }
-  }, [oAuthCode])
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
@@ -91,6 +94,7 @@ const SignIn = () => {
           <YandexAuthButton
             type="button"
             onClick={() => {
+              const redirect_url = encodeURIComponent(window.location.origin)
               yandexTrigger({
                 redirect_uri: redirect_url,
               }).then((res: any) => {
