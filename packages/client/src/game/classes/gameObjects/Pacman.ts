@@ -1,6 +1,7 @@
 import { Character, GameObject, Point, Wall, World } from '@/game/classes'
 import { Direction } from '@/game/types'
-import pacman from '@/image/gameSprites/pacman.svg'
+import { pacman } from '@/image'
+import { RedGhost } from '@/game/classes/gameObjects/RedGhost'
 
 export class Pacman extends Character {
   protected futureDirection: Direction | undefined = undefined
@@ -9,12 +10,12 @@ export class Pacman extends Character {
 
   update(world: World, direction?: Direction): void {
     if (direction) {
-      if (this.checkGrid(direction)) {
+      if (this.checkGrid()) {
         this.direction = direction
       } else {
         this.futureDirection = direction
       }
-    } else if (this.futureDirection && this.checkGrid(this.futureDirection)) {
+    } else if (this.futureDirection && this.checkGrid()) {
       this.direction = this.futureDirection
       this.futureDirection = undefined
     }
@@ -31,6 +32,8 @@ export class Pacman extends Character {
           if (object.left === this.left && object.top === this.top) {
             this.emit('eatPoint', object)
           }
+        } else if (object instanceof RedGhost) {
+          this.emit('eatPacman')
         }
       })
     }

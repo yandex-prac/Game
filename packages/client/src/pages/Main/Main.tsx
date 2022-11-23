@@ -11,29 +11,34 @@ import {
   SNACKBAR_TYPE,
 } from '@/utils'
 import { setSnackbar } from '@/store'
+import { GameStatus } from '@/pages/Main/types'
+
+let game: Game | undefined
 
 const Main = memo(() => {
   const canvas = useRef<HTMLCanvasElement>(null)
   const [startTime, setStartTime] = useState(0)
   const [endTime, setEndTime] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [gameStatus, setGameStatus] = useState<GameStatus>('init')
   const [addLeaderQuery] = useLazyAddQuery()
-
-  let game: Game | undefined
 
   useEffect(() => {
     if (!game) {
       game = new Game(canvas.current as HTMLCanvasElement)
 
-      game.on('endGame', () => {
+      game.on('win', () => {
         setEndTime(Date.now())
-        setIsPlaying(false)
+        setGameStatus('win')
+      })
+
+      game.on('lose', () => {
+        setGameStatus('lose')
       })
     }
   }, [])
 
   useEffect(() => {
-    if (startTime !== 0 && endTime !== 0) {
+    if (gameStatus === 'win') {
       const id = localStorage.getItem(LOCAL_STORAGE_CONSTANTS.USER_ID)
       const username = localStorage.getItem(LOCAL_STORAGE_CONSTANTS.USENAME)
 
@@ -56,12 +61,12 @@ const Main = memo(() => {
         teamName: API_CONSTANTS.TEAM_NAME,
       })
     }
-  }, [isPlaying])
+  }, [gameStatus])
 
   return (
     <BaseLayout>
       <CanvasWrapper>
-        {isPlaying ? null : (
+        {gameStatus === 'win' && (
           <h1>
             Ваше время:
             {new Date(endTime - startTime).toLocaleTimeString([], {
@@ -70,13 +75,14 @@ const Main = memo(() => {
             })}
           </h1>
         )}
-        <canvas width={400} height={400} ref={canvas} />
-        {isPlaying ? null : (
+        {gameStatus === 'lose' && <h1>Вы проиграли :с</h1>}
+        <canvas width={420} height={540} ref={canvas} />
+        {gameStatus !== 'playing' && (
           <StartButton
             type="button"
             textIntl="PLAY_GAME_MENU_ITEM"
             onClick={() => {
-              setIsPlaying(true)
+              setGameStatus('playing')
               game?.start()
               setStartTime(Date.now())
             }}

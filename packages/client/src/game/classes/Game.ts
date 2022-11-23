@@ -15,17 +15,19 @@ export class Game extends EventBus {
 
     this._world = new World(worldConfig)
 
-    this._world.on('pointsEnded', this.endGame)
+    this._world.on('pointsEnded', () => {
+      this.stop()
+      this.emit('win')
+    })
+
+    this._world.on('gameOver', () => {
+      this.stop()
+      this.emit('lose')
+    })
 
     this._view = new View(this._canvas)
 
     this._view.update(this._world)
-  }
-
-  private endGame = () => {
-    this.stop()
-
-    this.emit('endGame')
   }
 
   private keyUp = (evt: KeyboardEvent) => {

@@ -1,6 +1,7 @@
 export { Character } from './gameObjects/Character'
 export { Floor } from './gameObjects/Floor'
 export { GameObject } from './gameObjects/GameObject'
+export { Ghost } from './gameObjects/Ghost'
 export { Pacman } from './gameObjects/Pacman'
 export { Point } from './gameObjects/Point'
 export { Wall } from './gameObjects/Wall'
