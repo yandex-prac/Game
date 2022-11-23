@@ -58,6 +58,19 @@ type SearchForUserByLoginDTO = {
   login: string
 }
 
+type OAuthIDDTO = {
+  redirect_uri: string
+}
+
+type OAuthIDResponseDTO = {
+  service_id: string
+}
+
+type OAuthDTO = {
+  code: string
+  redirect_uri: string
+}
+
 type NewLeaderDTO = {
   data: {
     time: number
@@ -105,4 +118,7 @@ export type {
   NewLeaderResponseDTO,
   LeadersDTO,
   LeadersResponseDTO,
+  OAuthIDDTO,
+  OAuthIDResponseDTO,
+  OAuthDTO,
 }

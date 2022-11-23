@@ -94,6 +94,9 @@ const API = {
   // leaderboard
   NEW_LEADER: '/leaderboard',
   GET_LEADERS: '/leaderboard',
+  // oauth
+  YANDEX_OAUTH: '/oauth/yandex',
+  YANDEX_GET_OAUTH_ID: '/oauth/yandex/service-id',
 }
 
 const API_CONSTANTS = {
