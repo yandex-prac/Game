@@ -25,7 +25,8 @@ export const authAPI = createApi({
           url: API.SIGNIN,
           method: METHODS.POST,
           body: payload,
-          responseHandler: jsonResponseHandler,
+          responseHandler: response =>
+            response.status === 200 ? response.text() : response.json(),
         }
       },
     }),
@@ -35,7 +36,8 @@ export const authAPI = createApi({
           url: API.SIGNUP,
           method: METHODS.POST,
           body: payload,
-          responseHandler: jsonResponseHandler,
+          responseHandler: response =>
+            response.status === 200 ? response.text() : response.json(),
         }
       },
     }),
