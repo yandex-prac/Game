@@ -31,7 +31,7 @@ const LeaderBoard = memo(({ darkMode }: DarkModeType) => {
     return (
       <BaseLayout>
         <Content darkMode={darkMode}>
-          <Loading>Loading...</Loading>
+          <Loading></Loading>
         </Content>
       </BaseLayout>
     )
