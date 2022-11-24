@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "jest"
+    "test": "jest",
+    "start": "node ./api/server.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
