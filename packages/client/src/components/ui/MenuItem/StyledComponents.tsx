@@ -38,11 +38,11 @@ const Item = styled.li<ItemProps & DarkModeType>`
       darkMode ? variables.purple100 : variables.blue100};
   }
 
-  &:nth-child(5) {
+  &:nth-child(4) {
     margin-bottom: 20px;
   }
 
-  &:nth-child(6) {
+  &:nth-child(5) {
     border-top: 1px solid
       ${({ darkMode }) => (darkMode ? variables.black300 : variables.grey100)};
     padding-top: 20px;

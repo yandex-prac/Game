@@ -1,10 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import {
-  API,
-  METHODS,
-  jsonResponseHandler,
-  LOCAL_STORAGE_CONSTANTS,
-} from '@/utils'
+import { API, METHODS, LOCAL_STORAGE_CONSTANTS } from '@/utils'
 import {
   SigninResponseDTO,
   SigninDTO,
@@ -25,7 +20,8 @@ export const authAPI = createApi({
           url: API.SIGNIN,
           method: METHODS.POST,
           body: payload,
-          responseHandler: jsonResponseHandler,
+          responseHandler: response =>
+            response.status === 200 ? response.text() : response.json(),
         }
       },
     }),
@@ -35,7 +31,8 @@ export const authAPI = createApi({
           url: API.SIGNUP,
           method: METHODS.POST,
           body: payload,
-          responseHandler: jsonResponseHandler,
+          responseHandler: response =>
+            response.status === 200 ? response.text() : response.json(),
         }
       },
     }),

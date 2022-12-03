@@ -15,18 +15,11 @@ export { Menu } from './ui/Menu'
 export { MenuItem } from './ui/MenuItem'
 export { ProfileImage } from './ui/ProfileImage'
 export { Snackbar } from './ui/Snackbar'
+export { Modal } from './ui/Modal'
 
 export { BaseLayout } from './layout/BaseLayout'
 
-export {
-  Planet,
-  Profile,
-  Settings,
-  Forum,
-  LeaderBoard,
-  Theme,
-  SignOut,
-} from './icons'
+export { Planet, Profile, Forum, LeaderBoard, Theme, SignOut } from './icons'
 
 // styled components
 export * from './styledComponents/Auth'

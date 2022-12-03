@@ -1,7 +1,7 @@
+import { TopicType } from '@/types'
+
 type ChatItemProps = {
-  name: string
-  image: string
-  text: string
+  topic: TopicType
 }
 
 export type { ChatItemProps }

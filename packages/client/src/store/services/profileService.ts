@@ -31,11 +31,13 @@ export const profileApi = createApi({
         body: payload,
       }),
     }),
-    changeUserPassowrd: builder.mutation<string, EditPasswordDTO>({
+    changeUserPassoword: builder.mutation<string, EditPasswordDTO>({
       query: payload => ({
         url: API.CHANGE_USER_PASSWORD,
         method: METHODS.PUT,
         body: payload,
+        responseHandler: response =>
+          response.status === 200 ? response.text() : response.json(),
       }),
     }),
     searchUserByLogin: builder.mutation<ProfileDTO[], SearchForUserByLoginDTO>({
@@ -48,4 +50,8 @@ export const profileApi = createApi({
   }),
 })
 
-export const { useGetUserByIdQuery, useChangeUserProfileMutation } = profileApi
+export const {
+  useGetUserByIdQuery,
+  useChangeUserProfileMutation,
+  useChangeUserPassowordMutation,
+} = profileApi

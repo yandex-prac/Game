@@ -5,7 +5,6 @@ type ChatItemProps = {
 }
 type ChatProps = {
   arrayOfMessages: string[]
-  isEmpty: boolean
 }
 
 export type { ChatItemProps, ChatProps }

@@ -5,7 +5,6 @@ import {
   MenuItem,
   Planet,
   Profile,
-  Settings,
   Forum,
   LeaderBoard,
   Theme,
@@ -40,12 +39,6 @@ export const Menu = memo(
           href={PATHNAMES.PROFILE}
           icon={<Profile darkMode={darkMode} />}
           textIntl="PROFILE_MENU_ITEM"
-        />
-        <MenuItem
-          darkMode={darkMode}
-          href={PATHNAMES.SETTINGS}
-          icon={<Settings darkMode={darkMode} />}
-          textIntl="SETTINGS_MENU_ITEM"
         />
         <MenuItem
           darkMode={darkMode}

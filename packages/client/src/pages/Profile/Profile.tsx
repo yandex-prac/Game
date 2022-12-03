@@ -28,7 +28,7 @@ const Profile = memo(({ darkMode }: DarkModeType) => {
   }, [])
 
   if (isLoading) {
-    return <ProfileLoading>Loading...</ProfileLoading>
+    return <ProfileLoading></ProfileLoading>
   }
 
   return (

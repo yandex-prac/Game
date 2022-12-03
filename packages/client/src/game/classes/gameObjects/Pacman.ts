@@ -32,7 +32,7 @@ export class Pacman extends Character {
           if (object.left === this.left && object.top === this.top) {
             this.emit('eatPoint', object)
           }
-        } else if(object instanceof RedGhost) {
+        } else if (object instanceof RedGhost) {
           this.emit('eatPacman')
         }
       })

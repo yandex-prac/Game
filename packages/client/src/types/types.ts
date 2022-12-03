@@ -58,6 +58,19 @@ type SearchForUserByLoginDTO = {
   login: string
 }
 
+type OAuthIDDTO = {
+  redirect_uri: string
+}
+
+type OAuthIDResponseDTO = {
+  service_id: string
+}
+
+type OAuthDTO = {
+  code: string
+  redirect_uri: string
+}
+
 type NewLeaderDTO = {
   data: {
     time: number
@@ -88,6 +101,25 @@ type LeadersResponseDTO = {
 
 type RenderIconType = 'success' | 'error' | 'attention' | 'information'
 
+type TopicType = {
+  author: string
+  content: string
+  createdAt: string
+  id: number
+  title: string
+  updatedAt: string
+}
+
+type GetTopicsDTO = {
+  title: string
+  author: string
+  content?: string
+}
+
+type AddTopicDTO = {
+  message: string
+}
+
 export type {
   ButtonEnum,
   DarkModeType,
@@ -105,4 +137,10 @@ export type {
   NewLeaderResponseDTO,
   LeadersDTO,
   LeadersResponseDTO,
+  OAuthIDDTO,
+  OAuthIDResponseDTO,
+  OAuthDTO,
+  TopicType,
+  GetTopicsDTO,
+  AddTopicDTO,
 }
