@@ -12,7 +12,7 @@ const validPasswordEdit = () =>
         useCustomIntl('PASSWORD_SYMBOL')
       )
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
-    password: yup
+    newPassword: yup
       .string()
       .min(8, useCustomIntl('PASSWORD_MIN'))
       .max(40, useCustomIntl('MAX_LENGTH'))
@@ -23,7 +23,7 @@ const validPasswordEdit = () =>
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
     repeatPassword: yup
       .string()
-      .oneOf([yup.ref('password'), null], 'Пароли не совпадают')
+      .oneOf([yup.ref('newPassword'), null], 'Пароли не совпадают')
       .min(8, useCustomIntl('PASSWORD_MIN'))
       .max(40, useCustomIntl('MAX_LENGTH'))
       .matches(
@@ -35,7 +35,7 @@ const validPasswordEdit = () =>
 
 const validProfileEdit = () =>
   yup.object({
-    mail: yup
+    email: yup
       .string()
       .email(useCustomIntl('POST_INCORRECT'))
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
@@ -47,15 +47,15 @@ const validProfileEdit = () =>
         useCustomIntl('FORBIDDEN_SYMBOL')
       )
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
-    name: yup
+    first_name: yup
       .string()
       .matches(/^[A-ZА-Я][a-zа-я-]+$/, useCustomIntl('FORBIDDEN_SYMBOL'))
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
-    surname: yup
+    second_name: yup
       .string()
       .matches(/^[A-ZА-Я][a-zа-я-]+$/, useCustomIntl('FORBIDDEN_SYMBOL'))
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
-    nickname: yup
+    display_name: yup
       .string()
       .min(2, useCustomIntl('MIN_LENGTH'))
       .matches(
@@ -68,15 +68,6 @@ const validProfileEdit = () =>
       .min(3, useCustomIntl('MIN_LENGTH'))
       .max(14, useCustomIntl('MAX_LENGTH'))
       .matches(/^\+?[1-9]{1}[0-9]+$/, useCustomIntl('FORBIDDEN_SYMBOL'))
-      .required(useCustomIntl('IS_REQUIRED_TEXT')),
-    password: yup
-      .string()
-      .min(8, useCustomIntl('PASSWORD_MIN'))
-      .max(40, useCustomIntl('MAX_LENGTH'))
-      .matches(
-        /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+/,
-        useCustomIntl('PASSWORD_SYMBOL')
-      )
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
   })
 
@@ -140,4 +131,24 @@ const validSignIn = () =>
       .required(useCustomIntl('IS_REQUIRED_TEXT')),
   })
 
-export { validPasswordEdit, validProfileEdit, validSignUp, validSignIn }
+const validAddForum = () =>
+  yup.object({
+    title: yup
+      .string()
+      .min(2, useCustomIntl('MIN_LENGTH'))
+      .required(useCustomIntl('IS_REQUIRED_TEXT')),
+    author: yup
+      .string()
+      .min(2, useCustomIntl('MIN_LENGTH'))
+      .max(40, useCustomIntl('MAX_LENGTH'))
+      .required(useCustomIntl('IS_REQUIRED_TEXT')),
+    content: yup.string().max(200, useCustomIntl('MAX_LENGTH')),
+  })
+
+export {
+  validPasswordEdit,
+  validProfileEdit,
+  validSignUp,
+  validSignIn,
+  validAddForum,
+}

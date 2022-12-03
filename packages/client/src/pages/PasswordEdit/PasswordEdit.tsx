@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { useEffect, memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import {
@@ -16,20 +16,30 @@ import {
 } from '@/components'
 import { validPasswordEdit, PATHNAMES } from '@/utils'
 import { useCustomIntl } from '@/hooks'
-import { DarkModeType } from '@/types'
+import { DarkModeType, EditPasswordDTO } from '@/types'
 import { WithAuth } from '@/hoc'
-
+import { useChangeUserPassowordMutation } from '@/store'
 const PasswordEdit = memo(({ darkMode }: DarkModeType) => {
   const navigate = useNavigate()
+  const [changeTrigger, { isSuccess: isPasswordChangesSuccess, isLoading }] =
+    useChangeUserPassowordMutation()
+
+  useEffect(() => {
+    if (isPasswordChangesSuccess) {
+      alert('Пароль успешно изменен')
+      navigate(PATHNAMES.PROFILE)
+    }
+  }, [isLoading])
+
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
       initialValues: {
         oldPassword: '',
-        password: '',
+        newPassword: '',
         repeatPassword: '',
       },
-      onSubmit: values => {
-        console.log(values)
+      onSubmit: ({ oldPassword, newPassword }: EditPasswordDTO) => {
+        changeTrigger({ oldPassword, newPassword })
       },
       validationSchema: validPasswordEdit(),
     })
@@ -57,20 +67,20 @@ const PasswordEdit = memo(({ darkMode }: DarkModeType) => {
             )}
 
             <ProfileLi>
-              <ProfileLabel htmlFor="password">
+              <ProfileLabel htmlFor="newPassword">
                 {useCustomIntl('NEW_PASSWORD')}
               </ProfileLabel>
               <ProfileInput
-                id="password"
-                name="password"
+                id="newPassword"
+                name="newPassword"
                 type="password"
-                value={values.password}
+                value={values.newPassword}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
             </ProfileLi>
-            {touched.password && errors.password && (
-              <Error>{errors.password}</Error>
+            {touched.newPassword && errors.newPassword && (
+              <Error>{errors.newPassword}</Error>
             )}
 
             <ProfileLi>

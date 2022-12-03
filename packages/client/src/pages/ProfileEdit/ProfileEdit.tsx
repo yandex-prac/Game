@@ -22,12 +22,15 @@ import { useGetUserInfoMutation, useChangeUserProfileMutation } from '@/store'
 
 const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
   const navigate = useNavigate()
-  const [
-    changeTrigger,
-    { isSuccess: isUserInfoChangesSuccess, isError, isLoading },
-  ] = useChangeUserProfileMutation()
+  const [changeTrigger, { isSuccess: isUserInfoChangesSuccess, isLoading }] =
+    useChangeUserProfileMutation()
 
-  useSnackbar({ isSuccess: isUserInfoChangesSuccess, isError, isLoading })
+  useEffect(() => {
+    if (isUserInfoChangesSuccess) {
+      alert('Данные пользователя успешно сохранены')
+      navigate(PATHNAMES.PROFILE)
+    }
+  }, [isLoading])
 
   const {
     values,
@@ -71,12 +74,12 @@ const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
             <ProfileForm onSubmit={handleSubmit}>
               <ProfileUl>
                 <ProfileLi>
-                  <ProfileLabel htmlFor="mail">
+                  <ProfileLabel htmlFor="email">
                     {useCustomIntl('MAIL')}
                   </ProfileLabel>
                   <ProfileInput
-                    id="mail"
-                    name="mail"
+                    id="email"
+                    name="email"
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -99,12 +102,12 @@ const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
                 {touched.login && errors.login && <Error>{errors.login}</Error>}
 
                 <ProfileLi>
-                  <ProfileLabel htmlFor="name">
+                  <ProfileLabel htmlFor="first_name">
                     {useCustomIntl('NAME')}
                   </ProfileLabel>
                   <ProfileInput
-                    id="name"
-                    name="name"
+                    id="first_name"
+                    name="first_name"
                     value={values.first_name}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -115,12 +118,12 @@ const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
                 )}
 
                 <ProfileLi>
-                  <ProfileLabel htmlFor="surname">
+                  <ProfileLabel htmlFor="second_name">
                     {useCustomIntl('SURNAME')}
                   </ProfileLabel>
                   <ProfileInput
-                    id="surname"
-                    name="surname"
+                    id="second_name"
+                    name="second_name"
                     value={values.second_name}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -131,12 +134,12 @@ const ProfileEdit = memo(({ darkMode }: DarkModeType) => {
                 )}
 
                 <ProfileLi>
-                  <ProfileLabel htmlFor="nickname">
+                  <ProfileLabel htmlFor="display_name">
                     {useCustomIntl('NICKNAME')}
                   </ProfileLabel>
                   <ProfileInput
-                    id="nickname"
-                    name="nickname"
+                    id="display_name"
+                    name="display_name"
                     value={values.display_name}
                     onChange={handleChange}
                     onBlur={handleBlur}
