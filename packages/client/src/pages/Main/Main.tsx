@@ -23,7 +23,9 @@ const Main = memo(() => {
   const [addLeaderQuery] = useLazyAddQuery()
 
   useEffect(() => {
-    if (!game) {
+    if (game) {
+      game.setCanvas(canvas.current as HTMLCanvasElement)
+    } else {
       game = new Game(canvas.current as HTMLCanvasElement)
 
       game.on('win', () => {

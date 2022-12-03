@@ -1,8 +1,8 @@
 import { World } from '@/game/classes'
 
 export class View {
-  private readonly _canvas: HTMLCanvasElement
-  private readonly _context: CanvasRenderingContext2D
+  private _canvas!: HTMLCanvasElement
+  private _context!: CanvasRenderingContext2D
   private readonly _loadedSprites = new Set<string>()
   private readonly _sprites: Map<string, HTMLImageElement> = new Map<
     string,
@@ -10,12 +10,16 @@ export class View {
   >()
 
   constructor(canvas: HTMLCanvasElement) {
-    this._canvas = canvas
-    this._context = <CanvasRenderingContext2D>canvas.getContext('2d')
+    this.setCanvas(canvas)
   }
 
   get context(): CanvasRenderingContext2D {
     return this._context
+  }
+
+  setCanvas(canvas: HTMLCanvasElement) {
+    this._canvas = canvas
+    this._context = <CanvasRenderingContext2D>canvas.getContext('2d')
   }
 
   update(world: World) {
