@@ -5,7 +5,6 @@ const PATHNAMES = {
   PROFILE: '/profile',
   PROFILE_EDIT: '/profile/edit',
   PASSWORD_EDIT: '/profile/edit-password',
-  SETTINGS: '/settings',
   FORUM: '/forum',
   LEADER_BOARD: '/leader-board',
   PATH_NOT_FOUND: '*',
@@ -18,7 +17,6 @@ const CONTENT_RU = {
   LOGO_ALT: 'Логотип игры pacman',
   PLAY_GAME_MENU_ITEM: 'Начать игру',
   PROFILE_MENU_ITEM: 'Профиль',
-  SETTINGS_MENU_ITEM: 'Настройки',
   FORUM_MENU_ITEM: 'Форум',
   LEADER_BOARD_MENU_ITEM: 'Лидеры',
   COLOR_SCHEME_MENU_ITEM: 'Цветовая схема',
@@ -74,6 +72,11 @@ const CONTENT_RU = {
   CREATE_CHAT: 'Создать чат',
   EMPTY_MESSAGES: 'Выберите чат чтобы отправить сообщение',
   CHATS: 'Чаты',
+  NEW_CHAT: 'Новый чат',
+  ADD_CHAT: 'Добавить',
+  TITLE: 'Заголовок',
+  AUTHOR: 'Автор',
+  CONTENT: 'Контент',
 }
 
 const API = {
@@ -97,6 +100,8 @@ const API = {
   // oauth
   YANDEX_OAUTH: '/oauth/yandex',
   YANDEX_GET_OAUTH_ID: '/oauth/yandex/service-id',
+  GET_TOPICS: '/topic',
+  ADD_TOPIC: '/topic',
 }
 
 const API_CONSTANTS = {
