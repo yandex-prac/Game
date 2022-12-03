@@ -14,10 +14,10 @@ const ChatItemStyle = styled.div`
 `
 
 const ChatItemTitle = styled.div`
-  font-weight: 500;
+  font-weight: bold;
   font-size: 15px;
   line-height: 1;
-  color: ${variables.black000};
+  color: ${variables.grey400};
   margin-bottom: 6px;
 `
 

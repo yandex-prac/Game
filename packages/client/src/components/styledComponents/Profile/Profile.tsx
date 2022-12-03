@@ -71,6 +71,8 @@ const ProfileLi = styled.li`
 const ProfileLabel = styled.label`
   width: 100%;
   font-size: 13px;
+  color: grey;
+  font-weight: bold;
 `
 
 const ProfileInput = styled.input`
@@ -82,6 +84,7 @@ const ProfileInput = styled.input`
   text-align: right;
   width: 100%;
   font-size: 13px;
+  color: grey;
 `
 
 const Error = styled.span`

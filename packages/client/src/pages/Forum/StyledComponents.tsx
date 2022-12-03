@@ -1,23 +1,34 @@
 import styled from 'styled-components'
 import variables from '@/Variables.module.scss'
+import { DarkModeType } from '@/types'
 
-const ForumPageWrapper = styled.div`
+const ForumPageWrapper = styled.div<DarkModeType>`
   box-sizing: border-box;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: ${variables.white000};
+  background-color: ${({ darkMode }) =>
+    darkMode ? variables.black000 : variables.white000};
   border-radius: 4px;
   height: 100%;
   max-height: 838px;
+
+  button {
+    color: ${({ darkMode }) =>
+      darkMode ? variables.black000 : variables.white000};
+    background-color: ${({ darkMode }) =>
+      darkMode ? variables.purple000 : variables.blue000};
+    transition: 0.3s color, 0.3s background-color, 0.3s opacity;
+  }
 `
 
-const ForumPageTitle = styled.div`
+const ForumPageTitle = styled.div<DarkModeType>`
   box-sizing: border-box;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
-  color: ${variables.black000};
+  color: ${({ darkMode }) =>
+    darkMode ? variables.white100 : variables.black000};
   border-bottom: 1px solid ${variables.grey100};
   padding: 23px 24px 18px;
 `

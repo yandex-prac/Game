@@ -38,7 +38,10 @@ export const App = () => {
             path={PATHNAMES.PASSWORD_EDIT}
             element={<PasswordEdit darkMode={darkMode} />}
           />
-          <Route path={PATHNAMES.FORUM} element={<Forum />} />
+          <Route
+            path={PATHNAMES.FORUM}
+            element={<Forum darkMode={darkMode} />}
+          />
           <Route
             path={PATHNAMES.LEADER_BOARD}
             element={<LeaderBoard darkMode={darkMode} />}

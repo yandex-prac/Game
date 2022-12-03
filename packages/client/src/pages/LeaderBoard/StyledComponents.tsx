@@ -45,6 +45,8 @@ const Loading = styled.div`
 const LeaderItem = styled.div`
   display: flex;
   gap: 40px;
+  color: grey;
+  font-weight: bold;
 `
 
 export { Content, Title, LinkToGame, Loading, LeaderItem }

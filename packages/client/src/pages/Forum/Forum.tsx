@@ -12,11 +12,12 @@ import {
 import { BaseLayout, Button, Chat, ChatItem, Modal, Input } from '@/components'
 import { useCustomIntl } from '@/hooks'
 import { WithAuth } from '@/hoc'
+import { DarkModeType } from '@/types'
 import { validAddForum } from '@/utils'
 import { useGetTopicsQuery, useLazyAddTopicQuery } from '@/store'
 import { TopicType } from '@/types'
 
-const Forum = memo(() => {
+const Forum = memo(({ darkMode }: DarkModeType) => {
   const { data } = useGetTopicsQuery(undefined)
   const [addTopic, { isSuccess }] = useLazyAddTopicQuery()
 
@@ -41,9 +42,11 @@ const Forum = memo(() => {
   return (
     <>
       <BaseLayout>
-        <ForumPageWrapper>
+        <ForumPageWrapper darkMode={darkMode}>
           <ForumPageLeftBlock>
-            <ForumPageTitle> {useCustomIntl('CHATS')}</ForumPageTitle>
+            <ForumPageTitle darkMode={darkMode}>
+              {useCustomIntl('CHATS')}
+            </ForumPageTitle>
             <ForumChatListBlock>
               {data?.map((topic: TopicType) => (
                 <ChatItem key={topic.id} topic={topic} />
