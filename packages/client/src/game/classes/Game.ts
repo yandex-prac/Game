@@ -8,6 +8,7 @@ export class Game extends EventBus {
   private _isStopped = true
   private readonly _view: View
   private readonly _world: World
+
   constructor(canvas: HTMLCanvasElement) {
     super()
 
@@ -109,5 +110,10 @@ export class Game extends EventBus {
     window.removeEventListener('gamepadconnected', this.gameLoop)
 
     this._direction = undefined
+  }
+
+  setCanvas(canvas: HTMLCanvasElement) {
+    this._view.setCanvas(canvas)
+    this._view.update(this._world)
   }
 }
