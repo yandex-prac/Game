@@ -46,6 +46,8 @@ const ForumPageRightBlock = styled.div`
   box-shadow: ${variables.shadowSoft000};
   flex: 1 1 320px;
   border-radius: 4px;
+  overflow: auto;
+  height: 65vh;
 `
 const ForumChatListBlock = styled.div`
   padding: 30px 0px;

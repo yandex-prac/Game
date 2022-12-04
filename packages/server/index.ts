@@ -9,7 +9,7 @@ import { checkAuth } from './middlewares/checkAuth'
 import { checkCsp } from './middlewares/checkCsp'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
-// import { renderTemplate } from 'middlewares'
+// import { renderTemplate } from './middlewares'
 
 const app = express()
 app

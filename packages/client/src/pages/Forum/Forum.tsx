@@ -16,15 +16,37 @@ import { DarkModeType } from '@/types'
 import { validAddForum } from '@/utils'
 import { useGetTopicsQuery, useLazyAddTopicQuery } from '@/store'
 import { TopicType } from '@/types'
+import { useLazyGetCommentsQuery, useLazyAddCommentQuery } from '@/store'
+import { number } from 'yup'
 
 const Forum = memo(({ darkMode }: DarkModeType) => {
-  const { data } = useGetTopicsQuery(undefined)
+  const { data: dataTopic } = useGetTopicsQuery(undefined)
   const [addTopic, { isSuccess }] = useLazyAddTopicQuery()
 
   const [isOpen, setOpen] = useState(false)
+  const [topicId, setTopicId] = useState<number | null>(null)
+
+  useEffect(() => {
+    if (topicId) {
+      getComments(topicId)
+    }
+  }, [topicId])
+  const [getComments, { data: dataComment }] = useLazyGetCommentsQuery()
 
   const handleOpenModal = () => setOpen(true)
   const handleCloseModal = () => setOpen(false)
+
+  const [sendMessage] = useLazyAddCommentQuery()
+
+  const sendMess = (message: any) => {
+    const data = {
+      author: 'UserTest',
+      content: message,
+      topicid: topicId,
+    }
+    sendMessage(data)
+    getComments(topicId)
+  }
 
   const { values, errors, touched, handleChange, handleSubmit, handleBlur } =
     useFormik({
@@ -33,7 +55,9 @@ const Forum = memo(({ darkMode }: DarkModeType) => {
         author: '',
         content: '',
       },
-      onSubmit: values => addTopic(values),
+      onSubmit: values => {
+        addTopic(values)
+      },
       validationSchema: validAddForum(),
     })
 
@@ -48,8 +72,14 @@ const Forum = memo(({ darkMode }: DarkModeType) => {
               {useCustomIntl('CHATS')}
             </ForumPageTitle>
             <ForumChatListBlock>
-              {data?.map((topic: TopicType) => (
-                <ChatItem key={topic.id} topic={topic} />
+              {dataTopic?.map((topic: TopicType) => (
+                <ChatItem
+                  key={topic.id}
+                  topic={topic}
+                  getTopicId={() => {
+                    setTopicId(topic.id)
+                  }}
+                />
               ))}
 
               <ForumPageButtonBlock>
@@ -62,7 +92,10 @@ const Forum = memo(({ darkMode }: DarkModeType) => {
             </ForumChatListBlock>
           </ForumPageLeftBlock>
           <ForumPageRightBlock>
-            <Chat arrayOfMessages={[]} />
+            <Chat
+              sendMess={(message: any) => sendMess(message)}
+              arrayOfMessages={dataComment}
+            />
           </ForumPageRightBlock>
         </ForumPageWrapper>
       </BaseLayout>

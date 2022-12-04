@@ -8,10 +8,11 @@ import {
 import { ChatItemProps } from './types'
 import { useCustomIntl } from '@/hooks'
 
-export const ChatItem = ({ topic }: ChatItemProps) => {
+export const ChatItem = ({ topic, getTopicId }: ChatItemProps) => {
   const { title, author } = topic
+
   return (
-    <ChatItemStyle>
+    <ChatItemStyle onClick={getTopicId}>
       <ChatItemImage
         src="https://source.unsplash.com/random"
         alt={useCustomIntl('LOGO_ALT')}
@@ -23,14 +24,4 @@ export const ChatItem = ({ topic }: ChatItemProps) => {
       </div>
     </ChatItemStyle>
   )
-
-    
-          
-            
-    
-
-          
-    
-    
-  
 }

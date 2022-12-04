@@ -1,25 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Message } from '@/components'
-import { ChatBlock, ChatEmpty } from './StyledComponents'
+import { ChatBlock, ChatEmpty, ChatInput, ChatButton } from './StyledComponents'
 import { ChatProps } from './types'
 import { useCustomIntl } from '@/hooks'
 import { randomId } from '@/utils'
 import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorFallback } from '@/components'
 
-export const Chat = ({ arrayOfMessages }: ChatProps) => {
-  const isEmpty = arrayOfMessages.length === 0
-
-  if (isEmpty) {
+export const Chat = ({ arrayOfMessages, sendMess }: ChatProps) => {
+  const [message, setMessage] = useState('')
+  if (!arrayOfMessages) {
     return <ChatEmpty>{useCustomIntl('EMPTY_MESSAGES')}</ChatEmpty>
+  } else {
+    return (
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <ChatBlock>
+          {arrayOfMessages?.map((item: any) => (
+            <Message
+              key={randomId()}
+              author={item.author}
+              text={item.content}
+            />
+          ))}
+        </ChatBlock>
+        <ChatInput
+          placeholder="Введите сообщение..."
+          value={message}
+          onChange={(event: any) => {
+            setMessage(event.target.value)
+          }}></ChatInput>
+        <ChatButton
+          onClick={() => {
+            sendMess(message), setMessage('')
+          }}>
+          Отправить
+        </ChatButton>
+      </ErrorBoundary>
+    )
   }
-  return (
-    <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <ChatBlock>
-        {arrayOfMessages.map(item => (
-          <Message key={randomId()} text={item} />
-        ))}
-      </ChatBlock>
-    </ErrorBoundary>
-  )
 }

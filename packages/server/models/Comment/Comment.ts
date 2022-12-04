@@ -5,6 +5,7 @@ interface IComment {
   id: number
   author: string
   content: string
+  topicid: number
 }
 
 export const commentModel: ModelAttributes<Model, IComment> = {
@@ -22,6 +23,11 @@ export const commentModel: ModelAttributes<Model, IComment> = {
 
   content: {
     type: DataType.STRING,
+    allowNull: false,
+  },
+
+  topicid: {
+    type: DataType.INTEGER,
     allowNull: false,
   },
 }

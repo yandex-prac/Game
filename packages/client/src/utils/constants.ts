@@ -102,6 +102,8 @@ const API = {
   YANDEX_GET_OAUTH_ID: '/oauth/yandex/service-id',
   GET_TOPICS: '/topic',
   ADD_TOPIC: '/topic',
+  GET_COMMENTS: '/comment/all',
+  ADD_COMMENT: '/comment',
 }
 
 const API_CONSTANTS = {

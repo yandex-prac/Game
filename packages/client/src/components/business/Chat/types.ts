@@ -5,6 +5,7 @@ type ChatItemProps = {
 }
 type ChatProps = {
   arrayOfMessages: string[]
+  sendMess: any
 }
 
 export type { ChatItemProps, ChatProps }
