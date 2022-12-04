@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { API, METHODS } from '@/utils'
-import //
-'@/types'
 import { OAuthIDDTO, OAuthIDResponseDTO, OAuthDTO } from '@/types'
 
 export const oauthAPI = createApi({
