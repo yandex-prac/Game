@@ -45,34 +45,29 @@
 `yarn preview --scope client`
 `yarn preview --scope server`
 
-## Хуки
+### Хуки
 
 В проекте используется [lefthook](https://github.com/evilmartians/lefthook)
 Если очень-очень нужно пропустить проверки, используйте `--no-verify` (но не злоупотребляйте :)
 
-## Докер
+### Докер
 
 `docker compose up`
 
-## Переменные окружения
+### Переменные окружения
 
-В server создать .env
+Создать .env
 
-## Пример `.env` файла
+Пример `.env` файла
 
+```
 CLIENT_PORT=3000
 SERVER_PORT=3001
-
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_DB=test
 POSTGRES_PORT=5432
-
 PGADMIN_DEFAULT_EMAIL=admin@admin.com
 PGADMIN_DEFAULT_PASSWORD=secret
 PGADMIN_LISTEN_PORT=80
-
-```bash
-import path from 'path'
-DIST_DIR = path.join(__dirname, '../dist')
 ```
